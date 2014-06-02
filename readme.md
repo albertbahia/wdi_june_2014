@@ -1,3 +1,3 @@
-<-- WDI June 2014 -->
+#WDI June 2014
 
-A HAMco Product
+__A HAMco Product__
