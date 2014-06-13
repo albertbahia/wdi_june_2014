@@ -2,8 +2,7 @@
 
 __General Assemb.ly__
 
-you guys are putting yrselves on a par w the public school system by calling me kathryn >_<
+about me: Very Concerned With Correct Terminal Consonant Duplication In The Adjective Forms Of Animal Names
 
 
-
- ~ further testing bc of reasons ~ 
+ ~ further testing bc of reasons ~
