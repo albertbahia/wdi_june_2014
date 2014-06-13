@@ -10,6 +10,11 @@ class Subway
     @train_lines = train_lines
   end
 
+  def list_lines(line_name)
+    line_list = train_lines.map { |line| "The (#{line.name}) Train" }
+    line_list.join("\n")
+  end
+
   def trip_stops(line_on, station_on, line_off, station_off)
     if line_on != line_off
       trip1 = get_line(line_on).distance(station_on)
