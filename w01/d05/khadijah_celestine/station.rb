@@ -15,6 +15,10 @@ class Station
 		@wait_time = wait_time
 	end
 
+	def to_s
+		return "#{@name}, #{workers}, #{wc_acess}, #{wait_time}"
+	end
 end
 
 binding.pry
+
