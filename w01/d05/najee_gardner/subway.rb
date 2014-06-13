@@ -10,7 +10,7 @@ class Subway
     @train_lines = train_lines
   end
 
-  def list_lines(line_name)
+  def list_lines
     line_list = train_lines.map { |line| "The (#{line.name}) Train" }
     line_list.join("\n")
   end
