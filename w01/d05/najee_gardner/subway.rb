@@ -11,12 +11,12 @@ class Subway
   end
 
   def list_lines
-    line_list = train_lines.map { |line| "The (#{line.name}) Train" }
+    line_list = train_lines.map { |line| "The (#{line.name.capitalize}) Train" }
     line_list.join("\n")
   end
 
   def list_stations_of(line_name)
-    train_lines.get_line(line_name).list_stations
+    get_line(line_name).list_stations
   end
 
   def trip_stops(line_on, station_on, line_off, station_off)
