@@ -14,7 +14,9 @@ class Nurse
 	end
 
 	def heal_trainer_pokemons(trainer)
-		
+		trainer.pokemons.each do |poke|
+			poke.restore_hp
+		end
 	end
 
 end

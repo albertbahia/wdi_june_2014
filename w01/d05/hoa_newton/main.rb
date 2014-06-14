@@ -17,15 +17,12 @@ bee = Pokemon.new("Bee", 1, "psychic", 0, 39, 42, 82)
 
 pokes = [cricket, mouse, worm, fly, ant]
 
-mouse.poke_stats
-mouse.take_damage(90)
-puts "HP is #{mouse.hp}"
-
-puts mouse.name
-
-mouse.poke_status
-
-hoa = Trainer.new("Hoa", 28, "Woodlawn", pokes)
+hoa = Trainer.new("Hoa", 295, "Bronxzoo", pokes)
+miao = Nurse.new("Miao", 3, "City Hall")
 
 hoa.list_pokemons(pokes)
+hoa.trainer_info
+hoa.add_poke(bee, pokes)
+miao.heal_trainer_pokemons(hoa)
+
 binding.pry

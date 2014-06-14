@@ -23,7 +23,7 @@ class Pokemon
   end
 
   def restore_hp
-    hp = 100
+    @hp = 100
   end
 
   def take_damage (damage)
