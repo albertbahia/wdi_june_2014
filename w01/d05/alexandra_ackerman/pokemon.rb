@@ -24,7 +24,7 @@ class Pokemon
         stats_string += "Speed: #{speed}"
     end
 
-    def restore_hp (hp = 100)
+    def restore_hp(hp = 100)
       @hp = hp
     end
 
