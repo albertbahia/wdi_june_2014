@@ -8,9 +8,18 @@ class Trainer
     @trainer_pokemon = trainer_pokemon
   end
 
-  
 
 
+
+end
+
+def trainer_info(trainer)
+    puts "=" * 50
+    puts "Name: #{trainer.trainer_name}"
+    puts "Age: #{trainer.age}"
+    puts "Hometown: #{trainer.hometown}"
+    puts "Pokemon: #{trainer.trainer_pokemon}"
+    puts "=" * 50
 end
 
 # ash = Trainer.new("Ash Ketchup", 10, "Pallet Town",["Pikachu", "Blastoise"])

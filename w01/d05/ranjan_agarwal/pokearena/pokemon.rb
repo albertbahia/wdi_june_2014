@@ -31,13 +31,15 @@ end
 
 def pokedex(trainer_pokemon)
   trainer_pokemon.each do |pokemon|
-    puts "Name: #{pokemon.poke_name},"
-    puts " ID: #{pokemon.id},"
-    puts " Poketype #{pokemon.poketype}"
-    puts " HP #{pokemon.hp}"
-    puts " defense #{pokemon.defense}"
-    puts " attack #{pokemon.attack}"
-    puts " speed #{pokemon.speed}"
+    puts "=" * 50
+    puts "Name: #{pokemon.poke_name}"
+    puts "ID: #{pokemon.id}"
+    puts "Poketype: #{pokemon.poketype}"
+    puts "HP: #{pokemon.hp}"
+    puts "Defense: #{pokemon.defense}"
+    puts "Attack: #{pokemon.attack}"
+    puts "Speed: #{pokemon.speed}"
+    puts "=" * 50
   end
 end
 
