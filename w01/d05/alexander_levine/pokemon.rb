@@ -1,5 +1,3 @@
-require 'pry'
-
 class Pokemon
 
   attr_reader :name, :id, :poketype, :hp, :attack, :defense, :speed
@@ -44,10 +42,6 @@ class Pokemon
 
 end
 
-pikachu = Pokemon.new("pikachu", 1, :lightning, 50, 20, 10, 20)
-
-
-binding.pry
 
 
 

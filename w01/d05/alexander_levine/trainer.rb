@@ -10,8 +10,9 @@ class Trainer
   end
 
   def list_info
-    info = ["name: #{name}", "age: #{age}", "hometown: #{hometown}",
-      "pokemons: #{pokemons}"]
+    pokemon_name = pokemons.map { |pokemon| pokemon.name }
+    return "name: #{name}, age: #{age}, hometown: #{hometown},
+      pokemons: #{pokemon_name}"
   end
 
   def add_pokemon(pokemon_name)
