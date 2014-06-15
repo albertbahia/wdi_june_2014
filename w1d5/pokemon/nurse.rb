@@ -8,7 +8,7 @@
 # list their info
 # heal a trainer's pokemons
   # hint: it should accept a single parameter
-  
+
 #require 'pry'
 
 class Nurse
@@ -26,14 +26,12 @@ class Nurse
     nurse_info += "Town: #{town}."
   end
 
-  def heal(heal_amount)
-    if pokemon.hp >= 100
+  def heal(pokemon)
+    pokemon_hp = pokemon.hp
+    if pokemon_hp >= 100
       puts "Your pokemon is at full HP."
     else
-      pokemon.hp = pokemon.hp + heal_amount
-      if pokemon.hp > 100
-        pokemon.hp = 100
-      end
+      pokemon.restore_hp
     end
   end
 end
