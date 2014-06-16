@@ -32,9 +32,9 @@ class Pokemon
     stat_list << "\nType: "
 
     if poketype.length == 2
-      stat_list << poketype.join("/")
+      stat_list << poketype.split.map(&:capitalize).join("/")
     else
-      stat_list << poketype.first
+      stat_list << poketype.first.to_s
     end
 
     stat_list << "\nHP: #{hp}\n"
