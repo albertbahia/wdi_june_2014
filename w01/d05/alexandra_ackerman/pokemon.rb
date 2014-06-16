@@ -1,5 +1,3 @@
-require 'pry'
-
 class Pokemon
 
     attr_reader( :name, :id, :poketype, :hp, :attack, :defense, :speed)
@@ -15,9 +13,9 @@ class Pokemon
     end
 
     def list_stats
-        stats_string = "Name: #{name}, "
+        stats_string = "Name: #{name.capitalize}, "
         stats_string += "ID: #{id}, "
-        stats_string += "Poketype: #{poketype}, "
+        stats_string += "Poketype: #{poketype.capitalize}, "
         stats_string += "HP: #{hp}, "
         stats_string += "Attack: #{attack}, "
         stats_string += "Defense: #{defense}, "
@@ -31,6 +29,9 @@ class Pokemon
     def take_damage(damage)
       new_hp = @hp - damage
       @hp = new_hp
+      if @hp <= 0
+        @hp = 0
+      end
     end
 
     def give_status
@@ -40,8 +41,13 @@ class Pokemon
         puts("#{name} has enough hp to keep battling!")
       end
     end
+
+    def list_name
+      list_name = "#{name.capitalize}"
+    end
+
 end
 
-binding.pry
-
-#For tests: charizard = Pokemon.new("Charizard", 100, "Fire", 90, 10, 20, 15)
+#Notes on datatypes:
+#name = string, id = integer, poketype = string, hp = integer
+#attack = integer, defense = integer, speed = integer

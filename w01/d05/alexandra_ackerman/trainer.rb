@@ -1,8 +1,8 @@
-require 'pry'
+require './pokemon.rb'
 
 class Trainer
 
-  attr_reader(:name, :age, :hometown, :pokemon)
+  attr_reader( :name, :age, :hometown, :pokemon)
 
   def initialize(name, age, hometown, pokemon)
     @name = name
@@ -12,20 +12,24 @@ class Trainer
   end
 
   def list_info
-        info_string = "Name: #{name}, "
-        info_string += "Age: #{hometown} "
-        info_string += "Hometown: #{hometown} "
-        info_string += "Pokemon: #{pokemon} "
-    end
+        info_string = "Name: #{name.capitalize}, "
+        info_string += "Age: #{age} "
+        info_string += "Hometown: #{hometown.capitalize} "
+        info_string += "Pokemon: #{pokemon}"
+  end
 
   def list_pokemon
-    pokemon_info = pokemon.map { |pokemon| pokemon.list_stats }
-    pokemon_info.join("\n")
+    pokemon_list = pokemon.map { |pokemon| pokemon.list_name }
+    pokemon_list.join(", ")
   end
 
-  def add_pokemon
-    new_pokemon = pokemon.map { |pokemon| pokemon.new()}
+  def add_pokemon(new_pokemon)
+    pokemon.map { |pokemon| Pokemon.new(new_pokemon) }
   end
+
 end
 
-binding.pry
+
+# ash = Trainer.new("Ash", 24, "Pallet Town", ash_pokemon)
+#Notes on class datatype
+#name = string, age = integer, hometown = string, pokemon = (array of stings)

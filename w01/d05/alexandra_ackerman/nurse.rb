@@ -1,4 +1,4 @@
-require 'pry'
+class Nurse
 
   attr_reader(:name, :age, :town)
 
@@ -9,15 +9,14 @@ require 'pry'
   end
 
   def list_info
-      info_string = "Name: #{name}, "
+      info_string = "Name: #{name.capitalize}, "
       info_string += "Age: #{age}, "
-      info_string += "Town: #{town}"
+      info_string += "Town: #{town.capitalize}"
   end
 
-  def heal_pokemon(heal)
-    heal = { pokemon.map { |pokemon| pokemon.restor_hp }
+  def heal_pokemon(pokemon)
+    pokemon = pokemon.map { |pokemon| pokemon.list_name }
+    pokemon = pokemon.map { |pokemon| pokemon.restore_hp }
   end
 
-
-
-binding.pry
+end
