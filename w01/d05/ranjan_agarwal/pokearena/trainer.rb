@@ -8,9 +8,11 @@ class Trainer
     @trainer_pokemon = trainer_pokemon
   end
 
-
-
-
+  def add_new_pokemon(pokemon)
+    trainer_pokemon.push(pokemon)
+    puts "Congrats on your new Pokemon!!!"
+  end
+  
 end
 
 def trainer_info(trainer)

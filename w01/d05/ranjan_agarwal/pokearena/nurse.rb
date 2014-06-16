@@ -19,9 +19,9 @@ end
 
 def heal(hp)
   if Pokemon.hp < 100
-    Pokemon.hp = 100
+    Pokemon.hp + 100
   else
-    "Your Pokemon is at full health!"
+    puts "Your Pokemon is at full health!"
   end
 end
 

@@ -12,8 +12,20 @@ class Pokemon
     @speed     = speed
   end
 
-  def fight(hp)
-    hp - rand(20)
+  def fight
+    if @hp <= 0
+      puts "The Pokemon has fainted!"
+    else
+      @hp = @hp - rand(10)
+    end
+  end
+
+  def poke_status
+    if @hp = 0
+      puts "Your Pokemon has fainted!"
+    else
+      puts "Your Pokemon can still fight!"
+    end
   end
 end
 
