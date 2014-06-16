@@ -22,7 +22,7 @@ class Pokeman
     poke_info_list += "Current HP: #{hp}"
   end
 
-  # def damaged(attack_strength) #expecting integer
+  # def damaged(attack_strength) ##expecting integer
   #   attack_strength.to_i
   #   hp = hp - attack_strength
   # end

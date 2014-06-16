@@ -1,5 +1,3 @@
-#require 'pry'
-
 class Trainer
 
   attr_reader(:name, :age, :hometown, :pokemans)
@@ -31,7 +29,3 @@ class Trainer
 end
 
 end
-
-
-
-#binding.pry

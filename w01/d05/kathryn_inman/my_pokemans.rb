@@ -18,7 +18,7 @@ plusle = Pokeman.new("Plusle", 311, "Electric", 100, "Plus", "Lightning Rod", 3)
 #Trainer Object
 trainer1 = Trainer.new("Fen", 22, "NYC", caught_pokemans = [eevee, mudkip, exeggcute, swampert, minun])
 
-#Nurse Objects
+#Nurse Object
 nurse1 = Nurse.new("Ginko", 25, "Hokkaido")
 
 

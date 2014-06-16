@@ -13,5 +13,4 @@ class Nurse
     nurse_info_list += "Hometown: #{hometown}"
   end
 
-
 end
