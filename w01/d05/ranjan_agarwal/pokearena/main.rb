@@ -45,7 +45,7 @@ end
 def heal_pokemon
   nurse_input = gets.chomp().to_s.downcase
   if nurse_input == "y"
-    puts "hi"
+    puts "hi "
   else
     puts "I bet Brock would like to heal his Pokemon."
   end
