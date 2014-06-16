@@ -24,6 +24,6 @@ attr_reader(:name, :species, :strength, :hp)
     end
     
     def alive?
-        @hp > 0 ? true : false
+         @hp > 0 ? true : false
     end
 end
