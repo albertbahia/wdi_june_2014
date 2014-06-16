@@ -58,8 +58,23 @@ class Pokebase
       Pokemon.new("diglett", 50, [:ground])
     ]
   end
+
+  def create_pkmn(name_or_id)
+    attack = rand(50) + 1
+    defense = rand(50) + 1
+    speed = rand(50) + 1
+
+    if name_or_id.class == String
+      pkmn = (pokemons.select {|pkmn| pkmn.name == name_or_id}).first
+    else
+      pkmn = (pokemons.select {|pkmn| pkmn.id == name_or_id}).first
+    end
+
+    Pokemon.new(pkmn.name, pkmn.id, pkmn.poketype, attack, defense, speed)
+  end
+
 end
 
-poke_mama = Pokebase.new
-
-binding.pry
+# poke_mama = Pokebase.new
+#
+# binding.pry
