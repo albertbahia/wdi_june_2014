@@ -1,6 +1,6 @@
-# require_relative 'pokemon.rb'
+#require_relative 'pokemon.rb'
 # require_relative 'trainer.rb'
-# require 'pry'
+#require 'pry'
 
 
 class Nurse
@@ -17,11 +17,15 @@ class Nurse
     trainer_info += "Town: #{town}"
   end
 
-  def heal_pokemon(me,num)
-    me.restore_health_points(num)
+  def heals_pokemon(arr,num)
+    #pokemon[0][me.to_sym].restore_health_points(num)
+    arr.each {|x| pokemon[0][x.downcase.to_sym].restore_health_points(num)}
+
+    #pokemon[0][:picchu].give_status
+    #arr.restore_health_points(num)
   end
 
 end
 
 
-# binding.pry
+#binding.pry

@@ -35,6 +35,4 @@ class Trainer
 
 end
 
-
-
 # binding.pry

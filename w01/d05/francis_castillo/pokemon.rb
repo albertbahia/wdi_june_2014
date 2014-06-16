@@ -27,7 +27,12 @@ class Pokemon
   end
 
   def restore_health_points(hp_arg)
-    @hp += hp_arg
+    if @hp < 100
+      @hp += hp_arg
+        if @hp >= 100
+          @hp = 100
+        end
+    end
   end
 
   def damage_hp(hp_arg)
