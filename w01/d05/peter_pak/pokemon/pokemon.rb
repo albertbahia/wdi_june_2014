@@ -28,7 +28,7 @@ class Pokemon
     if @hp - how_much <= 0
       @hp = 0
     else
-      @hp = @hp - how_much
+      @hp -= how_much
     end
   end
 
