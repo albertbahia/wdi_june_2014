@@ -16,10 +16,11 @@ class Nurse
     info_string += "Town: #{town} |"
   end
 
-  def heal_pokemons(input)
-  
-
-  end
+  # def heal_pokemons(input)
+  #   arsenal.each do |x|
+  #     input(x).restore_hp
+  #   end
+  # end
 
 end
 
