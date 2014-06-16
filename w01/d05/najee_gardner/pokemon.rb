@@ -32,7 +32,7 @@ class Pokemon
     stat_list << "\nType: "
 
     if poketype.length == 2
-      stat_list << poketype.split.map(&:capitalize).join("/")
+      stat_list << poketype.map(&:capitalize).join("/")
     else
       stat_list << poketype.first.to_s
     end
@@ -67,6 +67,6 @@ end
 
 # pikachu = Pokemon.new("pikachu", 25, ["electric"], 23, 56, 75)
 # squirtle = Pokemon.new("squirtle", 7, ["water"], 36, 74, 23)
-# bulbasaur = Pokemon.new("bulbasaur", 1, ["grass", "poison"], 62, 38, 73)
+# bulbasaur = Pokemon.new("bulbasaur", 1, [:grass, :poison], 62, 38, 73)
 #
 # binding.pry
