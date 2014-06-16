@@ -1,18 +1,4 @@
 =begin
-Trainer class
-
-A trainer should have a:
-
-name
-age
-hometown
-pokemons
-A trainer should be able to:
-
-list their pokemons
-list their info
-add a pokemon
-can not have more than 6
 Nurse class
 
 A nurse should have a:
@@ -27,3 +13,25 @@ heal a trainer's pokemons
 hint: it should accept a single parameter
 
 =end
+class Nurse
+  attr_reader(:name, :age, :town)
+
+  def initialize(name, age, town)
+    @name = name
+    @age = age
+    @town = town
+  end
+
+  def to_s
+    @name, @age, @town
+  end
+
+  def info
+    "Name: " + @name,
+    "Age: " + @age.to_s,
+    "Hometown: " + @hometown
+  end
+
+  def heal(trainer)
+    trainer.pokemons.each do { |pokemon| pokemon.restore }
+  end

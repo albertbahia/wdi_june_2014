@@ -18,7 +18,7 @@ class Trainer
 
   def info
     "Name: " + @name,
-    "Age: " + @age,
+    "Age: " + @age.to_s,
     "Hometown: " + @hometown,
     "Pokemons: " + @pokemons
   end
