@@ -15,9 +15,10 @@ $pokemon = [
   Pokemon.new("Squirtle", 007, "electric", 100, "Fire", "Water", 10)
 ]
 
-frank = Trainer.new("Frank", 30, "NYC", [$pokemon[0..4].map {|x| x.name }])
+frank = Trainer.new(
+"Frank", 30, "NYC", [$pokemon[0..4].map {|x| x.name }])
 
-leslie = Nurse.new("Leslie", 20, "tokyo")
+leslie = Nurse.new"Leslie", 20, "tokyo")
 
 
 binding.pry

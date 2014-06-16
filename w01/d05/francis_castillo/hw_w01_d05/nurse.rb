@@ -18,11 +18,9 @@ class Nurse
   end
 
   def heals_pokemon(arr,num)
-
-    arr.each {|x| $pokemon[0][x.downcase.to_sym].restore_health_points(num)}
-
-    #pokemon[0][:picchu].give_status
-    #arr.restore_health_points(num)
+    arr.each {|x|
+      $pokemon[0][x.downcase.to_sym].restore_health_points(num)
+      }
   end
 
 end

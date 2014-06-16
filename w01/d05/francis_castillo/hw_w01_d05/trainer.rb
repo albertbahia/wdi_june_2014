@@ -26,9 +26,12 @@ class Trainer
     if (add_poke.pokemons.length) == 6
       puts "Can't add any pokemon at this time"
     elsif add_poke.pokemons.length < 6
-      puts "You can add #{((add_poke.pokemons.length) - 6).abs} pokemon!\nAdd your pokemon's below, with a ',' separating each one!"
+      puts "You can add #{((add_poke.pokemons.length) -
+      6).abs} pokemon!\n
+      Add your pokemon's below, with a ',' separating each one!"
       added_pokemons = gets.chomp.split(", ")
-      added_pokemons.take(((add_poke.pokemons.length) - 6).abs).each {|x| add_poke.pokemons << x}
+      added_pokemons.take(((add_poke.pokemons.length) -
+      6).abs).each {|x| add_poke.pokemons << x}
 
     end
   end
