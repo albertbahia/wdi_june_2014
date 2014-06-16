@@ -1,5 +1,5 @@
 require 'pry'
-require_relative 'pokemon.rb'
+# require_relative 'pokemon.rb'
 
 class Trainer
   attr_reader :name, :hometown, :age, :pokemons
@@ -56,11 +56,11 @@ class Trainer
 
 end
 
-pikachu = Pokemon.new("pikachu", 25, ["electric"], 23, 56, 75)
-squirtle = Pokemon.new("squirtle", 7, ["water"], 36, 74, 23)
-ash = Trainer.new("ash", 10, "Pallet Town")
-
-pikachu.take_damage(25)
-squirtle.take_damage(99)
-
-binding.pry
+# pikachu = Pokemon.new("pikachu", 25, ["electric"], 23, 56, 75)
+# squirtle = Pokemon.new("squirtle", 7, ["water"], 36, 74, 23)
+# ash = Trainer.new("ash", 10, "Pallet Town")
+#
+# pikachu.take_damage(25)
+# squirtle.take_damage(99)
+# 
+# binding.pry
