@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require_related 'lib/pokemon.rb'
 require_related 'lib/trainer.rb'
 require_related 'lib/nurse.rb'
@@ -28,3 +29,18 @@ binding.pry
 # mckenneth.name
 # mckenneth.list_info
 # mckenneth.heal_pokemon(hari)
+=======
+# require 'pry'
+
+require './trainer.rb'
+require './nurse.rb'
+require './pokemon.rb'
+
+
+
+
+That's what I thought
+I made a Pokemon array and then ash = Trainer.new("Ash", 10, "NYC", pokemon[0,4])
+So Ash gets the first 4 in my pokemon array
+5*
+>>>>>>> e2df5c5e2b8622c95d7da79a5c5d6337a8293176

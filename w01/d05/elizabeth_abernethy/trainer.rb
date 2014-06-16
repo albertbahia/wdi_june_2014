@@ -1,11 +1,20 @@
+<<<<<<< HEAD
 class Trainer
 
   attr_reader(:age, :hometown, :pokemons)
+=======
+# require 'pry'
+
+class Trainer
+
+  attr_reader(:name, :age, :hometown, :pokemons)
+>>>>>>> e2df5c5e2b8622c95d7da79a5c5d6337a8293176
 
   def initialize(name, age, hometown, pokemons)
     @name = name
     @age = age
     @hometown = hometown
+<<<<<<< HEAD
     @pokemons = pokemons #--- this is an array
   end
 
@@ -35,6 +44,23 @@ class Trainer
     else
       return false
     end
+=======
+    @pokemons = pokemons
+  end
+
+  def list_pokemons
+    return :pokemons
+  end
+
+  def list_info
+    info = "Name: #{name.capitalize}"
+    info += "Age: #{age}"
+    info += "Hometown: #{hometown}"
+  end
+
+  def add_pokemon(pokemon)
+    :pokemons.push(pokemon)
+>>>>>>> e2df5c5e2b8622c95d7da79a5c5d6337a8293176
   end
 
 end
