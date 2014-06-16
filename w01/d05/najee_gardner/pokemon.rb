@@ -4,7 +4,7 @@ class Pokemon
   attr_reader :name, :id, :poketype, :hp, :status
   attr_reader :attack, :defense, :speed, :status
 
-  def initialize(name, id, poketype, attack, defense, speed)
+  def initialize(name, id, poketype, attack=0, defense=0, speed=0)
     @hp = 100
     @name = name
     @id = id
@@ -67,6 +67,6 @@ end
 
 # pikachu = Pokemon.new("pikachu", 25, ["electric"], 23, 56, 75)
 # squirtle = Pokemon.new("squirtle", 7, ["water"], 36, 74, 23)
-bulbasaur = Pokemon.new("bulbasaur", 1, ["grass", "poison"], 62, 38, 73)
+# bulbasaur = Pokemon.new("bulbasaur", 1, ["grass", "poison"], 62, 38, 73)
 #
 # binding.pry
