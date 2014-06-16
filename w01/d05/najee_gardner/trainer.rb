@@ -23,8 +23,8 @@ class Trainer
   def info
     trainer_info = "Trainer #{name.capitalize}\n"
     trainer_info << "-" * 15 + "\n"
-    trainer_info << "Age: #{age}/Town: "
-    trainer_info << "#{(hometown.split.map {|word| word.capitalize}).join(" ")}"
+    trainer_info << "Age: #{age} | Town: "
+    trainer_info << "#{hometown.split.map(&:capitalize).join(" ")}"
   end
 
   def get_pkmn(pkmn_name)
@@ -56,11 +56,11 @@ class Trainer
 
 end
 
-# pikachu = Pokemon.new("pikachu", 25, ["electric"], 23, 56, 75)
-# squirtle = Pokemon.new("squirtle", 7, ["water"], 36, 74, 23)
-# ash = Trainer.new("ash", 10, "Pallet Town")
-#
-# pikachu.take_damage(25)
-# squirtle.take_damage(99)
-#
-# binding.pry
+pikachu = Pokemon.new("pikachu", 25, ["electric"], 23, 56, 75)
+squirtle = Pokemon.new("squirtle", 7, ["water"], 36, 74, 23)
+ash = Trainer.new("ash", 10, "Pallet Town")
+
+pikachu.take_damage(25)
+squirtle.take_damage(99)
+
+binding.pry
