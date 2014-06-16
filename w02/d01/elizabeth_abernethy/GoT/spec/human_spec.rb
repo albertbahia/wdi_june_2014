@@ -2,6 +2,7 @@ require_relative('../lib/human.rb')
 
 describe Human do
   let(:joffrey) { Human.new('Joffrey', 'Lannister', 2) }
+
   it 'has a name' do
     expect(joffrey.name).to eq('Joffrey')
   end
@@ -15,7 +16,7 @@ describe Human do
   end
 
   it 'has hp' do
-    expect(joffrey.hp).to eq(200) # Initialized to 20
+    expect(joffrey.hp).to eq(200) # Initialized to 200
   end
 
   describe '#introduce' do

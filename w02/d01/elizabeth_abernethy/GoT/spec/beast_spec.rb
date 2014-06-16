@@ -2,6 +2,7 @@ require_relative('../lib/beast.rb')
 
 describe Beast do
   let(:ghost) { Beast.new('Ghost', 'Direwolf', 10) }
+
   it 'has a name' do
     expect(ghost.name).to eq('Ghost')
   end
