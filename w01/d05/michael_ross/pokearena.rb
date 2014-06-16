@@ -1,7 +1,7 @@
 require_relative './trainer.rb'
 require_relative './pokemon.rb'
 
-pokemons = [
+arsenal = [
   pikachu = Pokemon.new("Pikachu", 1, "fighting", 99, "hit", "block", 78),
   charzar = Pokemon.new("Charzar", 2, "defender", 45, "swipe", "jump", 44),
   poliwhirl = Pokemon.new("Poliwhirl", 3, "amphibious", 50, "slime", "swim away", 99),
@@ -13,6 +13,7 @@ pokemons = [
 ]
 
 
+michael = Trainer.new("Michael", 27, "NYC", arsenal[0,5])
 
 def list_pokemon
   pokemon_list = pokemons.map { |k, v| v }
