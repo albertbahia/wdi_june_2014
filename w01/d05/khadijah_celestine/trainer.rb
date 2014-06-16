@@ -2,32 +2,31 @@
 # Khadijah HW 5
 # June 15, 2014
 
-=begin
-Trainer class
+class Trainer
+  attr_reader(:name, :age, :hometown, :pokemons)
 
-A trainer should have a:
+  def initialize(name, age, hometown, pokemons)
+    @name = name
+    @age = age
+    @hometown = hometown
+    @pokemons = pokemons
+  end
 
-name
-age
-hometown
-pokemons
-A trainer should be able to:
+  def to_s
+    @name, @age, @hometown, @pokemons
+  end
 
-list their pokemons
-list their info
-add a pokemon
-can not have more than 6
-Nurse class
+  def info
+    "Name: " + @name,
+    "Age: " + @age,
+    "Hometown: " + @hometown,
+    "Pokemons: " + @pokemons
+  end
 
-A nurse should have a:
+  def pokemons
+    pokemons.each do { |pokemon| pokemon}
+  end
 
-name
-age
-town
-A nurse should be able to:
-
-list their info
-heal a trainer's pokemons
-hint: it should accept a single parameter
-
-=end
+  def add(pokemon)
+    pokemons.push(pokemon) unless pokemons.size == 6
+  end

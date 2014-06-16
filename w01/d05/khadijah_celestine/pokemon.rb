@@ -16,17 +16,17 @@ class Pokemon
   end
 
   def to_s()
-    return @name, @id, @poketype, @attack, @defense, @speed, @hp
+    @name, @id, @poketype, @attack, @defense, @speed, @hp
   end
 
   def stats()
-    return "Name: " + @name,
-           "ID: " + @id.to_s,
-           "HP: " + @hp.to_s,
-           "Poketype: " + @poketype,
-           "Attack: " + @attack.to_s,
-           "Defense: " + @defense.to_s,
-           "Speed: " + @speed.to_s
+    "Name: " + @name,
+    "ID: " + @id.to_s,
+    "HP: " + @hp.to_s,
+    "Poketype: " + @poketype,
+    "Attack: " + @attack.to_s,
+    "Defense: " + @defense.to_s,
+    "Speed: " + @speed.to_s
   end
 
   def restore()
