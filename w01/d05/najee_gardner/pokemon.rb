@@ -1,32 +1,19 @@
 require 'pry'
 
 class Pokemon
-  attr_reader :name, :id, :problem_var_hp, :poketype
-  attr_reader :attack, :defense, :speed
+  attr_reader :name, :id, :poketype, :hp, :status
+  attr_reader :attack, :defense, :speed, :status
 
   def initialize(name, id, poketype, attack, defense, speed)
-    @problem_var_hp = 100
+    @hp = 100
     @name = name
     @id = id
     @poketype = poketype
     @attack = attack
     @defense = defense
     @speed = speed
+    @status = :awake
   end
-
-  def test_stuff
-
-    puts "name: #{name}"
-    puts "id: #{id}"
-    puts "problem_var_hp: #{problem_var_hp}"
-    puts "poketype: #{poketype}"
-    puts "attack: #{attack}"
-    puts "defense: #{defense}"
-    puts "speed: #{speed}"
-
-    binding.pry
-  end
-
 
   def list_stats
     stat_list = "=" * 15 + "\n"
@@ -50,46 +37,36 @@ class Pokemon
       stat_list << poketype.first
     end
 
-    stat_list << "\nHP: #{problem_var_hp}\n"
+    stat_list << "\nHP: #{hp}\n"
     stat_list << "Attack: #{attack}\n"
     stat_list << "Defense: #{defense}\n"
     stat_list << "Speed: #{speed}\n"
     stat_list << "-" * 15
 
-    binding.pry
   end
 
   def restore_hp
-    problem_var_hp = 100
-
-    binding.pry
-  end
-
-  def take_damage2(value)
-    binding.pry
-
+    @hp = 100
   end
 
   def take_damage(damage)
-    binding.pry
 
-    if problem_var_hp > 0
-
-      if problem_var_hp > damage
-
-        problem_var_hp -= damage
+    if hp > 0
+      if hp > damage
+        @hp -= damage
       else
-
-        problem_var_hp = 0
+        @hp = 0
+        @status = :fainted
       end
     end
+
+    status
   end
-
-
 
 end
 
-pikachu = Pokemon.new("pikachu", 25, ["Electric"], 220, 340, 500)
-# pikachu.take_damage(90)
-
-binding.pry
+# pikachu = Pokemon.new("pikachu", 25, ["electric"], 23, 56, 75)
+# squirtle = Pokemon.new("squirtle", 7, ["water"], 36, 74, 23)
+bulbasaur = Pokemon.new("bulbasaur", 1, ["grass", "poison"], 62, 38, 73)
+#
+# binding.pry
