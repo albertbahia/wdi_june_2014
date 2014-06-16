@@ -16,13 +16,14 @@ pokemon = [
   Pokemon.new("Alakazam", "#065", "Psychic", 100, 40,50, 90),
   Pokemon.new("Hitmonchan", "#107", "Fighting", 100, 40,50, 90)
 ]
+
 ash = Trainer.new("Ash", 10, "NYC", pokemon[0..4])
 team_rocket = Trainer.new("Team Rocket", 12, "Mt. Moon", pokemon[5..9])
 
 nurse_joy = Nurse.new("Nurse Joy", 11, "Pallet Town")
 
 def main_menu
-  return ["Select 1 for pokedex","2 to Look at trainer info","3 to heal pokemon","9 to exit"]
+  return ["Select 1 for Pokedex","Select 2 to Look at trainer info","Select 3 to heal pokemon","Select 9 to exit"]
 end
 
 def sub_menu
@@ -51,6 +52,7 @@ def heal_pokemon
 end
 
 loop do
+  puts "GOTTA CATCH EM ALLLL!!! POKEMON!!!"
   puts main_menu
   choice = gets.chomp().to_i
   case choice

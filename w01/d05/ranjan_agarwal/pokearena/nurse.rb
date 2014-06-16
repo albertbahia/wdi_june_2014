@@ -7,7 +7,6 @@ class Nurse
     @nurse_age  = nurse_age
     @nurse_town = nurse_town
   end
-
 end
 
 def nurse_info(nurse)
@@ -28,7 +27,7 @@ end
 
 
 
-# 
+#
 # pikachu    = Pokemon.new("Pikachu", "#025", "Electric", 100, "40","50", "90")
 # venasaur   = Pokemon.new("Venasaur", "#003", "Grass", 100, "40","50", "90")
 # charizard  = Pokemon.new("Charizard", "#006", "Fire", 50, "40","50", "90")

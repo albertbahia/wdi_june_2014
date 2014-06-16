@@ -12,21 +12,9 @@ class Pokemon
     @speed     = speed
   end
 
-
-
-  # def the_pokemon()
-  #   # poke_info = pokemon.map {|pokemon| pokemon.pokemon_info}
-  #   list_of_pokemon.each do |pokemon|
-  #     puts "#{pokemon.poke_name}"
-  #   end
-  # end
-
   def fight(hp)
     hp - rand(20)
   end
-
-
-
 end
 
 def pokedex(trainer_pokemon)
@@ -45,8 +33,6 @@ end
 
 #
 # puts Pokemon.pokemon_info
-
-
 
 # pikachu    = Pokemon.new("Pikachu", "#025", "Electric", 100, "40","50", "90")
 # venasaur   = Pokemon.new("Venasaur", "#003", "Grass", 100, "40","50", "90")
