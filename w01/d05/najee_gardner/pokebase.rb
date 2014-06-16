@@ -60,9 +60,9 @@ class Pokebase
   end
 
   def create_pkmn(name_or_id)
-    attack = rand(50) + 1
-    defense = rand(50) + 1
-    speed = rand(50) + 1
+    attack = (rand(15) + 1) + 10
+    defense = (rand(15) + 1) + 10
+    speed = (rand(15) + 1) + 10
 
     if name_or_id.class == String
       pkmn = (pokemons.select {|pkmn| pkmn.name == name_or_id}).first
