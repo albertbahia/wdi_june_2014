@@ -6,14 +6,14 @@ require_relative 'nurse'
 poke_mama = Pokebase.new
 
 pkmns = [
-  poke_mama.create_pkmn(rand(50) + 1),
-  poke_mama.create_pkmn(rand(50) + 1),
-  poke_mama.create_pkmn(rand(50) + 1),
-  poke_mama.create_pkmn(rand(50) + 1),
-  poke_mama.create_pkmn(rand(50) + 1),
-  poke_mama.create_pkmn(rand(50) + 1),
-  poke_mama.create_pkmn(rand(50) + 1),
-  poke_mama.create_pkmn(rand(50) + 1)
+  poke_mama.create_pkmn(rand(151) + 1),
+  poke_mama.create_pkmn(rand(151) + 1),
+  poke_mama.create_pkmn(rand(151) + 1),
+  poke_mama.create_pkmn(rand(151) + 1),
+  poke_mama.create_pkmn(rand(151) + 1),
+  poke_mama.create_pkmn(rand(151) + 1),
+  poke_mama.create_pkmn(rand(151) + 1),
+  poke_mama.create_pkmn(rand(151) + 1)
 ]
 
 pkmns[0].take_damage(100)
