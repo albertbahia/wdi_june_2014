@@ -41,6 +41,10 @@ class Pokemon
       puts "Status: Fainted \nHP: #{@hp}"
     elsif @hp <= 30 && @hp >= 1
       puts "Status: Low HP\nHP: #{@hp}"
+    elsif @hp >=31 && @hp <= 69
+      puts "Status: OK HP\nHP: #{@hp}"
+    elsif @hp >69
+      puts "Status: High HP\nHP: #{@hp}"
     end
   end
 end
