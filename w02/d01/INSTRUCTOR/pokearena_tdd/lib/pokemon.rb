@@ -1,6 +1,5 @@
 class Pokemon
 
-  attr_reader(:id, :poketype, :attack, :defense, :speed)
   def initialize(name, id, poketype, hp, attack, defense, speed)
     @name = name
     @id = id
