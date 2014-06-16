@@ -1,0 +1,2 @@
+class Beast
+end
