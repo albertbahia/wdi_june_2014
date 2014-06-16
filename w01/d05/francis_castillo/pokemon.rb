@@ -24,6 +24,25 @@ class Pokemon
 
   end
 
+  def restore_health_points(hp_arg)
+    @hp += hp_arg
+  end
+
+  def damage_hp(hp_arg)
+    if @hp - hp_arg < 0
+      @hp = 0
+    elsif @hp - hp_arg > 0
+      @hp -= hp_arg
+    end
+  end
+
+  def give_status
+    if @hp == 0
+      puts "Status: Fainted \nHP: #{@hp}"
+    elsif @hp <= 30 && @hp >= 1
+      puts "Status: Low HP\nHP: #{@hp}"
+    end
+  end
 end
 
 me = Pokemon.new("Picchu", 123, "electric", 75, "Fire", "Water", 10)
