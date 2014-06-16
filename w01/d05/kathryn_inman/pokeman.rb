@@ -1,13 +1,3 @@
-# All pokemon should be able to:
-# - list their stats
-# - fully restore their hp
-# - take damage
-#   - their hp should decrement
-#   - unless their hp is 0
-# - give their status
-#   - fainted or not (hp of 0)
-
-
 class Pokeman
 
   attr_reader(:name, :id, :poketype, :hp, :attack, :defense, :speed)
@@ -31,5 +21,20 @@ class Pokeman
     poke_info_list += "Speed: #{speed}, "
     poke_info_list += "Current HP: #{hp}"
   end
+
+  # def damaged(attack_strength) #expecting integer
+  #   attack_strength.to_i
+  #   hp = hp - attack_strength
+  # end
+
+
+  def fainted?
+    if hp > 0
+      return false
+    else hp <= 0
+      return true
+    end
+  end
+
 
 end #Class creation

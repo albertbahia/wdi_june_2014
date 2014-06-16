@@ -1,10 +1,4 @@
-# A trainer should be able to:
-# - list their pokemons
-# - list their info
-# - add a pokemon
-#   - can not have more than 6
-
-require 'pry'
+#require 'pry'
 
 class Trainer
 
@@ -23,16 +17,21 @@ class Trainer
   end
 
   def pokedeck
-    pokeman_collection = "#{pokemans}"
+    pokemans.each do |pkmn|
+      puts pkmn.name
+    end
   end
 
   def catch_a_pokeman(new_monster)
-    pokemans += new_monster
+    if pokemans.length < 6
+    pokemans.push(new_monster)
+  else
+    puts "oops! you already have 6 pokemans"
   end
+end
 
 end
 
-trainer1 = Trainer.new("Fen", 22, "NYC", caught_pokemans = [
-  "po1", "po2", "po3"])
 
-  binding.pry
+
+#binding.pry
