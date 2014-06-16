@@ -1,7 +1,7 @@
 require_relative('../lib/beast.rb')
 
 describe Beast do
-  let(:ghost) { Beast.new('Ghost', 'Direwolf', 10) }
+  let(:ghost) {Beast.new('Ghost', 'Direwolf', 10)}
   it 'has a name' do
     expect(ghost.name).to eq('Ghost')
   end
@@ -19,6 +19,7 @@ describe Beast do
   end
 
   describe '#take_damage' do
+  #let(:ghost) {Beast.new('Ghost', 'Direwolf', 10)}
     it 'reduces the hp' do
       original_hp = ghost.hp
       ghost.take_damage(20)
@@ -39,8 +40,9 @@ describe Beast do
   end
 
   describe '#attack' do
+  # let(:ghost) {Beast.new('Ghost', 'Direwolf', 10)}
     it 'does damage to the other' do
-      draco= Beast.new('Draco', 'Dragon', 30)
+      draco = Beast.new('Draco', 'Dragon', 30)
       original_hp = draco.hp
       ghost.attack(draco)
       expect(draco.hp).to eq(original_hp - ghost.strength)
@@ -48,7 +50,9 @@ describe Beast do
   end
 
   describe '#alive?' do
+  # let(:ghost) {Beast.new('Ghost', 'Direwolf', 10)}
     it 'returns true when hp is greater than 0' do
+      puts ghost.hp
       expect(ghost.alive?).to eq(true)
     end
 
