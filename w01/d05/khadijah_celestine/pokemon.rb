@@ -12,21 +12,24 @@ class Pokemon
     @attack = attack
     @defense = defense
     @speed = speed
-    restore()
+    restore
   end
 
   def to_s()
-    @name, @id, @poketype, @attack, @defense, @speed, @hp
+    name + id.to_s + poketype + attack.to_s + defense.to_s + speed.to_s + hp.to_s
   end
 
   def stats()
-    "Name: " + @name,
-    "ID: " + @id.to_s,
-    "HP: " + @hp.to_s,
-    "Poketype: " + @poketype,
-    "Attack: " + @attack.to_s,
-    "Defense: " + @defense.to_s,
-    "Speed: " + @speed.to_s
+    return_array = []
+    return_array.push("Pokemon Name: " + @name)
+    return_array.push("Pokemon ID: " + @id.to_s)
+    return_array.push("Pokemon HP: " + @hp.to_s)
+    return_array.push("Pokemon Poketype: " + @poketype)
+    return_array.push("Pokemon Attack: " + @attack.to_s)
+    return_array.push("Pokemon Defense: " + @defense.to_s)
+    return_array.push("Pokemon Speed: " + @speed.to_s)
+
+    return_array
   end
 
   def restore()

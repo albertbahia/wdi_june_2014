@@ -1,18 +1,7 @@
-=begin
-Nurse class
+# nurse.rb
+# Khadijah HW 5
+# June 15, 2014
 
-A nurse should have a:
-
-name
-age
-town
-A nurse should be able to:
-
-list their info
-heal a trainer's pokemons
-hint: it should accept a single parameter
-
-=end
 class Nurse
   attr_reader(:name, :age, :town)
 
@@ -23,15 +12,21 @@ class Nurse
   end
 
   def to_s
-    @name, @age, @town
+    name + age.to_s + town
   end
 
   def info
-    "Name: " + @name,
-    "Age: " + @age.to_s,
-    "Hometown: " + @hometown
+    return_array = []
+    return_array.push("Nurse Name: " + @name)
+    return_array.push("Nurse Age: " + @age.to_s)
+    return_array.push("Nurse town: " + @town)
+
+    return_array
   end
 
   def heal(trainer)
-    trainer.pokemons.each do { |pokemon| pokemon.restore }
+    trainer.pokemons.each do |pokemon|
+      pokemon.restore
+    end
   end
+end
