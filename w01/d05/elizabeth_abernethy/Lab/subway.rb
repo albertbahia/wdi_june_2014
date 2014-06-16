@@ -2,6 +2,8 @@
 
 class Subway
 
+  attr_reader(:name, :all_lines)
+
   def initialize(name, all_lines)
     @name = name
     @all_lines = all_lines
