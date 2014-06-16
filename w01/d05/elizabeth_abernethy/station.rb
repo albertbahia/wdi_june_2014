@@ -1,4 +1,4 @@
-#reqire 'pry'
+reqire 'pry'
 
 class Station
 
@@ -22,3 +22,5 @@ class Station
   end
 
 end
+
+binding.pry
