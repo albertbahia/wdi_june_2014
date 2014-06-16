@@ -43,6 +43,4 @@ class Pokemon
   end
 end
 
-poke1 = Pokemon.new("Cameron", 0, "water", 50, 25, 18, true)
-
 #binding.pry

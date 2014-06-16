@@ -1,4 +1,5 @@
 class Trainer
+  attr_reader(:name, :age, :hometown, :pokemons)
 
   def initialize(name, age, hometown, pokemons)
     @name = name
@@ -7,8 +8,9 @@ class Trainer
     @pokemons = pokemons
   end
 
+  public
   def list_trainer_info
-    trainer_info = "Name: #{name} Age: #{age} Hometown: #{hometown}"
+    trainer_info = "Name: #{trainer_name} Age: #{age} Hometown: #{hometown}"
   end
 
   def add_pokemon
@@ -16,7 +18,7 @@ class Trainer
   end
 
   def list_pokemons
-    
+
   end
 
 end

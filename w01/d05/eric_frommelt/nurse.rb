@@ -1,4 +1,5 @@
 class Nurse
+  attr_reader(:name, :age, :hometown)
 
   def initialize(name, age, hometown)
     @name = name
@@ -10,8 +11,8 @@ class Nurse
     nurse_info = "Name: #{name} Age: #{age} Hometown: #{hometown}"
   end
 
-  def heal_pokemons(trainer.name)
-    
+  def heal_pokemons()
+
   end
 
 end
