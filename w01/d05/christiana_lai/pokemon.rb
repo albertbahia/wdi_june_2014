@@ -12,8 +12,6 @@ class Pokemon
     @speed = speed
   end
 
-
-
   def calculate_hp(initial_hp, final_hp)
     restore = 100
     initial_hp = pokemon.hp

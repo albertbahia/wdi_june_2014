@@ -17,7 +17,7 @@ class Trainer
   end
 
   def add_pokemon (current_amount_pokemon, desired_amount)
-    pokemon = current_amount_pokemon 4
+    pokemon = current_amount_pokemon 
 
 
     return
