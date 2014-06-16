@@ -1,4 +1,6 @@
-require 'pry'
+# require_relative 'trainer.rb'
+# require_relative 'nurse.rb'
+# require 'pry'
 
 class Pokemon
 
@@ -47,10 +49,10 @@ class Pokemon
       puts "Status: High HP\nHP: #{@hp}"
     end
   end
+
 end
 
-me = Pokemon.new("Picchu", 123, "electric", 75, "Fire", "Water", 10)
 
-puts me.list_stats
 
-binding.pry
+
+# binding.pry

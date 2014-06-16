@@ -1,5 +1,6 @@
-require 'pry'
-#require_relative "pokemon.rb"
+# require_relative 'pokemon.rb'
+# require_relative 'nurse.rb'
+# require 'pry'
 class Trainer
 
   attr_reader(:name,:age,:hometown,:pokemons)
@@ -26,7 +27,6 @@ class Trainer
       puts "Can't add any pokemon at this time"
     elsif add_poke.pokemons.length < 6
       puts "You can add #{((add_poke.pokemons.length) - 6).abs} pokemon!\nAdd your pokemon's below, with a ',' separating each one!"
-      limit_pokemon =
       added_pokemons = gets.chomp.split(", ")
       added_pokemons.take(((add_poke.pokemons.length) - 6).abs).each {|x| add_poke.pokemons << x}
 
@@ -35,10 +35,6 @@ class Trainer
 
 end
 
-me_t = Trainer.new("Frank", 30, "NYC", ["Picchu", "Squirtle"])
 
-puts me_t.pokemons.length
-puts me_t.list_trainers_pokemons
-puts me_t.add_pokemon(me_t)
 
-binding.pry
+# binding.pry
