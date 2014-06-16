@@ -4,7 +4,7 @@ require_relative 'trainer.rb'
 require 'pry'
 
 
-$pokemon = [
+pokemon = [
   Pokemon.new("Picchu", 172, "electric", 75, "Fire", "Water", 10),
   Pokemon.new("Bulbasaur", 001, "electric", 60, "Fire", "Water", 10),
   Pokemon.new("Ivysaur", 002, "electric", 50, "Fire", "Water", 10),
@@ -16,9 +16,9 @@ $pokemon = [
 ]
 
 frank = Trainer.new(
-"Frank", 30, "NYC", [$pokemon[0..4].map {|x| x.name }])
+"Frank", 30, "NYC", pokemon[0..4])
 
-leslie = Nurse.new"Leslie", 20, "tokyo")
-
+leslie = Nurse.new("Leslie", 20, "tokyo")
+leslie.heal_pokemon(frank,10)
 
 binding.pry

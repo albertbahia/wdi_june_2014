@@ -17,9 +17,9 @@ class Nurse
     trainer_info += "Town: #{town}"
   end
 
-  def heals_pokemon(arr,num)
-    arr.each {|x|
-      $pokemon[0][x.downcase.to_sym].restore_health_points(num)
+  def heal_pokemon(trainer,num)
+    trainer.pokemons.each {|single_poke|
+      single_poke.restore_health_points(num)
       }
   end
 
