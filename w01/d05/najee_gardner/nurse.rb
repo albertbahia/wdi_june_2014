@@ -13,7 +13,7 @@ class Nurse
   def info
     info_list = "Nurse #{name.capitalize}\n"
     info_list << "-" * 15 + "\n"
-    info_list << "Age: #{age}/Town: #{town}\n"
+    info_list << "Age: #{age} | Town: #{town}\n"
   end
 
   def heal_pkmn(pokemons)
