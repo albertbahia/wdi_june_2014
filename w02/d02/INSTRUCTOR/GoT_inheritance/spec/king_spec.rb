@@ -1,9 +1,12 @@
 require_relative('../lib/king.rb')
 
 describe King do
-  let(:ned) { King.new('Ned', 'North') }
+  let(:ned) { King.new('Ned', 'Stark', 'North') }
 
   it 'has a name' do
+  end
+
+  it 'has a house' do
   end
 
   it 'has a realm (aka kingdom)' do
