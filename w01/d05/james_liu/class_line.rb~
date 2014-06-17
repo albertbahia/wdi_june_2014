@@ -13,7 +13,7 @@ attr_reader( :name, :ind_stations)
   
  def list_stations
      station_info = ind_stations.map { |station| station.list_info }
-     station_info.join("\n")
+     puts station_info.join("\n")
    end
    
    def train_calc(station_on, station_off)
