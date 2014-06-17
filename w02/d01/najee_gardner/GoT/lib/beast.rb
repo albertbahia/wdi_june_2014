@@ -12,7 +12,7 @@ class Beast
     if amount > 100
       @hp = 0
     elsif amount > 0
-      @hp = hp - amount
+      @hp -= amount
     end
   end
 
@@ -21,10 +21,6 @@ class Beast
   end
 
   def alive?
-    if hp > 0
-      true
-    else
-      false
-    end
+    hp > 0 ? true : false
   end
 end
