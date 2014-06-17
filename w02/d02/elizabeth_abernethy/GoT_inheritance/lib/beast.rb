@@ -1,22 +1,24 @@
-class Human
+require_relative './lib/being.rb'
 
-  def initialize(name, house, strength)
+class Beast
+
+  def initialize(name, species, hp)
     @name = name
-    @house = house
+    @species = species
     @strength = strength
-    @hp = 200
+    @hp = 100
   end
 
   def name()
     @name.capitalize
   end
 
-  def house()
-    @house
+  def species()
+    @species
   end
 
   def strength()
-    @strength = 2
+    @strength = 10
   end
 
   def hp()
@@ -25,10 +27,6 @@ class Human
     else
       @hp
     end
-  end
-
-  def introduce()
-    return "Presenting #{name} of house #{house}."
   end
 
   def take_damage(damage)
@@ -40,8 +38,8 @@ class Human
     end
   end
 
-  def attack(human)
-    human.take_damage(@strength)
+  def attack(beast)
+    beast.take_damage(@strength)
   end
 
   def alive?
