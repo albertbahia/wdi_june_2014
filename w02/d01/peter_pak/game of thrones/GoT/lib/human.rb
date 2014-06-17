@@ -24,7 +24,7 @@ class Human
   end
 
   def introduce
-    intro_string = "I am #{name} of the #{house} house"
+    "I am #{name} of the #{house} house"
   end
 
   def take_damage(dp)
