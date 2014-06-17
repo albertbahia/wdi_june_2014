@@ -8,11 +8,11 @@ class Human
   end
 
   def name
-    return @name
+    return @name.capitalize
   end
 
   def house
-    return @house
+    return @house.capitalize
   end
 
   def strength
