@@ -6,30 +6,31 @@ class Beast
     @name = name
     @species = species
     @strength = strength
-  end
-
-  def hp
     @hp = 100
   end
 
-  def take_damage(damages)
-    @hp = @hp - damages
-    if @hp <= 0 && @hp >= 100
-      @hp
+  def hp
+    @hp
+  end
+
+  def take_damage(damage_amount)
+    if damage_amount >= 0
+      @hp -= damage_amount
+      if @hp < 0
+        @hp = 0
+      else
+        @hp = @hp
+      end
     end
   end
 
   def attack(victim)
     #wrote this and then moved hp out of initialize method.  revisit.
-    victim.take_damage(strength)
+    victim.take_damage(@strength)
   end
 
   def alive?
-    if @hp > 0
-      true
-    else
-      false
-    end
+    @hp > 0
   end
 
 
