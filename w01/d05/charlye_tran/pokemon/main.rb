@@ -1,8 +1,8 @@
 require 'pry'
-require_relative 'nurse.rb'
-require_relative 'image.rb'
-require_relative 'pokemon.rb'
-require_relative 'trainer.rb'
+require_relative './nurse.rb'
+require_relative './image.rb'
+require_relative './pokemon.rb'
+require_relative './trainer.rb'
 
 # Instantiate 8 pokemon objects
 # Two should have 0 hp
@@ -28,17 +28,17 @@ solrock = Pokemon.new("Solrock", 338, "rock", 2, "psychic", "sleep", 0)
 # insert a binding.pry - check that your trainer has pokemon,
 #that you can utilize their instance methods, try to add 2 more pokemon
 #trainer: (name, age, hometown, pokemons)
-charlye = Trainer.new("Charlye", 115, "Albany", ["Pikachu", "Cradily", "Anorith", "Feebas", "Lileep"])
+#charlye = Trainer.new("Charlye", 115, "Albany", ["Pikachu", "Cradily", "Anorith", "Feebas", "Lileep"])
 
 
 # Instantiate a nurse object
 # insert a binding.pry - check that you can utilize all of the nurses instance methods
 #nurse: (name, age, town)
-jake = Nurse.new("Jake", 3, "Petsville")
+#jake = Nurse.new("Jake", 3, "Petsville")
 
 puts image()
 
-jake.heal(weedle)
-jake.heal(torchic)
+# jake.heal(weedle)
+# jake.heal(torchic)
 
 binding.pry
