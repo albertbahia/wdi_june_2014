@@ -1,8 +1,9 @@
-require_relative './lib/human.rb'
-require_relative './lib/beast.rb'
-require_relative './lib/knight.rb'
-require_relative './lib/king.rb'
-require_relative './lib/peasant.rb'
+require_relative 'human.rb'
+require_relative 'beast.rb'
+require_relative 'knight.rb'
+require_relative 'king.rb'
+require_relative 'peasant.rb'
+require_relative 'being.rb'
 
 require 'pry'
 
