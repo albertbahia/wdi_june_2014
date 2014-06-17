@@ -10,7 +10,7 @@ describe Peasant do
   end
 
   it 'doesn\'t have a house' do
-    # house should be nil
+    # house should always be nil
   end
 
   it 'always has a strength of 1' do

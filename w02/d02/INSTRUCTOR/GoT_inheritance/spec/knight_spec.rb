@@ -27,12 +27,12 @@ describe Knight do
         #
       end
     end
-    describe '#king' do
-        it "should return a king object if loyalty has been pledged" do
+    describe '#king_name' do
+        it "should return a king's name if loyalty has been pledged" do
         end
         it "should return nil if loyalty has never been pledged" do
         end
-        it "should return the new king after loyalty has been pledged to a new king" do
+        it "should return the new king's name after loyalty has been pledged to a new king" do
         end
     end
 

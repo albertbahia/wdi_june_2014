@@ -19,7 +19,7 @@ describe King do
   end
 
   describe '#introduce' do
-    it 'introduces the king with name and realm' do
+    it 'introduces the king with name, house, and realm' do
     end
     it 'includes the fact that it is an noble king' do
     end
