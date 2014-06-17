@@ -1,15 +1,17 @@
-require_relative('being.rb')
+require_relative 'being.rb'
 
 class Human < Being
+
   attr_reader(:house)
 
   def initialize(name, house, strength)
-    super(name, strength)
     @house = house
+    super(name, strength)
     @hp = 200
   end
 
   def introduce()
-    return "I am #{name} of House #{house}"
+    return "Presenting #{name} of House #{house}."
   end
+
 end

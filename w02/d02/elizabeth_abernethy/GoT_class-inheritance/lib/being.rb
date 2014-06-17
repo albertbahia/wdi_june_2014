@@ -1,5 +1,8 @@
+
 class Being
+
   attr_reader(:name, :strength, :hp)
+
   def initialize(name, strength)
     @name = name
     @strength = strength
@@ -12,11 +15,12 @@ class Being
     end
   end
 
-  def attack(other)
-    other.take_damage(strength)
+  def attack(prey)
+    prey.take_damage(@strength)
   end
 
-  def alive?()
-    @hp > 0
+  def alive?
+    hp > 0 ? true : false
   end
+
 end
