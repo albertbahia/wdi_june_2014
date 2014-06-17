@@ -9,13 +9,13 @@ class Nurse
   end
 
   def list_info
-    info_string = "Name: #{name} | "
+    info_string = "Name: Nurse #{name} | "
     info_string += "Age: #{age} | "
     info_string += "Town: #{town}"
   end
 
   def heal_pokemon(trainer)
-    trainer.heal_pokemon
+    trainer.pokemon.each { |pokemon| pokemon.restore_hp }
   end
 
 
