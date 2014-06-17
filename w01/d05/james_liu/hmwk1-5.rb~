@@ -10,11 +10,13 @@ station5 = Station.new("1st Ave", ["And","Ashley"], "yes", 20)
 
 l_train = [station1, station2, station3, station4, station5]
 n_train =[]
+s_train = []
 
 train1 = Line.new(:L , l_train)
 train2 = Line.new(:N, n_train)
+train3 = Line.new(:S, s_train)
 
-subway = [train1, train2]
+subway = [train1, train2, train3]
 
 mta = Subway.new(:MTA, subway)
 
@@ -42,8 +44,19 @@ case user_input
   
   when "2"
   puts ""
-  puts l_train.list_stations
-  puts ""
+  puts "Which Line?"
+  train_selection = gets.chomp()
+      case train_selection.upcase
+         when "L"
+         puts train1.list_stations        
+         when "N"
+         puts train2.list_stations
+         when "S"
+         puts train3.list_stations
+         else
+         puts "No comprendo!"
+         puts ""
+      end
   
   when "3"
   puts ""
