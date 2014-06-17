@@ -1,5 +1,4 @@
 require_relative('../lib/human.rb')
-joffrey = Human.new("Joffrey", "Lannister", 2)
 
 describe Human do
   let(:joffrey) { Human.new('Joffrey', 'Lannister', 2) }
