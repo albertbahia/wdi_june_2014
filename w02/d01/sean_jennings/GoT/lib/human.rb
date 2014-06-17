@@ -1,5 +1,5 @@
 
-class Human
+class Human < Being
 
   def initialize(name,house,strength)
     @name = name
@@ -25,31 +25,7 @@ class Human
   end
 
   def introduce
-    puts "Hi I'm, " + @name + " from " + @house
-  end
-
-  def take_damage(value)
-      if value < 0
-        return false
-      else
-        @hp = @hp - value
-        if @hp <= 0
-          @hp = 0
-        else
-          return @hp
-        end
-      end
-  end
-
-  def attack(human)
-    human.take_damage(@strength)
-  end
-
-  def alive?
-    if @hp > 0
-      return true
-    elsif @hp == 0
-      return false
-    end
+    message = "Hi I'm, #{name} from #{house}"
+    return message
   end
 end
