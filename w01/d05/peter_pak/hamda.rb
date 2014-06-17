@@ -1,4 +1,4 @@
-require_relative './person.rb'
+# require_relative './person.rb'
 
 todo_list = [
   "Wash the car",
@@ -15,7 +15,7 @@ todo_list = [
     #|_
     #  V
 
-user = Person.new("Hari", 50, "Bananas")
+# user = Person.new("Hari", 50, "Bananas")
 
 
 def display_heading(text)
@@ -32,7 +32,8 @@ def main_menu()
   puts("2. Convert temperatures")
   puts("3. To-do list")
   puts("4. NSA Wiretap Request System")
-  puts("5. Quit")
+  puts("5. Home Automated Temperature")
+  puts("6. Quit")
   puts("-----------------------------------------")
 end
 
@@ -131,6 +132,30 @@ elsif choice == "2"
   end
 end
 
+def home_automation()
+  puts("Is your A/C working? Y/N")
+  ac_working = (gets.chomp.upcase == "Y")
+  puts("What temperature is it now?")
+  current_temp = gets.chomp.to_i
+  puts("What temperature would you like?")
+  wanted_temp = gets.chomp.to_i
+
+  too_hot = current_temp > wanted_temp
+  if ac_working
+    if too_hot
+      puts("Turn on the A/C please.")
+    end
+  else
+    if too_hot
+      puts("Fix the A/C now! It's hot!")
+    else
+      puts("Fix the A/C whenever you have the chance.. It's cool...")
+    end
+  end
+
+
+end
+
 def nsa_menu()
   display_heading("NSA Wiretap Requests")
   puts("Coming soon...")
@@ -168,8 +193,13 @@ loop do
   elsif user_input == "4"
     nsa_menu()
 
-  # Quit
+  # Home Automation
   elsif user_input == "5"
+    home_automation()
+
+
+  # Quit
+  elsif user_input == "6"
     quit_hamda()
 
   # Invalid main menu option
