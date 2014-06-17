@@ -2,7 +2,7 @@ require 'pry'
 
 class Trainer
 
-  attr_reader( :name, :age, :hometown, :pokemon)
+  attr_reader( :age, :hometown, :pokemon)
 
   def initialize(name, age, hometown, pokemon)
     @name = name
@@ -11,11 +11,16 @@ class Trainer
     @pokemon = pokemon
   end
 
+  def name
+    return @name.capitalize
+  end
+
   def list_pokemon
-    pokemon_list = pokemon.map do |pokemon|
-      pokemon.list_stats
-    end
-    pokemon_list.join("\n")
+    # pokemon_list = pokemon.map do |pokemon|
+    #   pokemon.list_stats
+    # end
+    # pokemon_list.join("\n")
+    pokemon.map { |pokemon| pokemon.list_stats }.join("\n")
   end
 
   def list_info
@@ -25,10 +30,12 @@ class Trainer
   end
 
   def add_pokemon(pokemon_add)
+
     if pokemon.count < 6
       pokemon.push(pokemon_add)
+      "You got it dude."
     else
-      add_error = "You cannot carry more than 6 pokemon."
+      "You cannot carry more than 6 pokemon."
     end
   end
 
@@ -38,11 +45,11 @@ class Trainer
     end
   end
 
-  ##--show health status for each pokemon
-  def pokemon_status
-    pokemon_status = pokemon.map do |pokemon|
-      pokemon.status
-    end
-  end
+  ##--show health status for each pokemon -- DONT NEED NO MORE
+  # def pokemon_status
+  #   pokemon_status = pokemon.map do |pokemon|
+  #     pokemon.status
+  #   end
+  # end
 
 end
