@@ -1,0 +1,19 @@
+- The average square footage of all offices.
+- The total number of apartments.
+- The apartments where there is no tenant
+- The names of all of the companies
+- The number of cubicles and bathrooms in the 3rd office
+- The storefronts that have kitchens
+- The storefront with the highest square footage and outdoor seating
+- The office with the lowest number of cubicles
+- The office with the most cubicles and bathrooms
+
+- SELECT AVG(price) AS PriceAverage FROM offices;
+- SELECT COUNT(*) FROM apartments;
+- SELECT COUNT(occupied_status) FROM apartments WHERE occupied_status='Not Occupied';
+- SELECT company_name FROM offices;
+- SELECT number_of_cubicles, number_of_bathrooms FROM offices WHERE id=3;
+- SELECT COUNT(kitchen) FROM storefronts WHERE kitchen='Has Kitchen';
+- SELECT MAX(sq_ft) FROM storefronts WHERE outdoor_seating='Has Outdoor';
+- SELECT MIN(number_of_cubicles) FROM offices;
+- SELECT * FROM offices WHERE number_of_cubicles = (SELECT MAX(number_of_cubicles) FROM offices) AND number_of_bathrooms = (SELECT MAX(number_of_bathrooms) FROM offices);
