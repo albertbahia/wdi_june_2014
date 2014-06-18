@@ -12,4 +12,4 @@ Is there is a way to DRY up that code by making some more let statements at the 
 
 In the attack method, there are tests I see (&hp).reduce(:+), I would like to see how this is explained more. I'm not quite sure what is happening here.
 
-The last thing I'm curious about is what 10.times do does for the attacking living members does. Overall I am most confused about the whole attack method specs within this document. 
+The last thing I'm curious about is what 10.times do does for the attacking living members does. Overall I am most confused about the whole attack method specs within this document.
