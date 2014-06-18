@@ -20,19 +20,18 @@ class Nurse
     @town = town
   end
 
+  def name
+    return @name.capitalize
+  end
+
   def info
     nurse_info = "Name: #{name}. "
     nurse_info += "Age: #{age}. "
     nurse_info += "Town: #{town}."
   end
 
-  def heal(pokemon)
-    pokemon_hp = pokemon.hp
-    if pokemon_hp >= 100
-      puts "Your pokemon is at full HP."
-    else
-      pokemon.restore_hp
-    end
+  def heal(trainer)
+    trainer.pokemons.each { |pokemon| pokemon.full_restore }
   end
 end
 
