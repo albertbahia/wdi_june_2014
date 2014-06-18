@@ -15,7 +15,7 @@ describe Human do
   end
 
   it 'has hp' do
-    expect(joffrey.hp).to eq(200) # Initialized to 200
+    expect(joffrey.hp).to eq(200)
   end
 
   describe '#introduce' do
@@ -34,7 +34,7 @@ describe Human do
 
     it 'does not reduce hp below 0' do
       original_hp = joffrey.hp
-      joffrey.take_damage(original_hp + 9000) # Making sure to kill Joffrey
+      joffrey.take_damage(original_hp + 9000)
       expect(joffrey.hp).to eq(0)
     end
 
@@ -60,7 +60,7 @@ describe Human do
     end
 
     it 'returns false when hp is 0' do
-      joffrey.take_damage(joffrey.hp + 9000) # Making sure to kill Joffrey
+      joffrey.take_damage(joffrey.hp + 9000)
       expect(joffrey.alive?).to eq(false)
     end
   end

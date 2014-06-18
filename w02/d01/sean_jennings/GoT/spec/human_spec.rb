@@ -1,3 +1,4 @@
+require_relative('../lib/being.rb')
 require_relative('../lib/human.rb')
 
 describe Human do
@@ -15,7 +16,7 @@ describe Human do
   end
 
   it 'has hp' do
-    expect(joffrey.hp).to eq(200) # Initialized to 200
+    expect(joffrey.hp).to eq(200) # Initialized to 20
   end
 
   describe '#introduce' do

@@ -6,22 +6,26 @@ class Human
     @name = name
     @house = house
     @strength = strength
-  end
-
-  def hp
     @hp = 200
   end
 
-  def introduce
-    puts "Heyyyooo! I'm #{@name} of House #{@house}!"
+  def hp
+    @hp
   end
 
-  def take_damage(damages)
-    @hp = @hp - damages
-    if @hp < 0
-      @hp = 0
-    elsif damages < 0
-      @hp = @hp
+  def introduce
+    "Hi!  I'm #{name.capitalize} of house #{house.capitalize}!"
+  end
+
+
+  def take_damage(damage_amount)
+    if damage_amount >= 0
+      @hp -= damage_amount
+      if @hp < 0
+        @hp = 0
+      else
+        @hp = @hp
+      end
     end
   end
 
@@ -30,12 +34,9 @@ class Human
   end
 
   def alive?
-    if @hp > 0
-      true
-    elsif @hp == 0
-      false
-    end
+    @hp > 0
   end
+
 
 
 
