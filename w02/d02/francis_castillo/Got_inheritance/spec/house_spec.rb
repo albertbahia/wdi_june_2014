@@ -33,3 +33,10 @@ describe '#introduce' do
     expect(lannister.introduce).to(include("#{lannister.home}"))
   end
 end
+describe '#add_member' do
+  let(:lannister) { House.new('Lannister', "Casterly Rock", "A golden lion rampant on a crimson field", "A Lannister always pays his debts!")}
+  it '#add_member' do
+    lannister.add_member("tyrion")
+    expect(lannister.members).to(include("tyrion"))
+  end
+end

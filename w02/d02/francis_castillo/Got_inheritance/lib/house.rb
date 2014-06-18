@@ -1,4 +1,4 @@
-require_relative('../lib/human.rb')
+
 class House
 
 
@@ -23,16 +23,25 @@ class House
   end
 
   def members
-    members.join(', ')
+    return members.join(",")
+  end
+
+  def add_member(name_to_add)
+    return members.push(name_to_add)
   end
 
   def phrase
     @phrase
   end
 
+
+
   def introduce
     intro = " of House #{@house} from #{@home}! #{@phrase}"
-
+    return intro
   end
+
+
+
 
 end
