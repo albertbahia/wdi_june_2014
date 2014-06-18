@@ -31,8 +31,8 @@ describe "#vist_restaurant" do
   end
 
   it "should display calories available and favorite restaurant." do
+  expect(sally.calories_stat).to include(sally.fav_restaurant)
   expect(sally.calories_stat).to include(sally.calories)
-  expecc(sally.calories_stat).to include(sally.fav_restaurant)
   end
 
 end
