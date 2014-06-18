@@ -1,6 +1,6 @@
 class Knight < Human
 
-  attr_reader(:house, :sword)
+  attr_reader(:house, :sword, :loyalty)
   def initialize(name, house, sword)
     @name = name
     @house = house
@@ -11,11 +11,20 @@ class Knight < Human
   end
 
   def introduce
-    "#{@name}, lives at #{@house}, and is an honorable knight"
+    if @loyalty
+      "#{@name}, lives at #{@house}, and is an honorable knight, and is loyal to #{loyalty}"
+    else
+      "#{@name}, lives at #{@house}, and is an honorable knight, and is loyal to"
+    end
   end
 
   def pledge_loyalty(king)
-    king.class.name == "King"
+    if king.class.name == "King"
+      @loyalty = king.name
+      true
+    else
+      false
+    end
   end
 
   def king_name(king)

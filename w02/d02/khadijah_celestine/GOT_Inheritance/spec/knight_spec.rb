@@ -2,7 +2,7 @@ require_relative('../lib/knight.rb')
 
 describe Knight do
   let(:brienne) { Knight.new('Brienne', 'Tarth', 'Oathkeeper') }
-
+  let(:ned) { King.new('Ned', 'Stark', 'North') }
   it 'has a name' do
     expect(brienne.name).to eq('Brienne')
   end
@@ -36,20 +36,16 @@ describe Knight do
     end
     describe '#king_name' do
       it "should return a king's name if loyalty has been pledged" do
-        ned = King.new('Ned', 'Stark', 'North')
         expect(brienne.king_name(ned)).to eq('Ned')
       end
       it "should return nil if loyalty has never been pledged" do
-        obj = Object.new()
-        expect(brienne.king_name(obj)).to eq(nil)
+        expect(brienne.king_name("Khadijah")).to eq(nil)
       end
       it "should return the new king's name after loyalty has been pledged to a new king" do
-        ned = King.new('Ned', 'Stark', 'North')
         ken = King.new('Ken', 'Stork', 'South')
         brienne.pledge_loyalty(ned)
         brienne.pledge_loyalty(ken)
-        expect(brienne.king_name(ned)).to eq('Ken
-        ')
+        expect(brienne.loyalty).to eq('Ken')
       end
     end
 
@@ -66,6 +62,8 @@ describe Knight do
     end
 
     it 'includes the name of the king it is loyal to (if one is present)' do
+      brienne.pledge_loyalty(ned)
+      expect(brienne.introduce).to include(ned.name)
     end
   end
 
