@@ -8,11 +8,11 @@ class Human
   end
 
   def name
-    return @name
+    return @name.capitalize
   end
 
   def house
-    return @house
+    return @house.capitalize
   end
 
   def strength
@@ -24,7 +24,7 @@ class Human
   end
 
   def introduce
-    intro_string = "I am #{name} of the #{house} house"
+    "I am #{name} of the #{house} house"
   end
 
   def take_damage(dp)
