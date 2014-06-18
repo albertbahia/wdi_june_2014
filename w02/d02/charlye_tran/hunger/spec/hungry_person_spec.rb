@@ -1,7 +1,8 @@
-require_relative './food.rb'
-let(:sally) { Hungry.new('Sally', 'student', 'New Orleans') }
+require_relative '../lib/hungry_person.rb'
+
 
 describe HungryPerson do
+  let(:sally) { HungryPerson.new('Sally', 'student', 'New Orleans') }
   it "has a name." do
     expect(sally.name).to eq('Sally')
   end
@@ -15,20 +16,18 @@ describe HungryPerson do
   end
 
   it "has a default calorie of 2000" do
-    expect(sally.calorie).to eq(2000)
+    expect(sally.calories).to eq(2000)
   end
-
-  it "does not reduce calories below zero"
-  end
-do
+end
 
 describe '#eat' do
-  it "reduces calorie intake by" do
-  let(:sally) { Hungry.new('Sally', 'student', 'New Orleans') }
-  expect(sally.eat(200)).to eq(1800)
+  let(:sally) { HungryPerson.new('Sally', 'student', 'New Orleans') }
+
+  it "reduces calorie intake by calorie amount" do
+    expect(sally.eat(200)).to eq(1800)
   end
 
   it "does not reduce calorie intake into negative" do
-  expect(sally.eat(2100)).to eq(0)
+    expect(sally.eat(2100)).to eq(0)
   end
 end
