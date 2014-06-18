@@ -7,7 +7,7 @@ describe Human do
 		expect(piper.name).to eq('Piper')
 	end 
 	it 'has age' do
-		expect(piper.age).to eq('32')
+		expect(piper.age).to eq(32)
 	end 
 	it 'which gender' do
 		expect(piper.gender).to eq('Female')
@@ -15,10 +15,5 @@ describe Human do
 	it 'what is his or her health' do
 		expect(piper.health).to eq(10)
 	end 
-	describe '#attack' do 
-		let(:piper) {Human.new("Piper", 32, "Female", 10)}
-		let(:alex) {Human.new("Alex", 32, "Female", 10)}
-		alex.attack(piper)
-		expect(piper.health).to eq(5)
-	end 
+
 end 
