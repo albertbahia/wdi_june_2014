@@ -14,8 +14,9 @@ describe Character do
     expect(marty.occupation).to eq("Detective")
   end
 
-  discribe '#introduce' do
-    expect(marty.introduce).to include(marty.name)
-    expect(marty.introduce).to include(marty.nick_name)
-  end
+  describe '#introduce' do
+    it 'introduces a character' do
+      expect(marty.introduce).to include(marty.name)
+   end
+ end
 end

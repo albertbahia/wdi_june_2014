@@ -9,7 +9,7 @@ class Character
   end
 
   def introduce
-    return "I'm #{name} but you can call me #{nick_name}. I'm a #{occupation}."
+    return "I'm #{name} but you can call me #{nick_name}. I'm a #{occupation}"
   end
 
 end

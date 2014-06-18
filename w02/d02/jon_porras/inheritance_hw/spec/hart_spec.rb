@@ -1,6 +1,6 @@
 require_relative('../lib/hart.rb')
 
-describe Hart
+describe Hart do
   let(:hart) {Hart.new("Martin Eric Hart", "Marty", "Detective")}
   it 'has a name' do
     expect(hart.name).to eq("Martin Eric Hart")
@@ -14,21 +14,28 @@ describe Hart
     expect(hart.occupation).to eq("Detective")
   end
 
-  it 'is a smoker' do
-    expect(hart.smokes).to eq (false)
+  it 'is married' do
+    expect(hart.married).to eq(true)
   end
 
   describe '#introduce' do
+    it 'introduces Hart' do
     expect(hart.introduce).to include(hart.name)
     expect(hart.introduce).to include(hart.nick_name)
+    end
   end
 
   describe '#promoted' do
-    expect(hart.promoted).to eq(hart.occupation == "Sergeant")
+    it 'promotes Hart' do
+      hart.promoted
+    expect(hart.occupation).to eq("Sergeant")
+    end
   end
 
   describe '#justify' do
-    exect(hart.justify).to include("A man’s game charges a man’s price")
+    it 'justifies Harts actions' do
+    expect(hart.justify).to include("A man’s game charges a man’s price")
+    end
   end
 
 end
