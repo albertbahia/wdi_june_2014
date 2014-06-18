@@ -2,7 +2,7 @@ require_relative('../lib/stark.rb')
 require_relative('../lib/human.rb')
 
 describe Stark do
-  let(:ned) {Stark.new('Ned', 'Patriarch', 1000)
+  let(:ned) {Stark.new('Ned', 'Patriarch', 1000)}
 
   it 'has a name' do
 
@@ -14,7 +14,7 @@ describe Stark do
 
   it 'rank' do
     expect(ned.rank).to(eq('Patriarch'))
-
+  end
   it 'has a home' do
 
   end
@@ -25,14 +25,15 @@ describe Stark do
 
   it 'has sword_skils' do
     expect(ned.sword_skilss).to(eq(1000))
-
+  end
   it 'has a phrase' do
     expect(ned.phrase).to(eq('Winter is coming!!'))
-
+  end
+end
 describe '#introduce' do
-  let(:ned) {Stark.new('Ned', 'Patriarch', 1000)
-  let(:rob) {Stark.new('Rob', 'Eldest son', 750)
-  let(:sam) {Human.new('Sam', 'Watch', 10)
+  let(:ned) {Stark.new('Ned', 'Patriarch', 1000)}
+  let(:rob) {Stark.new('Rob', 'Eldest son', 750)}
+  let(:sam) {Human.new('Sam', 'Watch', 10)}
   it '#introduce' do
 
   end
@@ -46,3 +47,5 @@ describe '#introduce' do
   it '#add_beast' do
     rob.add_beast("Grey Wind")
     expect(rob.beast).to(eq('Grey Wind'))
+  end
+end
