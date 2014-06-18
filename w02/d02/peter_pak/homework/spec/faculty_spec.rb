@@ -26,21 +26,22 @@ describe Faculty do
 
   describe '#give_detention' do
     it 'should raise student detention by 1' do
+      original_detentions = zack.detentions
       belding.give_detention(zack)
-      expect(zack.receive_detentions).to eq(1)
+      expect(zack.receive_detentions).to eq(original_detentions + 1)
     end
 
   end
 
   describe '#lower_grade' do
-    it 'should lower student grade by 1' do
+    it 'should lower student grade by 1 letter grade' do
       belding.lower_grade(zack)
       expect(zack.grade).to eq("B")
     end
   end
 
   describe '#raise_grade' do
-    it 'should raise student grade by 1' do
+    it 'should raise student grade by 1 letter grade' do
       zack.grade = "B"
       belding.raise_grade(zack)
       expect(zack.grade).to eq("B")

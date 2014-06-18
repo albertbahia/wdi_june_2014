@@ -21,7 +21,6 @@ describe Students do
   end
 
   it 'has a starting grade of A' do
-    #grades might have to be a part of an array.
     expect(jessie.grade).to eq("A")
   end
 

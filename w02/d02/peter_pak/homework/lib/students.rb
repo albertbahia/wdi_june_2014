@@ -11,11 +11,12 @@ class Students < Humans
   end
 
   def grade
-    @gradying_system.first.to_s
+    @grading_system.at(0)
   end
 
-  # def change_grade(value)
-  #   current_grade = 0
+  def change_grade(value)
+    @grading_system.at(0 + value)
+  end
 
 
   def hw
@@ -45,7 +46,6 @@ class Students < Humans
     else
       @classes_cut += 1
     end
-    return @classes_cut
   end
 
   def receive_detentions
@@ -54,6 +54,7 @@ class Students < Humans
     else
       @detentions += 1
     end
+      return @detentions
   end
 
 end

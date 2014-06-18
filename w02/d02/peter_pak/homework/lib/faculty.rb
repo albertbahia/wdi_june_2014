@@ -7,12 +7,15 @@ class Faculty < Humans
   end
 
   def give_detention(student)
-    student.receive_detentions
-    return student.detentions
+    return student.receive_detentions
   end
 
   def lower_grade(student)
-    student.grade(-1)
+    return student.change_grade(-1)
+  end
+
+  def raise_grade(student)
+    return student.change_grade(1)
   end
 
 end
