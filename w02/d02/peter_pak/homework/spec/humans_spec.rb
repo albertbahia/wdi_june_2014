@@ -1,9 +1,9 @@
 require_relative '../lib/humans.rb'
 
 
-describe Human do
+describe Humans do
 
-  let(:zack) { Human.new('Zack Morris', "Student", "Time out!")}
+  let(:zack) { Humans.new("Zack Morris", "Student", "Time out!")}
 
   it 'has a name' do
     expect(zack.name).to eq('Zack Morris')

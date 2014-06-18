@@ -13,7 +13,7 @@ describe Students do
   end
 
   it 'has a catchphrase' do
-    expect(jessie.catchprhase).to eq("I'm so excited! I'm so.. scared.")
+    expect(jessie.catchphrase).to eq("I'm so excited! I'm so.. scared.")
   end
 
   it 'has a school' do
@@ -43,13 +43,17 @@ describe Students do
   describe '#complete_hw' do
 
     it 'should add hw += 1' do
-      expect(jessie.complete_hw).to eq(hw + 1)
+      expect(jessie.complete_hw).to eq(1)
     end
 
     it 'should reset after 5' do
-      jessie.hw = 5
       jessie.complete_hw
-      expect(jessie.hw).to eq(0)
+      jessie.complete_hw
+      jessie.complete_hw
+      jessie.complete_hw
+      jessie.complete_hw
+      jessie.complete_hw
+      expect(jessie.hw).to eq(1)
     end
 
     it 'should raise grade 1 after 5 hws completed' do
@@ -66,12 +70,12 @@ describe Students do
       expect(jessie.classes_cut).to eq(1)
     end
 
-    it 'should reset after 3' do
+    it 'classes cut after 3rd = 1st of next cycle' do
       jessie.cut_class
       jessie.cut_class
       jessie.cut_class
       jessie.cut_class
-      expect(jessie.classes_cut).to eq(0)
+      expect(jessie.classes_cut).to eq(1)
     end
 
     it 'should lower grade by 1 after 3 classes missed' do
