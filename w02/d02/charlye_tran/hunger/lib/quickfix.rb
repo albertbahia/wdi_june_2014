@@ -19,7 +19,7 @@ class QuickFix < HungryPerson
   end
 
   def calories_stat
-    return "After visiting, #{fav_restaurant}, you have #{calories} for intake."
+    return "After visiting, #{fav_restaurant}, you have #{calories.to_s} for intake."
   end
 
 end
