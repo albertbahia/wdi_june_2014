@@ -24,24 +24,30 @@ class Trainer
     @pokemons = pokemons
   end
 
-  def info
+  def name
+    return @name.capitalize
+  end
+
+  def list_pokemons
+    #keeps the data as an array
+    pokemons.map { |pokemon| pokemon.list_stats }.join("\n")
+  end
+
+  def list_info
     trainer_info = "Name: #{name}. "
     trainer_info += "Age: #{age}. "
     trainer_info += "Hometown: #{hometown}. "
+    trainer_info += "(S)he has #{pokemons.count} Pokemon. "
   end
 
-  def show_pokemon
-    return "Pokemons: #{pokemons.join(' and ')}"
-  end
-
-  def add_pokemon()
+  def add_pokemon(pokemon_to_add)
     count = pokemons.count
     if count >= 6
       puts "Sorry! You can only have 6 pokemons per trainer."
+      return false
     else
-      puts "What Pokemon would you like to add?"
-      new_pokemon = gets.chomp
-      pokemons.push(new_pokemon)
+      pokemons.push(pokemon_to_add)
+      return true
     end
   end
 

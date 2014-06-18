@@ -35,14 +35,14 @@ class Pokemon
   end
 
   #list stats
-  def info
+  def list_stats
     pokemon_info = "Name: #{name}. "
     pokemon_info += "ID: #{id}. "
     pokemon_info += "Poketype: #{poketype}. "
     pokemon_info += "HP level: #{hp}. "
   end
 
-  def restore_hp
+  def full_restore
     if hp < 100
       @hp = 100
     else
