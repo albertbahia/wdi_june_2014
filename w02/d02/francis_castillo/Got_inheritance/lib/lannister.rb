@@ -1,9 +1,9 @@
-require_relative('../lib/house.rb')
-require_relative('../spec/house_spec.rb')
+
 class Lannister < House
 
 
   def initialize(name, rank, gold_pieces)
+    super(house, home, sigil, phrase, members)
     @name = name
     @house = "Lannister"
     @rank = rank
@@ -11,7 +11,7 @@ class Lannister < House
     @home = "Casterly Rock"
     @gold_pieces = gold_pieces
     @phrase = "A Lannister always pays his debts!"
-    super(house, home, sigil, phrase, members)
+
   end
 
   def rank
@@ -19,7 +19,7 @@ class Lannister < House
   end
 
   def gold_pieces
-    return @gold_pieces
+    return gold_pieces
   end
 
   def borrow_from_iron_bank(num)

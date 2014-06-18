@@ -1,7 +1,6 @@
 require_relative('../lib/lannister.rb')
-require_relative('../lib/human.rb')
 require_relative('../lib/house.rb')
-require_relative('../lib/stark.rb')
+
 
 describe Lannister do
   let(:tywin) { Lannister.new('Tywin', 'Patriarch', 1000) }
