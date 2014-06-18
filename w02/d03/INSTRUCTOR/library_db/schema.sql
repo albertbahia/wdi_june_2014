@@ -1,8 +1,13 @@
+DROP TABLE books;
+DROP TABLE patrons;
+DROP TABLE employees;
+
 CREATE TABLE books (
   id SERIAL PRIMARY KEY,
   title varchar(255),
   genre varchar(255),
-  author varchar(255)
+  author varchar(255),
+  pages integer
 );
 
 CREATE TABLE patrons (
