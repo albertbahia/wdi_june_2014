@@ -9,33 +9,38 @@ describe Program do
     expect(sark.kind_of?(Program)).to eq(true)
   end
 
-  describe '#name' do
-    it 'has a name' do
-      expect(sark.name).to eq('Sark')
-    end
+
+  it 'has a name' do
+    expect(sark.name).to eq('Sark')
   end
 
-    it 'returns empty string if deleted'
+  it 'has a file size' do
+    expect(sark.file_size).to eq(256)
+  end
 
-    it 'has a file size' do
-      expect(sark.file_size).to eq(256)
+  it 'has a primary function' do
+    expect(sark.primary_function).to eq('monitor_programs()')
+  end
+
+  it 'has a division' do
+    expect(sark.division).to eq('Minor Program Enforcer')
+  end
+
+  describe '#name, #file_size, #primary_function, #division' do
+    let(:tron) { SuperProgram.new('Tron', 'protect_the_grid()', 3000) }
+
+    it 'should return an empty string if attacked by a SuperProgram' do
+      tron.attack(sark)
+      sark_info = [sark.name, sark.file_size, sark.primary_function, sark.division]
+      sark_info.each {|item| expect(item).to eq('')}
     end
 
-    it 'has a primary function' do
-      expect(sark.primary_function).to eq('monitor_programs()')
-    end
-
-    it 'has a division' do
-      expect(sark.division).to eq('Minor Program Enforcer')
-    end
-
-  
-
+  end
 
   describe '#delete_program' do
 
     it 'should return true if Program object is passed in' do
-      expect(sark.delete_program(garbage)).to eq(true)
+      expect(sark.derezz(mac)).to eq(true)
     end
 
     it 'should return false if any other object is passed in' do
@@ -82,6 +87,10 @@ describe Program do
 
     it 'should return false if other object is passed in' do
       expect(sark.reform_program(1)).to eq(false)
+    end
+
+    it 'should_change the info of a minor program'
+      expect()
     end
   end
 
