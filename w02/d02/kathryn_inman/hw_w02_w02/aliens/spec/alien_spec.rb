@@ -15,7 +15,10 @@ describe Alien do
     expect(beedle.food).to(eq("crustaceans"))
   end
 
-  describe '#land_on_earth' do
-    expect(beedle.land_on_earth).to include("crustaceans")
+  describe "behavior on landing" do
+    let(:beedle) {Alien.new("Beedle", "Neptune", "crustaceans")}
+    describe "#land_on_earth" do
+      expect(land_on_earth).to(eq(true))
     end
+  end
 end

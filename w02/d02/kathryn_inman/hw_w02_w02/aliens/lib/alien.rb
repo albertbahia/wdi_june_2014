@@ -11,7 +11,7 @@ class Alien
   end
 
   def land_on_earth
-    puts "let's find some #{@food}..."
+    "let's find some food!"
   end
 end
 
