@@ -11,7 +11,6 @@ class Knight < Human
     @strength = 50
     @hp = 500
     @king_name = nil
-
   end
 
   def pledge_loyalty(kings)
