@@ -12,7 +12,7 @@ class Peasant < Human
 
   def introduce
     introduction = "Hello. My name is #{name} from #{farm}."
-    introduction+= "I am just a humble peasant."
+    introduction += "I am just a humble peasant."
   end
 
 end

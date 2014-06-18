@@ -2,7 +2,7 @@ class Elf < MiddleEarthDweller
 
   attr_reader :flowers_sprouted
 
-  def initalize(name, hometown, favorite_town)
+  def initialize(name, hometown, favorite_town)
     super(name, hometown, favorite_town)
     @flowers_sprouted = 0
   end

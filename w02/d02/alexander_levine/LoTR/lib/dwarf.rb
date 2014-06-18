@@ -2,12 +2,12 @@ class Dwarf < MiddleEarthDweller
 
   attr_reader :gems_collected
 
-  def initalize(name, hometown, favorite_town)
+  def initialize(name, hometown, favorite_town)
     super(name, hometown, favorite_town)
     @gems_collected = 0
   end
 
-  def collect_gems
+  def collect_gem
     @gems_collected += 1
   end
 
