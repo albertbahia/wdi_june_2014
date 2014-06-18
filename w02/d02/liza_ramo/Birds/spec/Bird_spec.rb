@@ -9,7 +9,7 @@ describe Bird do
   end
 
   it 'has an age' do
-    expect(snoopy.age).to eq('13')
+    expect(snoopy.age).to eq(13)
   end
 
   it 'has a location' do
@@ -17,13 +17,13 @@ describe Bird do
   end
 
   it 'has a speed' do
-    expect(snoopy.speed).to eq('7')
+    expect(snoopy.speed).to eq(7)
   end
 
 
-  describe '#hunt' do
+  describe '#get_food' do
     it 'got food' do
-      expect(snoopy.speed).to eq(true)
+      expect(snoopy.get_food).to eq(true)
     end
   end
 
