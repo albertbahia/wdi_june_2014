@@ -16,16 +16,23 @@ describe Program do
     expect(flynn_os.primary_function).to eq('run_sub_programs()')
   end
 
+  describe '#derezz' do
+    it 'should erase the attributes of other programs' do
+      flynn_os.derezz(mac)
+      mac_info = [mac.name, mac.primary_function, mac.file_size]
+      mac_info.each {|item| expect(item).to eq(nil)}
+    end
+  end
 
-  describe '#delete_program' do
 
-    it 'should return true if Program object is passed in' do
-      expect(flynn_os.delete_program(mac)).to eq(true)
+  describe '#self_derezz' do
+
+    it 'should erase the attributes of itself' do
+      flynn_os.self_derezz
+      flynn_info = [flynn_os.name, flynn_os.primary_function]
+      flynn_info.each {|item| expect(item).to eq(nil)}
     end
 
-    it 'should return false if any other object is passed in' do
-      expect(flynn_os.delete_program(1)).to eq(false)
-    end
   end
 
   describe '#describe_function' do
@@ -34,9 +41,9 @@ describe Program do
       expect(flynn_os.describe_function).to include('run_sub_programs()')
     end
 
-    it 'should include "deleted" if no primary function exists' do
-      flynn_os.delete(mac)
-      expect(mac.describe_function).to include('deleted')
+    it 'should include "derezzed" if no primary function exists' do
+      flynn_os.derezz(mac)
+      expect(mac.describe_function).to include('derezzed')
     end
   end
 
