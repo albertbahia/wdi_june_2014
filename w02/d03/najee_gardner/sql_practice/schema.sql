@@ -1,3 +1,7 @@
+DROP TABLE books;
+DROP TABLE patrons;
+DROP TABLE employees;
+
 CREATE TABLE books (
   id SERIAL PRIMARY KEY,
   title varchar(255),
