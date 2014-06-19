@@ -33,6 +33,10 @@ Questions:
 
 Load the seed file into your `biblio_db`.
 
+## Step 3.5 - Add your own data
+
+Add one author and two of that authors books into the db.
+
 ## Step 4 - Write some queries
 
 Write queries to do the following:
