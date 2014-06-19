@@ -1,0 +1,28 @@
+In a markdown file write the SQL commands you would use to retrieve the following information from your database. Test each command in PSQL to make sure it is correct:
+
+- The average square footage of all offices.
+-SELECT AVG(sq_footage) FROM offices;
+
+- The total number of apartments.
+-SELECT COUNT(*) FROM apartments;
+
+- The apartments where there is no tenant
+-SELECT * FROM apartments WHERE tenant = 0;
+
+- The names of all of the companies
+-SELECT company_name FROM offices;
+
+- The number of cubicles and bathrooms in the 3rd office
+-SELECT COALESCE(number_of_cubes,0) + COALESCE(number_of_baths,0) FROM offices WHERE office_number = 3;
+
+- The storefronts that have kitchens
+-SELECT * FROM storefronts WHERE kitchen = 'Yes';
+
+- The storefront with the highest square footage and outdoor seating
+-SELECT * FROM storefronts WHERE outdoor_seating = 'Yes' AND sq_footage = (SELECT MAX(sq_footage) FROM storefronts WHERE outdoor_seating = 'Yes');
+
+- The office with the lowest number of cubicles
+- SELECT * FROM offices WHERE number_of_cubes = (SELECT MIN(number_of_cubes) FROM offices);
+
+- The office with the most cubicles and bathrooms
+SELECT * FROM offices WHERE (number_of_cubes = (SELECT MAX(number_of_cubes) FROM offices)) AND (number_of_baths = (SELECT MAX(number_of_baths) FROM offices));
