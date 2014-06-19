@@ -1,0 +1,5 @@
+class Human
+
+attr_reader(
+def initialize()
+end

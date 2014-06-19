@@ -1,7 +1,7 @@
 require_relative 'spec_helper'
-require_relative '../coll_creator.rb'
+require_relative '../lib/coll_creator'
 
-describe '#convert_to_hash' do
+describe '#to_hash' do
   it 'works for a single element array' do
     array_to_convert = [['apple']]
     expect(convert_to_hash(array_to_convert)).to eq({'apple'=> nil})
