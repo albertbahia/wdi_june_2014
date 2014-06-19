@@ -1,9 +1,8 @@
-DROP TABLE IF EXISTS lessons;
-DROP TABLE IF EXISTS cohorts;
-DROP TABLE IF EXISTS cohorts_intructors;
-DROP TABLE IF EXISTS instructors;
-DROP TABLE IF EXISTS students;
 DROP TABLE IF EXISTS hipchat_gifs;
+DROP TABLE IF EXISTS students;
+DROP TABLE IF EXISTS lessons;
+DROP TABLE IF EXISTS instructors;
+DROP TABLE IF EXISTS cohorts;
 
 CREATE TABLE cohorts (
   id SERIAL PRIMARY KEY,
@@ -14,12 +13,8 @@ CREATE TABLE cohorts (
 CREATE TABLE instructors (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
-  age INTEGER
-);
-
-CREATE TABLE cohorts_intructors (
-  cohort_id INTEGER REFERENCES cohorts(id),
-  instructor_id INTEGER REFERENCES instructors(id)
+  age INTEGER,
+  cohort_id INTEGER REFERENCES cohorts(id)
 );
 
 CREATE TABLE lessons (
@@ -42,5 +37,6 @@ CREATE TABLE hipchat_gifs (
   id SERIAL PRIMARY KEY,
   url VARCHAR(512),
   hilarious BOOLEAN,
+  posted_at DATE,
   student_id INTEGER REFERENCES students(id)
 );
