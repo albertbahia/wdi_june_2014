@@ -1,39 +1,24 @@
-require_relative('../lib/computers.rb')
+require_relative('../lib/computer.rb')
 
-describe Laptop do
-  let(:apple) { Laptop.do(true, true, 'Mac') }
-  it 'has a keyboard' do
-    expect(apple.keyboard).to eq(true)
-  end
+describe Computer do
+  describe "it can be turned on or off" do
+    it "should be created in an off state" do
+      compy = Computer.new("English", 2, "Mac")
+      expect(compy.status).to eq(false)
+    end
+    it "should go from off to on when the power button is pushed" do
+      compy = Computer.new("English", 2, "Mac")
+      expect(compy.status).to eq(false)
+      compy.push_power_button
+      expect(compy.status).to eq(true)
+    end
+    it "should go from on to off when the power button is pushed" do
+      compy = Computer.new("English", 2, "Mac")
+      compy.push_power_button
+      expect(compy.status).to eq(true)
+      compy.push_power_button
+      expect(compy.status).to eq(false)      
+    end
 
-  it 'has ports' do
-    expect(apple.ports).to eq(true)
-  end
-
-  it 'has an OS' do
-    expect(apple.os).to eq('Mac')
-  end
-
-  describe '#turns_off' do
-    expect(apple.on).to
-  end
-end
-
-describe Desktop do
-  let(:pc) { Desktop.do(true, true, 'Windows') }
-  it 'has a keyboard' do
-    expect(pc.keyboard).to eq(true)
-  end
-
-  it 'has ports' do
-    expect(pc.ports).to eq(true)
-  end
-
-  it 'has an OS' do
-    expect(pc.os).to eq('Windows')
-  end
-
-  describe '#turns_on' do
-    expect(pc.turns_on).to
   end
 end

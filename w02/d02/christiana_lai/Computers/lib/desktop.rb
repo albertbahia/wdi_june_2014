@@ -1,4 +1,4 @@
-require_relative 'computers.rb'
+require_relative 'computer.rb'
 
 class Desktop
   attr_reader(:keyboard, :ports, :os)
@@ -7,7 +7,7 @@ class Desktop
     super(keyboard, ports, os)
     @wires = wires
   end
-  
+
   # def swivel_monitor
   # end
   #
