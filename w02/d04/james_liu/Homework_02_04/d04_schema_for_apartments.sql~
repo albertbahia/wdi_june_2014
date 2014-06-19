@@ -3,22 +3,23 @@ DROP TABLE IF EXISTS tenants;
 DROP TABLE IF EXISTS apartments;
 DROP TABLE IF EXISTS building;
 
-CREATE TABLE building (
+CREATE TABLE buildings (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255),
   address VARCHAR(255),
-  floors INTEGER
+  num_floors INTEGER
 );
 
-CREATE TABLE apartment (
+
+CREATE TABLE apartments (
   id SERIAL PRIMARY KEY,
-  floor_num INTEGER,
+  floor INTEGER,
   name VARCHAR(255),
   price INTEGER,
-  sq_footage INTEGER,
-  beds INTEGER,
-  baths INTEGER,
-  building_id INTEGER REFERENCES building(id)
+  sqft INTEGER,
+  bedrooms INTEGER,
+  bathrooms INTEGER,
+  building_id INTEGER REFERENCES buildings(id)
 );
 
 CREATE TABLE tenants (
@@ -26,7 +27,7 @@ CREATE TABLE tenants (
   name VARCHAR(255),
   age INTEGER,
   gender VARCHAR(255),
-  apartment_id INTEGER REFERENCES apartment(id)
+  apartment_id INTEGER REFERENCES apartments(id)
 );
 
 CREATE TABLE Doormen (
@@ -34,5 +35,7 @@ CREATE TABLE Doormen (
   name VARCHAR(255),
   experience INTEGER,
   shift VARCHAR(255),
-  building_id INTEGER REFERENCES building(id)
+  building_id INTEGER REFERENCES buildings(id)
 );
+
+

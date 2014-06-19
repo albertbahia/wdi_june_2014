@@ -56,8 +56,6 @@ Write queries to do the following:
 SELECT * FROM tenants;
 
 * Retrieve the name, age, and gender of all tenants
-SELECT (name, age, gender) FROM tenants;
-
 * Retrieve all info on all tenants older than 65
 * Retrieve all info on all tenants in apartment with id 20
 * Retrieve all info on all tenants in apartment with ids 20 or 21
