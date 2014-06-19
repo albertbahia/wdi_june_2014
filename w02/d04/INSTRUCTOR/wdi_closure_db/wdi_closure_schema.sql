@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS hipchat_gifs;
 DROP TABLE IF EXISTS students;
 DROP TABLE IF EXISTS lessons;
 DROP TABLE IF EXISTS instructors;
+DROP TABLE IF EXISTS classrooms;
 DROP TABLE IF EXISTS cohorts;
 
 CREATE TABLE cohorts (
@@ -35,8 +36,15 @@ CREATE TABLE students (
 
 CREATE TABLE hipchat_gifs (
   id SERIAL PRIMARY KEY,
-  url VARCHAR(512),
+  gif_url VARCHAR(512),
   hilarious BOOLEAN,
   posted_at DATE,
   student_id INTEGER REFERENCES students(id)
+);
+
+CREATE TABLE classrooms (
+  id SERIAL PRIMARY KEY,
+  capacity INTEGER,
+  address VARCHAR(255),
+  cohort_id INTEGER REFERENCES cohorts(id)
 );

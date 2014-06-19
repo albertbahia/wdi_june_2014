@@ -69,12 +69,18 @@ INSERT INTO lessons (week, day, topic, instructor_id) VALUES (1, 3, 'Age of Empi
 INSERT INTO lessons (week, day, topic, instructor_id) VALUES (1, 3, 'Chewing Bubblegum', 6);
 INSERT INTO lessons (week, day, topic, instructor_id) VALUES (1, 4, 'Jumprope', 6);
 
-INSERT INTO hipchat_gifs (url, hilarious, posted_at, student_id) VALUES ('http://giphy.com/gifs/xrHrwI6D3bjSE', true, 'June 9, 2014', 1);
-INSERT INTO hipchat_gifs (url, hilarious, posted_at, student_id) VALUES ('http://giphy.com/gifs/3gAzMUQkQMr1m', true, 'June 9, 2014', 2);
-INSERT INTO hipchat_gifs (url, hilarious, posted_at, student_id) VALUES ('http://giphy.com/gifs/CJbUvNftlDbcQ', false, 'June 10, 2014', 3);
-INSERT INTO hipchat_gifs (url, hilarious, posted_at, student_id) VALUES ('http://giphy.com/gifs/xf20D8HzvTQzu', true, 'June 12, 2014', 5);
-INSERT INTO hipchat_gifs (url, hilarious, posted_at, student_id) VALUES ('http://giphy.com/gifs/basketball-nba-gif-XGeCYPY7gwwso', false, 'June 13, 2014', 8);
-INSERT INTO hipchat_gifs (url, hilarious, posted_at, student_id) VALUES ('http://giphy.com/gifs/world-cup-chile-UMHrfgoNRmqxq', true, 'June 14, 2014', 13);
-INSERT INTO hipchat_gifs (url, hilarious, posted_at, student_id) VALUES ('http://giphy.com/gifs/7WqqX7NMfWGHe', false, 'June 15, 2014', 27);
-INSERT INTO hipchat_gifs (url, hilarious, posted_at, student_id) VALUES ('http://giphy.com/gifs/SGHjph1mplZh6', false, 'June 17, 2014', 27);
-INSERT INTO hipchat_gifs (url, hilarious, posted_at, student_id) VALUES ('http://giphy.com/gifs/iavKpDrWkA8Io', true, 'June 18, 2014', 28);
+INSERT INTO hipchat_gifs (gif_url, hilarious, posted_at, student_id) VALUES ('http://giphy.com/gifs/xrHrwI6D3bjSE', true, 'June 9, 2014', 1);
+INSERT INTO hipchat_gifs (gif_url, hilarious, posted_at, student_id) VALUES ('http://giphy.com/gifs/3gAzMUQkQMr1m', true, 'June 9, 2014', 2);
+INSERT INTO hipchat_gifs (gif_url, hilarious, posted_at, student_id) VALUES ('http://giphy.com/gifs/CJbUvNftlDbcQ', false, 'June 10, 2014', 3);
+INSERT INTO hipchat_gifs (gif_url, hilarious, posted_at, student_id) VALUES ('http://giphy.com/gifs/xf20D8HzvTQzu', true, 'June 12, 2014', 5);
+INSERT INTO hipchat_gifs (gif_url, hilarious, posted_at, student_id) VALUES ('http://giphy.com/gifs/basketball-nba-gif-XGeCYPY7gwwso', false, 'June 13, 2014', 8);
+INSERT INTO hipchat_gifs (gif_url, hilarious, posted_at, student_id) VALUES ('http://giphy.com/gifs/world-cup-chile-UMHrfgoNRmqxq', true, 'June 14, 2014', 13);
+INSERT INTO hipchat_gifs (gif_url, hilarious, posted_at, student_id) VALUES ('http://giphy.com/gifs/7WqqX7NMfWGHe', false, 'June 15, 2014', 27);
+INSERT INTO hipchat_gifs (gif_url, hilarious, posted_at, student_id) VALUES ('http://giphy.com/gifs/SGHjph1mplZh6', false, 'June 17, 2014', 27);
+INSERT INTO hipchat_gifs (gif_url, hilarious, posted_at, student_id) VALUES ('http://giphy.com/gifs/iavKpDrWkA8Io', true, 'June 18, 2014', 28);
+
+INSERT INTO classrooms (capacity, address, cohort_id) VALUES (30, '41 USW Rm 1', 1);
+INSERT INTO classrooms (capacity, address, cohort_id) VALUES (27, '41 USW Rm 2', 2);
+INSERT INTO classrooms (capacity, address) VALUES (24, '915 E 21st St, Rm 1');
+INSERT INTO classrooms (capacity, address) VALUES (20, '915 E 21st St, Rm 2');
+INSERT INTO classrooms (capacity, address) VALUES (15, '915 E 21st St, Studio 1');
