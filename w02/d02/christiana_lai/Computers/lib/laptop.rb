@@ -1,4 +1,4 @@
-require_relative 'computers.rb'
+require_relative 'computer.rb'
 
 class Laptop
   attr_reader(:keyboard, :ports, :os)
