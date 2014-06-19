@@ -1,6 +1,6 @@
-require 'lib/minor_program.rb'
+require_relative '../lib/minor_program.rb'
 
-describe Program do
+describe MinorProgram do
   let(:riz) { MinorProgram.new('Riz', 'collect_garbage()') }
   let(:dez) { MinorProgram.new('Dez', 'inspect_garbage()') }
   let(:sark) { Enforcer.new('Sark', 'monitor_programs()', 'Minor Program Enforcer') }
@@ -15,6 +15,10 @@ describe Program do
 
   it 'has a primary function' do
     expect(riz.primary_function).to eq('collect_garbage()')
+  end
+
+  it 'has rogue_actions' do
+    expect(riz.rogue_actions).to eq([])
   end
 
   describe '#derezz' do

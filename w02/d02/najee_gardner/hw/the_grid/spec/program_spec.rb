@@ -1,4 +1,4 @@
-require 'lib/program.rb'
+require_relative '../lib/program.rb'
 
 describe Program do
   let(:flynn_os) { Program.new('Flynn 1.0', 256) }
@@ -14,6 +14,10 @@ describe Program do
 
   it 'has a primary function' do
     expect(flynn_os.primary_function).to eq('run_sub_programs()')
+  end
+
+  it 'has an attack' do
+    expect(flynn.attack).to eq(9000)
   end
 
   describe '#derezz' do

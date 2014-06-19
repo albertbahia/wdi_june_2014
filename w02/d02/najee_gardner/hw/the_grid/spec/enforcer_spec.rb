@@ -1,16 +1,16 @@
-require 'lib/enforcer.rb'
-require 'lib/minor_program.rb'
-require 'lib/super_program.rb'
+require_relative '../lib/program.rb'
+require_relative '../lib/enforcer.rb'
+require_relative '../lib/minor_program.rb'
+require_relative '../lib/super_program.rb'
 
-describe Program do
+describe Enforcer do
   let(:sark) { Enforcer.new('Sark', 'monitor_programs()', 'Minor Program Enforcer') }
-  let(:garbage) { MinorProgram.new('Riz', 'collect_garbage()') }
-  let(:tron) { SuperProgram.new('Tron', 'protect_the_grid()', 3000) }
+  let(:riz) { MinorProgram.new('Riz', 'collect_garbage()') }
+  let(:tron) { SuperProgram.new('Tron', 'protect_the_grid()', 'Hero of the Grid') }
 
-  it "inherits from Program class"
+  it "inherits from Program class" do
     expect(sark.kind_of?(Program)).to eq(true)
   end
-
 
   it 'has a name' do
     expect(sark.name).to eq('Sark')
@@ -31,7 +31,7 @@ describe Program do
   describe '#name, #file_size, #primary_function, #division' do
 
 
-    it 'should return an empty string if attacked by a SuperProgram' do
+    it 'should return an empty nil if file size is brought to zero by a SuperProgram' do
       tron.attack(sark)
       sark_info = [sark.name, sark.file_size, sark.primary_function, sark.division]
       sark_info.each {|item| expect(item).to eq('')}
@@ -57,8 +57,8 @@ describe Program do
     end
 
     it 'should include "deleted" if no primary function exists' do
-      sark.delete(garbage)
-      expect(garbage.describe_function).to include('deleted')
+      sark.delete(riz)
+      expect(riz.describe_function).to include('deleted')
     end
   end
 
@@ -71,20 +71,20 @@ describe Program do
 
   describe '#inspect_program' do
     it 'should return true if program passed in has run less than 3 rogue functions' do
-      expect(sark.inspect_program(garbage)).to eq(true)
+      expect(sark.inspect_program(riz)).to eq(true)
     end
 
     it 'should return false if Program passed in has run more than 2 rogue functions' do
-      garbage.run_rogue_function('take_break()')
-      garbage.run_rogue_function('leave_job()')
-      garbage.run_rogue_function('attack_enforcer()')
-      expect(sark.inspect_program(garbage)).to eq(false)
+      riz.run_rogue_function('take_break()')
+      riz.run_rogue_function('leave_job()')
+      riz.run_rogue_function('attack_enforcer()')
+      expect(sark.inspect_program(riz)).to eq(false)
     end
   end
 
   describe '#reform_function_of' do
     it 'should return true if MinorProgram object is passed in' do
-      expect(sark.reform_function_of(garbage)).to eq(true)
+      expect(sark.reform_function_of(riz)).to eq(true)
     end
 
     it 'should return false if other object is passed in' do
@@ -93,16 +93,29 @@ describe Program do
 
     it 'should change the primary function of only a minor program' do
       let(:clu) { Enforcer.new('Clu', 'get_to_work()', 'Workers Enforcer')}
-      sark.reform_function_of(garbage, 'count_cycles()')
-      sark.reform_function_of (tron, 'hurt_programs()')
+      sark.reform_function_of(riz, 'count_cycles()')
+      sark.reform_function_of(tron, 'hurt_programs()')
       sark.reform_function_of(clu, 'do_something()')
 
-      expect(garbage.primary_function).to eq('count_cycles()')
+      expect(riz.primary_function).to eq('count_cycles()')
       expect(clu.primary_function).to eq('get_to_work()')
       expect(tron.primary_function).to eq('protect_the_grid()')
     end
 
   end
 
+  describe '#fight_super_program' do
+    it 'should only reduce the file_size of a super program' do
+      sark.fight_super_program(tron)
+      sark.fight_super_program(riz)
+      expect(tron.file_size).to eq(824)
+      expect(riz.file_size).to eq(256)
+    end
 
+    it 'should make a programs attributes be nil if filesize becomes zero' do
+      100.times { sark.fight_super_program(tron) }
+      tron_info = [tron.name, , tron.file_size, tron.primary_function, tron.title, tron.attack]
+      tron_info.each {|item| expect(item).to eq(nil)}
+    end
+  end
 end
