@@ -10,4 +10,8 @@ describe '#selector' do
     expect(selector(20)).to eq(78)
   end
 
+  it 'works for numbers below 20' do
+    expect(selector(20)).to eq(78)
+  end
+
 end
