@@ -92,11 +92,14 @@ describe Program do
     end
 
     it 'should change the primary function of only a minor program' do
-      let(:clu) { Enforcer.new('Clu', 'get_to_work()')}
+      let(:clu) { Enforcer.new('Clu', 'get_to_work()', 'Workers Enforcer')}
       sark.reform_function_of(garbage, 'count_cycles()')
       sark.reform_function_of (tron, 'hurt_programs()')
-      sark.reform
-      expect(garbage.primary_function).to eq('count_cycles')
+      sark.reform_function_of(clu, 'do_something()')
+
+      expect(garbage.primary_function).to eq('count_cycles()')
+      expect(clu.primary_function).to eq('get_to_work()')
+      expect(tron.primary_function).to eq('protect_the_grid()')
     end
 
   end
