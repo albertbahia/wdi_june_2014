@@ -28,6 +28,10 @@ describe SuperProgram do
     expect(tron.attack).to eq(300)
   end
 
+  it 'has a title' do
+    expect(tron.title).to eq('Hero of the Grid')
+  end
+
   describe '#derezz' do
     it 'should erase the attributes of other programs' do
       tron.derezz(riz)
@@ -63,6 +67,15 @@ describe SuperProgram do
     it 'should include "running" and the primary function' do
       expect(tron.run_primary_function).to include('running')
       expect(tron.run_primary_function).to include('run_sub_programs()')
+    end
+  end
+
+  describe '#restore_program' do
+    it 'should return a MinorProgram object if derezzed Minor object is pass in' do
+      100.times {tron.fight_enforcer(sark)}
+      expect(tron.restore_program(sark)).to eq(nil)
+      tron.derez(riz)
+      expect(tron.restore_program(riz).class).to eq(MinorProgram)
     end
   end
 end
