@@ -11,3 +11,8 @@ SELECT * FROM apartments JOIN buildings on apartments.building_id = buildings.id
 UPDATE tenants SET age=91 WHERE age=90;
 UPDATE tenants SET age=age+1;
 SELECT tenants FROM tenants JOIN apartments on tenants.apartment_id = apartments.id WHERE price>2300;
+
+JOINING
+
+SELECT tenants FROM tenants JOIN apartments on tenants_apartment_id = apartments.id JOIN apartments.building.id = buildings.id
+SELECT * FROM tenants JOIN apartments on tenants.apartment_id = apartments.id WHERE tenants.apartment_id < 10;
