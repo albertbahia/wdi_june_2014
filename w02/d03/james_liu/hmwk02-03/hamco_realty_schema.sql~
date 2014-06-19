@@ -3,7 +3,7 @@ DROP TABLE offices;
 DROP TABLE storefronts;
 
   
-CREATE TABLE apartment (
+CREATE TABLE apartments (
   id SERIAL PRIMARY KEY,
   apartment_number integer,
   number_of_rooms integer,
@@ -15,7 +15,7 @@ CREATE TABLE apartment (
   price integer
 );
 
-CREATE TABLE office (
+CREATE TABLE offices (
   id SERIAL PRIMARY KEY,
   office_number integer,
   number_of_floors integer,

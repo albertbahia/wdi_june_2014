@@ -1,3 +1,79 @@
+In a markdown file write the SQL commands you would use to retrieve the following information from your database. Test each command in PSQL to make sure it is correct:
+
+- The average square footage of all offices.
+-SELECT AVG(sq_footage) FROM offices;
+
+- The total number of apartments.
+-SELECT COUNT(*) FROM apartments;
+
+- The apartments where there is no tenant
+-SELECT * FROM apartments WHERE tenant = 0;
+
+- The names of all of the companies
+-SELECT company_name FROM offices;
+
+- The number of cubicles and bathrooms in the 3rd office
+-SELECT COALESCE(number_of_cubes,0) + COALESCE(number_of_baths,0) FROM offices WHERE office_number = 3;
+
+- The storefronts that have kitchens
+-SELECT * FROM storefronts WHERE kitchen = 'Yes';
+
+- The storefront with the highest square footage and outdoor seating
+-SELECT * FROM storefronts WHERE outdoor_seating = 'Yes' AND sq_footage = (SELECT MAX(sq_footage) FROM storefronts WHERE outdoor_seating = 'Yes');
+
+- The office with the lowest number of cubicles
+- SELECT * FROM offices WHERE number_of_cubes = (SELECT MIN(number_of_cubes) FROM offices);
+
+- The office with the most cubicles and bathrooms
+SELECT * FROM offices WHERE (number_of_cubes = (SELECT MAX(number_of_cubes) FROM offices)) AND (number_of_baths = (SELECT MAX(number_of_baths) FROM offices));
+
+
+HAMCO_REALTY_SCHEMA
+
+DROP TABLE apartments;
+DROP TABLE offices;
+DROP TABLE storefronts;
+
+  
+CREATE TABLE apartments (
+  id SERIAL PRIMARY KEY,
+  apartment_number integer,
+  number_of_rooms integer,
+  number_of_baths integer,
+  address varchar(255),
+  tenant integer,
+  occupied_status  varchar(255),
+  sq_footage integer,
+  price integer
+);
+
+CREATE TABLE offices (
+  id SERIAL PRIMARY KEY,
+  office_number integer,
+  number_of_floors integer,
+  sq_footage integer,
+  number_of_cubes integer,
+  number_of_baths integer,
+  address varchar(255),
+  company_name varchar(255),
+  occupied_status varchar(255),
+  price integer
+);
+
+CREATE TABLE storefronts (
+  id SERIAL PRIMARY KEY,
+  address varchar(255),
+  occupied_status varchar(255),
+  price integer,
+  kitchen varchar(255),
+  sq_footage integer,
+  owner varchar(255),
+  outdoor_seating varchar(255)
+);
+
+
+HAMCO_REALTY_SEED
+
 TRUNCATE TABLE apartments;
 TRUNCATE TABLE offices;
 TRUNCATE TABLE storefronts;
@@ -22,4 +98,3 @@ INSERT INTO storefronts (address, occupied_status, price, kitchen, sq_footage, o
 INSERT INTO storefronts (address, occupied_status, price, kitchen, sq_footage, owner, outdoor_seating) VALUES ('4444 4th St.', 'Vacant', 20000, 'No', 10000, 'Dave Chapelle', 'Yes');
 INSERT INTO storefronts (address, occupied_status, price, kitchen, sq_footage, owner, outdoor_seating) VALUES ('5555 5th.', 'Vacant', 1000000, 'Yes', 500000, 'A Kardashian', 'No');
 INSERT INTO storefronts (address, occupied_status, price, kitchen, sq_footage, owner, outdoor_seating) VALUES ('6666 6th St.', 'Occupied', 50000000, 'Yes', 700000, 'Donald Trump', 'No');
-
