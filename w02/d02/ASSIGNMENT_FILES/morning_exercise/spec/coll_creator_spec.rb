@@ -1,5 +1,5 @@
 require_relative 'spec_helper'
-require_relative '../lib/coll_creator.rb'
+require_relative '../lib/coll_creator'
 
 describe '#convert_to_hash' do
   it 'works for a single element array' do
