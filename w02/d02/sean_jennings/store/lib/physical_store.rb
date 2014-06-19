@@ -1,0 +1,3 @@
+class PhysicalStore < Store
+
+end
