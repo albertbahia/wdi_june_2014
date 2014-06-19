@@ -8,11 +8,11 @@ class Beast
   end
 
   def name
-    return @name.capitalize
+    return @name.split.map(&:capitalize).join(' ')
   end
 
   def species
-    return @species
+    return @species.capitalize
   end
 
   def strength
