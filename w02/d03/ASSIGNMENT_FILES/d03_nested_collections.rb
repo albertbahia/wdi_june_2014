@@ -1,4 +1,22 @@
-pokemon =
+Morning Exercise 02-03
+
+Learning Objectives
+- Practice iterating through nested collections
+- Practice parsing information from a collection
+- Practice defining a method that accepts parameters
+
+# Colleception
+
+![xzibit](http://cdn.memegenerator.net/instances/500x/51218455.jpg)
+
+---
+
+Given the array below define a method that returns a string with the following information:
+- The name of each Pokemon and it's ID number separated by a `|`
+- The species with every word capitalized and the weight separated by a `|`
+- The types separated by a `//`
+
+```ruby
 [
   {
     :name => "Bulbasaur",
@@ -17,53 +35,35 @@ pokemon =
   },
   {
     :name => "Charmander",
-  	:national_id => 4,
-  	:pkdx_id => 4,
-  	:sp_atk => 60,
-  	:sp_def => 50,
-  	:species => "flammable pokemon",
-  	:speed => 65,
-  	:types => [
-  		{
-  			:type_a => "fire",
+    :national_id => 4,
+    :pkdx_id => 4,
+    :sp_atk => 60,
+    :sp_def => 50,
+    :species => "flammable pokemon",
+    :speed => 65,
+    :types => [
+      {
+        :type_a => "fire",
         :type_b => "lizard"
-  		}
-  	],
-  	:weight => "85lbs"
+      }
+    ],
+    :weight => "85lbs"
   },
   {
     :name=> "Squirtle",
-  	:national_id=> 7,
-  	:pkdx_id=> 7,
-  	:sp_atk=> 50,
-  	:sp_def=> 64,
-  	:species=> "water pokemon",
-  	:speed=> 43,
-  	:types=> [
-  		{
-  			:type_a => "water",
+    :national_id=> 7,
+    :pkdx_id=> 7,
+    :sp_atk=> 50,
+    :sp_def=> 64,
+    :species=> "water pokemon",
+    :speed=> 43,
+    :types=> [
+      {
+        :type_a => "water",
         :type_b => "turtle"
-  		}
-  	],
-	  :weight=> "90lbs"
+      }
+    ],
+    :weight=> "90lbs"
   }
 ]
-
-def poke_parser(poke_info)
-  all_pokemon = poke_info.map do |poke_hash|
-    name = poke_hash[:name]
-    id = poke_hash[:national_id]
-    species = poke_hash[:species].split.map {|word| word.capitalize}.join(' ')
-    weight = poke_hash[:weight]
-    types = poke_hash[:types][0].values.join(' // ')
-
-    info_string = "#{name} | #{id}\n"
-    info_string += "Species: #{species} | Weight: #{weight}\n"
-    info_string += "Types: #{types}"
-  end
-
-  all_pokemon.join("\n\n")
-end
-
-
-puts poke_parser(pokemon)
+```
