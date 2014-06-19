@@ -1,9 +1,11 @@
 require 'lib/enforcer.rb'
 require 'lib/minor_program.rb'
+require 'lib/super_program.rb'
 
 describe Program do
   let(:sark) { Enforcer.new('Sark', 'monitor_programs()', 'Minor Program Enforcer') }
-  let(:garbage) { Minor.new('Riz', 'collect_garbage()') }
+  let(:garbage) { MinorProgram.new('Riz', 'collect_garbage()') }
+  let(:tron) { SuperProgram.new('Tron', 'protect_the_grid()', 3000) }
 
   it "inherits from Program class"
     expect(sark.kind_of?(Program)).to eq(true)
@@ -27,7 +29,7 @@ describe Program do
   end
 
   describe '#name, #file_size, #primary_function, #division' do
-    let(:tron) { SuperProgram.new('Tron', 'protect_the_grid()', 3000) }
+
 
     it 'should return an empty string if attacked by a SuperProgram' do
       tron.attack(sark)
@@ -80,18 +82,23 @@ describe Program do
     end
   end
 
-  describe '#reform_program' do
+  describe '#reform_function_of' do
     it 'should return true if MinorProgram object is passed in' do
-      expect(sark.reform_program(garbage)).to eq(true)
+      expect(sark.reform_function_of(garbage)).to eq(true)
     end
 
     it 'should return false if other object is passed in' do
       expect(sark.reform_program(1)).to eq(false)
     end
 
-    it 'should_change the info of a minor program'
-      expect()
+    it 'should change the primary function of only a minor program' do
+      let(:clu) { Enforcer.new('Clu', 'get_to_work()')}
+      sark.reform_function_of(garbage, 'count_cycles()')
+      sark.reform_function_of (tron, 'hurt_programs()')
+      sark.reform
+      expect(garbage.primary_function).to eq('count_cycles')
     end
+
   end
 
 
