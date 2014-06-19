@@ -1,0 +1,3 @@
+class SuperProgram
+
+end
