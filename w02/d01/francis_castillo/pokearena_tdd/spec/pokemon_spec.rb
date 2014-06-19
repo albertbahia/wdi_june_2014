@@ -29,7 +29,7 @@ describe Pokemon do
       it("should list stats, including name, id, poketype, hp, attack, defense, speed")
         stats = ["Picchu", 001, :electric, 85, 10, 23, 67]
         stats.each do |stat|
-        expect(picchu.list_stats.include?(stats.to_s)).to(eq(true))
+        expect(picchu.list_stats.include?(stat.to_s)).to(eq(true))
         end
       end
   end
