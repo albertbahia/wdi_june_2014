@@ -1,0 +1,3 @@
+class OnlineStore < Store
+
+end
