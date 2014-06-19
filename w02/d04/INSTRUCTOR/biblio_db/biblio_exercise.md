@@ -7,7 +7,8 @@ Write the schema for the biblio database with the following entities:
 authors:
   - name
   - nationality
-
+  - birth_year
+  
 books:
   - title
   - publication_date (use an integer for just the year)
