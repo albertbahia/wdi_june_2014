@@ -23,7 +23,9 @@ describe Female do
 	end
 
 	describe '#spend money' do
-		expect(jane.spend_money(200)).to eq(200)
+		it 'adds up to spent money'	do
+			expect(jane.spend_money(200)).to eq(200)
+		end
 	end
 
 end

@@ -23,13 +23,16 @@ describe Male do
 	end
 
 	describe '#make money' do
-		expect(joe.spend_money(200)).to eq(200)
+		it 'adds to the made money' do
+			expect(joe.spend_money(200)).to eq(200)
+		end
 	end
 
 	describe '#fix stuff' do
-		expect(joe.fix_stuff('washer')).to include('washer')
+		it 'adds to the stuff can be fix' do
+			expect(joe.fix_stuff('washer')).to include('washer')
+		end
 	end
 
 end
-
 
