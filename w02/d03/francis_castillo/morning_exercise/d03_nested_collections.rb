@@ -64,7 +64,7 @@ info_string = "Name: #{name} | ID: #{id}\n"
 info_string += "Species: #{species} | Weight: #{weight}\n"
 info_string += "Type: #{type}"
 }
-
+ls
 
 poke_info.join("\n\n")
 end
