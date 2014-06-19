@@ -8,6 +8,7 @@ cohorts
   - id
   - name
   - start_date
+  .
 
 instructors:
   - id
@@ -60,7 +61,7 @@ Load the seed file into your `biblio_db`.
 Write queries to do the following:
 
 - Find all students in the cohort with id 1
-- Find all studnets in the cohort with id 2
+- Find all students in the cohort with id 2
 
 NOTE: From this point on, you should NOT use explicit id numbers in your
 queries. You should be using JOINs instead.
