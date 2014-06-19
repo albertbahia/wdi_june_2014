@@ -1,0 +1,4 @@
+
+class PoliceCar < Car
+  
+end
