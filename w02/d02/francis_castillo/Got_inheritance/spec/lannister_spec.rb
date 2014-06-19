@@ -1,5 +1,6 @@
 require_relative('../lib/lannister.rb')
 require_relative('../lib/house.rb')
+require_relative('../lib/human.rb')
 
 
 describe Lannister do
@@ -28,8 +29,7 @@ describe Lannister do
     expect(tywin.gold_pieces).to(eq(1000))
   end
   it 'has a phrase' do
-    expect(tywin.phrase).to(eq('A Lannister
-    always pays his debts!'))
+    expect(tywin.phrase).to(eq('A Lannister always pays his debts!'))
   end
 end
 describe '#introduce' do
@@ -41,9 +41,10 @@ describe '#introduce' do
   end
 
   it '#borrow_from_iron_bank' do
+    original_gold = tywin.gold_pieces
     tywin.borrow_from_iron_bank(100)
     expect(tywin.gold_pieces).to(eq(
-    tywin.gold_pieces + 100))
+    original_gold + 100))
   end
 
   it '#return can\'t borrow from bank' do
@@ -52,7 +53,7 @@ describe '#introduce' do
   end
   it '#pay_assassins' do
     original_gold = tywin.gold_pieces
-    pay_assassins(10, 'Sam')
+    tywin.pay_assassins(10, sam)
     expect(sam.hp).to(eq(0))
     expect(tywin.gold_pieces).to(eq(original_gold - 10))
   end

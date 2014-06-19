@@ -1,9 +1,11 @@
+require 'pry'
+require_relative 'house'
 
 class Lannister < House
 
 
   def initialize(name, rank, gold_pieces)
-    super(house, home, sigil, phrase, members)
+    super(house, home, sigil, phrase)
     @name = name
     @house = "Lannister"
     @rank = rank
@@ -19,19 +21,22 @@ class Lannister < House
   end
 
   def gold_pieces
-    return gold_pieces
+    return @gold_pieces
   end
 
   def borrow_from_iron_bank(num)
     if @rank == "Patriarch"
      @gold_pieces += num
+     return true
     else
-      @gold_pieces
+      return false
     end
   end
 
   def pay_assassins(num, victim)
     @gold_pieces -= num
-    victim.take_damage(@victim.hp)
+    victim.take_damage(victim.hp)
   end
 end
+
+binding.pry

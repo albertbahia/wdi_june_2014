@@ -1,6 +1,4 @@
-
 class House
-
 
   def initialize(house, home, sigil, phrase)
     @house = house
@@ -28,7 +26,7 @@ class House
   end
 
   def members
-    return  @members
+    return  @members.join(' ')
 
   end
 
