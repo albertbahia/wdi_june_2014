@@ -1,0 +1,20 @@
+require_relative('./human.rb') 
+
+class King < Human
+
+attr_reader(:realm)
+
+    def initialize(name, house, realm)
+        super(name, house, hp)
+        @realm = realm
+        @strength = 200
+        @hp = 1000
+    end
+    
+    def introduce  
+        super + ", and I am the noble king of the #{realm.capitalize}"
+    end
+    
+    
+end
+
