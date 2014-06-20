@@ -27,9 +27,9 @@ WHERE apartments.id = 20 OR apartments.id = 21;
 
 --HAVE TO CHANGE TO UPDATE
 --Change all doormen from building 3 to work night shifts.
-SELECT *
-FROM doormen
-WHERE building_id = 3 AND shift = 'Night';
+UPDATE doormen
+SET shift = 'Night'
+WHERE shift = 'Day' AND building_id = 3;
 
 --Create one new tenant, put them in any apartment you want
 --INSERT INTO tenants (id, name, age, gender, apartment_id) VALUES (999, 'Khadijah TheGreat', 22, 'Female', 1);
@@ -46,15 +46,15 @@ WHERE building_id = 3 AND price > 2300;
 
 --UPDATE
 --Geriatric Birthday! Update all tenants whose age is 90 to be 91
-SELECT *
-FROM tenants
+UPDATE tenants
+SET age = 91
 WHERE age = 90;
 
 
 --UPDATE
 --Change all tenants ages to increase by 1
-SELECT age+1
-FROM tenants;
+UPDATE tenants
+SET age+1;
 
 --Find all tenants who live in an apartment that costs more than $2300
 SELECT tenants.name
@@ -65,8 +65,7 @@ WHERE price > 2300;
 
 --DELETE
 --Delete all tenants whose age is greater than 65
-SELECT *
-FROM tenants
+DELETE FROM tenants
 WHERE age > 65;
 
 
