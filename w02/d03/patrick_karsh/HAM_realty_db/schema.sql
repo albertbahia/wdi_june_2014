@@ -1,4 +1,4 @@
-DROP TABLE apartments;
+2DROP TABLE apartments;
 DROP TABLE offices; 
 DROP TABLE storefronts; 
 
