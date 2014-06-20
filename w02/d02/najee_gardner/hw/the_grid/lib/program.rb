@@ -18,5 +18,13 @@ class Program
     @primary_function = nil
     @attack = nil
   end
-  
+
+  def describe_function
+    if file_size != nil
+      "I am #{name}. My function is to #{primary_function}."
+    else
+      "DEREZZED..."
+    end
+  end
+
 end
