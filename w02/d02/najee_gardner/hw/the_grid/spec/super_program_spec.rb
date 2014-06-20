@@ -4,7 +4,7 @@ require_relative '../lib/minor_program.rb'
 require_relative '../lib/program.rb'
 
 describe SuperProgram do
-  let(:tron) { SuperProgram.new('Tron', 'protect_the_grid()', 3000) }
+  let(:tron) { SuperProgram.new('Tron', 'protect_the_grid()', 'Hero of the Grid') }
   let(:sark) { Enforcer.new('Sark', 'monitor_programs()', 'Minor Program Enforcer') }
   let(:riz) { MinorProgram.new('Riz', 'collect_garbage()') }
 
@@ -33,10 +33,18 @@ describe SuperProgram do
   end
 
   describe '#derezz' do
-    it 'should erase the attributes of other programs' do
+    it 'should return true if MinorProgram object is passed in' do
+      expect(tron.derezz(riz)).to eq(true)
+    end
+
+    it 'should return false if any other object is passed in' do
+      expect(tron.derezz(1)).to eq(false)
+    end
+
+    it 'should erase the attributes of MinorPrograms' do
       tron.derezz(riz)
-      mac_info = [riz.name, riz.primary_function, riz.file_size]
-      mac_info.each {|item| expect(item).to eq(nil)}
+      riz_info = [riz.name, riz.primary_function, riz.file_size]
+      riz_info.each {|item| expect(item).to eq(nil)}
     end
   end
 
@@ -46,7 +54,9 @@ describe SuperProgram do
     it 'should erase the attributes of itself' do
       tron.self_derezz
       tron_info = [tron.name, , tron.file_size, tron.primary_function, tron.title, tron.attack]
-      tron_info.each {|item| expect(item).to eq(nil)}
+      tron_info.each do |item|
+        expect(item).to eq(nil)
+      end
     end
 
   end
@@ -72,10 +82,35 @@ describe SuperProgram do
 
   describe '#restore_program' do
     it 'should return a MinorProgram object if derezzed Minor object is pass in' do
-      100.times {tron.fight_enforcer(sark)}
-      expect(tron.restore_program(sark)).to eq(nil)
       tron.derez(riz)
       expect(tron.restore_program(riz).class).to eq(MinorProgram)
+    end
+
+    it 'should return nil if a Minor program object is not passed in' do
+      100.times {tron.fight_enforcer(sark)}
+      expect(tron.restore_program(sark)).to eq(nil)
+    end
+  end
+
+  describe '#fight_enforcer' do
+    it 'should reduce the file_size of a super program' do
+      tron.fight_super_program(sark)
+      expect(tron.file_size).to eq(212)
+    end
+
+    it 'should not reduce the file_size of any other Program type passed in' do
+      tron.fight_super_program(riz)
+      expect(riz.file_size).to eq(256)
+    end
+
+    it 'should return nil if any other Program type is passed in' do
+      expect(tron.fight_super_program(tron)).to eq(nil)
+    end
+
+    it 'should make all attributes of Enforcer objects nil if Enforcer file_size reaches 0' do
+      100.times {tron.fight_enforcer(sark)}
+      sark_info = [sark.name, , sark.file_size, sark.primary_function, sark.attack, sark.division, sark.password]
+      expect(sark_info).to eq([nil, nil, nil, nil, nil, nil])
     end
   end
 end
