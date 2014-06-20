@@ -17,7 +17,7 @@ describe Program do
   end
 
   it 'has an attack' do
-    expect(flynn.attack).to eq(9000)
+    expect(flynn_os.attack).to eq(9000)
   end
 
   describe '#derezz' do

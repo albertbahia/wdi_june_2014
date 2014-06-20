@@ -53,7 +53,7 @@ describe SuperProgram do
 
     it 'should erase the attributes of itself' do
       tron.self_derezz
-      tron_info = [tron.name, , tron.file_size, tron.primary_function, tron.title, tron.attack]
+      tron_info = [tron.name, tron.file_size, tron.primary_function, tron.title, tron.attack]
       tron_info.each do |item|
         expect(item).to eq(nil)
       end
@@ -109,7 +109,7 @@ describe SuperProgram do
 
     it 'should make all attributes of Enforcer objects nil if Enforcer file_size reaches 0' do
       100.times {tron.fight_enforcer(sark)}
-      sark_info = [sark.name, , sark.file_size, sark.primary_function, sark.attack, sark.division, sark.password]
+      sark_info = [sark.name, sark.file_size, sark.primary_function, sark.attack, sark.division, sark.password]
       expect(sark_info).to eq([nil, nil, nil, nil, nil, nil])
     end
   end

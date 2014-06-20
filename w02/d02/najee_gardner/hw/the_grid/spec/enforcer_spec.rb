@@ -129,7 +129,7 @@ describe Enforcer do
 
     it 'should make a programs attributes be nil if file_size becomes zero' do
       100.times { sark.fight_super_program(tron) }
-      tron_info = [tron.name, , tron.file_size, tron.primary_function, tron.title, tron.attack]
+      tron_info = [tron.name, tron.file_size, tron.primary_function, tron.title, tron.attack]
       tron_info.each {|item| expect(item).to eq(nil)}
     end
   end
