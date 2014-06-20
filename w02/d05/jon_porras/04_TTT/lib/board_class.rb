@@ -53,5 +53,5 @@ def win_lose_draw (user_input,win_arr)
     }}
 
 end
-binding.pry
+#binding.pry
 # end
