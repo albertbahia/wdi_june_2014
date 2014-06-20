@@ -1,6 +1,18 @@
-require_relative('people.rb')
+require_relative('./people.rb')
+#require 'pry'
+class Male < People
+	attr_reader(:gender)
 
-class Male
+	def intialize
+		super(name, age, job)
+		@job = true
+		@gender = 'M'
+	end
 
+	def has_money(amount)
+		amount
+	end
 
 end
+
+#binding.pry
