@@ -47,7 +47,7 @@ describe Program do
 
     it 'should include "derezzed" if no primary function exists' do
       flynn_os.derezz(mac)
-      expect(mac.describe_function).to include('derezzed')
+      expect(mac.describe_function).to include('derezzed'.upcase)
     end
   end
 
