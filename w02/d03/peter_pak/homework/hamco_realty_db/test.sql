@@ -19,3 +19,6 @@ SELECT * FROM storefronts WHERE kitchen IS TRUE;
 SELECT * FROM storefronts WHERE square_footage = (SELECT MAX(square_footage) FROM storefronts WHERE outdoor_seating IS TRUE);
 SELECT * FROM offices WHERE cubicles = (SELECT MIN(cubicles) FROM offices);
 SELECT * FROM offices WHERE cubicles = (SELECT MAX(cubicles) FROM offices) AND bathrooms = (SELECT MAX(bathrooms) FROM offices);
+
+#redo based on max cubicles + bathrooms
+SELECT * FROM offices WHERE cubicles + bathrooms = (SELECT MAX(cubicles + bathrooms) FROM offices);
