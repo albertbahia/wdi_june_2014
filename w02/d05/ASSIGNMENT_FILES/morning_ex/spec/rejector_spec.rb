@@ -1,4 +1,4 @@
-require '../lib/rejector'
+require_relative '../lib/rejector'
 describe '#rejector' do
 
   it 'works for numbers' do
