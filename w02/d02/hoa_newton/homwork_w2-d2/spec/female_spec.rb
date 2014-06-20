@@ -1,7 +1,7 @@
 require_relative('../lib/female.rb')
 
 describe Female do 
-	let(:jane) { Female.new('Jane', '32', false)}
+	let(:jane) { Female.new('Jane', 32, false)}
 	it 'has a name' do
 		expect(jane.name).to eq('Jane')
 	end
