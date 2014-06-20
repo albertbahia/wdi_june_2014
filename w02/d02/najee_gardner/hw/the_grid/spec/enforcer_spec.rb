@@ -39,14 +39,14 @@ describe Enforcer do
 
   end
 
-  describe '#delete_program' do
+  describe '#derezz' do
 
     it 'should return true if Program object is passed in' do
       expect(sark.derezz(mac)).to eq(true)
     end
 
     it 'should return false if any other object is passed in' do
-      expect(sark.delete_program(1)).to eq(false)
+      expect(sark.derezz(1)).to eq(false)
     end
   end
 
@@ -57,7 +57,7 @@ describe Enforcer do
     end
 
     it 'should include "deleted" if no primary function exists' do
-      sark.delete(riz)
+      sark.derezz(riz)
       expect(riz.describe_function).to include('deleted')
     end
   end
@@ -91,28 +91,43 @@ describe Enforcer do
       expect(sark.reform_program(1)).to eq(false)
     end
 
-    it 'should change the primary function of only a minor program' do
-      let(:clu) { Enforcer.new('Clu', 'get_to_work()', 'Workers Enforcer')}
+    it 'should change the primary function of only a Minorrogram' do
       sark.reform_function_of(riz, 'count_cycles()')
+
+      expect(riz.primary_function).to eq('count_cycles()')
+    end
+
+    it 'should not change the primary function of other programs' do
+      let(:clu) { Enforcer.new('Clu', 'get_to_work()', 'Workers Enforcer')}
       sark.reform_function_of(tron, 'hurt_programs()')
       sark.reform_function_of(clu, 'do_something()')
 
-      expect(riz.primary_function).to eq('count_cycles()')
       expect(clu.primary_function).to eq('get_to_work()')
       expect(tron.primary_function).to eq('protect_the_grid()')
+    end
+
+    it 'should do return nil if any anything object passed in is not MinorProgram' do
+      expect(sark.reform_function_of(1)).to eq(nil)
     end
 
   end
 
   describe '#fight_super_program' do
-    it 'should only reduce the file_size of a super program' do
+    it 'should reduce the file_size of a super program' do
       sark.fight_super_program(tron)
-      sark.fight_super_program(riz)
       expect(tron.file_size).to eq(824)
+    end
+
+    it 'should not reduce the file_size of any other Program type passed in' do
+      sark.fight_super_program(riz)
       expect(riz.file_size).to eq(256)
     end
 
-    it 'should make a programs attributes be nil if filesize becomes zero' do
+    it 'should return nil if any other Program type is passed in' do
+      expect(sark.fight_super_program(tron)).to eq(nil)
+    end
+
+    it 'should make a programs attributes be nil if file_size becomes zero' do
       100.times { sark.fight_super_program(tron) }
       tron_info = [tron.name, , tron.file_size, tron.primary_function, tron.title, tron.attack]
       tron_info.each {|item| expect(item).to eq(nil)}
