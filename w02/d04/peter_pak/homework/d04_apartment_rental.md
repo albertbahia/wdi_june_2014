@@ -53,19 +53,48 @@ Take a look at the ruby seed file that was given, read through the code before y
 #### Advanced Queries
 Write queries to do the following:
 * Retrieve all info on all tenants
+SELECT * FROM tenants;
+
 * Retrieve the name, age, and gender of all tenants
+SELECT name, age, gender FROM tenants;
+
+
 * Retrieve all info on all tenants older than 65
+SELECT * FROM tenants WHERE age > 65;
+
 * Retrieve all info on all tenants in apartment with id 20
+SELECT * FROM apartments JOIN tenants ON apartments.id = tenants.apartment_id WHERE apartments.id = 20;
+
 * Retrieve all info on all tenants in apartment with ids 20 or 21
+SELECT * FROM apartments JOIN tenants ON apartments.id = tenants.apartment_id WHERE apartments.id = 20 OR apartments.id = 21;
+
 * Delete all tenants whose age is greater than 65
+DELETE FROM tenants WHERE age > 65;
+
 * Change all doormen from building 3 to work night shifts.
+UPDATE doormen SET shift = 'night' WHERE building_id = 3;
+
 * Create one new tenant, put them in any apartment you want
-* Find just the ids for all apartments for building with 2
+INSERT INTO tenants(id, name, age, gender, apartment_id) VALUES ((SELECT MAX(id) FROM tenants)+1, 'Johnny Drama', 43, 'Male', 302);
+
+* Find just the ids for all apartments for building with 2   #assuming you meant building 2 here
+SELECT apartments.id FROM buildings JOIN apartments ON buildings.id = apartments.building_id WHERE buildings.id = 2;
+
 * Find all info for apartments in building number 3 whose price is greater than $2300
+SELECT * FROM buildings JOIN apartments on buildings.id = apartments.building_id WHERE price > 2300;
+
 * Geriatric Birthday! Update all tenants whose age is 90 to be 91
+UPDATE tenants SET age = 91 WHERE age = 90;
+
 * Change all tenants ages to increase by 1
+UPDATE tenants SET age = age + 1;
+
 * Find all tenants who live in an apartment that costs more than $2300
+SELECT tenants.name FROM apartments JOIN tenants ON apartments.id = tenants.apartment_id WHERE price > 2300;
 
 #### Join Queries
 * Demonstrate joining doormen with buildings.
-* Demonstrate joining apartments with tenants (where id < 10);
+SELECT * FROM buildings JOIN doormen ON buildings.id = doormen.building_id;
+* Demonstrate joining apartments with tenants (where id < 10); -- unsure which id...
+SELECT * FROM apartments JOIN tenants ON apartments.id = tenants.apartment_id WHERE apartments.id < 10;
+SELECT * FROM apartments JOIN tenants ON apartments.id = tenants.apartment_id WHERE tenants.id < 10;
