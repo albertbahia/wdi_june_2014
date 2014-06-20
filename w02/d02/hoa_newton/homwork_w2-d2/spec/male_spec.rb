@@ -1,7 +1,7 @@
 require_relative('../lib/male.rb')
 
 describe Male do 
-	let(:joe) { Female.new('Joe', '48', true)}
+	let(:joe) { Male.new('Joe', 48, true)}
 	it 'has a name' do
 		expect(joe.name).to eq('Joe')
 	end
@@ -19,12 +19,12 @@ describe Male do
 	end
 
 	it 'has a money' do
-		expect(joe.has_money(200)).to eq(200)
+		expect(joe.has_money(200)).to include(200)
 	end
 
 	describe '#make money' do
 		it 'adds to the made money' do
-			expect(joe.spend_money(200)).to eq(200)
+			expect(joe.spend_money(200)).to include(200)
 		end
 	end
 
