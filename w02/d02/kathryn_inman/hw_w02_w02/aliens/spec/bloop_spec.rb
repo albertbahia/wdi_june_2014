@@ -37,4 +37,6 @@ describe Bloop do
         expect(nyom.volume).to(eq(1))
       end
 
-    end #of Specs
+    end
+  end
+end
