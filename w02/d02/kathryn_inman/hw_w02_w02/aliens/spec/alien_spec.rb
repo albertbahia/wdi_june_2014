@@ -18,7 +18,9 @@ describe Alien do
   describe "behavior on landing" do
     let(:beedle) {Alien.new("Beedle", "Neptune", "crustaceans")}
     describe "#land_on_earth" do
-      expect(land_on_earth).to(eq(true))
+      it "should return true" do
+        expect(beedle.land_on_earth).to(eq(true))
+      end
     end
   end
 end
