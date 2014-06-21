@@ -1,4 +1,4 @@
-require_relative('.alien.rb')
+require_relative('alien.rb')
 
 class Bloop < Alien
   def initialize(initial_name, initial_home_planet, initial_food, initial_volume)
