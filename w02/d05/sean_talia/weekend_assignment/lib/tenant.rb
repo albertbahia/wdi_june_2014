@@ -13,7 +13,7 @@ class Tenant
     return_string = "Name: #{name} \n"
     return_string += "Age: #{age} \n"
     return_string += "Gender: #{gender} \n"
-    return_string += "Apartment: #{apartment}"
+    return_string += "Apartment: #{apartment} \n"
   end
 
   def move_into_apt(apartment)
