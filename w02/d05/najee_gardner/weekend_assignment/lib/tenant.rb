@@ -7,4 +7,11 @@ class Tenant
     @gender = gender
     @apartment = nil
   end
+
+  def list_info
+    info = "#{name.capitalize}\n--------\n"
+    info << "Apartment #{apartment}\n"
+    info << "Age: #{age} | Gender: #{gender}\n"
+
+  end
 end
