@@ -22,7 +22,7 @@ describe Tenant do
   describe '#list_info' do
     subject(:tenant) { Tenant.new("Joe", 25, "Male") }
     it 'lists the tenant' do
-    expect(joe.list_info).to eq("Joe is 25 years old and is Male.")
+    expect(tenant.list_info).to eq("Joe is 25 years old and is Male.")
     end
   end
 

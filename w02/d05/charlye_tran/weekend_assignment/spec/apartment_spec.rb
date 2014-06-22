@@ -31,7 +31,7 @@ describe Apartment do
   end
 
   it 'has tenants' do
-    expect(apartment.tenants).to eq([])
+    expect(apartment.tenants).to_not be_nil
   end
 
   describe '#info' do
