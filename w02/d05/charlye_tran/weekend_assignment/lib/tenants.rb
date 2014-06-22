@@ -8,7 +8,7 @@ class Tenant
   end
 
   def list_info
-    puts("#{name} is #{age} years old and is #{gender}.")
+    return ("#{name} is #{age} years old and is #{gender}.")
   end
 
 end

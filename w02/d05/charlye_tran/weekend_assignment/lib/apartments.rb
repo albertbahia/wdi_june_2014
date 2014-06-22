@@ -9,7 +9,7 @@ class Apartment
     @sqft = sqft
     @bedrooms = bedrooms
     @bathrooms = bathrooms
-    @tenants = tenants
+    @tenants = []
   end
 
   def info
@@ -17,10 +17,17 @@ class Apartment
   end
 
   def list_tenants
+    return ("#{tenants.join(' ')} live(s) in this apartment.")
   end
 
   def add_tenant(tenant, new_name, new_age, new_gender)
-    tenant = Tenant.new(new_name, new_age, new_gender)
-    @tenant = tenant
+    if @tenants.length > @bedrooms
+      return "error"
+    else
+      tenant = Tenant.new(new_name, new_age, new_gender)
+      @tenants.push([tenant.name, tenant.age, tenant.gender])
+      return @tenants.join(' ')
+    end
+
   end
 end

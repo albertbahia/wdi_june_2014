@@ -31,7 +31,7 @@ describe Apartment do
   end
 
   it 'has tenants' do
-    expect(apartment.tenants).to be_nil
+    expect(apartment.tenants).to eq([])
   end
 
   describe '#info' do
@@ -45,22 +45,24 @@ describe Apartment do
   end
 
   describe '#list_tenants' do
-    subject(:apartment) { Apartment.new("1A",1,1200,2000,2,2)}
-    let(:tenant) { Tenant.new("Joe", 25, "Male") }
-    let(:tenant_2) { Tenant.new("Jorb", 9000, "Female") }
-    let(:tenant_3) { Tenant.new("Snorb", 9001, "Female") }
+    apartment =  Apartment.new("1A",1,1200,2000,2,2)
+    apartment.add_tenant("joe", "Joe", 25, "Male")
+    apartment.add_tenant("sally", "Sally", 20, "Female")
     it 'lists all of the tenants information' do
-    expect(apartment.list_tenants).to eq("Joe, Jorb, Snorb live in this apartment.")
+    expect(apartment.list_tenants).to eq("Joe 25 Male Sally 20 Female live(s) in this apartment.")
     end
   end
 
   describe '#add_tenant' do
-    let(:tenant) { Tenant.new("Joe", 25, "Male") }
+    apartment =  Apartment.new("1A",1,1200,2000,2,2)
     it 'adds a tenant to the apartment' do
-    expect(apartment.add_tenant(tenant, "Joe", 25, "Male")).to include("Joe", 25, "Male")
+    expect(apartment.add_tenant("joe", "Joe", 25, "Male")).to eq("Joe 25 Male")
+    apartment.add_tenant("sam", "Sam", 12, "Male")
+    apartment.add_tenant("bill", "Bill", 13, "Male")
     end
+
     it 'does not add more tenants than rooms' do
-      expect(apartment.tenant_count).to_not be_greater than apartment.bedrooms
+      expect(apartment.add_tenant("sally", "Sally", 20, "Female")).to eq("error")
     end
   end
 
