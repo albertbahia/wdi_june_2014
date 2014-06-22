@@ -36,6 +36,7 @@ describe Apartment do
 
   describe '#info' do
     xit 'lists the apartment info' do
+      
     end
   end
 

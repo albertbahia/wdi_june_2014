@@ -1,6 +1,10 @@
 class Tenant 
-	def initialize(args)
-		
+	attr_reader(:name, :age, :gender)
+	def initialize(name, age, gender)
+		@apartment = []
+		@name = name
+		@age = age 
+		@gender = gender 
 	end
 	
 	

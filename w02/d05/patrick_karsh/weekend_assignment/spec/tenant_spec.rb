@@ -21,6 +21,7 @@ describe Tenant do
 
   describe '#list_info' do
     xit 'lists the tenant' do
+      expect(tenant.list_info("Joe")).to include("Joe", 25, "Male")
     end
   end
 

@@ -28,11 +28,13 @@ describe Building do
 
   describe '#list_apartments' do
     xit 'returns information about the apartment' do
+      expect(building.apartments('1A')).to include("1A",1,1200,2000,1,2)
     end
   end
 
   describe '#rent_apartment' do
     xit 'rents an apartment to a tenant' do
+
     end
     xit 'does not rent an apartment that is full' do
     end
