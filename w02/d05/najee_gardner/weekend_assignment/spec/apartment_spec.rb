@@ -36,7 +36,7 @@ describe Apartment do
 
   describe '#info' do
     it 'lists the apartment info' do
-      apartment_info = ["1A","first floor","$1200","2000 sqft","2 bedroom","2 bathrooms"]
+      apartment_info = ["1A","Floor 1","$1200","2000 sqft","2 Bedroom","2 Bathroom"]
       apartment_info.each do |item|
         expect(apartment.info).to include(item)
       end
