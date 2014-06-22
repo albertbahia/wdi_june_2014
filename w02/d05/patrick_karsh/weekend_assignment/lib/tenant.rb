@@ -1,10 +1,10 @@
 class Tenant 
-	attr_reader(:name, :age, :gender)
+	attr_reader(:name, :age, :gender, :apartment)
 	def initialize(name, age, gender)
-		@apartment = []
 		@name = name
 		@age = age 
-		@gender = gender 
+		@gender = gender
+		@apartment = nil 
 	end
 	
 	

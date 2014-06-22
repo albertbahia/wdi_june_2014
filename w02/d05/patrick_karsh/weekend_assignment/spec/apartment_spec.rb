@@ -35,20 +35,28 @@ describe Apartment do
   end
 
   describe '#info' do
-    xit 'lists the apartment info' do
-      
+    it 'lists the apartment info' do
+      expect(apartment.info).to include("1A",1,1200,2000,2,2)
     end
   end
 
   describe '#list_tenants' do
-    xit 'lists all of the tenants information' do
+    it 'lists all of the tenants information' do
+    apartment.add_tenant(tenant)
+    expect(apartment.list_tenants).to include("Joe", 25, "Male")
     end
   end
 
   describe '#add_tenant' do
-    xit 'adds a tenant to the apartment' do
+    it 'adds a tenant to the apartment' do
+      apartment.add_tenant(tenant)
+      expect(apartment.list_tenants).to include("Joe", 25, "Male")
+
     end
-    xit 'does not add more tenants than rooms' do
+    it 'does not add more tenants than rooms' do
+      apartment.add_tenant(tenant)
+      apartment.add_tenant(tenant_2)
+      expect(apartment.add_tenant(tenant_3)).to eq("No more tenants can be added")
     end
   end
 
