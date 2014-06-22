@@ -1,13 +1,11 @@
-require_relative '../lib/apartment'
-require_relative '../lib/tenant'
+
 class Building
 
   def initialize (name, address, floors)
     @name = name
     @address = address
     @floors = floors
-    @apartment = Apartment.new
-    @tenants = Tenant.new
+    @apartments = :apartments
   end
 
   def name
@@ -22,12 +20,12 @@ class Building
     @floors
   end
 
-  def apartment
-    @apartment
+  def apartments
+    @apartments
   end
 
-  def tenant
-    @tenant
-  end
+  # def tenant
+  #   @tenant
+  # end
 
 end
