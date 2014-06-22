@@ -1,10 +1,13 @@
 class Apartment
-  def initialize(initial_floor, initial_name, initial_price, initial_sqft, initial_num_bedrooms, initial_num_bathrooms)
+
+  attr_reader(:floor, :name, :price, :sqft, :bathrooms, :bedrooms, :tenants)
+  def initialize(initial_floor, initial_name, initial_price, initial_sqft, initial_bedrooms, initial_bathrooms)
     @floor = initial_floor
     @name = initial_name
     @price = initial_price
     @sqft = initial_sqft
-    @num_bedrooms = initial_num_bedrooms
-    @num_bathrooms = initial_num_bathrooms
+    @bedrooms = initial_bedrooms
+    @bathrooms = initial_bathrooms
+    @tenants = []
   end
 end
