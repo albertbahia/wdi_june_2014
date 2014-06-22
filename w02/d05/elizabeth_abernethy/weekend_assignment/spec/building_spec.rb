@@ -7,6 +7,7 @@ describe Building do
   subject(:apartment) { Apartment.new("1A",1,1200,2000,1,2)}
   let(:tenant_1) { Tenant.new("Joe", 25, "Male") }
   let(:tenant_2) { Tenant.new("Joe", 25, "Male") }
+
   it 'has a name' do
     expect(building.name).to_not be_nil
     expect(building.name).to eq("HAMco Towers")
