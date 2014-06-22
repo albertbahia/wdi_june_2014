@@ -32,8 +32,8 @@ describe Building do
     it 'returns information about the apartment' do
       building.apartments.push(apartment)
       building.apartments.push(apartment2)
-      apartment_info = ["1A","first floor","$1200","2000 sqft","1 bedroom","2 bathrooms"]
-      apartment_info += ["2A", "second floor", "$1500", "3000 sqft", "2 bedrooms", "2 bathrooms"]
+      apartment_info = ["1A","Floor 1","$1200","2000 sqft","1 Bedroom","2 Bathroom"]
+      apartment_info += ["2A", "Floor 2", "$1500", "3000 sqft", "2 Bedroom", "2 Bathroom"]
       apartment_info.each do |item|
         expect(building.list_apartments).to include(item)
       end
