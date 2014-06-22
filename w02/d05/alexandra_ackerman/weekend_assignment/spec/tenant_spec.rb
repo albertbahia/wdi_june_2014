@@ -21,7 +21,7 @@ describe Tenant do
 
   describe '#list_info' do
     it 'lists name, age, gender and apartment name' do
-    expect(tenant.list_info).to eq('')
+    expect(tenant.list_info).to eq('Name: Joe, Age: 25, Gender: Male')
     end
   end
 

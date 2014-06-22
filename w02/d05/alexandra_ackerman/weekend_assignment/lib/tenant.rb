@@ -16,7 +16,9 @@ class Tenant
   end
 
   def list_info()
-
+    info_string = "Name: #{name.capitalize}, "
+    info_string += "Age: #{age}, "
+    info_string += "Gender: #{gender}"
   end
 
 end

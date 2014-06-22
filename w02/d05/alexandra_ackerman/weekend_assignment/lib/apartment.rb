@@ -17,4 +17,7 @@ class Apartment
     Tenant.new(@name, @age, @gender)
   end
 
+  def list_info()
+
+  end
 end
