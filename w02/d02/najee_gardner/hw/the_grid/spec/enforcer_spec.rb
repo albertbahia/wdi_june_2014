@@ -41,12 +41,12 @@ describe Enforcer do
 
   describe '#derezz' do
 
-    it 'should return true if Program object is passed in' do
-      expect(sark.derezz(mac)).to eq(true)
+    it 'should return true if MinorProgram object is passed in' do
+      expect(sark.derezz(riz)).to eq(true)
     end
 
     it 'should return false if any other object is passed in' do
-      expect(sark.derezz(1)).to eq(false)
+      expect(sark.derezz(tron)).to eq(false)
     end
   end
 
@@ -56,9 +56,9 @@ describe Enforcer do
       expect(sark.describe_function).to include('monitor_programs()')
     end
 
-    it 'should include "deleted" if no primary function exists' do
+    it 'should include "DEREZZED" if no primary function exists' do
       sark.derezz(riz)
-      expect(riz.describe_function).to include('deleted')
+      expect(riz.describe_function).to include('DEREZZED')
     end
   end
 
