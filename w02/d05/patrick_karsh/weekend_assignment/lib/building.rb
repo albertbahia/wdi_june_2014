@@ -6,6 +6,8 @@ class Building
 		@floors = floors
 		@apartments = []
 	end
-	
+	def list_apartments 
+		return @apartments 
+	end 
 	
 end

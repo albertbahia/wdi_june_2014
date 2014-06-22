@@ -36,7 +36,7 @@ describe Apartment do
 
   describe '#info' do
     it 'lists the apartment info' do
-      expect(apartment.info).to include("1A",1,1200,2000,2,2)
+      expect(apartment.info).to include("1A","1","1200","2000","2")
     end
   end
 

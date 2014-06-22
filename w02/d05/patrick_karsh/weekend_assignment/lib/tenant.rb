@@ -6,6 +6,10 @@ class Tenant
 		@gender = gender
 		@apartment = nil 
 	end
+	def list_info
+		" Name: #{name}, Age: #{age}, Gender:#{gender}, Apartment: #{apartment}"
+	end 
+	
 	
 	
 end
