@@ -8,8 +8,7 @@ describe Building do
   subject(:apartment2) { Apartment.new("2A", 2, 1500, 3000, 2, 2)}
   let(:tenant_1) { Tenant.new("Joe", 25, "Male") }
   let(:tenant_2) { Tenant.new("Joe", 25, "Male") }
-  building.apartments.push(apartment)
-  building.apartments.push(apartment2)
+
   it 'has a name' do
     expect(building.name).to_not be_nil
     expect(building.name).to eq("HAMco Towers")
@@ -31,6 +30,8 @@ describe Building do
 
   describe '#list_apartments' do
     it 'returns information about the apartment' do
+      building.apartments.push(apartment)
+      building.apartments.push(apartment2)
       apartment_info = ["1A","first floor","$1,200","2000 sqft","1 bedroom","2 bathrooms"]
       apartment_info += ["2A", "second floor", "$1,500", "3000 sqft", "2 bedrooms", "2 bathrooms"]
       apartment_info.each do |item|
@@ -40,9 +41,18 @@ describe Building do
   end
 
   describe '#rent_apartment' do
-    xit 'rents an apartment to a tenant' do
+    it 'rents an apartment to a tenant' do
+      building.apartments.push(apartment)
+      building.apartments.push(apartment2)
+      building.rent_apartment(tenant_1, "1A")
+      expect(building.apartments.first.tenants).to eq([tenant_1])
     end
-    xit 'does not rent an apartment that is full' do
+    it 'does not rent an apartment that is full' do
+      building.apartments.push(apartment)
+      building.apartments.push(apartment2)
+      building.rent_apartment(tenant_1, "1A")
+      building.rent_apartment(tenant_2, "1A")
+      expect(building.apartments.first.tenants).to eq([tenant_1])
     end
   end
 end
