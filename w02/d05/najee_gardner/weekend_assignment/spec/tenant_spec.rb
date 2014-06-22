@@ -20,7 +20,11 @@ describe Tenant do
   end
 
   describe '#list_info' do
-    xit 'lists the tenant' do
+    it 'lists the tenant' do
+      tenant_info = ["Joe",  "25", "Male"]
+      tenant_info.each do |item|
+        expect(tenant.list_info).to include(item)
+      end
     end
   end
 
