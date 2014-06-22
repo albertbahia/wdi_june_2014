@@ -35,19 +35,35 @@ describe Apartment do
   end
 
   describe '#info' do
-    xit 'lists the apartment info' do
+    it 'lists the apartment info' do
+      apartment_info = ["1A","first floor","$1200","2000 sqft","2 bedroom","2 bathrooms"]
+      apartment_info.each do |item|
+        expect(apartment.info).to include(item)
+      end
     end
   end
 
   describe '#list_tenants' do
-    xit 'lists all of the tenants information' do
+    it 'lists all of the tenants information' do
+      apartment.add_tenant(tenant)
+      apartment.add_tenant(tenant_2)
+      tenants_info = ["Joe", "25", "Male", "Jorb", "9000", "Female"]
+      tenants_info.each do |item|
+        expect(apartment.list_tenants).to include(item)
+      end
     end
   end
 
   describe '#add_tenant' do
-    xit 'adds a tenant to the apartment' do
+    it 'adds a tenant to the apartment' do
+      apartment.add_tenant(tenant)
+      expect(apartment.tenants).to eq([tenant])
     end
-    xit 'does not add more tenants than rooms' do
+    it 'does not add more tenants than rooms' do
+      apartment.add_tenant(tenant)
+      apartment.add_tenant(tenant_2)
+      apartment.add_tenant(tenant_3)
+      expect(apartment.tenants).to eq([tenant, tenant_2])
     end
   end
 
