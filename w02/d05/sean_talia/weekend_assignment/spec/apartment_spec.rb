@@ -1,10 +1,10 @@
 require_relative '../lib/apartment'
 require_relative '../lib/tenant'
 describe Apartment do
+  subject(:apartment) { Apartment.new("1A",1,1200,2000,2,2)}
   let(:tenant) { Tenant.new("Joe", 25, "Male") }
   let(:tenant_2) { Tenant.new("Jorb", 9000, "Female") }
   let(:tenant_3) { Tenant.new("Snorb", 9001, "Female") }
-  subject(:apartment) { Apartment.new("1A",1,1200,2000,2,2,[tenant])}
 
   it 'has a name' do
     expect(apartment.name).to_not be_nil
@@ -42,16 +42,19 @@ describe Apartment do
 
   describe '#list_tenants' do
     it 'lists all of the tenants information' do
+      apartment.add_tenant(tenant)
       expect(apartment.list_tenants.include?('Joe' && '25' && 'Male')).to eq(true)
     end
   end
 
   describe '#add_tenant' do
     it 'adds a tenant to the apartment' do
+      apartment.add_tenant(tenant)
       apartment.add_tenant(tenant_2)
-
+      expect(apartment.tenants.length).to eq(2)
     end
     it 'does not add more tenants than rooms' do
+      apartment.add_tenant(tenant)
       apartment.add_tenant(tenant_2)
       apartment.add_tenant(tenant_3)
       expect(apartment.tenants.length).to eq(2)

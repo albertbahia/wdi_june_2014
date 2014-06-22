@@ -16,7 +16,7 @@ class Tenant
     return_string += "Apartment: #{apartment} \n"
   end
 
-  def move_into_apt(apartment)
+  def move_into(apartment)
     @apartment = apartment
   end
 

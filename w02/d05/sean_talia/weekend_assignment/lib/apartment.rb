@@ -2,14 +2,14 @@ class Apartment
 
   attr_reader :name, :floor, :price, :sqft, :bedrooms, :bathrooms, :tenants
 
-  def initialize(name, floor, price, sqftage, bedrooms, bathrooms, tenants)
+  def initialize(name, floor, price, sqftage, bedrooms, bathrooms)
     @name = name
     @floor = floor
     @price = price
     @sqft = sqftage
     @bedrooms = bedrooms
     @bathrooms = bathrooms
-    @tenants = tenants
+    @tenants = []
   end
 
   def info()
@@ -23,9 +23,7 @@ class Apartment
 
   def list_tenants()
     return_string = ""
-    tenants.each do |tenant|
-      return_string += tenant.list_info()
-    end
+    tenants.each { |tenant| return_string += tenant.list_info()}
     return_string
   end
 
@@ -33,6 +31,8 @@ class Apartment
     tenants.length < bedrooms ? tenants.push(tenant) : "Apartment is already full."
   end
 
-
+  def at_capacity?()
+    tenants.length == bedrooms ? true : false
+  end
 
 end
