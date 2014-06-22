@@ -14,7 +14,6 @@ class Building
   end
 
   def list_apartments
-    info_string = ""
     apartments.each { |apartment|
     return apartment.info
     }
