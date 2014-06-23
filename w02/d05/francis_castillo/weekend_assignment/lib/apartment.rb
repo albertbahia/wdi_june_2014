@@ -1,6 +1,6 @@
 require_relative '../lib/building'
-
-class Apartment < Building
+require_relative '../lib/tenant'
+class Apartment
 
   def initialize (name, floor, price, sqft, bedrooms, bathrooms)
     @name = name
@@ -9,8 +9,10 @@ class Apartment < Building
     @sqft = sqft
     @bedrooms = bedrooms
     @bathrooms = bathrooms
-    @tenants = :tenant
-    @apartment = :apartment
+    @tenants = []
+
+    # @apartment = :apartment
+    # @rented = false
   end
 
   def name
@@ -41,9 +43,19 @@ class Apartment < Building
     @tenants
   end
 
-  def apartment
-    @apartment
+  def list_apt_info
+    apt_info  = "Apt_num : #{name} \n"
+    apt_info += "Floor : #{floor} \n"
+    apt_info += "Price : $#{price} \n"
+    apt_info += "Sqft : #{sqft} \n"
+    apt_info += "Bdrm : #{bedrooms} \n"
+    apt_info += "Baths : #{bathrooms} \n"
+
   end
 
+
+  # def @rented
+  #   @rented
+  # end
 
 end

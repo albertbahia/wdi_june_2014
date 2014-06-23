@@ -1,12 +1,13 @@
 require_relative '../lib/apartment'
-
-class Tenant < Apartment
+require_relative '../lib/building'
+class Tenant
 
   def initialize(name, age, gender)
     #super(:apartment)
     @name = name
     @age = age
     @gender = gender
+
 
   end
 
