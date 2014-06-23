@@ -46,11 +46,11 @@ I have provided starter specs and stubs for tests that you have to fill in for
 
 Make a commit once you complete each class
 
-
 #### Step 3 - Self-Learning
 __MANDATORY__
 
-Read the documentation for [ActiveRecord](http://guides.rubyonrails.org/active_record_basics.html). Write down any questions that you have.
+Read the documentation for [ActiveRecord](http://guides.rubyonrails.org/active_record_basics.html).
+Write down any questions that you have.
 - What is an ORM?
 - Why would we use an ORM?
 - What is convention over configuration?
