@@ -1,5 +1,6 @@
 class Pokemon
 
+  attr_reader(:id, :poketype, :attack, :defense, :speed)
   def initialize(name, id, poketype, hp, attack, defense, speed)
     @name = name
     @id = id
@@ -17,23 +18,37 @@ class Pokemon
     end
   end
 
-  def hp
-      @hp
+  def name
+    @name.capitalize
   end
 
-  def list_stats
-    "Name: #{@name}, id: #{@id}, poketype: #{@poketype}, hp: #{@hp}, attack: #{@attack}, defense: #{@defense}, speed: #{@speed}."
+  def hp
+    @hp
   end
-    # if @hp > 100
-    #   100
-    # elsif @hp <= 0
-    #   0
-    # else
-    #   @hp
-    # end
-  # end
+
+  def list_stats()
+    stat_string = "My name is #{name},"
+    stat_string += " my id is #{id} and I'm a #{poketype} type."
+    stat_string += " HP: #{hp}, ATT: #{attack}, DEF #{defense} "
+    stat_string += "SP: #{speed}"
+  end
+
+  def full_restore
+    @hp = 100
+  end
+
+  def fainted?
+    # ternary operator
+    hp == 0 ? true : false
+  end
+
+  def take_damage
+    if fainted?
+      return false
+    else
+      @hp -= 10
+      return true
+    end
+  end
 
 end
-
-# pikachu = Pokemon.new("pikachu", 25, "electric", 50, 60, 40, 80)
-# charizard = Pokemon.new("charizard", 9, :fire, 150, 60, 40, 80)
