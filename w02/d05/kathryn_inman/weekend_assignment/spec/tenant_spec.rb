@@ -1,7 +1,9 @@
 require_relative '../lib/tenant'
 
+
 describe Tenant do
   subject(:tenant) { Tenant.new("Joe", 25, "Male") }
+  subject(:apartment) { Apartment.new("1A",1,1200,2000,2,2)}
 
   it 'has a name' do
     expect(tenant.name).to eq("Joe")
@@ -20,7 +22,8 @@ describe Tenant do
   end
 
   describe '#list_info' do
-    xit 'lists the tenant' do
+    it 'lists the tenant' do
+      expect(tenant.list_info).to include("Joe")
     end
   end
 
