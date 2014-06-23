@@ -28,18 +28,18 @@ describe Building do
 
   describe '#list_apartments' do
     it 'returns information about the apartment' do
-      expect(building.apartments('1A')).to include("1A",1,1200,2000,1,2)
+      expect(building.apartments).to eq(apartment.info)
     end
   end
 
   describe '#rent_apartment' do
     it 'rents an apartment to a tenant' do
       apartment.rent_apartment(tenant_1)
-      expect(apartment.tenant).to include("Joe", 25, "Male")
+      expect(apartment.tenant).to include(:tenant_1)
 
     end
     it 'does not rent an apartment that is full' do
-      apartment.tenant != nil 
+      apartment.rent_apartment(tenant_1)
       expect(apartment.rent_apartment(tenant_2)).to eq("Apartment rented")
     end
   end

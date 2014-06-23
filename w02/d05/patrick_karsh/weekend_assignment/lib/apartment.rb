@@ -1,3 +1,4 @@
+
 class Apartment
 	attr_reader(:name, :floor, :price, :sqft, :bedrooms, :bathrooms, :tenants)
 	def initialize(name, floor, price, sqft, bedrooms, bathrooms)
@@ -10,14 +11,21 @@ class Apartment
 		@tenants = []
 	end 
 	def info
-		"Name: #{name}, Floor: #{floor}, Price: #{price}, SQFTage:#{sqft}, Beds #{bedrooms}, Baths#{bathrooms}" 
+		apt_info  = "Apt_num : #{name}"
+    	apt_info += "Floor : #{floor}"
+	    apt_info += "Price : $#{price}"
+	    apt_info += "Sqft : #{sqft}"
+	    apt_info += "Bdrm : #{bedrooms}"
+	    apt_info += "Baths : #{bathrooms}"
 	end 
 	def add_tenant(new_tenant)
-		@tenants.push(new_tenant)
+		if @bedrooms < @tenants.count
+			@tenants.push(new_tenant)
+		elsif @bedrooms >= @tenants.count
+			return "No more tenants can be added"
+		end 	
 	end 
 	def list_tenants
-		return @tenants
+		@tenants
 	end 
-
-
 end 

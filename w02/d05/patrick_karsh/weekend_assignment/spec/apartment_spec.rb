@@ -43,7 +43,7 @@ describe Apartment do
   describe '#list_tenants' do
     it 'lists all of the tenants information' do
     apartment.add_tenant(tenant)
-    expect(apartment.list_tenants).to include("Joe", 25, "Male")
+    expect(apartment.list_tenants).to include(tenant)
     end
   end
 
@@ -51,8 +51,8 @@ describe Apartment do
     it 'adds a tenant to the apartment' do
       apartment.add_tenant(tenant)
       expect(apartment.list_tenants).to include("Joe", 25, "Male")
-
     end
+    
     it 'does not add more tenants than rooms' do
       apartment.add_tenant(tenant)
       apartment.add_tenant(tenant_2)

@@ -1,3 +1,4 @@
+
 class Building
 	attr_reader(:name, :address, :floors, :apartments)
 	def initialize(name, address, floors)
@@ -7,7 +8,7 @@ class Building
 		@apartments = []
 	end
 	def list_apartments 
-		return @apartments 
+		@apartments 
 	end 
-	
+
 end
