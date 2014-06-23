@@ -28,6 +28,12 @@ describe TicTacToe do
       expect(ttt_game.fill_spot("hello")).to eq(nil)
     end
 
+    it 'should not place on a spot that is already taken and should return nil' do
+      ttt_game.fill_spot(2)
+      expect(ttt_game.fill_spot(2)).to eq(nil)
+      expect(ttt_game.board).to eq([0, 1, "X", 3, 4, 5, 6, 7, 8])
+    end
+
     it 'should change player1 to player2' do
       ttt_game.fill_spot(2)
       expect(ttt_game.player_turn).to eq(:player2)

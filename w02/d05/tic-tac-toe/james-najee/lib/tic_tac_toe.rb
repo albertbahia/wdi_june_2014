@@ -10,14 +10,10 @@ class TicTacToe
 
     def fill_spot(spot)
       if spot.is_a?(Fixnum)
-        if spot > 8 || spot < 0
-          nil
-        else
+        if spot <= 8 && spot >= 0 && !board[spot].is_a?(String)
           board[spot] = player_turn == :player1 ? "X" : "O"
           @player_turn = player_turn == :player1 ? :player2 : :player1
         end
-      else
-        nil
       end
     end
 
