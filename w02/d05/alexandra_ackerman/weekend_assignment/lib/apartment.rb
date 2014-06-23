@@ -2,7 +2,7 @@ require_relative './tenant.rb'
 
 class Apartment
 
-  attr_reader(:name, :floor, :price, :sqft, :bedrooms, :bathrooms)
+  attr_reader(:name, :floor, :price, :sqft, :bedrooms, :bathrooms, :tenants)
 
   def initialize(name, floor, price, sqft, bedrooms, bathrooms)
     @name = name
@@ -11,13 +11,27 @@ class Apartment
     @sqft = sqft
     @bedrooms = bedrooms
     @bathrooms = bathrooms
+    @tenants = []
   end
 
-  def tenants()
-    Tenant.new(@name, @age, @gender)
+  def add_tenant(name, age, gender)
+    @tenants.push(Tenant.new(name, age, gender))
   end
 
-  def list_info()
-
+  def list_tenants
+    tenants.each do |tenant|
+      return tenant.list_info
   end
+
+end
+
+  def info()
+    info_string = "Name: #{name}, "
+    info_string += "Floor: #{floor}, "
+    info_string += "Price: #{price}, "
+    info_string += "SQFT: #{sqft}, "
+    info_string += "Bedrooms: #{bedrooms}, "
+    info_string += "Bathrooms: #{bathrooms}"
+  end
+
 end
