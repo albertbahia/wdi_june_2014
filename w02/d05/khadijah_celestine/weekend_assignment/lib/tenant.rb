@@ -5,4 +5,8 @@ class Tenant
 		@age = age
 		@gender = gender
 	end
+
+	def list_info
+		"#{name}, #{age}, #{gender}"
+	end
 end
