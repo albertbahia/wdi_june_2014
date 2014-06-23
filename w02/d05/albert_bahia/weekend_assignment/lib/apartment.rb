@@ -25,9 +25,14 @@ class Apartment
     return @tenants
   end
 
-  def add_tenant(new_tenant)
-    new_tenant = Tenant.new(@name, @age, @gender)
-    @tenants.push(new_tenant)
+  def add_tenant(apt_rooms, new_tenant)
+
+    if @tenants.length > apt_rooms
+      "Can't add any more tenants"
+    else
+      new_tenant = Tenant.new(@name, @age, @gender)
+      @tenants.push(new_tenant)
+    end
   end
 
 end

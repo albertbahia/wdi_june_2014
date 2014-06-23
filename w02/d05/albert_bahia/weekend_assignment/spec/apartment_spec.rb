@@ -48,9 +48,10 @@ describe Apartment do
 
   describe '#add_tenant' do
     it 'adds a tenant to the apartment' do
-      apartment.add_tenant(tenant)
+      apartment.add_tenant(apartment.bedrooms, tenant)
     end
     it 'does not add more tenants than rooms' do
+      apartment.add_tenant(apartment.bedrooms, tenant)
     end
   end
 
