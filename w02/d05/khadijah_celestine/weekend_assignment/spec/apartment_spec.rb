@@ -45,9 +45,12 @@ describe Apartment do
   end
 
   describe '#add_tenant' do
-    xit 'adds a tenant to the apartment' do
+    it 'adds a tenant to the apartment' do
+      expect(apartment.add_tenant(tenant)).to eq(true)
     end
-    xit 'does not add more tenants than rooms' do
+    it 'does not add more tenants than rooms' do
+      apartment.add_tenant(tenant)
+      expect(apartment.add_tenant(tenant_2)).to eq(false)
     end
   end
 

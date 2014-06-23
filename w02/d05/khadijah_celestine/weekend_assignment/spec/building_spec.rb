@@ -26,15 +26,26 @@ describe Building do
     expect(building.apartments).to_not be_nil
   end
 
+  describe '#add_apartment' do
+    it 'adds an apartment to the building' do
+      expect(building.add_apartment(apartment)).to eq(true)
+    end
+  end
+
   describe '#list_apartments' do
     xit 'returns information about the apartment' do
     end
   end
 
   describe '#rent_apartment' do
-    xit 'rents an apartment to a tenant' do
+    it 'rents an apartment to a tenant' do
+      building.add_apartment(apartment)
+      expect(building.rent_apartment(apartment, tenant_1)).to eq(true)
     end
-    xit 'does not rent an apartment that is full' do
+    it 'does not rent an apartment that is full' do
+      building.add_apartment(apartment)
+      building.rent_apartment(apartment, tenant_1)
+      expect(building.rent_apartment(apartment, tenant_2)).to eq(false)
     end
   end
 end

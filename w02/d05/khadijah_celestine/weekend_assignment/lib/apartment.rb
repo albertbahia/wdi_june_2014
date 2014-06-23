@@ -7,6 +7,15 @@ class Apartment
 		@sqft = sqft
 		@bedrooms = bedrooms
 		@bathrooms = bathrooms
+		@tenants = Array.new(bedrooms)
 	end
 
+	def add_tenant(tenant)
+		if @tenants.count != bedrooms
+			@tenants.push(tenant)
+			true
+		else
+			false
+		end
+	end
 end
