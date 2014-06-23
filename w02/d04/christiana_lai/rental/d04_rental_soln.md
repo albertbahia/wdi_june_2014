@@ -1,0 +1,15 @@
+SELECT * FROM tenants;
+SELECT name, age, gender FROM tenants;
+SELECT * FROM tenants WHERE age > 65;
+SELECT * FROM apartments WHERE id=20;
+SELECT * FROM  tenants where id=20 or id=21;
+DELETE FROM tenants WHERE age>65;
+UPDATE doormen SET shift='Night' WHERE shift='Day' AND building_id=3;
+INSERT INTO tenants (id, name, age, gender, apartment_id) VALUES (5370, 'Travon Rolfson III', 12, 'Male', 1);
+SELECT ID from apartments where building_id=2;
+select * from apartments where price > 2300 and building_id=3;
+UPDATE tenants SET age=91 WHERE age=90;
+UPDATE tenants SET age = age + 1;
+SELECT * FROM tenants JOIN apartments ON tenants.id=apartments.id where price>2300;
+SELECT * FROM doormen JOIN buildings ON doormen.id=buildings.id;
+SELECT * FROM apartments JOIN tenants ON apartments.id=tenants.id WHERE tenants.id<10;
