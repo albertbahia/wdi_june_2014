@@ -3,7 +3,6 @@ require_relative '../lib/building'
 class Tenant
 
   def initialize(name, age, gender)
-    #super(:apartment)
     @name = name
     @age = age
     @gender = gender
@@ -23,5 +22,11 @@ class Tenant
     @gender
   end
 
+  def list_info
+    info = "Name: #{name}"
+    info += "Age: #{age}"
+    info += "Gender #{gender}"
+    return info
+  end
 
 end

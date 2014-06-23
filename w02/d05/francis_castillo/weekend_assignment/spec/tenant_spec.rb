@@ -20,7 +20,11 @@ describe Tenant do
   end
 
   describe '#list_info' do
-    xit 'lists the tenant' do
+    subject(:tenant) { Tenant.new("Joe", 25, "Male") }
+    it 'lists the tenant' do
+      expect(tenant.list_info).to include("Joe")
+      expect(tenant.list_info).to include("25")
+      expect(tenant.list_info).to include("Male")
     end
   end
 

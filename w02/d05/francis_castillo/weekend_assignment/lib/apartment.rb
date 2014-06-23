@@ -50,7 +50,7 @@ class Apartment
     apt_info += "Sqft : #{sqft} \n"
     apt_info += "Bdrm : #{bedrooms} \n"
     apt_info += "Baths : #{bathrooms} \n"
-
+    return apt_info
   end
 
 
