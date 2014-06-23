@@ -17,24 +17,32 @@ describe Enforcer do
   end
 
   it 'has a file size' do
-    expect(sark.file_size).to eq(256)
+    expect(sark.file_size).to eq(512)
   end
 
   it 'has a primary function' do
     expect(sark.primary_function).to eq('monitor_programs()')
   end
 
+  it 'has an attack' do
+    expect(sark.attack).to eq(200)
+  end
+
   it 'has a division' do
     expect(sark.division).to eq('Minor Program Enforcer')
   end
 
-  describe '#name, #file_size, #primary_function, #division' do
+  it 'has a password' do
+    expect(sark.password).to eq('hailthemc')
+  end
+
+  describe '#name, #file_size, #primary_function, #division, #password' do
 
 
-    it 'should return an empty nil if file size is brought to zero by a SuperProgram' do
-      tron.attack(sark)
-      sark_info = [sark.name, sark.file_size, sark.primary_function, sark.division]
-      sark_info.each {|item| expect(item).to eq('')}
+    it 'should return nil if file size is brought to zero by a SuperProgram' do
+      100.times { tron.fight_enforcer(sark) }
+      sark_info = [sark.name, sark.file_size, sark.attack, sark.primary_function, sark.division, sark.password]
+      sark_info.each {|item| expect(item).to eq(nil)}
     end
 
   end
@@ -51,14 +59,15 @@ describe Enforcer do
   end
 
   describe '#describe_function' do
-    it 'should include the name and primary function if the output if there is one' do
+    it 'should include the name, primary function, and division if the output if there is one' do
       expect(sark.describe_function).to include('Sark')
       expect(sark.describe_function).to include('monitor_programs()')
+      expect(sark.describe_function).to include('Minor Program Enforcer')
     end
 
     it 'should include "DEREZZED" if no primary function exists' do
-      sark.derezz(riz)
-      expect(riz.describe_function).to include('DEREZZED')
+      100.times { tron.fight_enforcer(sark) }
+      expect(sark.describe_function).to include('DEREZZED')
     end
   end
 
@@ -84,11 +93,11 @@ describe Enforcer do
 
   describe '#reform_function_of' do
     it 'should return true if MinorProgram object is passed in' do
-      expect(sark.reform_function_of(riz)).to eq(true)
+      expect(sark.reform_function_of(riz, '')).to eq(true)
     end
 
     it 'should return false if other object is passed in' do
-      expect(sark.reform_program(1)).to eq(false)
+      expect(sark.reform_function_of(1, '')).to eq(false)
     end
 
     it 'should change the primary function of only a Minorrogram' do
@@ -98,16 +107,12 @@ describe Enforcer do
     end
 
     it 'should not change the primary function of other programs' do
-      let(:clu) { Enforcer.new('Clu', 'get_to_work()', 'Workers Enforcer')}
+      clu = Enforcer.new('Clu', 'get_to_work()', 'Workers Enforcer')
       sark.reform_function_of(tron, 'hurt_programs()')
       sark.reform_function_of(clu, 'do_something()')
 
       expect(clu.primary_function).to eq('get_to_work()')
       expect(tron.primary_function).to eq('protect_the_grid()')
-    end
-
-    it 'should do return nil if any anything object passed in is not MinorProgram' do
-      expect(sark.reform_function_of(1)).to eq(nil)
     end
 
   end
@@ -124,7 +129,7 @@ describe Enforcer do
     end
 
     it 'should return nil if any other Program type is passed in' do
-      expect(sark.fight_super_program(tron)).to eq(nil)
+      expect(sark.fight_super_program(riz)).to eq(nil)
     end
 
     it 'should make a programs attributes be nil if file_size becomes zero' do

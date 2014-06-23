@@ -17,6 +17,10 @@ describe MinorProgram do
     expect(riz.primary_function).to eq('collect_garbage()')
   end
 
+  it 'has an attack' do
+    expect(riz.attack).to eq(20)
+  end
+
   it 'has rogue_actions' do
     expect(riz.rogue_actions).to eq([])
   end
@@ -46,12 +50,12 @@ describe MinorProgram do
       expect(riz.describe_function).to include('collect_garbage()')
     end
 
-    it 'should include "derezzed" if no primary function exists' do
+    it 'should include "DEREZZED" if no primary function exists' do
       riz.run_rogue_function('have_fun()')
       riz.run_rogue_function('have_fun()')
       riz.run_rogue_function('have_fun()')
       sark.derezz(riz)
-      expect(mac.describe_function).to include('derezzed')
+      expect(riz.describe_function).to include('DEREZZED')
     end
   end
 

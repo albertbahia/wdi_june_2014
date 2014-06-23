@@ -13,7 +13,7 @@ describe SuperProgram do
   end
 
   it 'has a name' do
-    expect(tron.name).to eq('Flynn 1.0')
+    expect(tron.name).to eq('Tron')
   end
 
   it 'has a file size' do
@@ -62,49 +62,50 @@ describe SuperProgram do
   end
 
   describe '#describe_function' do
-    it 'should include the name and primary function if the output if there is one' do
-      expect(tron.describe_function).to include('tron')
+    it 'should include the name,primary function, and title if the output if there is one' do
+      expect(tron.describe_function).to include('Tron')
       expect(tron.describe_function).to include('protect_the_grid()')
+      expect(tron.describe_function).to include('Hero of the Grid')
     end
 
-    it 'should include "derezzed" if no primary function exists' do
+    it 'should include "DEREZZED" if no primary function exists' do
       sark.derezz(riz)
-      expect(riz.describe_function).to include('derezzed')
+      expect(riz.describe_function).to include('DEREZZED')
     end
   end
 
   describe '#run_primary_function' do
     it 'should include "running" and the primary function' do
       expect(tron.run_primary_function).to include('running')
-      expect(tron.run_primary_function).to include('run_sub_programs()')
+      expect(tron.run_primary_function).to include('protect_the_grid()')
     end
   end
 
   describe '#restore_program' do
     it 'should return a MinorProgram object if derezzed Minor object is pass in' do
-      tron.derez(riz)
-      expect(tron.restore_program(riz).class).to eq(MinorProgram)
+      tron.derezz(riz)
+      expect(tron.restore_program(riz, 'Riz', 'be_free()').class).to eq(MinorProgram)
     end
 
     it 'should return nil if a Minor program object is not passed in' do
       100.times {tron.fight_enforcer(sark)}
-      expect(tron.restore_program(sark)).to eq(nil)
+      expect(tron.restore_program(sark, '', '')).to eq(nil)
     end
   end
 
   describe '#fight_enforcer' do
-    it 'should reduce the file_size of a super program' do
-      tron.fight_super_program(sark)
-      expect(tron.file_size).to eq(212)
+    it 'should reduce the file_size of an enforcer' do
+      tron.fight_enforcer(sark)
+      expect(sark.file_size).to eq(212)
     end
 
     it 'should not reduce the file_size of any other Program type passed in' do
-      tron.fight_super_program(riz)
+      tron.fight_enforcer(riz)
       expect(riz.file_size).to eq(256)
     end
 
     it 'should return nil if any other Program type is passed in' do
-      expect(tron.fight_super_program(tron)).to eq(nil)
+      expect(tron.fight_enforcer(riz)).to eq(nil)
     end
 
     it 'should make all attributes of Enforcer objects nil if Enforcer file_size reaches 0' do

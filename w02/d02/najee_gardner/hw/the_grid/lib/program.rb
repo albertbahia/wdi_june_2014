@@ -8,6 +8,16 @@ class Program
     @attack = 9000
   end
 
+  def take_damage(attack)
+    if file_size != nil
+      if file_size > attack
+        @file_size -= attack
+      else
+        self_derezz
+      end
+    end
+  end
+
   def derezz(program)
     program.self_derezz
   end
@@ -25,6 +35,10 @@ class Program
     else
       "DEREZZED..."
     end
+  end
+
+  def run_primary_function
+    "running...\n#{primary_function}"
   end
 
 end
