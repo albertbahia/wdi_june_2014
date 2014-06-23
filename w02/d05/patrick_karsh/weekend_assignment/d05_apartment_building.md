@@ -48,8 +48,16 @@ __MANDATORY__
 
 Read the documentation for [ActiveRecord](http://guides.rubyonrails.org/active_record_basics.html). Write down any questions that you have.
 - What is an ORM?
+
+Object Relational Mapping. It is a method for retriving bojects from a databases.  
+
 - Why would we use an ORM?
+
+It allows your ruby code to interact with your SQL database. 
+
 - What is convention over configuration?
+
+Convention over configuration is a way of coding that keeps you from having to write an inordinate amount of configuration code. This is because you write things in the same way on every possible ocassion and only write configuration code for where it was absolutely necesary to deviate from convention.   
 
 #### Step 4
 # Enjoy the Summer Solstice! 15 hours of sun!
