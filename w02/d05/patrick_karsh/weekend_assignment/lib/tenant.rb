@@ -10,4 +10,5 @@ class Tenant
 	def list_info
 		" Name: #{name}, Age: #{age}, Gender:#{gender}, Apartment: #{apartment}"
 	end 
+	
 end
