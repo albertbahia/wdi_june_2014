@@ -1,6 +1,6 @@
 ## WDI Jun14 Closure
 
-# Week 02
+# Week 03
 
 ### 1-on-1 Pairing Schedule
 
