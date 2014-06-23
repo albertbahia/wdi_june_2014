@@ -9,8 +9,8 @@ class Tenant
     @apartment = nil
   end
 
-  def list_info(name, age, gender)
-    return "Name: #{@name}, Age: #{@age}, Gender: #{@gender}"
+  def list_info
+    return "Name: #{name}, Age: #{age.to_s}, Gender: #{gender}"
   end
 
 end
