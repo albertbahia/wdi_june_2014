@@ -10,7 +10,9 @@ class Tenant
   end
 
   def list_info
-    return "Name: #{name}, Age: #{age.to_s}, Gender: #{gender}"
+    list_info = "Name: #{name}"
+    list_info += "Age: #{age}"
+    list_info += "Gender: #{gender}"
   end
 
 end

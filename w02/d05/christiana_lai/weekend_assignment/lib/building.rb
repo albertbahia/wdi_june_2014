@@ -12,7 +12,12 @@ class Building
   end
 
   def list_apartments
-    return "Apartments: #{apartment.name}, Floor: #{apartment.floor}, Price: #{apartment.price}, Sqft: #{apartment.sqft}, Bedrooms: #{apartment.bedrooms}, Bathrooms: #{apartment.bathrooms}"
+    list_apartments = "Apartments: #{apartment.name}"
+    list_apartments += "Floor: #{apartment.floor}"
+    list_apartments += "Price: #{apartment.price}"
+    list_apartments += "Sqft: #{apartment.sqft}"
+    list_apartments += "Bedrooms: #{apartment.bedrooms}"
+    list_apartments += "Bathrooms: #{apartment.bathrooms}"
   end
 
   def rent_apartment(new_apartment)

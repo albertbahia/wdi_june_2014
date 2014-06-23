@@ -15,17 +15,28 @@ class Apartment
   end
 
   def info
-    return "Name: #{name}, Floor: #{floor}, Price: #{price}, Sqft: #{sqft}, Bedrooms: #{bedrooms}, Bathrooms: #{bathrooms}"
+    info = "Name: #{name}"
+    info += "Floor: #{floor}"
+    info += "Price: #{price}"
+    info += "Sqft: #{sqft}"
+    info += "Bedrooms: #{bedrooms}"
+    info += "Bathrooms: #{bathrooms}"
   end
 
   def list_tenants
-    return "Name: #{tenant.name}, Age:#{tenant.age}, Gender: #{tenant.gender}"
-    return "Name: #{tenant_2.name}, Age:#{tenant_2.age}, Gender: #{tenant_2.gender}"
-    return "Name: #{tenant_3.name}, Age:#{tenant_3.age}, Gender: #{tenant_3.gender}"
+    list_tenants = "Name: #{tenant.name}"
+    list_tenants += "Age:#{tenant.age}"
+    list_tenants += "Gender: #{tenant.gender}"
+    list_tenants += "Name: #{tenant_2.name}"
+    list_tenants += "Age:#{tenant_2.age}"
+    list_tenants += "Gender: #{tenant_2.gender}"
+    list_tenants += "Name: #{tenant_3.name}"
+    list_tenants += "Age:#{tenant_3.age}"
+    list_tenants += "Gender: #{tenant_3.gender}"
   end
 
-  def add_tenant(name, age, gender)
-    
+  def add_tenant
+
   end
 
 end
