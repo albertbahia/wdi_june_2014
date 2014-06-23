@@ -25,17 +25,20 @@ describe Building do
 
   it 'has apartments' do
     expect(building.apartments).to_not be_nil
+    expect(building.apartments).to
   end
 
   describe '#list_apartments' do
-    xit 'returns information about the apartment' do
+    it 'returns information about the apartment' do
+      expect(building.list_apartments(apartment)).to include("1A", 1, 1200, 2000, 1, 2)
     end
   end
 
   describe '#rent_apartment' do
-    xit 'rents an apartment to a tenant' do
+    it 'rents an apartment to a tenant' do
+      expect(building.rent_apartment(apartment, tenant_1)).to include("Joe", "1A")
     end
-    xit 'does not rent an apartment that is full' do
+    it 'does not rent an apartment that is full' do
     end
   end
 end
