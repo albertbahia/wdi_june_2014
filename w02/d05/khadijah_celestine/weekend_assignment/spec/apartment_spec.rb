@@ -1,7 +1,7 @@
 require_relative '../lib/apartment'
 require_relative '../lib/tenant'
 describe Apartment do
-  subject(:apartment) { Apartment.new("1A",1,1200,2000,2,2)}
+  subject(:apartment) { Apartment.new("1A",1,1200,2000,2,2)} #not good data for tests
   let(:tenant) { Tenant.new("Joe", 25, "Male") }
   let(:tenant_2) { Tenant.new("Jorb", 9000, "Female") }
   let(:tenant_3) { Tenant.new("Snorb", 9001, "Female") }
@@ -35,7 +35,13 @@ describe Apartment do
   end
 
   describe '#info' do
-    xit 'lists the apartment info' do
+    it 'lists the apartment info' do
+      expect(apartment.info).to include("1A")
+      expect(apartment.info).to include("1")
+      expect(apartment.info).to include("1200")
+      expect(apartment.info).to include("2000")
+      expect(apartment.info).to include("2")
+      expect(apartment.info).to include("2")
     end
   end
 
