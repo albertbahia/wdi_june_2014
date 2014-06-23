@@ -13,5 +13,4 @@ def convert_to_hash(array_to_convert)
     end
   end
   return new_hash
-
 end
