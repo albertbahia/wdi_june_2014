@@ -1,6 +1,8 @@
 require_relative '../lib/building'
 require_relative '../lib/apartment'
 require_relative '../lib/tenant'
+require_relative'../main.rb'
+
 
 describe Building do
   subject(:building) { Building.new("HAMco Towers", "41 USW NY,NY", 5)}
