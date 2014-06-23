@@ -35,12 +35,19 @@ describe Apartment do
   end
 
   describe '#info' do
-    xit 'lists the apartment info' do
+    it 'lists the apartment info' do
+      expect(apartment.info).to include(apartment.name)
+      expect(apartment.info).to include(apartment.floor)
+      expect(apartment.info).to include(apartment.price)
+      expect(apartment.info).to include(apartment.sqft)
+      expect(apartment.info).to include(apartment.bedrooms)
+      expect(apartment.info).to include(apartment.bathrooms)
     end
   end
 
   describe '#list_tenants' do
-    xit 'lists all of the tenants information' do
+    it 'lists all of the tenants information' do
+      expect(apartment.list_tenants).to include(tenant.name)
     end
   end
 
