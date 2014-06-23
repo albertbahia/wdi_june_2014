@@ -9,6 +9,5 @@ class Tenant
 
   def list_info
     return "The tenants name is: #{name}, they are #{age} years old. Their gender is #{gender}"
-
   end
 end

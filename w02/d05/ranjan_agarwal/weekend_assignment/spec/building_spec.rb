@@ -27,14 +27,24 @@ describe Building do
   end
 
   describe '#list_apartments' do
-    xit 'returns information about the apartment' do
+    it 'returns information about the apartment' do
+      building.apartments.push(apartment)
+      expect(building.list_apartments).to include(apartment.name)
+      expect(building.list_apartments).to include(apartment.floor.to_s)
+      expect(building.list_apartments).to include(apartment.price.to_s)
+      expect(building.list_apartments).to include(apartment.sqft.to_s)
+      expect(building.list_apartments).to include(apartment.bedrooms.to_s)
+      expect(building.list_apartments).to include(apartment.bathrooms.to_s)
     end
   end
 
   describe '#rent_apartment' do
-    xit 'rents an apartment to a tenant' do
+    it 'rents an apartment to a tenant' do
+      building.rent_apartment(apartment,tenant_1)
+      expect(building.apartments).to include(apartment)
+
     end
-    xit 'does not rent an apartment that is full' do
+    it 'does not rent an apartment that is full' do
     end
   end
 end
