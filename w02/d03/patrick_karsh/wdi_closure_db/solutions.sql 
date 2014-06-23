@@ -1,0 +1,10 @@
+SELECT * FROM instructors;
+
+
+SELECT * FROM students WHERE favorite_color = 'black';
+SELECT name FROM students WHERE favorite_color = 'orange'  
+ SELECT * FROM instructors WHERE age > 100; 
+ SELECT day, topic FROM lessons WHERE week = 1 AND day = 2; 
+ SELECT day, topic FROM lessons WHERE week = 2 AND day = 2;
+ SELECT day, topic FROM lessons WHERE week = 1 AND day = 3; 
+ UPDATE students SET favorite_color = 'tangerine' WHERE favorite_color = 'orange'; 
