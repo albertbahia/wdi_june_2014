@@ -78,4 +78,3 @@ pokedex.each do |pokedex|
     })
 end
 
-

@@ -1,4 +1,5 @@
 require 'active_record'
+require 'pry'
 require_relative 'pokemon_seed.rb'
 
 ActiveRecord::Base.establish_connection({
@@ -78,3 +79,4 @@ pokedex.each do |pokedex|
     })
 end
 
+binding.pry
