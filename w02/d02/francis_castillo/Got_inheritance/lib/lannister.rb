@@ -1,9 +1,11 @@
-require_relative('../lib/house.rb')
-require_relative('../spec/house_spec.rb')
+require 'pry'
+require_relative 'house'
+
 class Lannister < House
 
 
   def initialize(name, rank, gold_pieces)
+    super(house, home, sigil, phrase)
     @name = name
     @house = "Lannister"
     @rank = rank
@@ -11,7 +13,7 @@ class Lannister < House
     @home = "Casterly Rock"
     @gold_pieces = gold_pieces
     @phrase = "A Lannister always pays his debts!"
-    super(house, home, sigil, phrase, members)
+
   end
 
   def rank
@@ -25,13 +27,16 @@ class Lannister < House
   def borrow_from_iron_bank(num)
     if @rank == "Patriarch"
      @gold_pieces += num
+     return true
     else
-      @gold_pieces
+      return false
     end
   end
 
   def pay_assassins(num, victim)
     @gold_pieces -= num
-    victim.take_damage(@victim.hp)
+    victim.take_damage(victim.hp)
   end
 end
+
+binding.pry
