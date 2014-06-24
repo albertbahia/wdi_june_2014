@@ -1,5 +1,5 @@
 require_relative('../lib/stark.rb')
-require_relative('../lib/human.rb')
+require_relative('../lib/house.rb')
 
 describe Stark do
   let(:ned) {Stark.new('Ned', 'Patriarch', 1000)}
