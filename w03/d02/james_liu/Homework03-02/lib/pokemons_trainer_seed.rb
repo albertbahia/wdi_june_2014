@@ -1,8 +1,5 @@
- require 'active_record'
-require 'pry'
-
-class Trainer < ActiveRecord:: Base
-end
+require_relative 'trainer.rb'
+require 'active_record'
 
 ActiveRecord::Base.establish_connection({
     database: 'pokemon_db',
@@ -21,5 +18,3 @@ trainer_hometown = ['Pallet Town','Saffron City', 'Cerulean City','Celadon City'
 
     Trainer.create({name: random_names, age: random_ages, hometown: random_towns })
 end
-
-binding.pry
