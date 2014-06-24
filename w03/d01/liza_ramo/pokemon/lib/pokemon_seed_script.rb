@@ -1,18 +1,18 @@
 
 # This file will load the DB only with the attributes we need from the seed file
 
-
+require_relative 'pokemon.rb'
 require_relative 'pokemon_seed.rb'
 require 'pry'
 require 'active_record'
-require_relative 'pokemon.rb'
+
 
 ActiveRecord::Base.establish_connection({
   database: 'pokemon_db',
   adapter: 'postgresql'
   })
 
-pokemon = get_pokemon
+pokemon = get_pokemon()
 
 def get_moves(moves_hash)
   result = ''
