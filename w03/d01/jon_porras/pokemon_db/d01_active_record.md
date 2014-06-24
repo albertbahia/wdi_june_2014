@@ -61,7 +61,12 @@ Pokemon.limit(35).pluck(:id)
 Didnt get to finish the last 3 exercises
 
 - All pokemon with a speed less than 25 and attack over 30
+Pokemon.where("speed < 25")
+
 - The 5 pokemon with the highest happiness level.
+Pokemon.where("speed < 25", "attack > 30")
+
 - All pokemon ordered by hp from lowest to highest
+Pokemon.order(:speed)
 
 __Make sure that you test all of your commands in pry using the ActiveRecord class related to your database__
