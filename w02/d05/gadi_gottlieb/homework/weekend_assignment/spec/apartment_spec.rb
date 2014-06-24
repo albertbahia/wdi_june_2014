@@ -36,18 +36,35 @@ describe Apartment do
 
   describe '#info' do
     it 'lists the apartment info' do
+        expect(apartment.info).to include(apartment.name.to_s)
+        expect(apartment.info).to include(apartment.floor.to_s)
+        expect(apartment.info).to include(apartment.price.to_s)
+        expect(apartment.info).to include(apartment.sqft.to_s)
+        expect(apartment.info).to include(apartment.bedrooms.to_s)
+        expect(apartment.info).to include(apartment.bathrooms.to_s)
     end
   end
 
   describe '#list_tenants' do
     it 'lists all of the tenants information' do
+      apartment.tenants.push(tenant)
+      expect(apartment.list_tenants).to include tenant.list_info
     end
   end
 
   describe '#add_tenant' do
     it 'adds a tenant to the apartment' do
+        count_apartment = apartment.tenants.count
+        apartment.add_tenant(tenant)
+        expect(apartment.tenant.count).to be > count_apartment
+        expect(apartment.tenants).to include tenant
+        expect(tenant.apartment).to eq(apartment.name)
     end
     it 'does not add more tenants than rooms' do
+        apartment.add_tenant(tenant)
+        apartment.add_tenant(tenant_2)
+        apartment.add_tenant(tenant_3)
+        expect(apartment.tenants.count).to eq(apartment.bedrooms)
     end
   end
 
