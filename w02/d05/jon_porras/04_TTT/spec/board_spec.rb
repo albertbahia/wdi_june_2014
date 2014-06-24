@@ -55,7 +55,6 @@ describe '#changing_grid' do
     expect(winning_combo[0][0]).to eq('X')
     expect(winning_combo[3][0]).to eq('X')
     expect(winning_combo[5][0]).to eq('X')
-
-
   end
+  
 end
