@@ -35,19 +35,19 @@ describe Apartment do
   end
 
   describe '#info' do
-    it 'lists the apartment info' do
+    xit 'lists the apartment info' do
     end
   end
 
   describe '#list_tenants' do
-    it 'lists all of the tenants information' do
+    xit 'lists all of the tenants information' do
     end
   end
 
   describe '#add_tenant' do
-    it 'adds a tenant to the apartment' do
+    xit 'adds a tenant to the apartment' do
     end
-    it 'does not add more tenants than rooms' do
+    xit 'does not add more tenants than rooms' do
     end
   end
 
