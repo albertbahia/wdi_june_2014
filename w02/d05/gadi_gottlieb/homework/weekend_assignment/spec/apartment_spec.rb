@@ -35,6 +35,7 @@ describe Apartment do
   end
 
   describe '#info' do
+<<<<<<< HEAD
     it 'lists the apartment info' do
         expect(apartment.info).to include(apartment.name.to_s)
         expect(apartment.info).to include(apartment.floor.to_s)
@@ -42,17 +43,25 @@ describe Apartment do
         expect(apartment.info).to include(apartment.sqft.to_s)
         expect(apartment.info).to include(apartment.bedrooms.to_s)
         expect(apartment.info).to include(apartment.bathrooms.to_s)
+=======
+    xit 'lists the apartment info' do
+>>>>>>> hw_w03_d01
     end
   end
 
   describe '#list_tenants' do
+<<<<<<< HEAD
     it 'lists all of the tenants information' do
       apartment.tenants.push(tenant)
       expect(apartment.list_tenants).to include tenant.list_info
+=======
+    xit 'lists all of the tenants information' do
+>>>>>>> hw_w03_d01
     end
   end
 
   describe '#add_tenant' do
+<<<<<<< HEAD
     it 'adds a tenant to the apartment' do
         count_apartment = apartment.tenants.count
         apartment.add_tenant(tenant)
@@ -65,6 +74,11 @@ describe Apartment do
         apartment.add_tenant(tenant_2)
         apartment.add_tenant(tenant_3)
         expect(apartment.tenants.count).to eq(apartment.bedrooms)
+=======
+    xit 'adds a tenant to the apartment' do
+    end
+    xit 'does not add more tenants than rooms' do
+>>>>>>> hw_w03_d01
     end
   end
 
