@@ -10,7 +10,7 @@ CREATE TABLE pokemons (
     moves VARCHAR(255),
     img VARCHAR(255),
     classification VARCHAR(255),
-    type VARCHAR(255),
+    species VARCHAR(255),
     height INTEGER,
     happiness INTEGER
 );
