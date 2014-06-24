@@ -6,9 +6,9 @@ DROP TABLE IF EXISTS playlist;
 CREATE TABLE songs (
   id SERIAL PRIMARY KEY, 
   name varchar(255)
- 	); 
+ 	);
 
-CREATE TABLE playlist (
+CREATE TABLE playlists (
   id SERIAL PRIMARY KEY, 
   name varchar(255)
  	); 
