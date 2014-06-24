@@ -22,12 +22,13 @@ class Apartment
   end
 
   def list_tenants
-    tenant_list = "Tenants: #{tenants}."
+    @tenants.map { |tenant| tenant.list_info }.join("/n")
   end
 
   def add_tenant(tenant_to_add)
       if tenants.count < bedrooms
-        tenants.push(tenant_to_add)
+        @tenants.push(tenant_to_add)
+        tenant_to_add.apartment = name
       end
   end
 
