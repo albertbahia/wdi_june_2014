@@ -1,6 +1,6 @@
 require_relative '../lib/pokemon.rb'
 require_relative 'pokemon_seed.rb'
-require 'pry'
+# require 'pry'
 
 =begin
 poke_hash[:name]
@@ -34,4 +34,4 @@ pokemon_array.each do |poke_hash|
     })
 end
 
-binding.pry
+# binding.pry
