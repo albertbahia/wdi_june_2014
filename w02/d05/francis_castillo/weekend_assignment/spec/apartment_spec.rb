@@ -1,4 +1,4 @@
-require_relative '../lib/apartment'
+ require_relative '../lib/apartment'
 require_relative '../lib/tenant'
 describe Apartment do
   subject(:apartment) { Apartment.new("1A",1,1200,2000,2,2)}

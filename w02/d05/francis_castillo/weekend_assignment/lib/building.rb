@@ -34,6 +34,6 @@ class Building
   # end
   def add_apartment(push_var)
 
-    @apartments.push(push_var)
+    self.apartments.push(push_var)
   end
 end
