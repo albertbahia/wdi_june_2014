@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-pokemon =
-=======
 Morning Exercise 02-03
 
 Learning Objectives
@@ -23,7 +17,6 @@ Given the array below define a method that returns a string with the following i
 - The types separated by a `//`
 
 ```ruby
->>>>>>> 22d55b29d70f2b4f4fb382dcaebe64a4853b765c
 [
   {
     :name => "Bulbasaur",
@@ -73,27 +66,4 @@ Given the array below define a method that returns a string with the following i
     :weight=> "90lbs"
   }
 ]
-<<<<<<< HEAD
-
-def poke_parser(poke_info)
-  all_pokemon = poke_info.map do |poke_hash|
-    name = poke_hash[:name]
-    id = poke_hash[:national_id]
-    species = poke_hash[:species].split.map {|word| word.capitalize}.join(' ')
-    weight = poke_hash[:weight]
-    types = poke_hash[:types][0].values.join(' // ')
-
-    info_string = "#{name} | #{id}\n"
-    info_string += "Species: #{species} | Weight: #{weight}\n"
-    info_string += "Types: #{types}"
-  end
-
-  all_pokemon.join("\n\n")
-end
-
-
-puts poke_parser(pokemon)
->>>>>>> 8f1654bcf8c4645ce22fbdcb66b01adb0910bdc0
-=======
 ```
->>>>>>> 22d55b29d70f2b4f4fb382dcaebe64a4853b765c
