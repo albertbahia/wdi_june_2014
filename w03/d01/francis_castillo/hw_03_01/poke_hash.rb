@@ -807,7 +807,6 @@ puts pokerray.map{|pokemon_info|
   #{pokemon_info[:misc][:height]}\n
   #{pokemon_info[:misc][:happiness]}\n"
 }
-
 # pokerray.map{|pokemon_info|
 #   puts pokerray[0][:id]
 #   puts pokerray[0][:name]
