@@ -44,7 +44,10 @@ loop do
       puts student.name
     end
 
+  # Add a cohort
   when '3'
+    
+
   when '4'
   when '5'
   when '6'
