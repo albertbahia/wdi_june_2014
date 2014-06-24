@@ -1,4 +1,4 @@
-require_relative('../lib/human.rb')
+
 class Stark < House
 
 
@@ -10,7 +10,7 @@ class Stark < House
     @home = "Winterfell"
     @sword_skills = sword_skills
     @phrase = "Winters coming!"
-    @beast =
+    @beast = nil
     super(house, home, sigil, phrase, members)
   end
 
@@ -23,7 +23,7 @@ class Stark < House
   end
 
   def add_beast(beast_name)
-    @beast += beast_name
+    @beast = beast_name
   end
 
   def spar(opponent)
