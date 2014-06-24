@@ -10,15 +10,10 @@ class Building
   end
 
   def list_apartments
-    apartment_list = "Apartments: #{apartments}."
+    return apartments.map { |appt| appt.info }.join("\n")
   end
 
-  def rent_apartment(new_tenant)
-    if apartments = nil
-      apartments.push(new_tenant)
-    else
-      "Occupied"
-    end
+  def rent_apartment(apartment,tenant)
+    apartment.add_tenant(tenant) ? true : false
   end
-  
 end
