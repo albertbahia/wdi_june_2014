@@ -7,7 +7,6 @@ describe Building do
   subject(:apartment) { Apartment.new("1A",1,1200,2000,1,2)}
   let(:tenant_1) { Tenant.new("Joe", 25, "Male") }
   let(:tenant_2) { Tenant.new("Joe", 25, "Male") }
-
   it 'has a name' do
     expect(building.name).to_not be_nil
     expect(building.name).to eq("HAMco Towers")
@@ -29,13 +28,18 @@ describe Building do
 
   describe '#list_apartments' do
     it 'returns information about the apartment' do
+      building.apartments.push(apartment)
+      expect(building.list_apartments).to include apartment.info
     end
   end
 
   describe '#rent_apartment' do
     it 'rents an apartment to a tenant' do
+      expect(building.rent_apartment(apartment,tenant_1)).to eq(true)
     end
     it 'does not rent an apartment that is full' do
+      building.rent_apartment(apartment,tenant_1)
+      expect(building.rent_apartment(apartment,tenant_2)).to eq(false)
     end
   end
 end

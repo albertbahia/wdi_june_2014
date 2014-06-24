@@ -1,0 +1,22 @@
+#Pokemon queries
+
+- All pokemon in the database
+  - Pokemon.all
+- The id of the pokemon named Onix
+  - Pokemon.find_by(name: 'Onix').id
+- The name of the pokemon with an id of 89
+  - Pokemon.find(89)
+- Find the pokemon with the name 'Nidoran?'. Change the name of the first pokemon returned to 'Nidoran - male', and the name of the second pokemon returned to 'Nidoran - female'.
+  - nidos = Pokemon.where(name: 'Nidoran?')
+  - nidos[0].name = 'Nidoran - male'
+  - nidos[1].name = 'Nidoran - female')
+  - nidos[0].save
+  - nidos[1].save  
+- Only the hp of the first 35 pokemon
+  - Pokemon.limit(35).pluck(:hp)
+- All pokemon with a speed less than 25 and attack over 30
+  - Pokemon.where("speed < '25' AND attack > '30'")
+- The 5 pokemon with the highest happiness level.
+  - Pokemon.order(happiness: :desc).limit(5)
+- All pokemon ordered by hp from lowest to highest
+  - Pokemon.order(:hp) 
