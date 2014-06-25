@@ -21,3 +21,6 @@ trainer2.choose_pokemon(Pokemon.get_pokemon)
 
 trainer1.pokemons.map {|pokemon| pokemon.total_attack}
 trainer2.pokemons.map {|pokemon| pokemon.total_attack}
+
+
+##
