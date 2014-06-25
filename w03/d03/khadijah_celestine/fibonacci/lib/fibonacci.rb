@@ -25,3 +25,12 @@ end #end def
 
 sum_of_even_fibonaccis(5)
 
+# use an array to hold the fib numbers
+# once any given the fib number is greater than limit stop
+# .select the even numbers in the array and then
+# .reduce it to the sum
+def sum_of_even_fibonaccis2(n)
+	fibs = []
+	nth = 0
+	fibs[nth] = fibonacci[nth]
+end
