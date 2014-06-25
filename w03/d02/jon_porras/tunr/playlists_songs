@@ -1,0 +1,571 @@
+\q
+\c hamco_realty_db
+SELECT * FROM apartments
+;
+\q
+\c hamco_db
+\c hamco_realty_db
+SELECT * FROM offices;
+\q
+\c hamco_realty_db
+SELECT * FROM offices;
+\q
+\c hamco_realty_db
+SELECT * FROM storefronts;
+\q
+\c hamco_realty_db
+SELECT * FROM storefronts;
+\dt
+SELECT AVG(sq_footage) FROM offices;
+SELECT COUNT(apt_number) FROM apartments;
+SELECT address FROM apartments WHERE tenant = nil;
+SELECT address FROM apartments WHERE tenant = 'nil'
+;
+\q
+\c hamco_realty_db
+SELECT address FROM apartments WHERE tenant = 'nil'
+;
+\q
+\c hamco_realty_db
+SELECT address FROM apartments WHERE tenant = null;
+SELECT address FROM apartments WHERE tenant = null;
+\q
+\c hamco_realty_db
+SELECT address FROM apartments WHERE tenant = null;
+SELECT address FROM apartments WHERE tenant = 'null';
+SELECT address FROM apartments WHERE tenant = null;
+SELECT LastName,FirstName,Address FROM Persons
+WHERE Address IS NULL;
+SELECT address FROM apartments WHERE address IS NULL;
+\q
+\dt
+SELECT * FROM apartments
+;
+\q
+\c hamco_realty_db
+SELECT * FROM apartments;
+SELECT LastName,FirstName,Address FROM Persons
+WHERE Address IS NULL;
+SELECT address FROM apartments WHERE tenant IS NULL;
+\q
+\c hamco_realty_db
+SELECT company_name FROM offices;
+SELECT cubicles, bathrooms FROM office WHERE id = 3;
+SELECT cubicles, bathrooms FROM offices WHERE id = 3;
+SELECT num_cubicles, num_bathrooms FROM offices WHERE id = 3;
+\q
+\c hamco_realty_db
+\q
+\c hamco_realty_db
+SELECT address FROM storefronts WHERE kitchen = 'yes';
+SELECT MAX(sq_footage) AND kitchen = 'yes FROM offices;
+';
+SELECT MAX(sq_footage) AND kitchen = 'yes' FROM offices;
+SELECT MAX(sq_footage) AND kitchen = 'yes' FROM storefronts;
+SELECT MAX(sq_footage), kitchen = 'yes' FROM storefronts;
+SELECT MAX(sq_footage) FROM storefronts;
+SELECT address WHEN MAX(sq_footage), kitchen = 'yes';
+SELECT address WHERE MAX(sq_footage), kitchen = 'yes';
+SELECT address WHERE MAX(sq_footage) AND kitchen = 'yes';
+SELECT address FROM offices WHERE MAX(sq_footage) AND kitchen = 'yes';
+SELECT address FROM offices WHERE kitchen = 'yes' AND MAX(sq_footage);
+SELECT MIN(num_cubicles) FROM offices;
+SELECT address FROM offices WHEN MIN(num_cubicles);
+SELECT address FROM offices WHERE MIN(num_cubicles);
+SELECT address FROM offices WHERE num_cubicles = MIN(num_cublicles);
+SELECT address FROM offices WHERE num_cubicles = MIN(num_cubicles);
+SELECT address FROM offices WHERE num_cubicles = 90;
+SELECT address, MIN(num_cubicles) FROM offices;
+SELECT address,num_cubicles FROM offices ORDER BY num_cubicles DESC LIMIT 1;
+SELECT address,num_cubicles FROM offices ORDER BY num_cubicles LAST LIMIT 1;
+SELECT address,num_cubicles FROM offices ORDER BY num_cubicles ASC LIMIT 1;
+SELECT address,sq_footage FROM storefronts ORDER BY num_cubicles ASC LIMIT 1;
+SELECT address,sq_footage FROM storefronts ORDER BY sq_footage ASC LIMIT 1;
+SELECT address,sq_footage FROM storefronts ORDER BY sq_footage DESC LIMIT 1,;
+SELECT address,sq_footage FROM storefronts ORDER BY sq_footage DESC LIMIT 1;
+SELECT address,sq_footage FROM storefronts ORDER BY sq_footage DESC LIMIT 1 AND kitched = 'yes';
+SELECT address,sq_footage FROM storefronts ORDER BY sq_footage DESC LIMIT 1 AND kitchen = 'yes';
+SELECT address,sq_footage FROM storefronts ORDER BY sq_footage DESC LIMIT 1, kitchen = 'yes';
+SELECT address,sq_footage FROM storefronts ORDER BY sq_footage DESC LIMIT 1, kitchen = 'yes';
+SELECT address,sq_footage FROM storefronts ORDER BY sq_footage DESC LIMIT 1;
+SELECT address,sq_footage FROM storefronts WHERE kitchen = 'yes', ORDER BY sq_footage ASC LIMIT 1;
+SELECT address,sq_footage FROM storefronts WHERE kitchen = 'yes' ORDER BY sq_footage ASC LIMIT 1;
+SELECT address,sq_footage FROM storefronts WHERE kitchen = 'yes' ORDER BY sq_footage DESC LIMIT 1;
+SELECT address,sq_footage FROM storefronts WHERE kitchen = 'yes' ORDER BY sq_footage DESC LIMIT 1;
+SELECT address,sq_footage FROM storefronts WHERE kitchen = 'yes' ORDER BY sq_footage DESC LIMIT;
+SELECT address,sq_footage FROM storefronts WHERE kitchen = 'yes' ORDER BY sq_footage DESC LIMIT 1;
+SELECT address FROM offices ORDER BY num_cublicles DESC LIMIT 1, num_bathrooms DESC LIMIT 1;
+SELECT address FROM offices ORDER BY num_cublicles DESC LIMIT 1 and num_bathrooms DESC LIMIT 1;
+SELECT address FROM offices ORDER BY num_cublicles DESC LIMIT 1 WHERE num_bathrooms DESC LIMIT 1;
+SELECT address FROM offices ORDER BY num_cublicles DESC LIMIT 1 WHERE num_bathrooms DESC LIMIT 1;SELECT address FROM offices ORDER BY num_cubicles, num_bathrooms ASC LIMIT 1;
+SELECT address FROM offices ORDER BY num_cubicles, num_bathrooms ASC LIMIT 1;
+SELECT address FROM offices ORDER BY num_cubicles, num_bathrooms DESC LIMIT 1;
+SELECT address FROM offices ORDER BY num_cubicles, num_bathrooms DESC LIMIT 1;
+SELECT address FROM offices ORDER BY num_cubicles, num_bathrooms ASC LIMIT 1;
+SELECT address FROM offices ORDER BY num_cubicles, num_bathrooms ASC LIMIT 6;
+SELECT address FROM offices ORDER BY num_cubicles, num_bathrooms DESC LIMIT 6;
+SELECT address FROM offices ORDER BY num_cubicles, num_bathrooms;
+SELECT address FROM offices ORDER BY num_cubicles, num_bathrooms DESC;
+SELECT address FROM offices ORDER BY num_cubicles, num_bathrooms DESC;
+SELECT address FROM offices ORDER BY num_cubicles DESC;
+SELECT address FROM offices ORDER BY num_cubicles AND num_bathrooms DESC;
+SELECT address FROM offices ORDER BY num_cubicles, num_bathrooms DESC;
+SELECT address FROM offices ORDER BY num_bathrooms DESC;
+SELECT address FROM offices ORDER BY num_bathrooms DESC, ORDER BY num_cublicles DESC;
+SELECT address FROM offices ORDER BY num_bathrooms DESC, ORDER BY num_cublicles DESC;
+SELECT address FROM offices ORDER BY num_bathrooms DESC, ORDER BY num_cublicles DESC;
+SELECT address FROM offices ORDER BY num_cubicles, num_bathrooms DESC;
+SELECT address FROM offices ORDER BY num_cubicles, num_bathrooms DESC;
+SELECT address FROM offices ORDER BY num_cubicles, num_bathrooms DESC;
+SELECT address FROM offices ORDER BY num_cubicles, num_bathrooms DESC;SELECT address,num_cubicles FROM offices ORDER BY num_cubicles ASC LIMIT 1;
+SELECT address,num_cubicles FROM offices ORDER BY num_cubicles ASC LIMIT 1;
+SELECT address,num_cubicles FROM offices ORDER BY num_cubicles ASC LIMIT 1;
+SELECT address,num_cubicles FROM offices ORDER BY num_cubicles ASC LIMIT 1;
+SELECT address FROM offices ORDER BY num_cubicles ASC LIMIT 1, num_bathrooms;
+SELECT address FROM offices ORDER BY num_cubicles ASC, num_bathrooms;
+SELECT address FROM offices ORDER BY num_cubicles DESC, num_bathrooms;
+SELECT address FROM offices ORDER BY num_cubicles DESC 1, num_bathrooms;
+SELECT address FROM offices ORDER BY num_cubicles DESC, num_bathrooms L
+SELECT address,num_cubicles FROM offices ORDER BY num_cubicles ASC LIMIT 1;
+SELECT address,num_cubicles FROM offices ORDER BY num_cubicles ASC LIMIT 1;
+SELECT address,sq_footage FROM storefronts WHERE kitchen = 'yes' ORDER BY sq_footage DESC LIMIT 1;
+SELECT address,sq_footage FROM storefronts WHERE kitchen = 'yes' ORDER BY sq_footage DESC LIMIT 1;
+\q
+c\ hamco_realty_db
+\c hamco_realty_db
+SELECT address FROM offices ORDER BY num_cubicles DESC, num_bathrooms LIMIT 1;
+SELECT address FROM offices ORDER BY num_cubicles DESC, num_bathrooms LIMIT 1;
+\q
+\c hamco_realty_db
+SELECT address FROM offices ORDER BY num_cubicles DESC, num_bathrooms LIMIT 1;
+SELECT * FROM offices ORDER BY num_cubicles DESC, num_bathrooms LIMIT 1;
+SELECT * FROM offices ORDER BY num_cubicles DESC, num_bathrooms LIMIT 1;
+SELECT * FROM offices ORDER BY num_cubicles DESC, num_bathrooms LIMIT 1;
+SELECT * FROM offices ORDER BY num_cubicles ASC LIMIT 1;
+SELECT * FROM offices ORDER BY num_cubicles ASC LIMIT 1;
+SELECT * FROM offices ORDER BY num_cubicles ASC LIMIT 1;
+SELECT * FROM storefronts WHERE kitchen = 'yes' ORDER BY sq_footage DESC LIMIT 1;
+SELECT * FROM storefronts WHERE kitchen = 'yes' ORDER BY sq_footage DESC LIMIT 1;
+SELECT * FROM storefronts WHERE kitchen = 'yes' ORDER BY sq_footage DESC LIMIT 1;SELECT * FROM storefronts WHERE kitchen = 'yes' ORDER BY sq_footage DESC LIMIT 1;SELECT * FROM storefronts WHERE kitchen = 'yes' ORDER BY sq_footage DESC LIMIT 1;
+SELECT * FROM storefronts WHERE kitchen = 'yes' ORDER BY sq_footage DESC LIMIT 1;
+SELECT * FROM storefronts WHERE kitchen = 'yes';
+\q
+SELECT * FROM offices ORDER BY num_cubicles DESC, num_bathrooms LIMIT 1;
+SELECT * FROM offices ORDER BY num_cubicles DESC, num_bathrooms LIMIT 1;SELECT * FROM offices ORDER BY num_cubicles DESC, num_bathrooms DESC LIMIT 1;
+\q
+SELECT * FROM offices ORDER BY num_cubicles DESC, num_bathrooms DESC LIMIT 1;
+\q
+SELECT * FROM offices ORDER BY num_cubicles DESC, num_bathrooms DESC LIMIT 1;
+\q
+\td
+\dt
+\t
+\d
+SELECT *
+;
+SELECT * FROM books
+;
+SELECT * FROM books
+;
+\c biblio_db
+SELECT * FROM books
+;
+SELECT * FROM books JOIN authors ON books.author_id = authors.id;
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE authors.nationality = 'United States of America';
+SELECT * FROM books JOIN authors ON books.author_id = authors.id
+;
+\q
+\c biblio_db
+SELECT * FROM books WHERE id = 8;
+SELECT * FROM books JOIN authors ON books.author_id = 8;
+q
+SELECT * FROM books JOIN authors ON books.id = 8;
+q
+;
+\q
+\c biblio_db
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE authors.id = 8;
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE authors.nationality = 'China', authors.nationality = 'United Kingdom'; 
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE authors.nationality = 'China'AND authors.nationality = 'United Kingdom'; 
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE authors.nationality = 'Chinese' AND authors.nationality = 'United Kingdom'; 
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE authors.nationality = 'Chinese', authors.nationality = 'United Kingdom'; 
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE authors.nationality = 'Chinese' AND  authors.nationality = 'United Kingdom'; 
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE nationality = 'Chinese' AND nationality = 'United Kingdom'; 
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE nationality = 'Chinese' OR nationality = 'United Kingdom'; 
+\q
+\c biblio_db
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE nationality = 'Chinese' OR nationality = 'United Kingdom'; 
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE name = 'Albert Camus'; 
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE publication > 1930;
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE publication_date > 1930;
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE publication_date < 1980;
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE publication_date > 1930 AND nationality = 'Argentina';
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE publication_date < 1980 AND nationality != 'United States of America';
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE publication_date < 1980 AND nationality <> 'United States of America';
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE LEFT(name, 1) = 'J';
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE CONTAINS(title, 'the');
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE title LIKE 'the';
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE title LIKE '%the%';
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE LEFT(title, 1) = 'N';
+SELECT DISTINCT FROM books JOIN authors ON books.author_id = authors.id WHERE LEFT(title, 1) = 'N';
+SELECT DISTINCT name FROM books JOIN authors ON books.author_id = authors.id WHERE LEFT(title, 1) = 'N';
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE title LIKE '%the%';
+SELECT DISTINCT name FROM books JOIN authors ON books.author_id = authors.id WHERE LEFT(title, 1) = 'N';
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE LEFT(name, 1) = 'J';
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE publication_date < 1980 AND nationality <> 'United States of America';
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE publication_date > 1930 AND nationality = 'Argentina';
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE nationality = 'Chinese' OR nationality = 'United Kingdom'; 
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE name = 'Albert Camus'; 
+SELECT COUNT(*) FROM books JOIN authors ON books.author_id = authors.id WHERE name = 'Albert Camus'; 
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE name 'Milan Kundera';
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE name = 'Milan Kundera';
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE name = 'Milan Kundera';
+SELECT * FROM books JOIN authors ON books.author_id = authors.id WHERE name = 'George R.R. Martin';
+\q
+\c wdi_closure_db 
+SELECT * FROM students WHERE cohort.id = 1;
+SELECT * FROM students WHERE cohort_id = 1;
+SELECT name FROM students WHERE cohort_id = 1;
+SELECT name FROM students WHERE cohort_id = 2;
+SELECT * FROM cohorts JOIN students.cohort_id = cohort.id;
+SELECT * FROM cohorts JOIN cohorts ON students.cohort_id = cohort.id;
+SELECT * FROM cohorts JOIN students ON cohort
+SELECT * FROM students JOIN cohorts ON cohort_id = students.cohort_id;
+SELECT * FROM students JOIN cohorts ON student.cohort_id = cohort.id;
+SELECT * FROM students JOIN cohorts ON students.cohort_id = cohort.id;
+SELECT * FROM students JOIN cohorts ON students.cohort_id = cohorts.id;
+SELECT * FROM students JOIN cohorts ON students.cohort_id = cohorts.id;
+SELECT * FROM students JOIN cohorts ON students.cohort_id = cohorts.id;
+SELECT * FROM students JOIN cohorts ON students.cohort_id = cohorts.id;
+SELECT * FROM students JOIN cohorts ON cohort_id = students.cohort_id;
+SELECT na FROM students JOIN cohorts ON students.cohort_id = cohorts.id;
+SELECT * FROM students JOIN cohorts ON students.cohort_id = cohorts_id;
+SELECT * FROM students JOIN cohorts ON coh
+SELECT * FROM students JOIN cohorts ON students.cohort_id = cohorts.id;
+SELECT name\]q FROM students JOIN cohorts ON students.cohort_id = cohorts.id;
+;
+SELECT * FROM students JOIN cohorts ON students.cohort_id = cohorts.id;q]
+;
+\q
+\c wdi_closure_db
+SELECT * FROM students JOIN cohorts ON students.cohort_id = cohorts.id;
+SELECT name FROM students JOIN cohorts ON students.cohort_id = cohorts.id;
+SELECT students.name FROM students JOIN cohorts ON students.cohort_id = cohorts.id;
+SELECT students.name, cohort.name FROM students JOIN cohorts ON students.cohort_id = cohorts.id;
+SELECT students.name, cohorts.name FROM students JOIN cohorts ON students.cohort_id = cohorts.id;
+SELECT students.name, cohorts.name, cohorts.start_date FROM students JOIN cohorts ON students.cohort_id = cohorts.id;
+SELECT students.name FROM students JOIN cohorts ON students.cohort_id = cohorts.id WHERE cohorts.name = 'closure';
+SELECT students.name FROM students JOIN cohorts ON students.cohort_id = cohorts.id WHERE cohorts.name = 'losure';
+SELECT students.name FROM students JOIN cohorts ON students.cohort_id = cohorts.id WHERE cohorts.name = 'Closure';
+SELECT students.name FROM students JOIN cohorts ON students.cohort_id = cohorts.id WHERE cohorts.start_date = 'June 16, 2014';
+SELECT students.name FROM students JOIN cohorts ON students.cohort_id = cohorts.id WHERE cohorts.name = 'Closure' AND students.favorite_color = 'orange';
+SELECT instructors.name FROM instructors JOIN cohorts ON instructors.cohort_id = cohorts.id;
+SELECT instructors FROM instructors JOIN cohorts ON instructors.cohort_id = cohorts.id WHERE 
+;
+SELECT instructors.name FROM instructors JOIN cohorts ON instructors.cohort_id = cohorts.id WHERE 
+;
+SELECT instructors.name FROM instructors JOIN cohorts ON instructors.cohort_id = cohorts.id 
+;
+q\
+\q
+\dt
+\c rental
+\td
+\dt
+SELECT name FROM tenants;
+SELECT * FROM tenants;
+\q
+\td
+SELECT name FROM tenants;
+SELECT * FROM tenants;
+\q
+\c rental
+\dt
+SELECT name FROM apartment
+;
+SELECT * FROM aparment
+;
+SELECT * FROM apartment
+;
+\q
+\c retnal
+\c rental
+SELECT * FROM apartments
+;
+SELECT * FROM apartments
+;
+\dt
+\q
+\c rental
+SELECT * FROM apartments
+;
+SELECT * FROM tenants
+;
+SELECT * FROM tenants;
+SELECT tenants.name, tenants.age, tenants.gender FROM tenants;
+SELECT * FROM tenants WHERE tenants.age > 65;
+SELECT * FROM tenants WHERE apartments.id = 20;
+SELECT * FROM tenants WHERE tenants.apartments_id = 20;
+SELECT * FROM tenants WHERE tenants.apartment_id = 20;
+SELECT * FROM tenants WHERE tenants.apartment_id = 20 OR tenants.apartment_id = 21;
+UPDATE doormen SET shift = 'Night' WHERE building_id = 3; 
+SELECT * FROM doormen WHERE building_id=3;
+SELECT * FROM doormen;
+SELECT * FROM apartments;
+SELECT * FROM doormen;
+SELECT * FROM doorman;
+SELECT * FROM doormen;
+\q
+\c rental
+SELECT * FROM doormen;
+SELECT * FROM doormen;
+\dt
+SELECT * FROM tenants;
+SELECT * FROM buildings;
+\q
+SELECT * FROM doormen;
+\c rental;
+SELECT * FROM doormen;
+SELECT name FROM doormen;
+\q
+\c rental;
+SELECT name FROM doormen;
+UPDATE doormen SET shift = 'Night' WHERE building_id = 3; 
+SELECT * FROM doormen;
+INSERT INTO tenants VALUES ('Jon', 28, 'Male', 416);
+INSERT INTO tenants VALUES (INTEGER REFERENCES apartments(id), 'Jon', 28, 'Male', 416);
+INSERT INTO tenants VALUES (, 'Jon', 28, 'Male', 416);
+INSERT INTO tenants VALUES (5256, 'Jon', 28, 'Male', 416);
+INSERT INTO tenants VALUES (5257, 'Jon', 28, 'Male', 416);
+INSERT INTO tenants VALUES (SERIAL PRIMARY KEY, 'Jon', 28, 'Male', 416);
+INSERT INTO tenants VALUES (PRIMARY KEY, 'Jon', 28, 'Male', 416);
+INSERT INTO tenants VALUES (5356, 'Jon', 28, 'Male', 416);
+SELECT apartments.id FROM buildings WHERE id = 2;
+SELECT id FROM apartments WHERE building_id = 2;
+SELECT * FROM apartments WHERE building_id = 3 AND price > 2300;
+UPDATE tenants SET age = 91 WHERE age = 91; 
+SELECT name, age FROM tenants WHERE age=91; 
+SELECT name, age FROM tenants WHERE age=90; 
+UPDATE tenants SET age = 91 WHERE age = 90; 
+SELECT name, age FROM tenants WHERE age=90; 
+UPDATE tenants.age SET age = age + 1;
+UPDATE age FROM tenants SET age = age + 1;
+UPDATE tenants SET age = age + 1 WHERE age; 
+UPDATE tenants SET age = age + 1; 
+SELECT tenants.name FROM tenants WHERE price > 2300; 
+SELECT tenants.name FROM tenants WHERE apartment.price > 2300; 
+SELECT tenants.name FROM tenants WHERE apartments.price > 2300; 
+SELECT name FROM tenants WHERE apartments.price > 2300; 
+SELECT name FROM tenants WHERE apartment_id = (apartments.price > 2300).id; 
+SELECT price FROM apartments;
+SELECT price FROM apartments WHERE price > 2300;
+SELECT name FROM tenants WHERE tenants.id = apartments.id WHERE price > 2300;
+SELECT name FROM tenants WHERE tenants.id = apartments_id WHERE price > 2300;
+SELECT name FROM tenants WHERE tenants.id = (apartments_id WHERE price > 2300);
+SELECT name FROM tenants WHERE apartment_id = apartments.id WHERE price > 2300;
+SELECT name FROM tenants WHERE apartment_id = (apartments.id WHERE price > 2300);
+SELECT name FROM tenants WHERE apartment_id = (apartments.id > 2300);
+SELECT name FROM tenants WHERE apartment_id = (apartments.id > 2300);
+SELECT apartment.price FROM apartments WHERE price > 2300;
+SELECT apartments.price FROM apartments WHERE price > 2300;
+SELECT apartments.id FROM apartments WHERE price > 2300;
+SELECT name FROM tenants WHERE apartment_id  = (apartments.id FROM apartments WHERE price > 2300);
+SELECT name FROM tenants WHERE apartment_id  = (SELECT apartments.id FROM apartments WHERE price > 2300);
+SELECT name FROM tenants WHERE apartment_id  = ( apartments.id FROM apartments WHERE price > 2300);
+SELECT name FROM tenants WHERE apartment_id  = (SELECT apartments.id FROM apartments WHERE price > 2300);
+SELECT name FROM tenants WHERE apartment_id  = (apartments.id FROM apartments WHERE price > 2300);
+SELECT name FROM tenants WHERE apartment_id  = (apartments.id WHERE price > 2300);
+SELECT name FROM tenants WHERE apartment_id  = (apartments.id WHERE price > 2300);
+SELECT name FROM tenants WHERE apartment_id = tenants.apartment_id (SELECT id  FROM apartments WHERE price > 2300);
+SELECT name FROM tenants IF apartment_id = apartment.id WHERE price > 2300;
+SELECT name FROM tenants IF apartment_id = (apartments.id WHERE apartments.price >2300);
+SELECT name FROM tenants WHERE apartment_id = (apartments.id WHERE apartments.price >2300);
+SELECT name FROM tenants WHERE apartment_id = (apartments.id IF apartments.price >2300);
+SELECT name FROM tenants WHERE apartment_id = (apartments.id IF apartments.price >2300);
+SELECT name FROM tenants WHERE apartment_id = (apartments.id IF apartments.price >2300);
+SELECT name FROM tenants WHERE apartment_id  = (SELECT apartments.id FROM apartments WHERE price > 2300);
+SELECT name FROM tenants WHERE apartment_id  = (SELECT id FROM apartments WHERE price > 2300);
+select id from apartments where price > 2300;
+SELECT name FROM tenants JOIN apartments ON tenants.apartment_id = apartments.id WHERE apartments.price > 2300;
+SELECT * FROM tenants JOIN apartments ON tenants.apartment_id = apa
+SELECT * FROM doormen JOIN buildings ON doormen.building_id = buildings.id;
+SELECT * FROM apartments JOIN tenants ON apartments.id = tenant.id WHERE id < 10;
+SELECT * FROM apartments JOIN tenants ON apartments.id = tenants.id WHERE id < 10;
+SELECT * FROM apartments JOIN tenants ON apartments.id = tenants.id WHERE tenants.id < 10;
+\c rentals
+\c rental
+\dt
+SELECT name FROM tenants WHERE apartment_id IN (SELECT id FROM apartments WHERE price > 2300);
+\q
+c\ wdi_closure_db
+\c wdi_closure_db 
+SELECT students.name FROM students JOIN cohorts ON students.cohort_id = cohorts.id WHERE cohorts.name = 'Closure' AND students.favorite_color = 'orange';
+SELECT students.name FROM students JOIN cohorts ON students.cohort_id = cohorts.id WHERE cohorts.name = 'Closure' AND students.favorite_color = 'orange';
+SELECT topic FROM lessons JOIN instructors ON lessons.instructor_id = instructors.id WHERE instructors.name = 'Mck';
+SELECT topic FROM lessons JOIN instructors ON lessons.instructor_id = instructors.id WHERE instructors.name = 'McK';
+SELECT topic FROM lessons JOIN instructors ON lessons.instructor_id = instructors.id WHERE instructors.name = 'McK' AND lessons.week = 2;
+SELECT topic FROM lessons;
+SELECT * FROM lessons;
+SELECT COUNT(*) FROM lessons JOIN instructors ON lessons.instructor_id = instructors.id WHERE instructors.name = 'McK';
+SELECT COUNT(*) FROM lessons JOIN instructors ON lessons.instructor_id = instructors.id WHERE instructors.name = 'Adam';
+SELECT COUNT(*) FROM lessons JOIN instructors ON lessons.instructor_id = instructors.id WHERE instructors.name = 'H
+SLECT * FROM classroms JOIN cohorts ON classrooms.cohort_id = cohorts.id;
+SELECT * FROM classroms JOIN cohorts ON classrooms.cohort_id = cohorts.id;
+SELECT * FROM classrooms JOIN cohorts ON classrooms.cohort_id = cohorts.id;
+SELECT * FROM classrooms JOIN classrooms ON cohorts.id = classrooms.cohort_id;
+SELECT * FROM cohorts JOIN classrooms ON cohorts.id = classrooms.cohort_id;
+SELECT * FROM classrooms
+;
+SELECT name FROM cohorts JOIN classrooms ON cohorts.id = classrooms.cohort_id;
+SELECT * FROM cohorts JOIN classrooms ON cohorts.id = classrooms.cohort_id;
+SELECT * FROM cohorts JOIN classrooms.name ON cohorts.id = classrooms.cohort_id;
+SELECT * FROM cohorts JOIN classrooms ON cohorts.id = classrooms.cohort_id;
+SELECT * FROM classrooms
+;
+SELECT * FROM classrooms WHERE cohort.id = nil;
+SELECT * FROM classrooms WHERE cohorts.id = nil;
+SELECT * FROM classrooms WHERE cohort_id = nil;
+SELECT * FROM classrooms WHERE cohort_id = null;
+SELECT * FROM classrooms WHERE cohort_id = '';
+SELECT * FROM classrooms WHERE cohort_id = NULL;
+SELECT * FROM classrooms WHERE cohort_id IS NULL;
+\q
+\c shows_db
+\dt
+SELECT * FROM shows
+;
+\q
+\c world_cup_db
+SELECT * FROM players
+;
+SELECT * FROM players
+;
+SELECT * FROM players
+;
+SELECT * FROM players
+;
+SELECT * FROM players
+;
+SELECT * FROM players
+;
+SELECT * FROM players;
+SELECT * FROM players;
+SELECT * FROM players;
+SELECT * FROM players;
+SELECT * FROM players;
+SELECT * FROM players;
+SELECT * FROM players;
+SELECT * FROM players;
+SELECT * FROM players;
+SELECT * FROM players;
+\c biblio_db
+SELECT * FROM authors
+;
+SELECT * FROM books
+;
+SELECT * FROM books
+;
+SELECT * FROM boo
+SELECT * FROM author
+;
+SELECT * FROM authors
+;
+SELECT * FROM authors
+;
+SELECT * FROM books
+;
+SELECT * FROM books
+;
+SELECT * FROM authors;
+SELECT * FROM books
+;
+exit
+\q
+\c pokemon_db
+\dt
+exit
+;
+\q
+\q
+\c shows_db
+Show.all
+;
+Show.all
+;
+exit
+\q
+\c pokemon_db
+\dt
+SELECT * FROM pokemons
+;
+exit
+;
+exit
+\q
+\d pokemon_db
+\c pokemon_db 
+SELECT * FROM pokemons
+;
+exit
+\q
+\c pokemon_db 
+SELECT * FROM pokemons
+;
+ exit
+\q
+\c pokemon_db 
+SELECT * FROM pokemons
+;
+\c pokemon_db 
+SELECT * FROM pokemons
+;
+SELECT * FROM pokemons
+;
+exit
+\q
+SELECT * FROM pokemons
+;
+\c pokemon_db 
+SELECT * FROM pokemons
+;
+  \q
+\c pokemon_db 
+SELECT * FROM pokemons
+;
+exit
+\q
+\c pokemon_db 
+SELECT * FROM pokemons
+;
+\q
+\c pokemon_db 
+SELECT * FROM pokemons
+;
+\q
+\c pokemon_db 
+SELECT * FROM pokemons
+;
+\q
+\c pokemon_db 
+SELECT * FROM pokemons
+;
+\q
+\c pokemon_db 
+SELECT * FROM pokemons
+;
+\q
+SELECT * FROM pokemons
+;
+\c pokemon_db 
+SELECT * FROM pokemons
+;
+\q
+\d tables
+\d play
+\d playlist_songs
+\c tunr_db 
+\d play
+\d playlist_songs
+\dt
+\d songs
+\s playlists_songs
