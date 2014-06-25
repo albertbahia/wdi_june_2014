@@ -9,9 +9,9 @@ def ordinator(number)
     return "#{number}th"
   elsif number.to_s.split('').last.to_i == 1
     return "#{number}st"
-  elsif number == 22
+  elsif number.to_s.split('').last.to_i == 2
     return "#{number}nd"
-  elsif number == 23
+  elsif number.to_s.split('').last.to_i == 3
     return "#{number}rd"
   else
     return "#{number}th"

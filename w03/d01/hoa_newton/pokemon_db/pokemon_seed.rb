@@ -62968,6 +62968,6 @@ def get_pokemon
   }
   ]
   return pokerray
-    binding.pry
+  
 end
 

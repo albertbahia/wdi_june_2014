@@ -35,7 +35,11 @@ or to return all the names of the pokemon:
 
 - All pokemon with a speed less than 25 and attack over 30
 
+<<<<<<< HEAD
+  Pokemon.where("speed < '25' AND attack > '30'")
+=======
   Pokemon.where('speed <= 25 AND attack >= 30')
+>>>>>>> 01e9f76be90ece8693167ca08d053eb6b4615a4f
 
 - The 5 pokemon with the highest happiness level.
 
