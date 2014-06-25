@@ -1,6 +1,5 @@
 require_relative 'pokemon.rb'
 require_relative 'pokemon_seed.rb'
-require 'pry'
 
 pokerray = get_pokemon()
 
@@ -19,5 +18,3 @@ pokerray.each do |pokemon_hash|
     happiness: pokemon_hash[:misc][:happiness].to_i
     })
 end
-
-binding.pry
