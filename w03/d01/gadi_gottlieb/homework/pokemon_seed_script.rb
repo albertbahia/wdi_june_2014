@@ -1,7 +1,7 @@
+require_relative 'pokemon.rb'
+require_relative 'pokemon_seed.rb'
 require 'active_record'
 require 'pry'
-require_relative 'pokemon_seed.rb'
-require_relative 'pokemon.rb'
 
 
 ActiveRecord::Base.establish_connection({
@@ -9,28 +9,38 @@ ActiveRecord::Base.establish_connection({
   adapter: 'postgresql'
 })
 
-pokemon_list = get_pokemon
+pokemon_list = get_pokemon()
 
-def seed_db(array_of_pokemon)
-  array_of_pokemon.each do |hash|
-      id = hash[:id].to_i
-      name = hash[:name]
-      hp = hash[:stats][:hp].to_i
-      attack = hash[:stats][:attack].to_i
-      defense = hash[:stats][:defense].to_i
-      speed = hash[:stats][:speed].to_i
-      moves = hash[:moves][:name]
-      image_url = hash[:img]
-      classification = hash[:misc][:classification]
-      species = hash[:type].join(' ')
-      height = hash[:misc][:height].to_i
-      happiness = hash[:misc][:happiness].to_i
+  def seed_db(array_of_pokemon)
+    array_of_pokemon.each do |hash|
+        # dont need the id because psql will take care of it. id = hash[:id].to_i
+        name = hash[:name]
+        hp = hash[:stats][:hp].to_i
+        attack = hash[:stats][:attack].to_i
+        defense = hash[:stats][:defense].to_i
+        speed = hash[:stats][:speed].to_i
+        moves = hash[:moves][:level].map { |move| move[:name].capitalize }.join(' | ')
+        image_url = hash[:img]
+        classification = hash[:misc][:classification]
+        species = hash[:type].join(' | ')
+        height = hash[:misc][:height].to_i
+        happiness = hash[:misc][:happiness].to_i
 
-  Pokemon.create(id: id, name: name, hp: hp, attack: attack, defense: defense, speed: speed, moves: moves, image_url: image_url, classification: classification,
-  species: species, height: height, happiness: happiness)
+    Pokemon.create({
+        name: name,
+        hp: hp,
+        attack: attack,
+        defense: defense,
+        speed: speed,
+        moves: moves,
+        image_url: image_url,
+        classification: classification,
+        species: species,
+        height: height,
+        happiness: happiness
+        })
+    end
   end
-end
-
 seed_db(pokemon_list)
 
 

@@ -21,3 +21,6 @@ id_89.name
 
 Pokemon.where({name: 'Nidoran?'}).first.update({ name: 'Nidoran male'})
 Pokemon.where({name: 'Nidoran?'})[1].update({ name: 'Nidoran female'})
+
+Pokemon.limit(35).map(&:hp)
+Pokemon.where("speed < '25' AND attack > '30'")
