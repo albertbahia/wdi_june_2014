@@ -1,0 +1,20 @@
+require 'active_record'
+
+ActiveRecord::Base.establish_connection({
+    database: 'pokemon_db',
+    adapter: 'postgresql'
+    })
+    
+class Trainer < ActiveRecord:: Base
+    
+has_and_belongs_to_many :pokemons
+
+    def whos_that_trainer
+        return "ID #{id} | Name: #{name} | Hometown: #{hometown}" 
+    end
+    
+    def choose_pokemon(pokemon_array)
+        pokemons << pokemon_array
+    end
+    
+end
