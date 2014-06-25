@@ -1,23 +1,23 @@
-require_relative 'pokemon.rb'
-require_relative 'pokemon_seed.rb'
-require 'pry'
-
-=begin
-poke_hash[:name]
-poke_hash[:img]
-poke_hash[:stats][:hp]
-poke_hash[:stats][:attack]
-poke_hash[:stats][:defense]
-poke_hash[:stats][:speed]
-poke_hash[:type].join(' | ')
-poke_hash[:moves][:level].map { |move| move[:name].capitalize }.join(' | ')
-poke_hash[:misc][:classification]
-poke_hash[:misc][:height]
-poke_hash[:misc][:happiness]
-=end
-
+# require_relative '../lib/pokemon.rb'
+# require_relative 'pokemon_seed.rb'
+# require 'pry'
+#
+# =begin
+# poke_hash[:name]
+# poke_hash[:img]
+# poke_hash[:stats][:hp]
+# poke_hash[:stats][:attack]
+# poke_hash[:stats][:defense]
+# poke_hash[:stats][:speed]
+# poke_hash[:type].join(' | ')
+# poke_hash[:moves][:level].map { |move| move[:name].capitalize }.join(' | ')
+# poke_hash[:misc][:classification]
+# poke_hash[:misc][:height]
+# poke_hash[:misc][:happiness]
+# =end
+#
 # pokemon_array = get_pokemon()
-
+#
 # pokemon_array.each do |poke_hash|
 #   Pokemon.create({
 #     name: poke_hash[:name],
@@ -33,5 +33,5 @@ poke_hash[:misc][:happiness]
 #     happiness: poke_hash[:misc][:happiness].to_i
 #     })
 # end
-
-binding.pry
+#
+# binding.pry

@@ -1,4 +1,6 @@
+drop table if exists pokemons_trainers; 
 drop table if exists pokemons;
+drop table if exists trainers;
 
 create table pokemons(
   id serial primary key,
@@ -13,4 +15,16 @@ create table pokemons(
   species varchar(255),
   height varchar(255),
   happiness integer
+);
+
+create table trainers(
+  id serial primary key,
+  name varchar(255) not null,
+  age integer not null,
+  hometown varchar(255)
+);
+
+create table pokemons_trainers(
+  pokemon_id INTEGER references pokemons(id),
+  trainer_id INTEGER references trainers(id)
 );
