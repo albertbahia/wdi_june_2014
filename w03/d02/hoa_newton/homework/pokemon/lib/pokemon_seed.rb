@@ -62968,6 +62968,4 @@ def get_pokemon
   }
   ]
   return pokerray
-  
 end
-
