@@ -19,7 +19,6 @@ trainer2.pokemons = []
 trainer1.choose_pokemon(Pokemon.get_pokemon)
 trainer2.choose_pokemon(Pokemon.get_pokemon)
 
-
 trainer1_high_score = trainer1.pokemons.map { |pokemon| pokemon.total_attack }.max
 trainer2_high_score = trainer2.pokemons.map { |pokemon| pokemon.total_attack }.max
 
@@ -38,7 +37,3 @@ else
       end
   end
 end
-
-
-
-# trainer2.pokemons.map {|pokemon| pokemon.total_attack}
