@@ -41,16 +41,28 @@ describe '#ordinator' do
     expect(ordinator(24)).to eq('24th')
   end
 
-  xit '11, 12, 13'
+  it 'returns 11th for 11' do
+    expect(ordinator(11)).to eq('11th')
+  end
+
+  it 'returns 12th for 12' do
+    expect(ordinator(12)).to eq('12th')
+  end
+
+  it 'returns 13th for 13' do
+    expect(ordinator(13)).to eq('13th')
+  end
 
   it 'returns 31st for 31' do
     expect(ordinator(31)).to eq('31st')
   end
 
   it 'returns 32nd for 32' do
+    expect(ordinator(32)).to eq('32nd')
   end
 
   it 'returns 33rd for 33' do
+    expect(ordinator(33)).to eq('33rd')
   end
 
 end
