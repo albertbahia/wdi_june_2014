@@ -1,0 +1,21 @@
+<h2>Artists</h2>
+  <ul>
+    <% @featured_artists.each do |artist| %>
+      <li><%= artist %></li>
+    <% end %>
+  </ul>
+
+  <h4>Tun.r by You</h4>
+  <p>Add artists here that you want to hear more of:</p>
+  <form method="POST" action="/add_to_music">
+    <label>
+      Artist Name:
+      <input type="text" name="artist_name">
+    </label>
+      <input type="submit">
+  </form>
+
+  <h4>Artists that you want:</h4>
+  <% @music.each do |name|%>
+    <%= name %><br>
+  <% end %>
