@@ -1,0 +1,18 @@
+<html>
+  
+    <head>
+        <title>Tun.r</title>  
+  </head>
+  
+  <body>
+      <h1>Tun.r</h1>
+      <p>
+      Hey. Tun.r is the best music service on this side of the galaxy.
+      </p>
+      <% meaning_of_life = 42 %>
+      
+      <p> The meaning of life is <%= meaning_of_life %></p>
+  </body>
+  
+</html>
+

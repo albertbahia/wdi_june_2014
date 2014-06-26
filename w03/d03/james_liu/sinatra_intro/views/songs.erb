@@ -1,0 +1,12 @@
+      <h2>Songs</h2>
+     
+      
+      <form method="POST" action="/featured_songs">
+      <input type="text" name="new_song">
+      <input type="submit">
+      </form>
+      
+      <h4>What Songs Do YOU Want??!?!</h4>
+      <%@featured_songs.each do |song|%>
+      <%= song%><br>
+      <% end %>
