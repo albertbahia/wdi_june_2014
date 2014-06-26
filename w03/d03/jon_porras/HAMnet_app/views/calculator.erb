@@ -1,0 +1,22 @@
+<h3>CALCULATOR</h3>
+
+<form method="POST" action="/calculate" type="text">
+  <label>
+    Hey Boss, enter the first number:
+    <input type="text" name="num1">
+  </label>
+  <label>
+    Okay now select the second number:
+    <input type="text" name="num2">
+  </label>
+  <label>
+    Yo, you want to add, subtract or multiply?:
+    <input type="text" name="calc_choice">
+  </label>
+  <input type="submit">
+</form>
+
+<h3>Hey Boss, submit and see your results below:</h3>
+<% @calc_result.each do |num|  %>
+<%= num %><br>
+<% end %>
