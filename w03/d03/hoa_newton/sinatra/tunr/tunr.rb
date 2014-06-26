@@ -60,7 +60,6 @@ post '/add_to_list' do
 	name: params[:full_name],
 	email: params[:email]
 	}
-
 	early_access_list.push(new_user)
 	redirect('/') #go back to the home page after the post
 end
