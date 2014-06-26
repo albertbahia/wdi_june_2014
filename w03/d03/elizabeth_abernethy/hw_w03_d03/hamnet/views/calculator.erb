@@ -1,0 +1,63 @@
+<h2>Calculator</h2>
+
+<img src="http://www.hasslefreeclipart.com/clipart_school/images/calculator.gif">
+<p><b>What do you want to calculate today?</b></p>
+
+<form method="POST" action="/calculator">
+
+  <label>
+    Enter your first number:
+      <input type="number" name="firstnum">
+  </label><br><br>
+
+  <label>
+    Choose your math function:<br>
+    (add, subtract, multiply, divide)
+      <input type="text" name="operator">
+  </label><br><br>
+
+  <label>
+    Enter your second number:
+      <input type="number" name="secondnum">
+  </label>
+
+    <input type="submit">
+
+</form>
+
+
+
+<!-- When the user submits the form they should be taken to another
+page that will display the results of the math operation they
+performed. On this results page there should be a link that
+allows the user to go back to the main calculator page to
+perform more calculations. -->
+
+
+
+  <!-- <label>
+    Go ahead, do your maths:
+    <form action="/add" method="post" accept-charset="utf-8">
+      <input type="text" name="num1" value="" id="num1"> +
+      <input type="text" name="num2" value="" id="num2">
+      <input type="submit" value="Add">
+    </form>
+
+    <form action="/subtract" method="post" accept-charset="utf-8">
+      <input type="text" name="num1" value="" id="num1"> -
+      <input type="text" name="num2" value="" id="num2">
+      <input type="submit" value="Subtract">
+    </form>
+
+    <form action="/multiply" method="post" accept-charset="utf-8">
+      <input type="text" name="num1" value="" id="num1"> *
+      <input type="text" name="num2" value="" id="num2">
+      <input type="submit" value="Multiply">
+    </form>
+
+    <form action="/divide" method="post" accept-charset="utf-8">
+      <input type="text" name="num1" value="" id="num1"> /
+      <input type="text" name="num2" value="" id="num2">
+      <input type="submit" value="Divide">
+    </form>
+  </label> -->
