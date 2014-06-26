@@ -67,11 +67,17 @@ get '/magic_ball' do
 end
 
 get '/magic_ball/*' do
-  "#{params[:splat]}
-  #{magic_ball.sample}
-  <a href='/magic_ball'>Back</a>
-  "
+  question = params[:splat]
+  "#{question.shift.strip.capitalize} & #{magic_ball.sample} <a href='/magic_ball'>Back</a>"
 end
+
+
+# get '/magic_ball/*' do
+#   "#{params.shift.strip]}
+#   #{magic_ball.sample}
+#   <a href='/magic_ball'>Back</a>
+#   "
+# end
 
 get '/tip' do
   erb(:tip)
@@ -79,7 +85,7 @@ get '/tip' do
 end
 
 get '/tip/:total/:percent' do
-  tip = (( params[:percent].to_f) * (params[:total].to_f)/10) 
+  tip = (( params[:percent].to_f) * (params[:total].to_f)/10)
    "$#{tip} <a href='/tip'>Back</a>"
 end
 post '/calculate' do
