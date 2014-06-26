@@ -17,14 +17,14 @@ end
 
 #show
 get "/songs/:id" do
-  @song = Song.find(params[:id])
+  @songs = Song.find(params[:id])
   erb(:"songs/show")
 end
 
 # edit
 get "/songs/:id/edit" do
-  @song = Song.find(params[:id])
-  erb(:"songs/edit")
+  @songs = Song.find(params[:id])
+  erb(:"songs/#{song.id}/edit")
 end
 
 # update

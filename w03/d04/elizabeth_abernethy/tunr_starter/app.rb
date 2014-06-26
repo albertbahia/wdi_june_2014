@@ -5,12 +5,12 @@ require 'active_record'
 # Load specific routes
 require_relative 'controllers/artists'
 require_relative 'controllers/songs'
-# require_relative 'controllers/playlists'
+require_relative 'controllers/playlists'
 
 # Load models
 require_relative 'models/artist'
 require_relative 'models/song'
-# require_relative 'models/playlists'
+require_relative 'models/playlist'
 
 # Load Active Record and connect to the DB
 ActiveRecord::Base.establish_connection({
