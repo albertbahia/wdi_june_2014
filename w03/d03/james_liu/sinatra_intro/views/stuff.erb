@@ -1,0 +1,13 @@
+      <h2>Stuff</h2>
+      
+
+      <form method="POST" action="/featured_stuff">
+      <input type="text" name="new_stuff">
+      <input type="submit"> 
+      </form>
+      
+      <h4>Stuff!</h4>
+      <%@featured_stuff.each do |thing| %>
+      <%= thing%><br>
+      <% end %>
+    
