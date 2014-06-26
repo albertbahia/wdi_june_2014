@@ -1,0 +1,27 @@
+<h2>Calculator!</h2>
+
+<form method="POST" action="calculator_results">
+  <label>
+    First number:
+    <input type="text" name="first_number" placeholder="Enter first number"><br>
+    Math Operation:
+    <input type="text" name="operation" placeholder="Enter math operation"><br>
+    Second number:
+    <input type="text" name="second_number" placeholder="Enter second number"><br>
+  </label>
+
+  <input type="submit">
+
+</form>
+
+<h4>The result of the operation is:</h4>
+
+  <% @numbers_list.each do |number| %>
+    <% if number[:operation].to_s == "add" %>
+      <%= number[:number1].to_i + number[:number2].to_i %>
+    <% elsif number[:operation].to_s == "multiply" %>
+      <%= number[:number1].to_i * number[:number2].to_i %>
+    <% elsif number[:operation].to_s == "divide" %>
+      <%= number[:number1].to_i / number[:number2].to_i %>
+    <% end %>
+  <% end %>
