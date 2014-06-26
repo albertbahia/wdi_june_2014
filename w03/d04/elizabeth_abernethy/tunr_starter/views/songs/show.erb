@@ -1,13 +1,9 @@
-<h2>Title: <%= @songs.title %></h2>
-<h3>Album: <%= @songs.album %></h3>
-<a href=" <%= @songs.preview_url %>">Preview Link</a>
-<h3>Artist: <%= @songs.artist_id %></h3>
-<h4>Price: <%= @songs.price %> cents</h4>
+<h2>Title: <%= @song.title %></h2>
+<h3>Album: <%= @song.album %></h3>
+<a href="<%= @song.preview_url %>">Preview Link</a>
+<h3>Artist: <%= @song.artist_id %></h3>
+<h4>Price: <%= @song.price %> cents</h4>
 
-<form action="/songs/<%= @songs.id %>/edit" method="post">
-  <input type="submit" value="Edit Song">
-</form>
-
-<form action="/songs/<%= @songs.id %>/delete" method="post">
+<form action="/songs/<%= @song.id %>/delete" method="post">
   <input type="submit" value="Delete Song">
 </form>
