@@ -44,21 +44,13 @@ post '/calc_math' do
   math_stuff[:second] = params[:second_num]
 
   case params[:operation]
-  when "add"
-    sum = params[:first_num].to_i + params[:second_num].to_i
-    math_stuff[:op] = "+"
-  when "subtract"
-    sum = params[:first_num].to_i - params[:second_num].to_i
-    math_stuff[:op] = "-"
-  when "multiply"
-    sum = params[:first_num].to_i * params[:second_num].to_i
-    math_stuff[:op] = "x"
-  when "divide"
-    sum = params[:first_num].to_i / params[:second_num].to_i
-    math_stuff[:op] = "/"
+  when "+" then result = params[:first_num].to_i + params[:second_num].to_i
+  when "-" then result = params[:first_num].to_i - params[:second_num].to_i
+  when "x" then result = params[:first_num].to_i * params[:second_num].to_i
+  when "/" then result = params[:first_num].to_i / params[:second_num].to_i
   end
 
-  math_stuff[:result] = sum.to_s
+  math_stuff[:result] = result.to_s
 
 
   redirect('/calculator_answer')
