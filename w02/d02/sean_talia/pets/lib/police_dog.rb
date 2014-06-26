@@ -1,0 +1,5 @@
+class PoliceDog < Dog
+
+  
+
+end
