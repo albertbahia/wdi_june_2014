@@ -1,0 +1,27 @@
+def sum_of_even_fibonaccis(limit)
+    holder = [1,2]
+    
+    while (holder[-1] + holder[-2]) < limit
+      holder << holder[-1] + holder[-2]
+    end
+
+
+end
+
+=begin
+fibonacci = fibonacci_sequence(3)
+
+def sum_of_even_fibonaccis
+    fibonacci.select { |num| num%2 == 0}.reduce(:+)
+end
+
+puts sum_of_even_fibonaccis
+
+
+def fibonacci( n )
+  return  n  if ( 0..1 ).include? n
+  ( fibonacci( n - 1 ) + fibonacci( n - 2 ) )
+end
+puts fibonacci( 5 )
+
+=end  
