@@ -1,0 +1,16 @@
+<html>
+
+    <title>Tun.r</title>
+    <head>
+  </head>
+  <body>
+
+    <h1>Artists</h1>
+      <p>These artists will be available soon:</p>
+        <ul>
+          <% @featured_artists.each do |artists| %>
+            <li><%= artists %></li>
+        <% end %>
+      </ul>
+  </body>
+</html>

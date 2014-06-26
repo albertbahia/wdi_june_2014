@@ -1,0 +1,34 @@
+<!-- Define a tip calculator route. When the user clicks the Tip Calculator link they should be taken to this route and the following should be displayed:
+- A title showing what page the user is on
+- A link that when pressed will return them to the homepage
+- Instructions on how to find their suggested tipping value
+  - to submit a tip query they user must put the values in the url bar (whole numbers please) separated by a `/`
+-`localhost:4567/tip/100/20`
+
+
+When it is submitted the user should be taken to a page with the following information displayed:
+- The original amount
+- The tip percentage
+- The amount for a tip
+- a link that when pressed will return the user to the tip calculator page -->
+
+
+<html>
+  <head>
+    <title>HAMnet Tip Calculator</title>
+  </head>
+  <body>
+    <ul>
+      <li><a href="/">Home</a></li>
+    </ul>
+      <%= yield %>
+  <form method="POST" action="/tip_calculator">
+    <label>
+        Please type your tip query into the URL or website address bar like so:
+        `localhost:4567/tip/100/20` and then click on the "Submit" button.
+        <input type="text">
+    </label>
+  <input type="submit">
+  </form>
+  </body>
+</html>

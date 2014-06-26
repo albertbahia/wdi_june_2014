@@ -1,0 +1,43 @@
+<!-- Define a magic eight ball route. When the user clicks the Magic 8 Ball link
+they should be taken to this route and the following should be displayed:
+- a title showing what page the user is on
+- a link that when pressed will return them to the homepage
+- instructions on how to submit a question
+  - to submit a question the user must put their question in the url bar as such: `localhost:4567/magic/Will%20I%20survive`
+  - Spaces must be 'escaped' using `%20`
+  - What is 'escaping'? -->
+
+  <!-- When a question is submitted the user should be taken to a page with the answer. This page should display the following:
+  - A title showing what page the user is on
+  - a link that when pressed will return them to the magic 8 ball page
+  - The question that was asked
+  - A random magic 8 ball answer
+
+  ```ruby
+  "It is certain", "It is decidedly so", "Without a doubt", "Yes definitely",
+  "You may rely on it", "As I see it yes", "Most likely", "Outlook good","Yes",
+  "Signs point to yes", "Reply hazy try again", "Ask again later","Better not tell you now",
+  "Cannot predict now", "Concentrate and ask again","Don't count on it", "My reply is no",
+  "My sources say no","Outlook not so good", "Very doubtful"
+  ``` -->
+
+
+<html>
+  <head>
+    <title>HAMnet Magic 8 Ball</title>
+  </head>
+  <body>
+    <ul>
+      <li><a href="/">Home</a></li>
+    </ul>
+      <%= yield %>
+  <form method="POST" action="/magic">
+    <label>
+      Please type your question into the URL or website address bar like so:
+      `localhost:4567/magic/Will%20I%20survive` and then click on the "Submit" button.
+        <input type="text">
+    </label>
+  <input type="submit">
+  </form>
+  </body>
+</html>
