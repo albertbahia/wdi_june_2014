@@ -1,4 +1,4 @@
-#This test is not yet complete.  It has 3 failures left.
+#This test is not yet complete.  It has 1 failure left.
 
 class Beast
 
@@ -24,9 +24,16 @@ class Beast
     end
   end
 
-  def attack(beast)
-    #method return needed here
+  def attack(ghost)
+    #need to complete this method
   end
 
+  def alive?
+   if @hp > 0
+     true
+   else
+     false
+   end
+   end
 
 end
