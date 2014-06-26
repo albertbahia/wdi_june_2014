@@ -22,6 +22,6 @@ class Pokemon < ActiveRecord::Base
   end
 
   def total_attack
-    puts (attack * 0.5) + (speed * 0.25) - (defense * 0.2)
+    return (attack * 0.5) + (speed * 0.25) - (defense * 0.2)
   end
 end

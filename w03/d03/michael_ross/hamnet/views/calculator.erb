@@ -1,0 +1,20 @@
+<h2>Calculator</h2>
+<form method="POST" action="/use_calculator">
+  <label>
+    Input first number:
+      <input type="text" name="first_num" placeholder="First Number">
+    </label><br>
+  <label>
+    Math Operation to Perform:
+      <input type="text" name="calc_operator" placeholder="'+' or '-' or '*' or '/'">
+    </label><br>
+  <label>
+    Input first number:
+      <input type="text" name="second_num" placeholder="Second Number">
+    </label><br>
+  <input type="submit">
+</form>
+
+<% @calculator_results.each do |number| %>
+<%= number %>
+<% end %>
