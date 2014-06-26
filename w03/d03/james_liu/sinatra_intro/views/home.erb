@@ -1,0 +1,20 @@
+    <h4>
+    Early Access List
+    </h4>
+
+        <p>
+            Hey, add our name!
+        </p>
+
+        <form method="POST" action="/add_to_list">
+        <input type="text" name="full_name">
+        <input type="text" name="email">
+        <input type="submit">
+        </form>
+ 
+     <h4>
+    People Already on List
+    </h4>
+    <%@list.each do |name|%>
+    <%=name %><br>
+    <% end %>
