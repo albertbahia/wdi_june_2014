@@ -1,0 +1,33 @@
+
+<!-- #yet to do:
+<!-- When the user submits the form they should be taken to another page that will -->
+display the results of the math operation they performed. On this results page
+there should be a link that allows the user to go back to the main calculator page
+to perform more calculations. -->
+
+<html>
+  <head>
+    <title>HAMnet Calculator</title>
+  </head>
+  <body>
+    <ul>
+      <li><a href="/">Home</a></li>
+    </ul>
+      <%= yield %>
+  <form method="POST" action="/calculator">
+    <label>
+      Type your 1st number here:
+        <input type="text">
+    </label>
+    <label>
+      Choose which math operation to perform:
+        <input type="text">
+    </label>
+    <label>
+      Type your 2nd number here:
+        <input type="text">
+    </label>
+  <input type="submit">
+  </form>
+  </body>
+</html>
