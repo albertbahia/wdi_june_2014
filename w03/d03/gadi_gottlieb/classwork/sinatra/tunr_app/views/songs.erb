@@ -1,0 +1,18 @@
+<h2>Songs</h2>
+<p>Our Song List</p>
+  <ul>
+    <% @featured_songs.each do |song| %>
+      <li><%= song %></li>
+      <%end%>
+  </ul>
+<p>New Songs To Add</p>
+<form method = "POST" action = "/add_songs">
+  <input type="text" name="song">
+  <input type="submit">
+</form>
+
+<h4>New Songs on the list so far</h4>
+
+<% @wishlist.each do |name| %>
+  <%= name %><br>
+<%end%>
