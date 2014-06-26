@@ -33,3 +33,10 @@ You have 10 minutes to plan your attack. Try to write out in pseudocode how you 
 ### Step 2 - Code
 
 Write a method `valid_card?` that takes a number as an argument and returns true for a valid number and false for an invalid number
+
+```ruby
+puts valid_card?(1234567890123456) #should be false
+puts valid_card?(4408041234567893) #should be true
+puts valid_card?(38520000023237) #should be true
+puts valid_card?(4222222222222) #should be true
+```
