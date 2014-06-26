@@ -2,6 +2,8 @@
 <h3><%= @artist.nationality %></h3>
 <img src="<%= @artist.photo_url %>">
 
-<form action="/artists/<%= @artist.id %>/delete" method="post">
-  <input type="submit" value="Delete Artist">
-</form>
+<ul>
+  <% @artist.songs.each do |song| %>
+    <li><%= song.title %></li>
+  <% end %>
+</ul>
