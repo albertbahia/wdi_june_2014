@@ -1,0 +1,25 @@
+<h3>Who's that Trainer</h3>
+
+<div class="pokeblock">
+  <p><%= @trainer.name %></p>
+  <p><%= @trainer.age %></p>
+  <p><%= @trainer.hometown %></p>
+  <p><a href="/trainers/<%= @trainer.id %>/edit">Edit</a><p>
+  <% if @trainer.pokemons.length < 1 %>
+  <form method="POST" action="/trainers/<%= @trainer.id %>/add_pokemon">
+    <input type="submit" value="GET PKMN">
+  </form>
+  <% end %>
+  <form method="POST" action="/trainers/<%= @trainer.id %>/delete">
+    <input type="submit" value="DELETE TRAINER">
+  </form>
+</div>
+
+<% @trainer.pokemons.each do |pkmn| %>
+<div class="pokeblock">
+  <p><%= pkmn.display_id %></p>
+  <img src="<%= pkmn.image_url %>">
+  <p><%= pkmn.name %></p>
+  <p><a href="/pokemons/<%= pkmn.id %>">View</a><p>
+</div>
+<% end %>
