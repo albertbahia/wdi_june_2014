@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Artists</title>
+  </head>
+  <body>
+    <h2>A r t i s t s</h2>
+    <ul>
+      <% @featured_artists.each do |artist| %>
+      <li> <%= artist %> </li>
+      <% end %>
+    </ul>
+    <p>(These artists and others will be available soon!)</p>
+
+
+    <h4>Submit artists you want to see on Tun.r:</h4>
+    <form METHOD= "POST" action= '/artist_requests'>
+      Artist: <input type= "text" name= "artist">
+      <input type= "submit">
+    </form>
+
+    <h4>Artists Already Requested</h4>
+    <ul>
+    <% @demanded_artists.each do |request| %>
+    <li> <%= request %> </li>
+    <% end %>
+  </ul>
+
+  </body>
+</html>

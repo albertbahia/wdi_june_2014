@@ -1,0 +1,15 @@
+<h2><%= @pokemon.name %></h2></br>
+<img src="<%= @pokemon.image%>">
+<p>HP: <%= @pokemon.hp %></p>
+<p>Classification: <%= @pokemon.classification %></p>
+<p>Species: <%= @pokemon.species %></p>
+
+<!-- <p>Moves: <%= @pokemon.moves %></p> -->
+
+
+<p>Height: <%= @pokemon.height %></p>
+<p>Happiness: <%= @pokemon.happiness %></p>
+</br>
+<form action="/pokemons">
+  <input type="submit" value="Back to Pokemon">
+</form>
