@@ -1,0 +1,28 @@
+<h1><%= @trainer.name %></h1>
+<img src="http://www.fillmurray.com/300/300"><br>
+<p>Age: <%= @trainer.age %></p>
+<p>Hometown: <%= @trainer.hometown %></p>
+<p>Pokemon: <% if @trainer.pokemons.length > 0 %> </p>
+<% @trainer.pokemons.each do |pokemon| %>
+<ul>
+  <li><img src="<%= pokemon.img %>"></li>
+    <ul>
+      <li><b><%= pokemon.name %></b></li>
+      <li><%= pokemon.species %></li>
+    </ul>
+</ul>
+<% end %>
+<% else %>
+<form method="post" action="/trainers/<%= @trainer.id %>/add_pokemon">
+  <input type="submit" value="do you want?">
+<% end %>
+
+
+<br><br><br>
+
+<a href="/trainers/<%= @trainer.id %>/edit">CLICK HERE to edit this trainer</a><br><br>
+
+
+<form method="post" action="/trainers/<%= @trainer.id %>/delete">
+  <input type="submit" value="Delete Me">
+</form>
