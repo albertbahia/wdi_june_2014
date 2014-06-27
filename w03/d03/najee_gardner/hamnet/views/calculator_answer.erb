@@ -1,0 +1,5 @@
+<h3>Calculator Result</h3>
+
+<% if @math_stuff != {} %>
+<p><%= "#{@math_stuff[:first]} #{@math_stuff[:op]} #{@math_stuff[:second]} = #{@math_stuff[:result]}" %></p>
+<% end %>
