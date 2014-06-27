@@ -1,6 +1,6 @@
 <h2>Edit Trainer</h2>
 
-<form action="/trainers/#{@trainer.id}" method="post">
+<form action="/trainers" method="post">
   <label for="trainer[name]">Name:</label>
   <input name="trainer[name]">
 

@@ -12,4 +12,9 @@
   <% end %>
 </ul>
 
-<a href="/trainers/<%= new_trainer.id %>/edit">Edit This Trainer!</a>
+<a href="/trainers/<%= @trainer.id %>/edit">Edit This Trainer!</a></br>
+
+<form.delete action="/trainers/<%=@trainer.id%>/delete" method="post">
+    <input name="method" type="hidden" value="delete" />
+    <input type="submit" value="You're Fired!">
+</form>

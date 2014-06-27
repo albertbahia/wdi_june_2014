@@ -10,7 +10,7 @@ get "/trainers/new" do
 end
 
 # create
-post "/trainers/edit" do
+post "/trainers" do
   @trainer = Trainer.create!(params[:trainer])
   redirect("/trainers/#{@trainer.id}")
 end
@@ -34,7 +34,8 @@ get "/trainers/:id" do
 end
 
 # destroy
-post "/trainers/:id/delete" do
-  @artist = Artist.find(params[:id])
-  erb(:"trainers/index")
+posr "/trainers/:id/delete" do
+  @trainer = Trainer.find(params[:id])
+  @trainer.destroy
+  redirect to ("/trainers")
 end

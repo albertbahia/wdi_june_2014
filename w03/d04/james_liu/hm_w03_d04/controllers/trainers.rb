@@ -35,6 +35,7 @@ end
 
 # destroy
 post "/trainers/:id/delete" do
-  @artist = Artist.find(params[:id])
-  erb(:"trainers/index")
+  @trainer = Trainer.find(params[:id])
+  @trainer.destroy
+  redirect to ("/trainers")
 end
