@@ -29,7 +29,6 @@ class Calculator
 
   def factorial(num)
     # num == 0 ? 1 : (1..num).reduce(:*)
-
     # if num == 0
     #   return 1
     # else
