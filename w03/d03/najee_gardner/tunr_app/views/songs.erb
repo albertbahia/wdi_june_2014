@@ -1,0 +1,12 @@
+<ul>
+  <% @featured_songs.each do |song| %>
+  <li><%= song %></li>
+  <% end %>
+</ul>
+<p>More songs coming soon...</p>
+
+<p>Add songs you would like to see on Tun.r!</p>
+<form method="POST" action="/new_artists">
+  <input type="text" name="song_name">
+  <input type="submit">
+</form>

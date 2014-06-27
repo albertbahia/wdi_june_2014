@@ -1,0 +1,6 @@
+<h2><%= @pokemon.name %></h2>
+<p><img src= <%= @pokemon.img%> ></p>
+<p> <% @pokemon.info().each do |key, val| %>
+    <%= key.to_s.capitalize %> : <%= val %> <br>
+  <% end %>
+  Moves: <%= @pokemon.moves %> </p>
