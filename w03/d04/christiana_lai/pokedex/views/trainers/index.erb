@@ -1,0 +1,12 @@
+<h3>Trainers</h3>
+<ul>
+  <% @trainers.each do |trainer| %>
+    <li>
+      <a href="/trainers/<%= trainer.id %>">
+        <%= trainer.name %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<a href='/trainers/new'>Create a Trainer</a><br>
