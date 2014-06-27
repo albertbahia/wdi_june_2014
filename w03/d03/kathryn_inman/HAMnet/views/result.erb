@@ -1,0 +1,21 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <p>Your result:</p>
+
+    <ul>
+    <% if params[:operator].to_s == "+"%>
+    <li> <%=  result = params[:firstnum].to_i + params[:secnum].to_i %></li>
+    <% elsif params[:operator].to_s == "-"%>
+    <li> <%=  result = params[:firstnum].to_i - params[:secnum].to_i %></li>
+    <% elsif params[:operator].to_s == "*"%>
+    <li> <%=  result = params[:firstnum].to_i * params[:secnum].to_i %></li>
+    <% else params[:operator].to_s == "%"%>
+    <li> <%=  result = params[:firstnum].to_i % params[:secnum].to_i %></li>
+    <% end %>
+  </ul>
+
+    <a href= "/magic">Back to HAMCalculator</a>
+  </body>
+</html>
