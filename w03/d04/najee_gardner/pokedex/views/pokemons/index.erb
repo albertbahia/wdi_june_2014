@@ -1,0 +1,10 @@
+<h3>All Pokemon</h3>
+
+<% Pokemon.all.each do |pokemon| %>
+<div class="pokeblock">
+  <p><%= pokemon.display_id %></p>
+  <img src="<%= pokemon.image_url %>">
+  <p><%= pokemon.name %></p>
+  <p><a href="/pokemons/<%= pokemon.id %>">View</a><p>
+</div>
+<% end %>
