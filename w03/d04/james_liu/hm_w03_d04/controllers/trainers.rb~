@@ -10,7 +10,7 @@ get "/trainers/new" do
 end
 
 # create
-post "/trainers" do
+post "/trainers/edit" do
   @trainer = Trainer.create!(params[:trainer])
   redirect("/trainers/#{@trainer.id}")
 end

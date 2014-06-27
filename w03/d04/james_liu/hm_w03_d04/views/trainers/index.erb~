@@ -1,4 +1,7 @@
-<h3>Trainers!</h3>
+<h2>The Trainer Stable</h2>
+
+<a href="/trainers/new">Add Trainer</a>
+
 <ul>
   <% @trainers.each do |trainer| %>
     <li>

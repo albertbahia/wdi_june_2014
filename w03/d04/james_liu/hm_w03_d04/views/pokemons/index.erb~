@@ -1,9 +1,9 @@
-<h3>Songs!</h3>
+<h3>Pokemon!</h3>
 <ul>
-  <% @songs.each do |song| %>
+  <% @pokemons.each do |pokemon| %>
     <li>
-      <a href="/songs/<%= song.id %>">
-          <%= song.title %>
+      <a href="/pokemons/<%= pokemon.id %>">
+          <%= pokemon.name %>
       </a>  
     </li>
   <% end %>
