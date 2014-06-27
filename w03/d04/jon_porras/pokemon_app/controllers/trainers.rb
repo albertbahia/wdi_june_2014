@@ -20,6 +20,7 @@ end
 #show
 get '/trainers/:id' do
   @trainer = Trainer.find(params[:id])
+  @pokemons = Trainer.find(params[:id]).pokemons
   erb(:"trainers/show")
 end
 
@@ -41,4 +42,11 @@ post '/trainers/:id/delete' do
   trainer = Trainer.find(params[:id])
   trainer.destroy
   redirect('/trainers')
+end
+
+#add pokemon
+post '/trainers/:id/add' do
+  trainer = Trainer.find(params[:id])
+  trainer.choose_pokemon(Pokemon.get_pokemon)
+  redirect("/trainers/#{trainer.id}")
 end
