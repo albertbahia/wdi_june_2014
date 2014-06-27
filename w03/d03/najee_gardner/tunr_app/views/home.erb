@@ -1,0 +1,19 @@
+<p>Hey. Tun.r is the best music service on this side of the galaxy</p>
+<h4>Early Access List</h4>
+<p>Add your name to the early access lst for awesome access things.</p>
+<form method="POST" action="/add_to_list">
+  <label>
+    Full Name:
+    <input type="text" name="full_name">
+  </label>
+  <label>
+    Email:
+    <input type="text" name="email">
+  </label>
+  <input type="submit">
+</form>
+
+<h4>People ont the list so far:</h4>
+<% @list.each do |info_hash| %>
+<%= info_hash.values.join(" | ") %><br>
+<% end %>
