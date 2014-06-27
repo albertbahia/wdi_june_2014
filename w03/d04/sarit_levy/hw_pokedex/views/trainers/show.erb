@@ -1,0 +1,16 @@
+
+
+<h2><%= @trainer.name %></h2>
+<h3><%= @trainer.age %></h3>
+<h4><%= @trainer.hometown %></h4>
+<br>
+<a href="/pokemons">Back To Index</a>
+
+
+<form action="/trainers/<%= @trainer.id %>/edit" method="post">
+  <input type="submit" value="Edit Trainer">
+</form>
+
+
+<!-- If a trainer has pokemon then all of their pokemon should be displayed with
+their name, species, photo and type. -->
