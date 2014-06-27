@@ -1,0 +1,23 @@
+
+<h1>Song's List</hi>
+<ul>
+  <% @featured_songs.each do |song| %>
+    <li><%=song%></li>
+  <%end%>
+</ul>
+<br>
+
+<p>These songs will be available soon!</p>
+
+<h4>What songs do you want to hear?</h4>
+<form method="POST" action="/add_to_songs">
+  <input type="text" name="song">
+  <input type="submit">
+</form>
+
+<h4>Songs on the request list so far</h4>
+<ul>
+  <% @s_requests.each do |song| %>
+  <%= song %><br>
+  <% end %>
+<ul>
