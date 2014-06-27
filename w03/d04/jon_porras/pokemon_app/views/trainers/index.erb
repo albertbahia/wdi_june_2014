@@ -1,0 +1,14 @@
+<h3>TRAINERS</h3>
+<ul>
+  <% @trainers.each do |trainer| %>
+  <li>
+    <a href="/trainers/<%= trainer.id %>">
+    <%= trainer.name %>
+    <% end %>
+  </li>
+</ul>
+
+<form action="trainers/new" method="get">
+  <input type="submit" value="CREATE NEW TRAINER">
+
+</form>
