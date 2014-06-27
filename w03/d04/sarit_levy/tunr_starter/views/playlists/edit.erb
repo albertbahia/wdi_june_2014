@@ -1,0 +1,11 @@
+<h2>New Playlist</h2>
+
+<form action="/playlists/<%= @playlist.id %>" method="post">
+  <label for="playlist[name]">Name:</label>
+  <input name="playlist[name]" value="<%= @playlist.name %>">
+
+  <label for="playlist[song]">Song:</label>
+  <input name="playlist[song]" value="<%= @playlist.album %>">
+
+  <input type="submit" value="Create">
+</form>

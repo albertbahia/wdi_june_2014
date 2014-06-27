@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title>Songs</title>
+</head>
+<body>
+  <h2>S o n g s</h2>
+  <ul>
+    <% @featured_songs.each do |song| %>
+    <li> <%= song %> </li>
+    <% end %>
+  </ul>
+  <p>(These songs and others will be available soon!)</p>
+
+  <h4>Ask the Tun.r DJ!</h4>
+  <form METHOD= "POST" action= '/song_requests'>
+    Song: <input type= "text" name= "song">
+    <input type= "submit">
+  </form>
+
+  <h4>Songs Already Requested</h4>
+  <ul>
+  <% @demanded_songs.each do |request| %>
+  <li> <%= request %> </li>
+  <% end %>
+</ul>
+
+</body>
+</html>
