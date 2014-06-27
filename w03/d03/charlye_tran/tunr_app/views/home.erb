@@ -1,0 +1,27 @@
+<h1>Tun.r</h1>
+<p>Tun.r is badass!
+</p>
+<h4>Early Access List</h4>
+<p>Add your name to the early access list for awesomenss!</p>
+
+
+<form method="POST" action="/add_to_list">
+  <label>
+    Full Name:
+    <input type="text" name="full_name">
+  </label>
+  <br>
+  <label>
+    Email:
+    <input type="text" name="email">
+  </label>
+
+  <input type="submit">
+
+</form>
+
+<h4>People on the list so far</h4>
+
+<% @list.each do |info_hash| %>
+  <%= info_hash[:name] %>: <%= info_hash[:email]%><br>
+<% end %>
