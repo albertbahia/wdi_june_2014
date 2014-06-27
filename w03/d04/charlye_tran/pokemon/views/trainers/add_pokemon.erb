@@ -1,0 +1,30 @@
+<h2><%= @trainer.name %></h2>
+<h3><%= @trainer.age %></h3>
+<h3><%= @trainer.hometown %></h3>
+
+<form action="/trainers" method="post">
+  <label for="trainer.pokemons[id]">Pokemon Name:</label>
+  <input name="trainer.pokemons[id]">
+
+<%def get_pokemon%>
+<%  array = [1, 2, 3, 4, 5, 6]%>
+<%  trainer.pokemons = []      %>
+<%  trainer.pokemons = array.map do %>
+<%    Pokemon.all.shuffle.sample%>
+  <% end %>
+
+<% if @trainer.pokemons %>
+  <% @trainer.pokemons.each do |pokemon| %>
+    <h2><%= pokemon.name %></h2>
+    <h3><%= pokemon.hp %></h3>
+    <h3><%= pokemon.attack %></h3>
+    <h3><%= pokemon.defense %></h3>
+    <h3><%= pokemon.speed %></h3>
+    <h3><%= pokemon.moves %></h3>
+    <h3><%= pokemon.classification %></h3>
+    <h3><%= pokemon.species %></h3>
+    <h3><%= pokemon.height %></h3>
+    <h3><%= pokemon.happiness %></h3>
+    <img src="<%= @pokemon.image_url %>">
+  <%end%>
+<%end%>
