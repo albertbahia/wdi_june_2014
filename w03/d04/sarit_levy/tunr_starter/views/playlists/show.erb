@@ -1,0 +1,7 @@
+<h2><%= @playlist.name %></h2>
+<h3><%= @playlist.song %></h3>
+<h4><%= @playlist.artist_id %></h4>
+
+<form action="/playlists/<%= @playlist.id %>/delete" method="post">
+  <input type="submit" value="Delete Playlist">
+</form>

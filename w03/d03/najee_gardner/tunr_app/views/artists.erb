@@ -1,0 +1,12 @@
+<ul>
+  <% @featured_artists.each do |artist| %>
+  <li><%= artist %></li>
+  <% end %>
+</ul>
+<p>More artists coming soon...</p>
+
+<p>Add artists you would like to see on Tun.r!</p>
+<form method="POST" action="/new_artists">
+  <input type="text" name="artist_name">
+  <input type="submit">
+</form>

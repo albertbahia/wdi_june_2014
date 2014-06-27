@@ -1,0 +1,25 @@
+<h2><%= @trainer.name %></h2>
+<p>Age: <%= @trainer.age %></p>
+<p>Hometown: <%=@trainer.hometown %></p>
+</br>
+<form action="/trainers/<%= @trainer.id %>/edit">
+  <input type="submit" value="Edit Trainer">
+</form>
+
+<form action="/trainers/<%= @trainer.id %>/delete" method="post">
+  <input type="submit" value="Delete Trainer">
+</form>
+
+</br>
+<form action="/trainers">
+  <input type="submit" value="Back to Trainers">
+</form>
+
+<h2>Pokemon</h2>
+    <% @poke_array.each do |pokemon| %>
+    Name: <%= pokemon.name %></br>
+    Species: <%= pokemon.species %></br>
+    Type: <%= pokemon.classification %></br>
+    <img src="<%= pokemon.image %>"></br>
+    </br>
+    <% end %>

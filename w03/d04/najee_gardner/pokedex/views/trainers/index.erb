@@ -1,0 +1,11 @@
+<h3>Trainers</h3>
+
+<p><a href="/trainers/new">Add Trainer</a></p>
+
+<% Trainer.all.each do |trainer| %>
+  <div class="trainerblock">
+    <p><%= trainer.name %></p>
+    <p><%= trainer.age %></p>
+    <p><a href="/trainers/<%= trainer.id %>">View</a></p>
+  </div>
+<% end %>
