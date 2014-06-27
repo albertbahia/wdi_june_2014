@@ -30,7 +30,8 @@
     end
 
     def factorial(num)
-      num == 0 ? 1 : (1..num).reduce(:*)
+      # num == 0 ? 1 : (1..num).reduce(:*)
+      (1..num).reduce(1, :*)
     end
 
   end
