@@ -1,0 +1,22 @@
+<h2><%= @trainer.name %></h2>
+<p> <% @trainer.info().each do |key, val| %>
+    <%= key.to_s.capitalize %> : <%= val %> <br>
+  <% end %> </p>
+
+<p> <strong>Pokemon:</strong> <br>
+  <% if @trainer.pokemons.length == 0 %>
+    No pokemon yet!
+  <% else %>
+    <% @trainer.pokemons.each do |pokemon| %>
+      Name: <%= pokemon.name %>, Species: <%= pokemon.species %> <br>
+      <img src= <%= pokemon.img %> > <br>
+      <% end %>
+  <% end %>
+
+</p>
+
+<a href="/trainers/<%= @trainer.id %>/edit">Edit Trainer</a>
+
+<form action="/trainers/<%= @trainer.id %>/delete" method="post">
+  <input type="submit" value="Delete Trainer">
+</form>

@@ -1,0 +1,29 @@
+<html>
+<head>
+</head>
+<body>
+  <p>Welcome to Tun.r, yet <em>another</em> HAMco product.</p>
+  <p>(If you are at any point disatisfied with your HAMco<sup>TM</sup> experience, you will be provided with a complementary kitten and asked to keep your mouth shut.)</p>
+
+
+  <h4>Early Access! Rad!</h4>
+  <p>Add your name and email to the early access list for access things and stuff.</p>
+
+  <form METHOD= "POST" action= "/early_access">
+    <label>
+      Full Name: <input type= "text" name= "full_name">
+    </label>
+    <label>
+      Email: <input type= "text" name= "full_email">
+    </label>
+      <input type= "submit">
+  </form>
+
+  <h4>Beta Chaser Nerds On The List</h4>
+  <ul>
+    <% @beta_chaser_nerds.each do |nerd| %>
+    <li> <%= nerd[:name] %> <%= nerd[:email] %> </li>
+    <% end %>
+  </ul>
+</body>
+</html>
