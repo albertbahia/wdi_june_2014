@@ -2,7 +2,19 @@
 
 <form action="/images" method="post">
   <label for="image[author]">Author:</label>
-  <input name="image[author]">
+  <input type="text" name="image[author]">
+
+
+  <label for="image[image_url]">Image Url:</label>
+  <input type="text" name="image[image_url]">
+
+
+  <label for="image[date_posted]">Date Posted:</label>
+  <input type="date" name="image[date_posted]">
+
+
+  <label for="image[caption]">Caption:</label>
+  <input type="textarea" name="image[caption]">
 
   <input type="submit" value="Create">
 </form>
