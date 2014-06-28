@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS wdinstagram CASCADE;
+DROP TABLE IF EXISTS images CASCADE;
 
-CREATE TABLE wdinstagram (
+CREATE TABLE images (
 	id SERIAL PRIMARY KEY,
 	author VARCHAR(255),
 	image_url VARCHAR(255),
