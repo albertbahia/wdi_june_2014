@@ -1,1 +1,5 @@
-<%= @image.image_url %>
+<center><div id="show_img">
+  <p> <%= @image.caption %> </p>
+  <img src="<%= @image.image_url %>" />
+  <p> <%= @image.author %> | <%= @image.date_posted.month %>/<%= @image.date_posted.day %>/<%= @image.date_posted.year %> </p>
+</div></center>
