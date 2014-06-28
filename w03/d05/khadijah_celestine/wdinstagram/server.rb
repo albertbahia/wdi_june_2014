@@ -26,6 +26,19 @@ get '/images/new' do
 	erb(:new)
 end
 
+#edit - show the page with form for edit
+get '/images/:id/edit' do
+	@image = Image.find(params[:id])
+	erb(:edit)
+end
+
+#update
+post '/images/:id' do
+	image = Image.find(params[:id])
+  image.update(params[:image])
+  redirect("/images/#{image.id}")
+end
+
 #show
 get '/images/:id' do
 	@image = Image.find(params[:id])
@@ -38,3 +51,5 @@ post '/images' do
 	#the :image in params refers to the hash that is created when we specified in the new.erb form we wanted the thing to be called image
 	redirect("/images/#{new_img.id}")
 end
+
+#delete

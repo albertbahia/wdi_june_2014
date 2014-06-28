@@ -1,0 +1,8 @@
+<h2>Edit Image</h2>
+
+<form action="/images/<%= @image.id %>" method="post">
+  <label for="image[author]">Author:</label>
+  <input name="image[author]" value="<%= @image.author %>">
+
+	<input type="submit" value="Update">
+<form>
