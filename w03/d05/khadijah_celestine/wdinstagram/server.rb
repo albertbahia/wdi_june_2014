@@ -53,3 +53,8 @@ post '/images' do
 end
 
 #delete
+post '/images/:id/delete' do
+	image = Image.find(params[:id])
+	image.destroy
+	redirect('/images')
+end
