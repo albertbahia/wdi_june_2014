@@ -10,8 +10,9 @@ after do
 end
 
 get '/' do
-	"working"
+	@images = Image.all
+	erb(:index)
 end
 
 
-binding.pry
+
