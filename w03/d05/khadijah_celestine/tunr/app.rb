@@ -30,16 +30,4 @@ get '/' do
 	erb(:welcome)
 end
 
-get '/artists' do
-	"artists"
-end
-
-get '/songs' do
-	"songs"
-end
-
-get '/playlists' do
-	"playlists"
-end
-
 binding.pry

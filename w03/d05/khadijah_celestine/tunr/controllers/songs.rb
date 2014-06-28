@@ -1,3 +1,14 @@
+################################
+# RESTful routes for Artists   #
+################################
+require_relative '../itunes'
+get '/search' do
+	@songs = Itunes.search(params[:search])
+	erb(:"songs/search")
+end
+
+
+# COLLECTION
 # index
 get "/songs" do
 	@songs = Song.all
@@ -17,8 +28,10 @@ end
 
 #show
 get "/songs/:id" do
+	@artist = Artist.find(Song.find(params[:id]).artist_id)
 	@song = Song.find(params[:id])
 	erb(:"songs/show")
+	#params[:title]
 end
 
 # edit

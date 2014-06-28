@@ -54,4 +54,29 @@ describe Calculator do
       expect(calculator.divide(21, 7)).to eq(3)
     end
   end
+
+  describe "#power" do
+    it 'raises one number to the power of another number' do
+      expect(calculator.power(3,3)).to eq(27)
+    end
+  end
+
+  describe "#factorial" do
+    it "computes the factorial of 0" do
+      expect(calculator.factorial(0)).to eq(1)
+    end
+    it "computes the factorial of 1" do
+      expect(calculator.factorial(1)).to eq(1)
+    end
+    it "computes the factorial of 2" do
+      expect(calculator.factorial(2)).to eq(2)
+    end
+    it "computes the factorial of 5" do
+      expect(calculator.factorial(5)).to eq(120)
+    end
+    it "computes the factorial of 10" do
+      expect(calculator.factorial(10)).to eq(3628800)
+    end
+  end
+
 end
