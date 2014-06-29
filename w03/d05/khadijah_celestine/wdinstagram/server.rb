@@ -12,24 +12,24 @@ end
 #index
 get '/' do
 	@images = Image.all
-	erb(:index)
+	erb(:"images/index")
 end
 
 #index
 get '/images' do
 	@images = Image.all
-	erb(:index)
+	erb(:"images/index")
 end
 
-#new - just show the new page with form 
+#new - just show the new page with form
 get '/images/new' do
-	erb(:new)
+	erb(:"images/new")
 end
 
 #edit - show the page with form for edit
 get '/images/:id/edit' do
 	@image = Image.find(params[:id])
-	erb(:edit)
+	erb(:"images/edit")
 end
 
 #update
@@ -42,7 +42,7 @@ end
 #show
 get '/images/:id' do
 	@image = Image.find(params[:id])
-	erb(:show)
+	erb(:"images/show")
 end
 
 #create - the form on the new page will come to this route to create and redirect
