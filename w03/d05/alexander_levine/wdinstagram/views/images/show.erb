@@ -1,0 +1,9 @@
+<img src="<%= @images.img_url %>">
+<p> <%= @images.caption %> </p>
+<h5><a href="/images/<%= @images.id %>/edit">Edit Image</a></h5>
+
+<form action="/images/<%= @images.id %>/delete" method="post">
+  <input type="submit" value="Delete Image">
+</form>
+
+<h6><a href="/">Back to Images</a></h6>
