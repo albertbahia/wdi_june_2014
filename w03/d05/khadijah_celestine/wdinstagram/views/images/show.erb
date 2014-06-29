@@ -1,0 +1,13 @@
+<center><div id="show_img">
+  <p> <%= @image.caption %> </p>
+  <img src="<%= @image.image_url %>" />
+  <p> <%= @image.author %> | <%= @image.date_posted.month %>/<%= @image.date_posted.day %>/<%= @image.date_posted.year %> </p>
+  <p>
+    <a href="/images/<%= @image.id %>/edit" title="this image post"><span class="button" >   Edit  </span></a>
+  </p>
+
+<form action="/images/<%= @image.id %>/delete" method="post">
+  <input type="submit" value="Delete Artist">
+</form>
+
+</div></center>
