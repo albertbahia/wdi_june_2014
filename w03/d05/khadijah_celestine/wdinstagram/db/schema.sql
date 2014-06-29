@@ -10,7 +10,7 @@ CREATE TABLE users (
 
 CREATE TABLE images (
 	id SERIAL PRIMARY KEY,
-	user_id VARCHAR(255) REFERENCES users(id),
+	user_id INTEGER REFERENCES users(id),
 	image_url VARCHAR(255),
 	date_posted DATE,
 	caption TEXT
