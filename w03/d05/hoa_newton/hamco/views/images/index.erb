@@ -6,7 +6,8 @@
 	<% @images.each do |image| %>
 		<div>
 			<a href="/images/<%= image.id %>"><%= image.caption %></a>
-			<a href="/images/<%= image.id %>/edit">  Edit</a>
+			<a href="/images/<%= image.id %>/edit">Edit</a>
+			<a href="/images/<%= image.id %>/delete">Delete</a>
 			<img src="<%= image.image_url %>">
 			<h5>By: <%= image.author %>  <%= image.date_posted %></h5>
 		</div>

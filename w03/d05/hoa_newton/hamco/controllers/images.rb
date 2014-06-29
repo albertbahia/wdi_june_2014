@@ -38,3 +38,10 @@ post "/images/:id" do
     	erb :"images/edit"
   	end
 end
+
+#delete
+get '/images/:id/delete' do
+  @image = Image.find(params[:id])
+  @image.destroy
+  redirect('/images')
+end
