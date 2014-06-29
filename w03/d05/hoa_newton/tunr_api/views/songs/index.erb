@@ -1,3 +1,4 @@
+
 <h2>Songs</h2>
 
 <a href="/songs/new">Add Song</a>
@@ -6,7 +7,7 @@
   <% @songs.each do |song| %>
     <li>
       <a href="/songs/<%= song.id %>">
-        <%= song.title %> - <%= song.artist.name %>
+        <%= song.title %> - <%= artist.name.where(song.artist_id = artist.id) %>
       </a>
     </li>
   <% end %>
