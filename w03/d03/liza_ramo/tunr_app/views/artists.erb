@@ -1,0 +1,27 @@
+    <h2>Tun.r artists</h2>
+    <p>
+      Look forward to these great artists:
+    </p>
+    <ul>
+      <% @featured_artists.each do |artist| %>
+      <li><%= artist %></li>
+      <% end %>
+    </ul>
+    <h4>Artist request list</h4>
+
+    <p> Add your artist requests to the list.</p>
+    <form method="POST" action="/add_to_artist_list">
+
+      <label>
+        Artist name:
+        <input type="text" name="artist_name">
+      </label>
+
+      <input type="submit">
+    </form>
+
+    <h4>People on the list so far:</h4>
+
+    <% @artist_request_list.each do |name| %>
+      <li><%= name %></li><br>
+      <% end %>
