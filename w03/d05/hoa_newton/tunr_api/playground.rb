@@ -12,4 +12,4 @@ require_relative 'models/song'
 require_relative 'models/playlist'
 
 api_call = JSON.parse(HTTParty.get('https://itunes.apple.com/search?term=jack+johnson&entity=song&limit=5'))
-binding.pry
+# binding.pry
