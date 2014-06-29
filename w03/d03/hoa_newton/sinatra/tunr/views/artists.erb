@@ -1,0 +1,19 @@
+
+	<h2>Tun.r's Artists</h2>
+	<p>These are the artists that have the songs coming soon!</p>
+
+	<ul>
+		<% @featured_artists.each do |artist| %>
+			<li><%= artist %></li>
+		<% end %>
+	</ul>
+
+<form method="POST" action="/artists_wish_list">
+	<input type="text" name="artist_name">
+	<input type="submit">
+</form>
+
+<h4>Artists on wish list</h4>
+<% @wished_artists.each do |artist_name| %>
+ <%= artist_name %><br>
+<% end %>
