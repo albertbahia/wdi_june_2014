@@ -1,3 +1,6 @@
+
+require_relative '../models/user'
+
 #index
 get '/images' do
   @images = Image.all
@@ -24,6 +27,7 @@ end
 
 #show
 get '/images/:id' do
+  @user = User.find(Image.find(params[:id]).user_id)
   @image = Image.find(params[:id])
   erb(:"images/show")
 end
