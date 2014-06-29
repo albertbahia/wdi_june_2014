@@ -1,0 +1,23 @@
+div {
+    margin: 10px;
+	width: 280px;
+	text-align: left;
+	float: left;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+img {
+    margin: 5px;
+    padding: 5px;
+    height: 200px;
+    width: 250px;
+    float: left;
+}
+
+.show {
+    padding: 10px;
+    box-shadow: 10px 10px 5px #888888;
+    height: 500px;
+    width: 750px;
+    float: left;
+}
