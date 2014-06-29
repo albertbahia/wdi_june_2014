@@ -2,5 +2,8 @@
   <p> <%= @image.caption %> </p>
   <img src="<%= @image.image_url %>" />
   <p> <%= @image.author %> | <%= @image.date_posted.month %>/<%= @image.date_posted.day %>/<%= @image.date_posted.year %> </p>
-  <p> <a href="/images/<%= @image.id %>/edit" title="this image post">Edit</a> <a href="/images/<%= @image.id %>/delete" title="this image post">Remove</a> </p>
+  <p>
+    <a href="/images/<%= @image.id %>/edit" title="this image post"><span class="button" >   Edit  </span></a>
+    <a href="/images/<%= @image.id %>/delete" title="this image post"><span class="button" >Remove</span></a>
+  </p>
 </div></center>

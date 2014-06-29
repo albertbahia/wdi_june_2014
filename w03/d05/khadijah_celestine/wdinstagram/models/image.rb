@@ -11,4 +11,4 @@ ActiveRecord::Base.establish_connection({
 
 end
 
-#binding.pry
+binding.pry

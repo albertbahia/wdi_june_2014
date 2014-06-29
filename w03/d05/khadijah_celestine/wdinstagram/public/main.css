@@ -37,7 +37,8 @@ h3 {
 #nav a {
   text-decoration: none;
   font-size: 25pt;
-  padding: 20px;
+  padding: 10px;
+  margin: 30px;
 }
 
 
@@ -47,20 +48,27 @@ img {
 
 
 /* artists */
-#artists ul {
+ ul {
   list-style-type:none;
 }
 
-#artists li {
+ li {
 
 }
 
-#artists a {
+ a {
     text-decoration: none;
     font-size: 20pt;
     color: darkmagenta;
 }
 
+.button {
+  padding: 20px;
+  background-color: teal;
+  color: white;
+  border-radius: 20px;
+  width: 60px;
+}
 /* songs */
 p label {
         display: inline-block;
