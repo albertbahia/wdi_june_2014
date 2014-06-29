@@ -1,0 +1,17 @@
+<h3><%= @trainer.name %></h3>
+<h4>Age: <%= @trainer.age %>></h4>
+<h4>Hometown: <%= @trainer.hometown %>></h4>
+
+<h4><%= "#{@trainer.name}'s Pokemons:" %>
+<ul>
+	<% @trainer.pokemons.each do |poke| %>
+	<li>
+		<a href="/pokemons/<%= poke.id %>">	
+			<%= poke.name %> 
+		</a>
+	</li>
+	<% end %>
+</ul>
+
+<a href="/trainers/<%= @trainer.id %>/edit">Edit Trainer</a><br>
+<a href="/trainers/<%= @trainer.id %>/delete">Delete Trainer</a>

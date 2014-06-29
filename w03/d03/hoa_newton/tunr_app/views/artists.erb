@@ -1,0 +1,22 @@
+<h2>Artists</h2>
+<p>
+  Look forward to these great artists!
+</p>
+<ul>
+  <% @featured_artists.each do |artist| %>
+    <li><%= artist %></li>
+  <% end %>
+</ul>
+
+<h4>What artists do you want to hear here?</h4>
+<form method="POST" action="/add_to_artists">
+  <input type="text" name="artist">
+  <input type="submit">
+</form>
+
+<h4>Artists you'd like to hear</h4>
+<ul>
+  <% @wishlist.each do |artist| %>
+    <li><%= artist %></li>
+  <% end %>
+</ul>
