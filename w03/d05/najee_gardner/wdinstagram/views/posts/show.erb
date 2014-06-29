@@ -1,0 +1,13 @@
+<div class="post_box">
+  <p><%= @post.user.username %></p>
+  <p><%= @post.post_date %></p>
+  <img src="<%= @post.image_url %>">
+  <p><%= @post.caption %></p>
+
+  <% if @post.user_id == @user.id %>
+    <a href="/posts/<%= @user.username %>/<%= @user.visit_key %>/<%= @post.id %>/edit">Edit</a>
+    <form method="post" action="/posts/<%= @user.username %>/<%= @user.visit_key %>/<%= @post.id %>/delete">
+      <input type="submit" value="Delete">
+    </form>
+  <% end %>
+</div>
