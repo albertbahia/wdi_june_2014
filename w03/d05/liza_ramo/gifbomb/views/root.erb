@@ -1,0 +1,7 @@
+<h2>Welcome to GIFbomb</h2>
+
+<% @giphy_call.each do | image_data | %>
+  <img src= "<%= image_data['data']['image_original_url']%>">
+  <p><a href="<%= image_data['data']['url']%>">View this gif on Gifbomb</a></p>
+  <p><code><%= image_data['data']['image_url']%></code></p>
+<% end %>
