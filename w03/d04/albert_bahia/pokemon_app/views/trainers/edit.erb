@@ -1,14 +1,14 @@
-<h2>Edit Trainer</h2>
+<h2>Edit this trainer:</h2>
 
 <form action="/trainers/<%= @trainer.id %>" method="post">
   <label for="trainer[name]">Name:</label>
-  <input type="text" name="trainer[name]" value="<%= @trainer.name %>">
+  <input name="trainer[name]" value="<%= @trainer.name %>">
 
   <label for="trainer[age]">Age:</label>
-  <input type="text" name="trainer[age]">
+  <input name="trainer[age]"  value="<%= @trainer.age %>">
 
   <label for="trainer[hometown]">Hometown:</label>
-  <input type="text" name="trainer[hometown]">
+  <input name="trainer[hometown]" value="<%= @trainer.hometown %>">
 
   <input type="submit" value="Edit">
 </form>
