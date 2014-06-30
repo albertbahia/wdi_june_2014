@@ -1,4 +1,3 @@
-require 'pry'
 require 'sinatra'
 require 'sinatra/reloader'
 require 'active_record'
@@ -25,5 +24,3 @@ end
 get '/' do
   erb(:home)
 end
-
-binding.pry

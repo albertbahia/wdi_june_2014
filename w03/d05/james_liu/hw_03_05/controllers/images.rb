@@ -40,7 +40,7 @@ end
 
 #update route
 put "/images/:id" do
-  @image = Image .find(params[:id])
+  @image = Image.find(params[:image])
   erb(:"images/index")
 end
 

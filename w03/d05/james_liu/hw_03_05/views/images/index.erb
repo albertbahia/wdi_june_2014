@@ -5,7 +5,7 @@
 <ul>
   <% @images.each do |image|%>
   <li>
-    <img src="<% @image.image_url %>">
+    <img src="<%= @image.image_url %>">
       <%= image.caption %>
       <%= image.author %>
       <a href="/images/<%= image.id %>">
