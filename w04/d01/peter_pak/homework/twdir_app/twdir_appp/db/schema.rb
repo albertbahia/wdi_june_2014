@@ -17,9 +17,11 @@ ActiveRecord::Schema.define(version: 20140630202953) do
   enable_extension "plpgsql"
 
   create_table "tweeds", force: true do |t|
-    t.string "author"
-    t.text   "content"
-    t.text   "image_url"
+    t.string   "author"
+    t.text     "content"
+    t.text     "image_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

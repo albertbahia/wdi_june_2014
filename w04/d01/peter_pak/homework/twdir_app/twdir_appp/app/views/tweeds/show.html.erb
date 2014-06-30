@@ -1,0 +1,16 @@
+
+<table>
+<tr>
+  <td><img src="<%= @tweed.image_url %>"></td>
+</tr>
+<tr>
+  <td><%= @tweed.content %></td>
+</tr>
+<tr>
+  <td><%= @tweed.author %></td>
+</tr>
+<tr>
+  <td><%= @tweed.created_at %></td>
+</tr>
+</table>
+<a href="/tweeds/<%= @tweed.id %>/edit">click here to edit this tweed</a>

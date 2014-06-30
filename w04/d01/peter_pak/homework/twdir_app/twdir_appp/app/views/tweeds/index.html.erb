@@ -1,0 +1,13 @@
+<% @tweeds.each do |tweed| %>
+
+<table>
+<tr>
+  <td><a href="/tweeds/<%= tweed.id %>"><img src="<%= tweed.image_url %>"></a></td>
+</tr>
+<tr>
+  <td><%= tweed.content %></td>
+  <td><%= tweed.author %></td>
+  <td><%= tweed.created_at %></td>
+</tr>
+</table>
+<% end %>

@@ -4,7 +4,7 @@ class CreateTweeds < ActiveRecord::Migration
       t.string :author
       t.text :content
       t.text :image_url
-      t.timestamp
+      t.timestamps
     end
   end
 end
