@@ -1,6 +1,3 @@
-
-require_relative '../models/user'
-
 #index
 get '/images' do
   @images = Image.all
@@ -14,6 +11,7 @@ end
 
 #edit - show the page with form for edit
 get '/images/:id/edit' do
+  @user = User.find(Image.find(params[:id]).user_id)
   @image = Image.find(params[:id])
   erb(:"images/edit")
 end

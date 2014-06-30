@@ -4,6 +4,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 
 require_relative './models/image.rb'
+require_relative './models/user.rb'
 
 require_relative './controllers/image.rb'
 after do
