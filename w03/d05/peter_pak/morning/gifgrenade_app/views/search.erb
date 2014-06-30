@@ -1,0 +1,15 @@
+
+    <br><br>
+      <h3>you searched for <em><%= params[:search] %></em></h3>
+
+
+
+        <% @gif_search['data'].each do |array| %>
+        <ul>
+        <li><a href="<%= array['url'] %>" target="_blank">
+        <img src="<%= array['images']['fixed_height']['url'] %>"></a>
+          <code><%= array['images']['fixed_height']['url'] %></code>
+        <br></li>
+      </ul>
+
+        <% end %>
