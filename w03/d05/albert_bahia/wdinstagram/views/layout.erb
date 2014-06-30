@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>WDInstagram</title>
+    <!-- css('http://fonts.googleapis.com/css?family=Chewy')
+    css('public/style.css') -->
+    <style>
+      /*<link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>*/
+
+      body {
+        background-color: aqua;
+      }
+
+      h1 {
+        color: blue;
+      }
+
+      h2 {
+        color: red;
+      }
+
+      h4 {
+        color: green;
+      }
+
+      #menu {
+        text-align: center;
+        border-style: solid;
+      }
+
+      .post {
+        border-style: solid;
+        border-width: 7px;
+        border-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .image-style {
+        border-style: dotted;
+        border-width: 7px;
+        border-radius: 20px;
+
+      }
+
+    </style>
+
+
+  </head>
+
+  <body>
+    <h1 id="menu">WDInstagram !!!</h1>
+    <h4 id="menu">A Product by:</h4>
+    <div id="menu">
+      <img src="https://camo.githubusercontent.com/27edf6548698a4bcee2450cc6f99e3ed25e0ed45/687474703a2f2f7777772e6d617263656c6c75736f6e6d61696e7374726565742e6f72672f75706c6f6164732f627573696e65737365732f6c6f676f732f31633663643235612d656262622d343231332d396333302d3133356531366362633761362e6a7067">
+    <br>
+
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/authors">Author Index</a>
+      <a href="/images">Image Index</a>
+    </div>
+    <%= yield %>
+
+  </body>
+
+</html>

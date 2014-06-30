@@ -1,13 +1,5 @@
 <h2>Results!</h2>
 
-
-<% if @operator == '+'%>
-  <%= first + last = %><br>
-<% elsif @operator == '-' %>
-  <%= first - last = %><br>
-<% elsif @operator == '*' %>
-  <%= first * last = %>
-<%elsif @operator == '/' %>
-  <%= first / last = %>
-<% else puts "Use a valid operator" %>
+<% @calculator_results.each do |number| %>
+<%= number %>
 <% end %>

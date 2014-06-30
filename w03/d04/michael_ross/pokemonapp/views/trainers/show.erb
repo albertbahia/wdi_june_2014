@@ -1,0 +1,14 @@
+<h2><%= @trainer.name %></h2>
+<h3>Age:</h3>
+<h3><%= @trainer.age %></h3>
+<h3>Hometown:</h3>
+<h3><%= @trainer.hometown %></h3>
+
+
+<form action="/trainers/<%= @trainer.id %>/edit" method="get">
+  <input type="submit" value="EDIT TRAINER">
+</form>
+
+<form action="/trainers/<%= @trainer.id %>/delete" method="post">
+  <input type="submit" value="DELETE TRAINER">
+</form>
