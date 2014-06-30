@@ -1,0 +1,14 @@
+<div>
+    <a href="/images/<%= @image.id %>">
+      <img src="<%= @image.img_url %>" alt="<%= @image.caption %>" height="300px" width="300px">
+    </a>
+    <p><%= @image.author %></p>
+    <p><%= @image.date_posted %></p>
+    <p><%= @image.caption %></p>
+    <form method="get" action="/images/<%= @image.id %>/edit">
+      <button name="edit">Edit</button>
+    </form>
+    <form method="post" action="/images/<%= @image.id %>/delete">
+      <button name="delete">Delete</button>
+    </form>
+</div>

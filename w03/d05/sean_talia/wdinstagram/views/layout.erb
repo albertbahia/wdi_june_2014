@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WDInstagram</title>
+    <link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+    <style tye="text/css">
+      body {
+        background-color: #808080;
+        font-family: 'Lora', serif;
+        padding: 20px;
+        text-align: center;
+        margin: auto;
+      }
+      h1 {
+        font-family: 'Lora', serif;
+        font-size: 80px;
+        margin: 0px 10px;
+      }
+      h2 {
+        word-spacing: 3px;
+      }
+      p {
+        line-height: 5.0 em;
+      }
+      a:link {
+
+        color: white;
+        text-decoration: none;
+      }
+      a:visited {
+        color: white;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      img {
+        margin: 20px;
+        border: 2px solid black;
+        border-radius: 10px;
+      }
+      p .form {
+        margin: 0px 0px;
+      }
+      #index_img {
+        max-height: 200px;
+      }
+      #menu {
+        padding: 10px;
+        margin: 30px;
+        font-size: 20px;
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>WDInstagram</h1>
+    <h2>Because you love kittens and ugly food.</h2>
+    <p id="menu"><a href='/'>Home</a>
+    <a href="/images">Images</a>
+    <%= yield %> </p>
+  </body>
+</html>

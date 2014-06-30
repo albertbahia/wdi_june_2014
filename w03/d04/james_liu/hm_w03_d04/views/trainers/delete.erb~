@@ -1,0 +1,9 @@
+<h2>Delete this Trainer</h2>
+
+<form action="/trainers" method="post">
+
+
+  <input type="submit" value="You're Fired!">
+</form>
+
+
