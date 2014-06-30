@@ -1,0 +1,12 @@
+<ul class="image-list">
+	<% @images.each do |image| %>
+		<li>
+			<a href="/images/<%= image.id %>">
+				<img src="<%= image.img_url %>" alt="">
+				<p><%= image.author %></p>
+				<p><%= image.date_posted %></p>
+			</a>
+		</li>
+	<% end %>
+</ul>
+<p>hi</p>

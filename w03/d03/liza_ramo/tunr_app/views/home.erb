@@ -1,0 +1,28 @@
+    <h2>Tun.r</h2>
+    <p>
+      Hey there. Tun.r is the best music service evr.
+    </p>
+
+    <% meaning_of_life = 42 %>
+
+    <p>The meaning of life is <%= meaning_of_life %></p>
+
+<h4>Early Access List</h4>
+
+<p> Add your name to the list.</p>
+<form method="POST" action="/add_to_list">
+  <label>
+    <input type="text" name="full_name" placeholder = "Full Name">
+  </label>
+  <label>
+    <input type="text" name="email" placeholder = "Email">
+  </label>
+  <input type="submit">
+</form>
+
+<h4>People on the list so far:</h4>
+
+<% @list.each do |info_hash| %>
+  <li><%= info_hash.values.join(', ')%></li><br>
+  <li><%= info_hash[:name] + ", " + info_hash[:email] %></li><br>
+  <% end %>
