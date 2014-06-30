@@ -1,0 +1,17 @@
+<form action="/images/#{@image.id}/edit" method= "put">
+	<h1>Edit Image</h1>
+	<h2><%= @image.caption %></h2>
+	<h3><%= @image.author %></h3>
+	<img src= "<%= @image.url %>">
+	<br>
+	<label for="image[url]">Image URL</label>
+	<input name="image[url]">
+	<br>
+	<label for="image[caption]">Caption</label>
+	<input name="image[caption]">
+	<br>
+	<label for="image[author]">Author</label>
+	<input name="image[author]">
+	<br>
+	<input type="submit" value="Update Image">
+</form>
