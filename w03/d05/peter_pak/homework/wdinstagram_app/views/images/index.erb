@@ -1,0 +1,10 @@
+<br><br>
+
+<h3> pics on pics on pics </h3>
+<a href="/images/new">or click here to add your own</a>
+<h4> click on the image for more info </h4>
+<% @image.each do |image| %>
+
+ <p><a href="/images/<%=image.id%>"><img src="<%= image.img_url %>" style="max-height: 500px; max-width: 500px;"></a></p>
+
+ <% end %>
