@@ -1,40 +1,23 @@
-require 'active_record'
-require 'pry'
-require_relative 'lib/pokemon.rb'
-require_relative 'lib/pokemon_seed.rb'
+require_relative 'pokemon_seed.rb'
+require_relative './lib/pokemon.rb'
 
+pokemon_array = get_pokemon()
 
-ActiveRecord::Base.establish_connection({
-  database: 'pokemon_db',
-  adapter: 'postgresql'
-})
-
-poke_array = get_pokemon()
-
-def pokemon_info(array)
-  array.each do |hash|
-
-    id = hash[:id].to_i
-    name = hash[:name]
-    hp = hash[:stats][:hp].to_i
-    attack = hash[:stats][:attack]
-    defense = hash[:stats][:attack]
-    speed = hash[:stats][:speed].to_i
-    moves = hash[:moves][:level].map { |x| x[:name] }.join(' ')
-    image_url = hash[:img]
-    classification = hash[:misc][:classification]
-    species = hash[:type].join(' ')
-    height = hash[:misc][:height]
-    happiness = hash[:misc][:happiness].to_i
-
-  Pokemon.create(
-    id: id, name: name, hp: hp, attack: attack, defense: defense, speed: speed,
-    moves: moves, image_url: image_url, classification: classification,
-    species:species, height: height, happiness: happiness)
-
-  end
+pokemon_array.each do |poke_hash|
+  Pokemon.create({
+    name: poke_hash[:name],
+    image_url: poke_hash[:img],
+    hp: poke_hash[:stats][:hp].to_i,
+    attack: poke_hash[:stats][:attack].to_i,
+    defense: poke_hash[:stats][:defense].to_i,
+    speed: poke_hash[:stats][:speed].to_i,
+    species: poke_hash[:type].join(' | '),
+    moves: poke_hash[:moves][:level].map { |move| move[:name].capitalize }.join(' | '),
+    classification: poke_hash[:misc][:classification],
+    height: poke_hash[:misc][:height],
+    happiness: poke_hash[:misc][:happiness].to_i
+    })
 end
 
-pokemon_info(poke_array)
 
-binding.pry
+#binding.pry

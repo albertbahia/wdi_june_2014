@@ -23,7 +23,6 @@ song_requests = [
 ]
 
 early_access_list = [{
-
   name: "Stan the Man",
   email: "stan@theman.com"
 }]
