@@ -1,0 +1,11 @@
+<h2>Edit Image</h2>
+
+<form action="/images/<%= @image.id %>" method="post">
+  <label for="image[img]">Image URL:</label>
+  <input name="image[img]">
+
+  <label for="image[caption]">Caption:</label>
+  <input name="image[caption]">
+
+  <input type="submit" value="Complete Edit">
+</form>
