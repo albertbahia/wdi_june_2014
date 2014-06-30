@@ -1,0 +1,9 @@
+<div><a href="/">Back to the Homepage</a></div><br>
+
+<div>
+  <% @api_call.each do |result| %>
+      <img src="<%= result['images']['original']['url'] %>" alt="">
+      <p><a href="<%= result['url'] %>">View on Giphy</a><p>
+      <p><code><%= result['images']['original']['url'] %></code></p>
+  <% end %>
+</div>
