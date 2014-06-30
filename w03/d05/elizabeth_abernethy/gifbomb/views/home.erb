@@ -1,0 +1,14 @@
+<h3> Welcome to gif madness! </h3>
+
+<form action="/search" method="get">
+  <label for="search">
+    <input type ="text" name='search'>
+    <input type="submit" value="Search">
+  </label>
+</form>
+
+<p>Enjoy the random GIF of the day:</p>
+
+    <img src= "<%= @random['image_original_url'] %>" alt="">
+    <p><a href="<%= @random['image_url'] %>">View on Giphy</a><p>
+    <p><code><%= @random['image_original_url'] %></code></p>
