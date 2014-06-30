@@ -12,5 +12,5 @@ image_url VARCHAR(255),
 classification VARCHAR(255),
 species VARCHAR(255),
 height VARCHAR(255),
-happiness VARCHAR(255)
+happiness INTEGER
 );

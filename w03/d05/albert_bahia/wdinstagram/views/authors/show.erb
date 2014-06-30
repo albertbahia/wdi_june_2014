@@ -1,0 +1,10 @@
+<h2>Name: <%= @author.name %></h2>
+<h3>Age: <%= @author.age %></h3>
+<h3>City: <%= @author.city %></h3>
+<h3>State: <%= @author.state %></h3>
+
+<a href="/authors/<%= @author.id %>/edit">Edit author</a>
+
+<form action="/authors/<%= @author.id %>/delete" method="post">
+  <input type="submit" value="Delete Author">
+</form>
