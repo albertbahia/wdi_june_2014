@@ -1,7 +1,7 @@
 # --------------- COLLECTION ---------------
 
 # index - display all photos
-get "/artists" do
+get "/images" do
   @images = Image.all
   erb(:"images/index")
 end
@@ -20,25 +20,27 @@ end
 # --------------- MEMBER ---------------
 
 #show - displays an individual image
-get "/images/:id" do
+get '/images/:id' do
   @image = Image.find(params[:id])
   erb(:"images/show")
 end
 
 # edit - allow a user to update an image
-get "/images/:id/edit" do
+get '/images/:id/edit' do
   @image = Image.find(params[:id])
   erb(:"images/edit")
 end
 
 # update - updates the database
-put "/images/:id" do
-  @image = Image.update!(params[:image])
-  redirect("/images/#{@image.id}")
+post '/images/:id' do
+  image = Image.find(params[:id])
+  image.update(params[:image])
+  redirect("/images/#{image.id}")
 end
 
 # destroy - remove an image
-post "/images/:id/delete" do
-  @image = Image.find(params[:id])
-  erb(:"images/index")
+post '/images/:id/delete' do
+  image = Image.find(params[:id])
+  image.destroy
+  erb(:"images")
 end
