@@ -1,0 +1,19 @@
+<div>
+    <div class='trainer'>
+      <h3><%= @trainer.name %></h3>
+      <h4><%= @trainer.age %></h4>
+      <h4><%= @trainer.hometown %></h4>
+    </div>
+    <div class='trainer'>
+      <form action="/trainers/<%= @trainer.id %>" method='post'>
+        <input type="text" name='trainer[name]' value='<%= @trainer.name %>'>
+        <input type="text" name='trainer[age]' value='<%= @trainer.age %>'>
+        <input type="text" name='trainer[hometown]' value='<%= @trainer.hometown %>'>
+        <input type="submit">
+      </form>
+      <form action="/trainers/<%= @trainer.id%>/delete" method="post">
+        <button>Delete Trainer</button>
+      </form>
+    </div>
+
+</div>

@@ -1,0 +1,20 @@
+<h3>Edit photo</h3>
+
+
+
+<form action="/photos/<%= @photo.id %>" method="post" id="edit">
+  <input type="hidden" name="_method" value="put">
+  <label for="author">Author: </label>
+  <input name="photo[author]">
+
+  <label for="img_url">IMG URL:</label>
+  <input name="photo[img_url]">
+
+  <label for="date_posted">Date posted:</label>
+  <input name="photo[date_posted]">
+
+  <label for="caption">Caption:</label>
+  <input name="photo[caption]">
+
+  <input type="submit" value="Submit changes">
+</form>

@@ -1,0 +1,13 @@
+
+<a href="/images/new">Add an image</a>
+
+<div>
+    <% @image.each do |image| %>
+    <a href="/images/<%= image.id %>">
+      <img src="<%= image.img_url %>" alt="<%= image.caption %>" height="300px" width="300px">
+    </a>
+    <p><%= image.author %></p>
+    <p><%= image.date_posted %></p>
+    <p><%= image.caption %></p>
+    <% end %>
+</div>

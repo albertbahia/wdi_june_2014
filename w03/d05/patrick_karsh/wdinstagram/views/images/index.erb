@@ -1,0 +1,6 @@
+<h2>Images</h2>
+<% @images.each do |result| %>
+  <img src="<%= result.url %>"><br>
+  <a href="/images/<%=result.id%>"> Show Photo</a><br>
+<% end %>
+</ul>
