@@ -1,11 +1,11 @@
 ################################
-# RESTful routes for Artists   #
+# RESTful routes for Pokemon   #
 ################################
 
 # COLLECTION
 # index
 get '/trainers' do
-  @trainers = Trainer.all
+  @trainer = Trainer.all
   erb(:"trainers/index")
 end
 

@@ -1,0 +1,17 @@
+<h2>Edit Author</h2>
+
+<form action="/authors/<%= @author.id %>" method="post">
+  <label for="author[name]">Name:</label>
+  <input name="author[name]">
+
+  <label for="author[age]">Age:</label>
+  <input name="author[age]">
+
+  <label for="author[city]">City:</label>
+  <input name="author[city]">
+
+  <label for="author[state]">State:</label>
+  <input name="author[state]">
+
+  <input type="submit" value="Complete Edit">
+</form>
