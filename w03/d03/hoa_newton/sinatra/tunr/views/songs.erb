@@ -1,0 +1,19 @@
+
+	<h2>Tun.r's songs</h2>
+
+	<p>Songs will be available soon:</p> 
+	<ul>
+		<% @featured_songs.each do |song| %>
+		<li><%= song%></li>
+		<% end %>
+	</ul>
+
+<form method="POST" action="/songs_wish_list">
+	<input type="text" name="song_name">
+	<input type="submit">
+</form>
+
+<h4>Songs on wish list</h4>
+<% @songs_wish_list.each do |song_name| %>
+ <%= song_name %><br>
+<% end %>

@@ -1,0 +1,22 @@
+<h2>Enter Trainer Edits:</h2>
+
+<form action="/trainers/<%= @trainer.id %>" method="post">
+  <label for="trainer[name]">name:</label>
+  <input name="trainer[name]" value="<%= @trainer.name %>">
+
+  <label for="trainer[age]">age:</label>
+  <input name="trainer[age]"  value="<%= @trainer.age %>">
+
+  <label for="trainer[hometown]">hometown:</label>
+  <input name="trainer[hometown]" value="<%= @trainer.hometown %>">
+
+  <input type="submit" value="Submit Edits">
+</form>
+<br>
+</br>
+
+
+<form action="/trainers/<%= @trainer.id %>/delete" method="post">
+  <label for="submit">Submit 'delete' here to delete this trainer:</label>
+  <input type="submit" value="delete">
+</form>

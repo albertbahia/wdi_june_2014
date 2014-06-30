@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>GIF GRENADE</title>
+  </head>
+
+  <body>
+    <STYLE>
+<!--
+a:link, a:visited, a:active { text-decoration: none; color: black; }
+a:hover { text-decoration: gray; color: gray; }
+-->
+</STYLE>
+    <a href="/"><h1>gif grenades </h1></a>
+
+
+    <form action="/search" method="get">
+      <label for="search">
+        <input type="text" name="search" placeholder="search">
+      </label>
+
+      <input type="submit"  value="gif me">
+    </form>
+    <p><a href="/kittens">kittens</a>
+      <a href="/puppies">puppies</a>
+      <a href="/pokemon">pokemon</a>
+      <a href="/pandas">pandas</a></p>
+    <%= yield %>
+
+  </body>
+  </html>

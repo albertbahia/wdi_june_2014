@@ -1,0 +1,32 @@
+<h3><%= @trainer.name %></h3>
+<div class="content-block">
+  <div class="stats">
+    <p>
+      Age: <%= @trainer.age %>
+    </p>
+    <p>
+      Hometown: <%= @trainer.hometown %>
+    </p>
+    <a href="/trainers/<%= @trainer.id %>/edit">Edit <%= @trainer.name %> </a>
+    <form id="delete" action="/trainers/<%= @trainer.id %>/remove" method="post">
+      <input type="submit"  value="Delete">
+    </form>
+
+  </div>
+  <div class="poke-info">
+    <ul>
+      <% @trainer.pokemon.each do |poke| %>
+        <li>
+          <p>Name: <%= poke.name %></p>
+          <p>
+            Species: <%= poke.species %>
+          </p>
+          <p>
+            Classification: <%= poke.classification %>
+          </p>
+          <img src="<%= poke.img %>" alt="" />
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
