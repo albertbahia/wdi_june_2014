@@ -1,0 +1,13 @@
+<h2 id="menu">Home Sweet Home</h2>
+
+
+<% @images.each do |image| %>
+<div class="post">
+  <a href="/images/<%= image.id %>">
+    <img class="image-style" src="<%= image.img %>">
+    <h3>Date: <%= image.post_date %></h3>
+    <h3>Caption: <%= image.caption %></h3>
+  </a>
+</div>
+  <br>
+<% end %>

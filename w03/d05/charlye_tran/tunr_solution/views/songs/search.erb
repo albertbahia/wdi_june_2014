@@ -1,0 +1,11 @@
+<div><a href="/">Back To Homepage</a></div>
+<div>
+<% @api_call.each do |result| %>
+  <% if kind = song %>
+    <h3>Song Name:<%= result['trackName'] %></h3>
+    <h3>Album: <%= result['artistName'] %></h3
+    <h3>Preview_URL: <%= result['trackViewUrl'] %></h3>
+    <h3>Price: <%= result['trackPrice'] %></h3>
+  <% end %>
+<% end %>
+</div>
