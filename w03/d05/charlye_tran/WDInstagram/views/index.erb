@@ -2,7 +2,7 @@
 <p><a href="/new">Add a New Image</a></p>
 
 <p><% @image.each do |image| %>
-  <img src ="<%=image.url%>" height="400" width="450">
+  <img src ="<%=image.url%>" height="300" width="350">
   <h3><a href="/<%=image.id %>">Image <%= image.id %></a>
   <h3>Posted By: <%= image.author %></h3>
   <h3>Post Date: <%= image.date_posted %></h3>
