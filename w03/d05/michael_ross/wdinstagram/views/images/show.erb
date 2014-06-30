@@ -1,0 +1,9 @@
+<div>
+  <img src="<%= @image.url %>">
+    <p><%= @image.caption %></p>
+    <p>Author: <%= @image.author %></p>
+    <p>Date Posted: <%= @image.date_posted %></p>
+  <form action="/images/<%= @image.id %>/edit" method="get">
+    <input type="submit" value="Edit Photo">
+  </form>
+</div>
