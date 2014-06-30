@@ -9,5 +9,19 @@ ActiveRecord::Base.establish_connection({
   database: 'pokemon_db'
 })
 
-Trainer.all.sample(2)
+trainer = Trainer.all.sample(2)
+t1 = trainer.first
+t2 = trainer.last
+
+p1 = Pokemon.all.sample(6)
+p2 = Pokemon.all.sample(6)
+
+t1.pokemons = p1
+t2.pokemons = p2
+
+def fight(trainer1, trainer2)
+	
+end
+
+binding.pry
 
