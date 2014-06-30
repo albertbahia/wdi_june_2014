@@ -1,0 +1,11 @@
+<h2>New Song</h2>
+
+<form action="/songs/<%= @song.id %>" method="post">
+  <label for="song[title]">Song Title:</label>
+  <input name="song[title]" value="<%= @song.title %>">
+
+  <label for="artist[id]">Name:</label>
+  <input name="artist[id]" value="<%= @artist.id %>">
+
+  <input type="submit" value="Create">
+</form>
