@@ -1,0 +1,11 @@
+<br>Trainer: <%= @trainer.name %><br>
+Age: <%= @trainer.age %><br>
+Hometown: <%= @trainer.hometown %><br>
+
+<a href='/trainers'>Back</a><p>
+<a href='/trainers/<%= @trainer.id %>/edit'>Change <%= @trainer.name %> Info</a>
+
+
+<form action="/trainers/<%= @trainer.id %>/delete" method="post">
+  <input type="submit" value="Delete Trainer">
+</form>
