@@ -1,0 +1,17 @@
+<h2>New Song</h2>
+
+<form action="/songs/<%= @song.id %>" method="post">
+  <label for="song[title]">Title:</label>
+  <input name="song[title]" value="<%= @song.title %>">
+
+  <label for="song[preview_url]">Photo URL:</label>
+  <input name="song[preview_url]"  value="<%= @song.preview_url %>">
+
+  <label for="song[artist]">Artist:</label>
+  <input name="song[artist]" value="<%= @song.artist %>">
+
+  <label for="song[price]">Price:</label>
+  <input name="song[price]" value="<%= @song.price %>">
+
+  <input type="submit" value="Edit">
+</form>

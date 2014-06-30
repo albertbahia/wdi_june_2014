@@ -1,0 +1,16 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h3> * * *    A L L  *  P O K E M O N    * * * </h3>
+    <ul>
+  <% @pokemons.each do |monster| %>
+    <li>
+      <a href="/pokemons/<%= monster.id %>">
+        <%= monster.name %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+  </body>
+</html>
