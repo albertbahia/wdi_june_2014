@@ -1,0 +1,13 @@
+<h2>The Trainer Stable</h2>
+
+<a href="/trainers/new">Add Trainer</a>
+
+<ul>
+  <% @trainers.each do |trainer| %>
+    <li>
+      <a href="/trainers/<%= trainer.id %>">
+        <%= trainer.name %>
+      </a>
+    </li>
+  <% end %>
+</ul>

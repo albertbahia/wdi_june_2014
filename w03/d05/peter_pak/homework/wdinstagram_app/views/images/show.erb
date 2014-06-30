@@ -1,0 +1,24 @@
+<br>
+<table>
+
+  <tr>
+
+    <td>
+      <img src="<%= @image.img_url %>" style="max-height: 600px; max-width: 600px;" >
+      <br>
+      <em><%= @image.caption %></em>
+      <p> Posted by: <%= @image.author %> -- on <%= @image.date_posted %> </p>
+    </td>
+
+    <td valign="top">
+
+      <p><a href="/images/<%= @image.id %>/edit">Edit this image?<a>
+      <p>
+        <form action="/images/<%= @image.id %>/delete" method="post">
+          <input type="submit" value="Delete">
+        </Form>
+      </p>
+
+    </td>
+  </tr>
+</table>

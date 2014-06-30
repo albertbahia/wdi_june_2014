@@ -1,0 +1,11 @@
+require 'active_record'
+require 'pry'
+require_relative 'song'
+require_relative 'playlist'
+
+ActiveRecord::Base.establish_connection({
+  database: 'tunr_db',
+  adapter: 'postgresql'
+})
+
+binding.pry
