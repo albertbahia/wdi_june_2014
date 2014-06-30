@@ -8,7 +8,7 @@ class SongsController < ApplicationController
   end
 
   def create
-    @song = Song.create!(params[:song])
+    @song = Song.create!(params[:song].permit!)
     redirect_to("/songs/#{@song.id}")
   end
 
@@ -21,7 +21,8 @@ class SongsController < ApplicationController
   end
 
   def update
-    @song = Song.update!(params[:song])
+    @song = Song.find(params[:id])
+    @song.update!(params[:song].permit!)
     redirect_to("/songs/#{@song.id}")
   end
 
