@@ -1,0 +1,14 @@
+<h3>EDIT TRAINER</h3>
+
+ <form action="/trainers/<%= @trainer.id %>" method="post">
+   <label for="trainer[name]">NAME:</label>
+   <input name="trainer[name]" value="<%= @trainer.name %>">
+
+   <label for="trainer[age]">AGE:</label>
+   <input name="trainer[age]"  value="<%= @trainer.age %>">
+
+   <label for="trainer[hometown]">HOMETOWN:</label>
+   <input name="trainer[hometown]" value="<%= @trainer.hometown %>">
+
+   <input type="submit" value="EDIT">
+ </form>
