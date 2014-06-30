@@ -1,0 +1,12 @@
+<div class="single-image">
+	<img src="<%= @image.img_url %>" alt="">
+	<div class="image-content">
+		<a href="#" class="image-author"><%= @image.author %></a>
+		<p><%= @image.date_posted %></p>
+		<p><%= @image.caption %></p>
+		<a href="/images/<%= @image.id %>/edit" class="edit-image">Edit Image</a>
+		<form class="delete" action="/images/<%= @image.id %>/delete" method="post">
+		  <input type="submit"  value="Delete">
+		</form>
+	</div>
+</div>

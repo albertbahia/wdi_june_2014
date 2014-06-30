@@ -1,0 +1,17 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h3> * * *    A L L  *  T R A I N E R S    * * * </h3>
+    <ul>
+  <% @trainers.each do |trainer| %>
+    <li>
+      <a href="/trainers/<%= trainer.id %>">
+        <%= trainer.name %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+<a href= "/trainers/new">Click Here To Add A New Trainer</a>
+  </body>
+</html>
