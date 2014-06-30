@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TWDIR</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <style>
+
+  form {
+    margin: auto;
+    width:100px;
+  }
+
+  head {
+    text-align: center;
+    background-size: cover;
+    color: white;
+  }
+
+  body {
+    background: #white;
+  }
+
+  a {
+    color: #7C7F7E;
+    font-family: arial;
+    align: center;
+  }
+
+
+  h1 {
+    text-align: center;
+    font-size: 50px;
+    font-family: arial;
+    color: #6E7F79;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 20px;
+    font-family: arial;
+    color: #7C7F7E;
+  }
+
+  p {
+    font-family: arial;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 7px solid white;
+    border-radius: 20px;
+  }
+  </style>
+</head>
+<body>
+  <p>
+  <img src="https://docs.google.com/drawings/d/1XJChDG-0tYGSfzMRo2_gGl4sFnCxyD4GR4hQI-ldLW4/pub?w=480&amp;h=360"></br>
+  <a href="/">Home</a>
+  <a href="/tweeds">TWDIR Feed</a>
+  </p>
+<%= yield %>
+
+</body>
+</html>
