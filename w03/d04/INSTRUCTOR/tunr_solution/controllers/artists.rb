@@ -36,6 +36,5 @@ end
 # destroy
 post "/artists/:id/delete" do
   @artist = Artist.find(params[:id])
-  @artist.destroy
   erb(:"artists/index")
 end
