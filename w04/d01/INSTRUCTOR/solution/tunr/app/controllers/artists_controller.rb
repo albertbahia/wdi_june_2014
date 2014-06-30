@@ -7,7 +7,7 @@ class ArtistsController < ApplicationController
   end
 
   def create
-    @artist = Artist.create!(params[:artist])
+    @artist = Artist.create!(params[:artist].permit!)
     redirect_to("/artists/#{@artist.id}")
   end
 
@@ -20,7 +20,8 @@ class ArtistsController < ApplicationController
   end
 
   def update
-    @artist = Artist.update!(params[:artist])
+    @artist = Artist.find(params[:id])
+    @artist.update!(params[:artist].permit!)
     redirect_to("/artists/#{@artist.id}")
   end
 
