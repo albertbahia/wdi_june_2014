@@ -1,0 +1,22 @@
+<h6><a href="/trainers">Back to Trainer List</a></h6>
+
+<h2><%= @trainers.name %></h2>
+
+<img src="http://nicenicejpg.com/350">
+
+<ul>
+  <li>age: <%= @trainers.age %></li>
+  <li>hometown: <%= @trainers.hometown %></li>
+</ul>
+
+<ul>
+  <% @trainers.pokemons.each do |pokemon| %>
+  <li> <%= pokemon.name %> <img src = "<%= pokemon.img_url %>"</li>
+    <% end %>
+</ul>
+
+<h3><a href="/trainers/<%= @trainers.id %>/edit">Edit Trainer</a></h3>
+
+<form action="/trainers/<%= @trainers.id %>/delete" method="post">
+  <input type="submit" value="Delete Trainer">
+</form>

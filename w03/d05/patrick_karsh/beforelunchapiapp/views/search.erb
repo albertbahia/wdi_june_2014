@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title>Gif Bomb</title>
+</head>
+<h1>Gif Bomb</h1>
+<form action= "/search" method= 'get'>
+	<label for= "search" >
+	<input type= "text" name= 'search'>
+	<input type= "submit">
+	</label>
+</form>
+<body>
+<%@api_call.each do |result|%>
+	<img src="<%= result['images']['original']['url']%>" alt="">
+	<p><a href="<%= result['url']%>">View on Giphy</a></p>
+	<p><code>"<%= result['images']['original']['url']%>"</code></p>
+	<% end %>
+
+</body>
+</html>

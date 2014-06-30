@@ -1,0 +1,32 @@
+body { background: #fff; font-family: helvetica, sans-serif; }
+img { max-width: 100%; }
+header { text-align: center; }
+a { text-decoration: none; }
+.container  { position: relative; width: 1120px; margin: 0 auto; padding: 0; }
+.container .column,
+.container .columns { float: left; display: inline; margin: 10px; }
+.row  { margin-bottom: 20px; }
+.container .three.columns  { width: 190px; }
+.container .four.columns  { width: 260px; }
+.photo-index { height: 260px; overflow: hidden; }
+.nav { text-align: center; margin: 40px 0 60px 0; }
+
+.cta, .create { background-color: #ff00b4; }
+
+.cta:hover, .create:hover { background-color: #00b4ff; transition: all 0.2s ease; }
+
+.cta {
+  padding: 20px;
+  color: #fff;
+  font-family: helvetica, sans-serif;
+  font-size: 20px;
+  }
+
+.create {
+  padding: 10px;
+  color: #fff;
+  font-family: helvetica, sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  border:none;
+  }
