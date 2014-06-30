@@ -1,0 +1,13 @@
+<h3>Pokemons</h3>
+<ul>
+  <% @pokemons.each do |pokemon| %>
+    <li>
+      <a href="/pokemons/<%= pokemon.id %>">
+        <b><%= pokemon.name %><br></b>
+      </a>
+      <b>Type: </b><%= pokemon.classification %> | <b>Species: </b><%= pokemon.species %><br><br>
+        <img src= "<%= pokemon.img_url %>"><br><br>
+      <br>
+    </li>
+  <% end %>
+</ul>
