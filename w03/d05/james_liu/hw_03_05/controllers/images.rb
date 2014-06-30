@@ -7,7 +7,7 @@
 # - An edit route that will allow a user to update an image
 # - An update route that will update the database
 # - A delete route that will remove an image.
-
+require 'pry'
 
 #index route
 get "/images" do
@@ -16,7 +16,7 @@ get "/images" do
 end
 
 #new route
-get "images/new" do
+get "/images/new" do
   erb(:"images/new")
 end
 
@@ -29,6 +29,7 @@ end
 #show route
 get "/images/:id" do
   @image = Image.find(params[:id])
+  binding.pry
   erb(:"images/show")
 end
 
