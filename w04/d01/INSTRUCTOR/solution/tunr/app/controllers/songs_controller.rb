@@ -21,7 +21,8 @@ class SongsController < ApplicationController
   end
 
   def update
-    @song = Song.update!(params[:song].permit!)
+    @song = Song.find(params[:id])
+    @song.update!(params[:song].permit!)
     redirect_to("/songs/#{@song.id}")
   end
 

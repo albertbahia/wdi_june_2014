@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post 'artists'              => 'artists#create'
   get  'artists/:id'          => 'artists#show'
   get  'artists/:id/edit'     => 'artists#edit'
-  put  'artists/:id'          => 'artists#update'
+  post  'artists/:id'          => 'artists#update'
   post 'artists/:id/delete'   => 'artists#destroy'
 
   # songs
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   post 'songs'              => 'songs#create'
   get  'songs/:id'          => 'songs#show'
   get  'songs/:id/edit'     => 'songs#edit'
-  put  'songs/:id'          => 'songs#update'
+  post  'songs/:id'          => 'songs#update'
   post 'songs/:id/delete'   => 'songs#destroy'
 
   # playlists
