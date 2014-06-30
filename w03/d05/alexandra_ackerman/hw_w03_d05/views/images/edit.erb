@@ -1,0 +1,18 @@
+<div align="center">
+<h2>EDIT IMAGE</h2>
+<form action="/images/<%= @image.id %>" method="post">
+    <label for="image[author]">Name:</labe>
+    <input type="text" name="image[author]" value="<%= @image.author %>">
+
+    <label for="image[image_url]">Image URL:</label>
+    <input type="text" name="image[image_url]" value="<%= @image.image_url %>">
+
+    <label for="image[date]">Date:</label>
+    <input type="date" name="image[date_posted]" value="<%= @image.date_posted %>">
+
+    <label for="image[caption]">Caption:</label>
+    <input type="text" name="image[caption]" value="<%= @image.caption %>">
+
+    <input type="submit" value="Update Image">
+</form>
+</div>

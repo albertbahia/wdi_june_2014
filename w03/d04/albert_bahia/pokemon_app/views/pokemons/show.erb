@@ -1,0 +1,18 @@
+<br>
+<br>
+<img src="<%= @pokemon.img %>">
+<h2>Name: <%= @pokemon.name %></h2>
+<h3>Type: <%= @pokemon.species %></h3>
+<h3>HP: <%= @pokemon.hp %></h3>
+<h3>Attack: <%= @pokemon.attack %></h3>
+<h3>Defense: <%= @pokemon.defense %></h3>
+<h3>Speed: <%= @pokemon.speed %></h3>
+<h3>Moves: <%= @pokemon.moves %></h3>
+<h3>Height: <%= @pokemon.height %></h3>
+<h3>Happiness: <%= @pokemon.happiness %></h3>
+<h3>Classification: <%= @pokemon.classification %></h3>
+
+
+<form action="/pokemons/<%= @pokemon.id %>/delete" method="post">
+  <input type="submit" value="Delete Pokemon">
+</form>
