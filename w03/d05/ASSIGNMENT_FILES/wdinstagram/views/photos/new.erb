@@ -1,0 +1,26 @@
+<div class="photo">
+  <h4>Post a new Photo</h4>
+  <form action="/photos" method="post">
+    <div>
+      <label>Poster:
+        <input type="text" name="photo[poster]">
+      </label>
+    </div>
+    <div>
+      <label>url:
+        <input type="text" name="photo[img_url]">
+      </label>
+    </div>
+    <div>
+      <label>date:
+        <input type="date" name="photo[date_posted]">
+      </label>
+    </div>
+    <div>
+      <label>caption:
+        <textarea type="text" name="photo[caption]"></textarea>
+      </label>
+    </div>
+    <input type="submit">
+  </form>
+</div>

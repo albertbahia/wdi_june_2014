@@ -1,0 +1,29 @@
+<h2>New Song</h2>
+
+<form action="/songs" method="post">
+  <label for="song[title]">Title:</label>
+  <input name="song[title]">
+
+  <label for="song[album]">Album:</label>
+  <input name="song[album]">
+
+  <label for="song[preview_url]">Preview URL:</label>
+  <input name="song[preview_url]">
+
+  <label for="song[artist_id]">Artist ID:</label>
+  <input name="song[artist_id]">
+
+  <label for="song[price]">Price (cents):</label>
+  <input name="song[price]">
+
+  <input type="submit" value="Create">
+</form>
+
+<h2>Search for a song on the iTunes store:</h2>
+
+<form action="/search" method='get'>
+  <label for="search songs">
+    <input type="search" placeholder="Song Title">
+    <input type="submit" value="Search">
+  </label>
+</form>
