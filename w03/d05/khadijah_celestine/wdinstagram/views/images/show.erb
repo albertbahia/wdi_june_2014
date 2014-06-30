@@ -6,10 +6,8 @@
   <p>
     <a href="/images/<%= @image.id %>/edit" title="this image post"><span class="button" >   Edit  </span></a>
   </p>
+  <h3> My Images </h3>
 
-<form action="/images/<%= @image.id %>/edit" method="post">
-  <input type="submit" value="Edit Image">
-</form>
 
 <form action="/images/<%= @image.id %>/delete" method="post">
   <input type="submit" value="Delete Image">

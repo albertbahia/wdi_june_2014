@@ -36,8 +36,8 @@ h3 {
 
 #nav a {
   text-decoration: none;
-  font-size: 25pt;
-  padding: 10px;
+  font-size: 24pt;
+  padding: 5px;
   margin: 30px;
 }
 
@@ -77,6 +77,12 @@ p label {
 }
 p input {
     width: y;
+}
+
+.info {
+  font-size: 19pt;
+  color: darkblue;
+  font-weight: bold;
 }
 
 #itunes {
