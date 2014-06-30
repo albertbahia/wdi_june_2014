@@ -1,0 +1,21 @@
+DROP TABLE authors;
+DROP TABLE books;
+
+CREATE TABLE authors (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  nationality VARCHAR(255),
+  birth_year integer
+);
+
+CREATE TABLE books (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  publication_date integer
+  author_id REFERENCES authors(id)
+);
+
+
+
+
+C.S. Forrester, United Kingdom, 8/27/1899

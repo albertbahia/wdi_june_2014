@@ -1,0 +1,16 @@
+<h1>Trending Giphy Pulls</h1>
+<form action="/search" method="get">
+  <label for="search">Enter Giphy Type:</label>
+  <input name="search">
+  <input type="submit" value="Search">
+</form>
+<% @api_call['data'].each do |img| %>
+<ol>
+  <li>
+<img src= "<%= img['images']['fixed_height']['url'] %>" >
+<a href= "<%= img['images']['fixed_height']['url'] %>"><br>Click Here</a><br>
+  Quick paste:<br>
+  <%= img['images']['fixed_height']['url'] %>
+  </li>
+</ol>
+<% end %>

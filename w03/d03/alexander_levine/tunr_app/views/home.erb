@@ -1,0 +1,31 @@
+<p>
+  Hey. Tun.r is the best music service in the galaxy.
+</p>
+  <% meaning_of_life = 42 %>
+<p>
+  The meaning of life is <%= meaning_of_life %>
+</p>
+
+<h4>Early Access List</h4>
+
+<p>
+  Add your name to the early access list for awesome access things.
+</p>
+
+<form action="/add_to_list" method="post">
+  <label>
+    Full Name
+    <input type="text" name="full_name">
+  </label>
+  <label>
+    Email
+    <input type="text" name="email">
+  </label>
+  <input type="submit">
+</form>
+
+<h4>People on the list so far</h4>
+
+<% @list.each do |info_hash| %>
+  <%= info_hash[:full_name] %><br>
+<% end %>
