@@ -1,0 +1,13 @@
+<h3><%= @song.title %></h3>
+<h3><%= @artist.name %></h3>
+<h3><%= @song.album %></h3>
+<audio controls>
+  <source src="<%= @song.preview_url%>" type="audio/mpeg">
+</audio>
+
+<p><%= @song.price %></p>
+<p><%= @song.artist_id %></p>
+
+<form action="/artists/<%= @song.id %>/delete" method="post">
+  <input type="submit" value="Delete Artist">
+</form>
