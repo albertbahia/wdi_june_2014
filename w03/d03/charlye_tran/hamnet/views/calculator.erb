@@ -1,0 +1,36 @@
+<h1>Welcome to the Calculator!</h1>
+<p>Our nifty calculator can do basic math functions! Check it out and see what happens!</p>
+<form method="POST" action="/add_to_calculator">
+  <label>
+    Enter Number 1:
+    <input type="text" name="num1">
+  </label>
+  <br>
+
+  <label>
+    Enter function: add, subtract, multiply or divide
+    <input type="text" name="operand">
+  </label>
+  <br>
+
+  <label>
+    Enter Number 2:
+    <input type="text" name="num2">
+  </label>
+
+  <input type="submit">
+
+</form>
+
+<h4>Your answer!</h4>
+<%if :operand == "add" %>
+  <%= num1 + num2 %>
+  <%else :operand == "subtract" %>
+  <%= num1 - num2 %>
+  <%else :operand == "multiply" %>
+  <%= num1 * num2 %>
+  <%elsif :operand == 'divide' %>
+  <%= num1 / num2 %>
+  <%else
+  <%= puts "Error!"%>
+<% end %>

@@ -1,0 +1,20 @@
+<h2>New Image</h2>
+
+<form action="/images/<%= @image.id %>" method="post">
+
+  <label for="image[author]">Author:</label>
+  <input name="image[author]" value="<%= @image.author %>" class="box"><p>
+
+  <label for="image[img_url]">URL:</label>
+  <input name="image[img_url]" value="<%= @image.img_url %>" class="box"><p>
+
+  <label for="image[date_posted]">Date Posted (YYYY-MM-DD):</label>
+  <input name="image[date_posted]" value="<%= @image.date_posted %>" class="box"><p>
+
+  <label for="image[caption]">Caption:</label>
+  <input name="image[caption]" value="<% @image.caption %>" class="box"><p>
+
+  <input type="submit" value="Modify" class="button">
+</form>
+
+<a href='/images'>Back</a>
