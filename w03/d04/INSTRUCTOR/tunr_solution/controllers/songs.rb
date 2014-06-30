@@ -36,5 +36,6 @@ end
 # destroy
 post "/songs/:id/delete" do
   @song = Song.find(params[:id])
+  @song.destroy
   erb(:"songs/index")
 end
