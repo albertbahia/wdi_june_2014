@@ -3,7 +3,7 @@
 <img src="<%= @image.url %>">
 
 <div class="edit">
-  <form action="/images/<%= @image.id %>" method="put">
+  <form action="/images/<%= @image.id %>" method="post">
     <label for="image[author]">Edit Author</label>
     <input name="image[author]" value="<%= @image.author %>">
 

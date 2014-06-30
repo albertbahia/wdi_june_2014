@@ -19,7 +19,7 @@ end
 # MEMBER
 # show
 
-get 'images/:id' do
+get '/images/:id' do
   @image = Image.find(params[:id])
   erb(:"images/show")
 end
@@ -32,13 +32,14 @@ end
 
 # update
 post '/images/:id' do
-  @image = Image.update!(params[:image])
-  redirect("/images/#{@image.id}")
+  @image = Image.find(params[:id])
+  @image.update(params[:image])
+  redirect("images/#{@image.id}")
 end
 
 #destroy
-post 'images/:id/delete' do
-  image = Image.find(params[:id])
-  image.destroy
-  erb(:"artists/index")
+post '/images/:id/delete' do
+  @image = Image.find(params[:id])
+  @image.destroy
+  redirect("/")
 end

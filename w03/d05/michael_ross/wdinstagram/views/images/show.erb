@@ -4,6 +4,9 @@
     <p>Author: <%= @image.author %></p>
     <p>Date Posted: <%= @image.date_posted %></p>
   <form action="/images/<%= @image.id %>/edit" method="get">
-    <input type="submit" value="Edit Photo">
+    <input type="submit" value="EDIT PHOTO">
+  </form>
+  <form action="/images/<%= @image.id %>/delete" method="post">
+    <input type="submit" value="DELETE PHOTO">
   </form>
 </div>
