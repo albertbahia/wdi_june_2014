@@ -1,0 +1,20 @@
+<h2><%= @trainer.name %></h2>
+<h3><%= @trainer.age %></h3>
+<h3><%= @trainer.hometown %></h3>
+
+<ul>
+  <% @trainer.pokemons.each do |pokemon| %>
+    <li><%= pokemon.name %>
+    <%= pokemon.species %>
+    <%= pokemon.classification %>
+    <img src="<%= @pokemon.img_url %>">
+    </li>
+  <% end %>
+</ul>
+
+<a href="/trainers/<%= @trainer.id %>/edit">Edit This Trainer!</a></br>
+
+<form.delete action="/trainers/<%=@trainer.id%>/delete" method="post">
+    <input name="method" type="hidden" value="delete" />
+    <input type="submit" value="You're Fired!">
+</form>
