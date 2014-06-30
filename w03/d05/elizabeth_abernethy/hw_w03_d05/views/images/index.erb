@@ -1,0 +1,10 @@
+<h3>Images</h3><br>
+
+<a href="/images/new">Add a New Image</a>
+<br>
+
+<% @images.each do |image| %>
+    <a href="/images/<%=image.id%>">
+      <img src="<%=image.img_url%>">
+    </a>
+<% end %>
