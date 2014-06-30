@@ -1,0 +1,42 @@
+<div class='pokemon'>
+    <div class="poke_img_div"><h2><%= @pokemon.name %></h2><img class='pokemon_img' src="<%= @pokemon.img_url %>">
+      <p> Type: <%= @pokemon.species %> | A <%= @pokemon.classification  %></p>
+    </div>
+    
+    <div class='stats'>
+      <table> Stats
+        <tr>
+          <td>HP</td>
+          <td><%= @pokemon.hp %></td>
+        </tr>
+        <tr>
+          <td>Attack</td>
+          <td><%= @pokemon.attack %></td>
+        </tr>
+        <tr>
+          <td>Defense</td>
+          <td><%= @pokemon.defense %></td>
+        </tr>
+        <tr>
+          <td>Speed</td>
+          <td><%= @pokemon.speed %></td>
+        </tr>
+        <tr>
+          <td>Height</td>
+          <td><%= @pokemon.height %></td>
+        </tr>
+        <tr>
+          <td>Happiness</td>
+          <td><%= @pokemon.happiness %></td>
+        </tr>
+      </table>
+    </div>
+    <div class='moves'> 
+      <h4>Moves</h4>    
+      <% @pokemon.moves.split(' | ').each do |move1| %>
+        <span> <%= move1 %> </span>
+        <span> // </span>
+      <% end %>
+    </div>
+
+  </div>

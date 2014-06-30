@@ -1,0 +1,12 @@
+<h2>Gallery</h2>
+<ul>
+  <% @images.each do |image| %>
+  <li>
+    <a href="/images/ <%= image.id %>">
+    <img src= "<%= image.img_url %>">
+    </a>
+  </li>
+  <% end %>
+</ul>
+
+<a href="/images/new">Add Image</a>

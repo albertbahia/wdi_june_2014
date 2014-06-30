@@ -1,0 +1,53 @@
+/*body{
+  background: url(https://camo.githubusercontent.com/4a7cf94aedbd23c13cc2d75fdc3b2af5c816c208/687474703a2f2f7374617469632e646967672e636f6d2f7374617469632f696d616765732f6469676765722e676966);
+}*/
+.pokemon {
+  width: 33%;
+  height: 500px;
+  border: 2px solid black;
+  float: left;
+}
+div.poke_img_div {
+  text-align: center;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+}
+.pokemon_img {
+  width: 200px;
+  height: 200px;
+}
+.stats, .poke_img_div {
+  margin-top: 100px;
+  float: left;
+  width: 50%;
+  height: 45%
+}
+.moves {
+  margin: 50px auto;
+  width: 250px;
+  height: 50%;
+  text-align: center;
+}
+header h1 {
+
+}
+
+.trainer {
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+  float: left;
+  margin: 5px;
+  text-align: center;
+}
+.trainer_pokemon_div{
+  width: 200px;
+  height: 500px;
+  border: 2px solid black;
+  float: left;
+}
+.trainer_pokemons {
+  width: 100%;
+  height:510px;
+}

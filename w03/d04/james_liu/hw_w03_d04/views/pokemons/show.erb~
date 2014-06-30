@@ -1,0 +1,20 @@
+<h2><%= @pokemon.name %></h2>
+<h3>Pokemon: <%= @pokemon.name %></h3>
+
+
+
+Classification: <%= @pokemon.classification %></br>
+Species: <%= @pokemon.species %></br>
+Height: <%= @pokemon.height %></br>
+Moves: <%= @pokemon.moves %></br>
+</br>
+<h4>Stats</h4>
+HP: <%= @pokemon.hp %></br>
+Attack: <%= @pokemon.attack %></br>
+Defense: <%= @pokemon.defense %></br>
+Speed: <%= @pokemon.speed %></br>
+Happiness: <%= @pokemon.happiness %></br>
+
+<img src="<%= @pokemon.img_url %>">
+
+
