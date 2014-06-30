@@ -1,0 +1,31 @@
+<div class="photo">
+  <h4>Edit Photo</h4>
+  <form action="/photos/<%= @photo.id %>" method="post">
+    <div>
+      <label>Poster:
+        <input type="text" name="photo[poster]" value="<%= @photo.poster %>">
+      </label>
+    </div>
+    <div>
+      <label>url:
+        <input type="text" name="photo[img_url]" value="<%= @photo.img_url %>">
+      </label>
+    </div>
+    <div>
+      <label>date:
+        <input type="text" name="photo[date_posted]" value="<%= @photo.date_posted %>">
+      </label>
+    </div>
+    <div>
+      <label>caption:
+        <textarea type="text" name="photo[caption]" value="<%= @photo.caption %>"></textarea>
+      </label>
+    </div>
+    <input type="submit">
+  </form>
+</div>
+<div>
+  <form action="/photos/<%= @photo.id %>/delete" method="post">
+    <button>Delete Photo</button>
+  </form>
+</div>
