@@ -16,7 +16,7 @@ class Calculator
   def multiply(*nums)
     nums.reduce(:*)
   end
-
+  
   def power(number_one,number_two)
     if number_two == 0
       return 1
@@ -29,6 +29,7 @@ class Calculator
 
   def factorial(num)
     # num == 0 ? 1 : (1..num).reduce(:*)
+    
     # if num == 0
     #   return 1
     # else
@@ -36,4 +37,13 @@ class Calculator
     # end
     (1..num).reduce(1,:*)
   end
+
+
+
+
+
+
+
+
+
 end
