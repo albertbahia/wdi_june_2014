@@ -1,0 +1,17 @@
+<h2>Edit Artist</h2>
+
+<form action="/artists/#{@artist.id}" method="post">
+  <label for="artist[name]">Name:</label>
+  <input name="artist[name]">
+
+  <label for="artistx[photo_url]">Photo URL:</label>
+  <input name="artist[photo_url]">
+
+  <label for="artist[nationality]">Nationality:</label>
+  <input name="artist[nationality]">
+
+  <label for="artist[age]">Age:</label>
+  <input name="artist[age]">
+
+  <input type="submit" value="Create">
+</form>
