@@ -1,12 +1,12 @@
 <h3>TWEEDIR</h3>
 
-<a href="/tweeds/new">TWEED</a>
+<a href="/tweeds/new" class="heading">TWEED</a>
 
 <ul>
   <% @tweeds.each do |tweed| %>
     <li>
       <a href="tweeds/<%= tweed.id %>"><img src="<%= tweed.image_url %>"></a>
-        <p><%= tweed.content %></p>
+        <a href="tweeds/<%= tweed.id %>"><p><%= tweed.content %></p></a>
         <p><%= tweed.author %></p>
       </a>
     </li>

@@ -23,4 +23,4 @@ div {border: solid black 1px; margin: 47px 20px;}
 div.edit_photo {padding-top: 15px}
 img {padding-top: 20px}
 h3 {letter-spacing: 27px; padding-left: 19px}
-a {letter-spacing: 5px}
+a.heading {letter-spacing: 5px}
