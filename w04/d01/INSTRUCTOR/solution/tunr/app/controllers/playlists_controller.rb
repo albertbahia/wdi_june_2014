@@ -11,7 +11,7 @@ class PlaylistsController < ApplicationController
   end
 
   def create
-    @playlist = Playlist.create!(params[:playlist])
+    @playlist = Playlist.create!(params[:playlist].permit!)
     redirect_to("/playlists/#{@playlist.id}")
   end
 
