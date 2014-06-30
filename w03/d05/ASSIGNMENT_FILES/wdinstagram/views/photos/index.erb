@@ -1,0 +1,14 @@
+<div id="container">
+  <% @photos.each do |photo| %>
+    <div class="photo">
+      <p><%= photo.poster %></p>
+      <div class="image">
+        <img src="<%= photo.img_url %>" alt="">
+      </div>
+      <div>
+        <h6><%= photo.date_posted %> | <span><%= photo.caption %></span></h6>
+        <a href="/photos/<%= photo.id %>">View</a>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,13 @@
+</br>
+<div align="center">
+<a href="/images/new">ADD IMAGE</a></br>
+<p>
+<% @images.each do |image| %>
+  <a href="/images/<%= image.id %>">
+    <img src="<%= image.image_url %>"></a></br>
+    "<em> <%= image.caption %></em>"</br>
+    Author: <%= image.author %></br>
+<% end %>
+</p>
+</div>
+</br>
