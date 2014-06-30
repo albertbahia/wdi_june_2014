@@ -1,0 +1,9 @@
+<h3>Posted by: <%= @image.author %></h3>
+<p><img src="<%= @image.image_url %>"> <br>
+  Caption: <%= @image.caption %> <br>
+  Date posted: <%= @image.date_posted %> <br>
+</p>
+<p>
+  Made a mistake? <a href=<%="/images/#{@image.id}/edit"%>> Fix it</a> <br>
+  Think this image is crap? <a href=<%="/images/#{@image.id}/delete"%>> Delete it</a>
+</p>
