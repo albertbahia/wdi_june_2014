@@ -1,0 +1,68 @@
+/* WDINSTAGRAM STYLES */
+
+
+body {
+  font-family: "Helvetica", sans-serif;
+  background: #9a577f;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+ul {
+  text-transform: uppercase;
+  display: inline;
+}
+
+li {
+
+}
+
+img {
+  border: dotted;
+  border-width: 5px;
+  border-radius: 2px;
+  padding: 10px;
+}
+
+#main_menu {
+  display: inline;
+  text-decoration: none
+}
+
+div.form {
+  display: block;
+
+}
+
+a:hover {
+  color: orange;
+}
+
+
+.edit {
+
+}
+
+p.author {
+  color: white;
+}
+
+p.date {
+
+}
+
+p.caption {
+
+}
+
+.form {
+  color: #111111;
+}
+
+.logo {
+  color: orange;
+  text-decoration: none;
+  border: dotted;
+}

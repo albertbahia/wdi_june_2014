@@ -1,0 +1,7 @@
+<h2>Song Title: <%= @song.title %></h2>
+<h3>Artist ID: <%= @song.artist_id %></h3>
+<a href="http://a308.phobos.apple.com/us/r1000/064/Music/9c/a6/3a/mzm.zgjjoqyj.aac.p.m4a">Preview</a>
+
+<form action="/songs/<%= @song.id %>/delete" method="post">
+  <input type="submit" value="Delete Song">
+</form>

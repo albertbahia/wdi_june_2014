@@ -1,0 +1,24 @@
+<h2>New Song</h2>
+
+<form action="/songs" method="post">
+  <label for="song[title]">Title:</label>
+  <input title="song[title]">
+
+  <label for="song[album]">Album:</label>
+  <input name="song[album]">
+
+  <label for="song[preview_url]">Preview URL:</label>
+  <input name="song[preview_url]" >
+
+  <label for="song[artist_id]">Artist Id:</label>
+  <select name="song[artist_id]">
+  <% Artist.all.each do |artist| %>
+  <option value=<%=artist.id %>><%= artist.name %></option>
+  <% end %>
+  </select>
+
+  <label for="song[price]">Price:</label>
+  <input name="song[price]">
+
+  <input type="submit" value="Create">
+</form>
