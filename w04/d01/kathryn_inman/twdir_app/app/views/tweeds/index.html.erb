@@ -1,0 +1,21 @@
+<h1>Welcome To tWDIr<sup>TM</sup>, yet another Quality HAMco service!</h1>
+<h3>all posted tweeds:</h3>
+<br>
+</br>
+<a href= "/tweeds/new">Tweed a new tweed!</a>
+</li>
+<ul>
+  <% @tweeds.each do |tweed| %>
+  <li> <p><%= tweed.content %> </p>
+    <% if tweed.image_url %>
+    <img src= "<%= tweed.image_url %>">
+    <% else %>
+    <p>(no image with this tweed)</p>
+    <% end %>
+    <p><%= tweed.author %> </p>
+    <p><%= tweed.timestamp %> </p>
+    <a href= "/tweeds/<%= tweed.id %>">View this tweed only</a>
+  </li>
+  <% end %>
+
+</ul>

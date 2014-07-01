@@ -1,0 +1,14 @@
+<h2>New Trainer</h2>
+
+<form action="/trainers/<%= @trainer.id %>" method="post">
+  <label for="trainer[name]">Name:</label>
+  <input name="trainer[name]" value="<%= @trainer.name %>">
+
+  <label for="trainer[age]">Age:</label>
+  <input name="trainer[age]"  value="<%= @trainer.age %>">
+
+  <label for="trainer[hometown]">Hometown:</label>
+  <input name="trainer[hometown]" value="<%= @trainer.hometown %>">
+
+  <input type="submit" value="Create">
+</form>

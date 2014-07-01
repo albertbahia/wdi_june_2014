@@ -1,0 +1,12 @@
+ <h2>""<%= @tweed.content %>""</h2>
+ <% if @tweed.image_url %>
+ <img src= "<%= @tweed.image_url %>">
+ <% else %>
+ <p>(no image with this tweed)</p>
+ <% end %>
+ <p>By: <%= @tweed.author %> </p>
+ <p>At: <%= @tweed.timestamp %> </p>
+ <a href= "/tweeds">Back to all the tweeds.</a>
+ <br>
+ </br>
+ <a href= "/tweeds/<%= @tweed.id %>/edit">Edit this tweed.</a>

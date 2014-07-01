@@ -40,8 +40,8 @@ get '/tip_calculator' do
   erb(:tip_calculator)
 end
 
-get '/basic_math' do
-  basic_math
+get '/calculator-result' do
+
     if params[:math_operator] == '+'
       @result = params[:first_num].to_i + params[:second_num].to_i
     elsif params[:math_operator] == '-'
@@ -51,7 +51,7 @@ get '/basic_math' do
     else params[:math_operator] ==  '/'
       @result = params[:first_num].to_i / params[:second_num].to_i
     end
-  @result
+  erb :calculator
 end
 
 get '/magic/*' do
