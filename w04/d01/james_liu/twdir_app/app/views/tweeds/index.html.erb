@@ -1,0 +1,13 @@
+<h2>Tweed!</h2>
+
+<a href="/tweeds/new">Add Tweed</a>
+
+<ul>
+  <% @tweeds.each do |tweed| %>
+    <li>
+      <a href="/tweeds/<%= tweed.id %>">
+        <%= tweed.author %>
+      </a>
+    </li>
+  <% end %>
+</ul>
