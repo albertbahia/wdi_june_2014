@@ -1,0 +1,20 @@
+<h2>Artists</h2>
+<p>
+  Artists that are coming soon are:
+</p>
+<ul>
+  <% @featured_artists.each do |artist| %>
+  <li><%= artist %></li>
+  <% end %>
+</ul>
+
+<form action="/add_artist" method="post">
+  <input type="text" name="artist_name">
+  <input type="submit">
+</form>
+
+<h4>Artists Requested</h4>
+
+<% @list.each do |name| %>
+  <%= name %><br>
+<% end %>
