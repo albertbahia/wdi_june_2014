@@ -1,0 +1,18 @@
+<h2>Edit Song</h2>
+
+<form action="/songs/<%= @song.id %>" method="post">
+  <label>Title:</label>
+  <input name="song[title]" value="<%= @song.title %>">
+
+  <label>AlbumL:</label>
+  <input name="song[album]" value="<%= @song.album %>">
+
+  <label>Preview:</label>
+  <input name="song[preview_url]" value="<%= @song.preview_url %>">
+
+  <label>Price:</label>
+  <input name="song[price]" value="<%= @song.price %>">
+
+
+  <input type="submit" value="Create">
+</form>
