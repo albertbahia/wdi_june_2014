@@ -1,0 +1,9 @@
+<div class="post_box">
+  <img src="<%= @post.image_url %>">
+  <p><%= @post.caption %></p>
+  <form method="post" action="/posts/<%= @user.username %>/<%= @user.visit_key %>/<%= @post.id %>/update">
+    <label for="caption">Change the caption:</label>
+    <input id="caption" type="text" name="caption" value="<%= @post.caption %>">
+    <input type="submit" value="UPDATE">
+  </form>
+</div>
