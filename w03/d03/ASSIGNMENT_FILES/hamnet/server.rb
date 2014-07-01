@@ -8,11 +8,11 @@ get('/calculator') do
   erb :calculator
 end
 
-get('/magic') do 
+get('/magic') do
   erb :magic
 end
 
-get('/tipcalculator') do 
+get('/tipcalculator') do
   erb :tip_calculator
 end
 
@@ -40,11 +40,11 @@ get('/magic/:question') do
      "Yes", "Signs point to yes", "Reply hazy try again", "Ask again later",
      "Better not tell you now", "Cannot predict now", "Concentrate and ask again",
      "Don't count on it", "My reply is no", "My sources say no",
-     "Outlook not so good", "Very doubtful"].sample 
+     "Outlook not so good", "Very doubtful"].sample
   erb :magic_answer
 end
 
-get('/tipcalculator/:amount/:percent') do 
+get('/tipcalculator/:amount/:percent') do
   @amount = params[:amount].to_i
   @percent = ("0." + params[:percent]).to_f
   @tip = @amount * @percent

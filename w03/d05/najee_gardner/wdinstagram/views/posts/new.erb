@@ -1,0 +1,11 @@
+<div class="main_box">
+  <h3>New Post</h3>
+
+  <form class="login_text" method="post" action="/posts/<%= @user.username %>/<%= @user.visit_key %>">
+    <input type="text" name="post[image_url]" placeholder="Image URL">
+    <input type="text" name="post[caption]" placeholder="Caption">
+    <input type="hidden" name="post[post_date]" value="<%= Time.now %>">
+    <input type="hidden" name="post[user_id]" value="<%= @user.id %>">
+    <input class="login_button" type ="submit" value="POST">
+  </form>
+</div>
