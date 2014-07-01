@@ -1,0 +1,10 @@
+<div class="tweed_box">
+  <p><%= @tweed.content %></p>
+  <img src="<%= @tweed.image_url %>">
+  <p><%= @tweed.author %> <span><%= @tweed.timestamp %></span></p>
+</div>
+
+<a href="/tweeds/<%= @tweed.id %>/edit">Edit</a>
+<form method="post" action="/tweeds/<%= @tweed.id %>/delete">
+  <input type="submit" value="Delete">
+</form>
