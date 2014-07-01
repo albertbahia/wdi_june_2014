@@ -8,7 +8,7 @@ class TweedsController < ApplicationController
   end
 
   def create
-    @tweed = Tweed.create!(params[:tweed])
+    @tweed = Tweed.create!(params[:tweed].permit!)
     redirect_to("/tweeds/#{@tweed.id}")
   end
 

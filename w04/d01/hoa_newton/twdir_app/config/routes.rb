@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get  "tweeds/:id"         => "tweeds#show"
   get  "tweeds/:id/edit"    => "tweeds#edit"
   post "tweeds/:id"         => "tweeds#update"
-  post "tweeds/:id/delete"  => "tweeds#destroy"
+  get "tweeds/:id/delete"  => "tweeds#destroy"
 end
