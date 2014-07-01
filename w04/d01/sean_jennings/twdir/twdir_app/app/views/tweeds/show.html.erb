@@ -1,0 +1,16 @@
+
+<div>
+  <p><%= @tweed.name %></p>
+  <span>@Sean</span>
+  <p><%= @tweed.content %></p>
+  <div>
+    <span>
+      <a href="/tweeds/<%= @tweed.id %>/edit">Edit</a>
+    </span>
+    <span>
+      <form method="post" action="/tweeds/<%= @tweed.id %>">
+        <button name="delete">Delete</button>
+      </form>
+    </span>
+  </div>
+</div>

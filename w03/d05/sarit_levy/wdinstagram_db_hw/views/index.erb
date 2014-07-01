@@ -1,0 +1,15 @@
+<ul>
+<h5><a href="/">Back To Home</a></h5>
+</ul>
+
+
+<h3>Index</h3>
+<ul>
+  <% @wdinstagrams.each do |wdinstagram| %>
+    <li>
+      <a href="/wdinstagram/<%= wdinstagram.id %>">
+        <%= wdinstagram.name %>
+      </a>
+    </li>
+  <% end %>
+</ul>
