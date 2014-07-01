@@ -1,0 +1,19 @@
+<br>
+<h2>Name: <%= @trainer.name %></h2>
+<h3>Age: <%= @trainer.age %></h3>
+<h3>Hometown: <%= @trainer.hometown %></h3>
+<h3>Trainer's Pokemon Army:</h3>
+<% @trainer.choose_pokemon(@pokemon_acquisition) %>
+<% @trainer.pokemons.each do |pokemon| %>
+<h4>Name: <%= pokemon.name %></h4>
+<h4>Type: <%= pokemon.species %></h4>
+<h4>Species: <%= pokemon.classification %></h4>
+<h4><img src="<%= pokemon.img %>"></h4>
+<% end %>
+
+
+<a href="/trainers/edit">Edit this trainer</a><br><br>
+
+<form action="/trainers/<%= @trainer.id %>/delete" method="post">
+  <input type="submit" value="Delete Trainer">
+</form>

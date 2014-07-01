@@ -24,7 +24,8 @@ end
 
 #show
 get '/users/:id' do
-  @images = Image.where(user_id: User.find(params[:id]))
+  #@images = Image.where(user_id: User.find(params[:id]))
+
   @user = User.find(params[:id])
   erb(:"users/show")
 end

@@ -28,15 +28,18 @@ get "/trainers/:id/edit" do
 end
 
 # update
-put "/trainers/:id" do
-  @trainer = Trainer.update!(params[:trainer])
+post "/trainers/:id" do
+  @trainer = Trainer.update(params[:trainer])
   redirect("/trainers/#{@trainer.id}")
 end
 
 #destroy
 post "/trainers/:id/delete" do 
 	@trainer = Trainer.find(params[:id])
+	@trainer.pokemons = []
+	@trainer.destroy
 	erb(:"trainers/index")
+	redirect("/trainers/index")
 end
 
 

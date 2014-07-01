@@ -2,6 +2,7 @@ require 'pry'
 
 require 'sinatra'
 require 'sinatra/reloader'
+require 'active_record'
 
 require_relative './models/image.rb'
 require_relative './models/user.rb'
@@ -15,6 +16,7 @@ end
 
 #index
 get '/' do
+	redirect '/images'
 	@images = Image.all
 	erb(:"images/index")
 end
