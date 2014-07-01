@@ -1,0 +1,13 @@
+<h2><%= @tweed.author %></h2>
+<h3><%= @tweed.content %></h3>
+<h4><%= @tweed.timestamp %></h4>
+<img src="<%= @tweed.image_url %>">
+
+
+Author: <%= @tweed.author %></br>
+Content: <%= @tweed.content %></br>
+Image URL: <%= @tweed.image_url %></br>
+
+<form action="/tweeds/<%= @tweed.id %>/edit" method="get">
+  <input type="submit" value="Edit Tweed">
+</form>
