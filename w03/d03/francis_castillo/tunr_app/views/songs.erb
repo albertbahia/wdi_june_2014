@@ -1,0 +1,14 @@
+    <h2>SONGS</h2>
+    <p>
+      The list below will be available soon!
+    </p>
+    <ul>
+      <% @featured_songs.each do |song| %>
+        <li><%= song %></li>
+      <%end%>
+    </ul>
+
+    <form method = "POST" action = '/add_songs'>
+      <input type="text" name="song_name">
+      <input type="submit">
+    </form>

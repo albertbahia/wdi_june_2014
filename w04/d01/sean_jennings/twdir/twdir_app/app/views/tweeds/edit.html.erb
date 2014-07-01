@@ -1,0 +1,14 @@
+<h2>Edit Tweed</h2>
+
+<div>
+  <p><%= @tweed.name %></p>
+  <span>@Sean</span>
+  <p><%= @tweed.content %></p>
+</div>
+<div>
+  <form action="/tweeds/<%= @tweed.id %>" method="post">
+    <label >Content:</label>
+    <input name="tweed[content]" value="<%= @tweed.content %>">
+    <input type="submit" value="Create">
+  </form>
+</div>

@@ -1,0 +1,16 @@
+<h2>Trainer: <%=@trainer.name%></h2>
+<h3>Age: <%=@trainer.age%></h3>
+<h4>Hometown: <%=@trainer.hometown%></h4>
+
+
+<p>
+    <%@trainer.pokemons.each do |pokemon|%>
+    <li><%= pokemon.name %></li>
+  <% end %>
+</p>
+
+<a href="/trainers/<%=@trainer.id%>/edit">Click Here To Edit A Trainer</a><br>
+
+<form action="/trainers/<%=@trainer.id%>/delete" method="post">
+  <input type="submit" value="Delete">
+</form>
