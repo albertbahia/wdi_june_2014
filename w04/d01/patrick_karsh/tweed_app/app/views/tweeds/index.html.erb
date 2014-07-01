@@ -1,0 +1,8 @@
+<h2>Tweeds</h2>
+<% @tweeds.each do |result| %>
+	<h3><%= result.content %></h3>
+	<h3><%= result.author %></h3>
+  <img src="<%= result.image_url %>"><br>
+  <a href="/tweeds/<%=result.id%>"> Show Photo</a><br>
+<% end %>
+</ul>

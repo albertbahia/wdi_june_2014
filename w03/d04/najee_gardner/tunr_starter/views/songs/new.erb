@@ -1,0 +1,17 @@
+<h3>Add a Song!</h3>
+
+<p>Please fill out the song info</p>
+<form method="POST" action="/songs">
+  <label>Title:<input type="text" name="song[title]"></label>
+  <label>Album:<input type="text" name="song[album]"></label>
+  <label>Preview URL:<input type="text" name="song[preview_url]"></label>
+  <label>Artist ID:
+    <select name="song[artist_id]">
+      <% Artist.all.each do |artist| %>
+      <option value="<%= artist.id %>"><%= artist.name %></option>
+      <% end %>
+    </select>
+  </label>
+  <label>Price (cents):<input type="text" name="song[price]"></label>
+  <input type="submit" value="CREATE"></label>
+</form>

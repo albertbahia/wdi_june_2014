@@ -1,0 +1,14 @@
+<h3>RANDOM GIFS</h3>
+
+<form method="GET" action="/search">
+  <label for="search">Search Giphy</label>
+  <input id="search" type="search" name="user_search">
+</form>
+
+<% @giphy_calls['data'].each do |giphy_data| %>
+<div>
+  <img src="<%= giphy_data['images']['original']['url'] %>" /><br>
+  <a href="<%= giphy_data['url'] %>">Giphy Page: </a><br>
+  <a href="<%= giphy_data['images']['original']['url'] %>"><%= giphy_data['images']['original']['url'] %></a>
+</div>
+<% end %>
