@@ -3,23 +3,8 @@ Rails.application.routes.draw do
   get "/"                     => 'welcome#index', as: 'root'
   get "/about"                => 'welcome#about', as: 'about'
 
-  # artists
-  get  "artists"              => 'artists#index', as: 'artists'
-  get  "artists/new"          => 'artists#new', as: 'new_artist'
-  post "artists"              => 'artists#create'
-  get  "artists/:id"          => 'artists#show', as: 'artist'
-  get  "artists/:id/edit"     => 'artists#edit', as: 'edit_artist'
-  post  "artists/:id"         => 'artists#update'
-  delete "artists/:id"        => 'artists#destroy'
-
-  # songs
-  get  "songs"              => 'songs#index', as: 'songs'
-  get  "songs/new"          => 'songs#new', as: 'new_song'
-  post "songs"              => 'songs#create'
-  get  "songs/:id"          => 'songs#show', as: 'song'
-  get  "songs/:id/edit"     => 'songs#edit', as: 'edit_song'
-  post  "songs/:id"         => 'songs#update'
-  delete "songs/:id"        => 'songs#destroy'
+  # artists, songs
+  resources :artists, :songs
 
   # playlists
   get  "playlists"                    => 'playlists#index', as: 'playlists'

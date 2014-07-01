@@ -1,0 +1,27 @@
+<h3> You searched for <em><%= params[:search] %></em> </h3>
+
+
+<% @api_call.each do |array| %>
+
+
+
+<ul>
+
+
+    <ul>
+      <li> Artist: <%= array["artistName"] %> </li>
+      <li> Genre: <%= array["primaryGenreName"] %> </li>
+      <li> Itunes Info: <a href="<%= array["artistLinkUrl"] %>" target="_blank"><%= array["artistLinkUrl"] %></a></li>
+      <li>
+        <form action="/artists" method="post">
+          <input type="hidden" value="<%= array["artistName"] %>" name=artist[name]>
+          <input type="hidden" name=artist[photo_url]>
+          <input type="hidden" name=artist[nationality]>
+          <input type="submit" value="Add to database">
+        </form>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<% end %>
