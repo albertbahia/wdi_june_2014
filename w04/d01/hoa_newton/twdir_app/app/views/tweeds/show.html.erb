@@ -1,4 +1,7 @@
+<a href="/tweeds">All Tweeds</a>
+
 <h3><%= @tweed.author %></h3>
 <h4><%= @tweed.content %></h4>
 <h4><%= @tweed.image_url %> <%= @tweed.created_at %></h4>
-
+<a href="/tweeds/<%= @tweed.id %>/edit">Edit</a>
+<a href="/tweeds/<%= @tweed.id %>/delete">Delete</a>
