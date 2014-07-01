@@ -1,8 +1,8 @@
 <h2>New Song</h2>
 
-<form action="/playlists" method="post">
-  <label>Name:</label>
-  <input name="playlist[name]">
+<%= form_for @playlist do |f| %>
+  <%= f.label(:name) %>
+  <%= f.text_field(:name) %>
 
-  <input type="submit" value="Create">
-</form>
+  <%= f.submit %>
+<% end %>
