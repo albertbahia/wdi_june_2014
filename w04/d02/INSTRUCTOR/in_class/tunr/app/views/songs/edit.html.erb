@@ -18,3 +18,6 @@
 
   <input type="submit" value="Update">
 </form>
+
+<%= link_to('Back', song_path(@song)) %>
+<%= link_to('Delete', song_path(@song), method: :delete) %>
