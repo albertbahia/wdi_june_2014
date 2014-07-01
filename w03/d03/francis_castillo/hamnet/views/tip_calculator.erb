@@ -1,0 +1,12 @@
+<h3>Tip Calculator</h3>
+
+<label>
+<%  %>
+<h5>Pre-tip Cost:</h6>
+<%= @tips_cal[0] %>
+<h5>Tip:</h6>
+<%= (@tips_cal[0].to_i * @tips_cal[1].to_i)/100 %>
+<h5>Total:</h6>
+<%= @tips_cal[0].to_i + (@tips_cal[0].to_i * @tips_cal[1].to_i)/100 %>
+
+</label>
