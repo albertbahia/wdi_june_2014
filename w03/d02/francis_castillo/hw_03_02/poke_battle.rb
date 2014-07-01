@@ -2,11 +2,7 @@ require 'active_record'
 require_relative 'pokemon.rb'
 require_relative 'trainer.rb'
 require 'pry'
-
-# trainer1 = Trainer.find(rand(1..10))
-# trainer2 = Trainer.find(rand(1..10))
-# trainer1_poke = Pokemon.get_pokemon
-# trainer2_poke = Pokemon.get_pokemon
+#
 trnr1 = [Trainer.find(rand(1..10)).name,Pokemon.get_pokemon]
 trnr2 = [Trainer.find(rand(1..10)).name, Pokemon.get_pokemon]
 
@@ -17,8 +13,8 @@ def poke_battle(trnr1, trnr2)
    while i < 6 do
      x = rand(0..(trnr1[1].length-1))
      y = rand(0..(trnr1[1].length-1))
-     puts x
-     puts y
+    #  puts x
+    #  puts y
      i+=1
    end
 
