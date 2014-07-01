@@ -1,16 +1,17 @@
 <h2>Edit Artist</h2>
 
-<form action="/artists/<%= @artist.id %>" method="post">
-  <label>Name:</label>
-  <input name="artist[name]" value="<%= @artist.name %>">
 
-  <label>Photo URL:</label>
-  <input name="artist[photo_url]" value="<%= @artist.photo_url %>">
+<%= form_for @artist do |f|  %>
+  Artist Name: <%= f.label :name %><br>
+  Artist Name: <%= f.text_field :name %><br>
+  Artist Nationality: <%= f.label :nationality %><br>
+  Artist Nationality: <%= f.text_field :nationality %><br>
+  Artist Photo Url: <%= f.label :photo_url %><br>
+  Artist Photo Url: <%= f.text_field :photo_url %><br>
+  <%= f.submit %>
 
-  <label>Nationality:</label>
-  <input name="artist[nationality]" value="<%= @artist.nationality %>">
+<% end %>
 
-  <input type="submit" value="Create">
-</form>
+
 
 <%= link_to("Back to #{@artist.name}", artist_path(@artist)) %>

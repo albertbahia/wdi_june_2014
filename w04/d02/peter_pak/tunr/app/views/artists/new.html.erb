@@ -9,18 +9,16 @@
 </form>
 <br><br>
 
-<form action="/artists" method="post">
-  <label for="artist[name]">Name:</label>
-  <input name="artist[name]">
+<%= form_for @artist do |f|  %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :nationality %>
+  <%= f.text_field :nationality %><br>
+  <%= f.label :photo_url %>
+  <%= f.text_field :photo_url %><br>
+  <%= f.submit('create me') %>
 
-  <label for="artistx[photo_url]">Photo URL:</label>
-  <input name="artist[photo_url]">
-
-  <label for="artist[nationality]">Nationality:</label>
-  <input name="artist[nationality]">
-
-  <input type="submit" value="Create">
-</form>
+<% end %>
 
 
 <%= link_to('Back to Artists', artists_path) %>
