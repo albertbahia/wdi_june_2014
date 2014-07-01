@@ -2,7 +2,7 @@ class Human < MiddleEarthDweller
 
   attr_reader :towers_built
 
-  def initalize(name, hometown, favorite_town)
+  def initialize(name, hometown, favorite_town)
     super(name, hometown, favorite_town)
     @towers_built = 0
   end

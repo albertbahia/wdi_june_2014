@@ -1,0 +1,12 @@
+<h2>Tweeds</h2>
+
+<a href="/tweeds/new">Add a Tweed</a>
+
+<ul>
+  <% @tweeds.each do |tweed| %>
+    <h2><a href="tweeds/<%=tweed.id %>"><%=tweed.content%></a></h2><br>
+    <h4><%= tweed.author %><br>
+    <img src="<%= tweed.image_url%>" height="400" width="450">
+    <h5><%= tweed.timestamp %></h5>
+  <%end%>
+</ul>
