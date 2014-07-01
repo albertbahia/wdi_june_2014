@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Creates</title>
+  <style>
+    body {
+      border: black;
+    }
+    #title {
+      font-size: 36px;
+      text-align: center;
+      font-family: Garamond, serif;
+      color: navy;
+    }
+    #hrefs {
+      border-radius: 5px;
+      border: 2px solid black;
+      background-color: white;
+      margin: 0px 200px 0px 200px;
+      text-align: center;
+    }
+    #img {
+      text-align: center;
+    }
+
+    #forms {
+      text-align: center;
+      margin: 25px 0 0 0;
+    }
+
+    #p {
+      text-align: center;
+      font-size: 16px;
+      color: white;
+    }
+
+
+  </style>
+  <title>Twidr</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body background="http://upload.wikimedia.org/wikipedia/commons/0/09/Desert_Twilight.jpg">
 
 <%= yield %>
 

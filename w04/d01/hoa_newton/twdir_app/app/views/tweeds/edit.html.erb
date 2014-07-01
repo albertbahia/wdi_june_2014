@@ -1,0 +1,15 @@
+<a href="/tweeds">All Tweeds</a>
+<h2>Edit Tweed</h2>
+
+<form action="/tweeds/<%= @tweed.id %>" method="post">
+  <label>Name:</label>
+  <input name="tweed[author]" value="<%= @tweed.author %>">
+
+  <label>Content:</label>
+  <input name="tweed[content]" value="<%= @tweed.content %>">
+
+  <label>Image_Url:</label>
+  <input name="tweed[image_url]" value="<%= @tweed.image_url %>">
+
+  <input type="submit" value="Edit">
+</form>
