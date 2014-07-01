@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "tweeds"             => "tweeds#index"
+  get "tweeds/index"       => "tweeds#index"
   get "tweeds/new"         => "tweeds#new"
   post "tweeds"            => "tweeds#create"
   get "tweeds/:id"         => "tweeds#show"

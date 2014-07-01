@@ -8,8 +8,8 @@ class TweedsController < ApplicationController
   end
 
   def create
-    @tweed = Tweed.create!(params[:tweed])
-    redirect_to ("/tweeds/#{@tweeds.id}")
+    @tweed = Tweed.create!(params[:tweed].permit!)
+    redirect_to ("/tweeds/#{@tweed.id}")
   end
 
   def show
@@ -23,7 +23,7 @@ class TweedsController < ApplicationController
   def update
     @tweed = Tweed.find(params[:id])
     @tweed.update(params[:tweed].permit!)
-    redirect_to "/tweeds/#{@tweeds.id}"
+    redirect_to "/tweeds/#{@tweed.id}"
   end
 
   def destroy
