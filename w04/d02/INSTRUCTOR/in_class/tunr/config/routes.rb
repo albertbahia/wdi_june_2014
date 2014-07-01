@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   # artists
   get  'artists'              => 'artists#index'
-  get  'artists/new'          => 'artists#new'
+  get  'artists/new'          => 'artists#new', as: 'new_artist'
   post 'artists'              => 'artists#create'
-  get  'artists/:id'          => 'artists#show'
-  get  'artists/:id/edit'     => 'artists#edit'
-  post  'artists/:id'          => 'artists#update'
-  post 'artists/:id/delete'   => 'artists#destroy'
+  get  'artists/:id'          => 'artists#show', as: 'artist'
+  get  'artists/:id/edit'     => 'artists#edit', as: 'edit_artist'
+  post  'artists/:id'         => 'artists#update'
+  delete 'artists/:id'        => 'artists#destroy'
 
   # songs
   get  'songs'              => 'songs#index'
