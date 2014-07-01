@@ -7,6 +7,4 @@ Price: <%= @song.price %></br>
 
 <%= link_to('Edit', edit_song_path(@song)) %> |
 <%= link_to('Back to Songs', songs_path) %> |
-<form action="/songs/<%= @song.id %>/delete" method="post">
-  <input type="submit" value="Delete Song">
-</form>
+<%= link_to('Delete', song_path(@song), method: :delete) %>

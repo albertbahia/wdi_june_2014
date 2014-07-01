@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get  "artists/:id"          => 'artists#show', as: 'artist'
   get  "artists/:id/edit"     => 'artists#edit', as: 'edit_artist'
   post  "artists/:id"         => 'artists#update'
-  post "artists/:id/delete"   => 'artists#destroy', as: 'delete_artist'
+  delete "artists/:id"        => 'artists#destroy'
 
   # songs
   get  "songs"              => 'songs#index', as: 'songs'
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get  "songs/:id"          => 'songs#show', as: 'song'
   get  "songs/:id/edit"     => 'songs#edit', as: 'edit_song'
   post  "songs/:id"         => 'songs#update'
-  post "songs/:id/delete"   => 'songs#destroy', as: 'delete_song'
+  delete "songs/:id"        => 'songs#destroy'
 
   # playlists
   get  "playlists"                    => 'playlists#index', as: 'playlists'
