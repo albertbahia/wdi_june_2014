@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tweeds</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+  <body>
+    <h1>Tweeds!!</h1>
+    <p>By HAMco</p>
+    <a href="/tweeds">Home</a>
+
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TwdirApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <style>
+    body {
+      font-family: 'Raleway', sans-serif;
+    }
+    header {
+      margin: -22px -22px;
+      background-color: #25383c;
+    }
+    h1 {
+    }
+    h2 {
+      padding: 20px 20px 0px 20px;
+    }
+    img {
+      max-width: 400px;
+      margin: 20px;
+      border: 1px solid gray;
+      border-radius: 10px;
+    }
+    .tweed {
+      margin: 0px 20px 10px 20px;
+      padding: 20px;
+      border-top: 3px solid gray;
+      border-bottom: 3px solid gray;
+      border-radius: 5px;
+    }
+    #single_view {
+      padding: 0px 20px;
+    }
+    #icon {
+      display: inline;
+      font-family: 'Lobster', cursive;
+      font-size: 60px;
+      text-decoration: none;
+      padding: 0px 0px 0px 40px;
+      color: cyan;
+    }
+    #tagline {
+      color: cyan;
+      font-size: 10px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header><h1><a id ="icon"href='/'>tWDIr</a><span id="tagline">Cuz tweeds r cool.</span></h1></header>
+<%= yield %>
+
+</body>
+</html>

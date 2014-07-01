@@ -4,10 +4,11 @@ class ArtistsController < ApplicationController
   end
 
   def new
+    @artist = Artist.new
   end
 
   def create
-    @artist = Artist.create!(params[:artist].permit!)
+    @artist = Artist.create!(artist_params)
     redirect_to(artist_path(@artist))
   end
 
@@ -21,7 +22,7 @@ class ArtistsController < ApplicationController
 
   def update
     @artist = Artist.find(params[:id])
-    @artist.update!(params[:artist].permit!)
+    @artist.update!(artist_params)
     redirect_to(artist_path(@artist))
   end
 
@@ -31,4 +32,9 @@ class ArtistsController < ApplicationController
     redirect_to(artists_path)
   end
 
+  private
+  def artist_params
+    params.require(:artist).permit(:name, :photo_url, :nationality)
+  end
+  
 end
