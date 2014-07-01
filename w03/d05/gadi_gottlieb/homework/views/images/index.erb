@@ -1,0 +1,14 @@
+<div id="smaller-titles">
+    <h1>List of Pictures</h1>
+    <h4> Click Pictures for Info</h4>
+</div>
+
+<div id="img">
+  <ul>
+    <% @images.each do |image| %>
+      <a href="/images/<%= image.id %>">
+        <img src="<%= image.img_url%>">
+      </a>
+      <% end %>
+  </ul>
+</div>
