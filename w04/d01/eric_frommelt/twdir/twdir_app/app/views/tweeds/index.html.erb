@@ -1,0 +1,11 @@
+<ul>
+  <% @tweeds.each do |tweed| %>
+    <li class="tweed">
+      <a class="thetweed" href="/<%= tweed.id %>">
+        <%= tweed.content %>
+      </a>
+      <div><img src="<%= tweed.image_url %>"</div>
+      <div class="tweedmeta">Tweed by <%= tweed.author %> at <%= tweed.timestamp %></div>
+    </li>
+  <% end %>
+</ul>

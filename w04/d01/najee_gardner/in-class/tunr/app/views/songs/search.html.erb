@@ -1,0 +1,24 @@
+<% @search_songs.each do |song_info| %>
+<div class="song_box">
+  <p class="song_name"><%= song_info['trackName'] %></p>
+  <form method="post" action="/songs">
+    <input type="hidden" name="song[title]" value="<%= song_info['trackName'] %>">
+    <input type="hidden" name="song[album]" value="<%= song_info['collectionName'] %>">
+    <input type="hidden" name="song[preview_url]" value="<%= song_info['previewUrl'] %>">
+    <input type="hidden" name="song[price]" value="<%= song_info['trackPrice'] * 100 %>">
+    <input type="hidden" name="artist_country" value="<%= song_info['country'] %>">
+    <% if song_info['collectionArtistName'] %>
+      <input type="hidden" name="song[artist_id]" value="<%= song_info['collectionArtistName'] %>">
+    <% else %>
+      <input type="hidden" name="song[artist_id]" value="<%= song_info['artistName'] %>">
+    <% end %>
+    <input type="submit" value="Add Song">
+  </form>
+  <p>Album: <%= song_info['collectionName'] %></p>
+  <% if song_info['collectionArtistName'] %>
+    <p>Artist: <%= song_info['collectionArtistName'] %></p>
+  <% else %>
+    <p>Artist: <%= song_info['artistName'] %></p>
+  <% end %>
+</div>
+<% end %>

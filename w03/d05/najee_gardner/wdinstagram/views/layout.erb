@@ -1,0 +1,195 @@
+<html>
+  <head>
+    <title>WDInstagram</title>
+
+    <style>
+      body {
+        min-width: 300px;
+
+        <% if @user == nil %>
+        background: url('http://startupphenomenon.com/2013/wp-content/uploads/2013/09/city_by_the_bay_1232.jpg');
+        <% else %>
+        background: #29CAFF;
+        <% end %>
+
+        margin: 0;
+        font-family: arial;
+      }
+
+      header a {
+        text-decoration: none;
+        color: white;
+      }
+
+      header a:hover {
+        color: #D24344;
+      }
+
+      header {
+        text-align: center;
+        background: #E96B56;
+        height: 100px;
+        font-size: 70px;
+        color: white;
+        font-family: arial;
+        margin: 0;
+        font-weight: 100;
+      }
+
+      .main_box {
+        width: 500px;
+        height: 300px;
+        background: #C1D1DE;
+        margin: 100px auto;
+        padding: 100px;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      .main_box p {
+        margin: 0;
+        position: relative;
+        top: -40px;
+        font-size: 40px;
+        font-family: arial;
+        color: #5E7E91;
+
+      }
+
+      .login, .sign_up {
+        text-align: center;
+        height: 100px;
+        margin: 0;
+      }
+
+      .login input, .sign_up input {
+        border-radius: 10px;
+      }
+
+      .login input:hover, .sign_up input:hover {
+        color: white;
+      }
+
+      .login input:active {
+        color: white;
+        background: #A2CFA5;
+      }
+
+      .sign_up input:active {
+        color: white;
+        background: #E96B56;
+      }
+
+      .login input {
+        background: #E0E7AB;
+        border: none;
+        height: 100px;
+        width: 300px;
+        font-size: 40px;
+        border-bottom: 5px solid #A2CFA5;
+        color: #5F8560;
+      }
+
+      .sign_up input {
+        border: none;
+        height: 100px;
+        width: 300px;
+        font-size: 30px;
+        background: #F5974E;
+        border-bottom: 5px solid #E96B56;
+        color: #7F4F29;
+      }
+
+      .all_posts {
+        background-size: cover;
+        background: #F8FCFF;
+        width: 700px;
+        margin: 0 auto;
+      }
+
+      .post_box {
+        background: #C4EBF5;
+        width: 500px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      img {
+        max-width: 400px;
+        max-height: 400px;
+      }
+
+      .login_text {
+        margin: 0;
+        text-align: center;
+      }
+
+      .login_text input {
+        text-align: center;
+        border: none;
+        height: 50px;
+        width: 350px;
+        font-size: 20px;
+        margin: 10px;
+      }
+
+      .login_text .login_button {
+        color: #872A0A;
+        background: #EC4911;
+        border-bottom: 5px solid #521906;
+      }
+
+      .login_text .login_button:hover {
+        color: white;
+      }
+
+      .login_text .login_button:active {
+        color: white;
+        background: #521906;
+      }
+
+      .main_box .error {
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        color: red;
+      }
+
+      .new_post {
+        text-decoration: none;
+        background: #3663FF;
+        padding: 10px 20px;
+        float: right;
+        margin: 30px 100px 0 0;
+        border-radius: 10px;
+        border-bottom: 5px solid #2E26E8;
+      }
+
+      .new_post:hover {
+        color: white;
+      }
+
+      .new_post:active {
+        background: #2E26E8;
+      }
+
+      .log_box {
+        display: inline-block;
+        margin-left: 100px;
+        width: 100px;
+        height: 100px;
+      }
+
+      .pic:hover {
+        opacity: 0.6;
+      }
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="/<%= "posts/" + @user.username + "/" + @user.visit_key if @user != nil %>">WDInstagram</a>
+    </header>
+    <%= yield %>
+  </body>
+</html>

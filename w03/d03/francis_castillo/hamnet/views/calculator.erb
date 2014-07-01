@@ -1,0 +1,35 @@
+<h3>Calculator</h3>
+<form method = "POST" action="/calculate">
+  <label for>
+    Enter first number
+  <input type="text" name ="value1" >
+  </label>
+</br>
+<label for>
+  Enter: add, subtract, multiple, divide!
+<input type="text" name = "operation" >
+</label>
+</br>
+  <label for>
+    Enter second number
+  <input type="text" name ="value2" >
+  </label>
+</br>
+</br>
+  <label for>
+  <input type="submit">
+  </label>
+</form>
+
+<p>The result of your calculation is:</p>
+<label>
+  <%if @op_cal == 'add' %>
+  <%= @cal_value.reduce(:+) %>
+  <%elsif @op_cal == 'subtract' %>
+  <%= @cal_value.reduce(:-) %>
+  <%elsif @op_cal == 'multiple' %>
+  <%= @cal_value.reduce(:*) %>
+  <%elsif @op_cal == 'divide' %>
+  <%= @cal_value.reduce(:/) %>
+  <%end %>
+</label>
