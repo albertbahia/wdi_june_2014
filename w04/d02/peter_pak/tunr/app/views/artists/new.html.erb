@@ -1,0 +1,26 @@
+<h2>New Artist</h2>
+
+<br><br>
+<form action="/artists/search" method="get">
+  <label for="search">
+    <input type="text" name='search' placeholder="search iTunes">
+    <input type="submit" name="submit">
+  </label>
+</form>
+<br><br>
+
+<form action="/artists" method="post">
+  <label for="artist[name]">Name:</label>
+  <input name="artist[name]">
+
+  <label for="artistx[photo_url]">Photo URL:</label>
+  <input name="artist[photo_url]">
+
+  <label for="artist[nationality]">Nationality:</label>
+  <input name="artist[nationality]">
+
+  <input type="submit" value="Create">
+</form>
+
+
+<%= link_to('Back to Artists', artists_path) %>
