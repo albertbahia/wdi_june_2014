@@ -1,0 +1,18 @@
+<h3>Edit a song</h3>
+<p>Please edit the values you want to change:</p>
+
+<form method="POST" action="/songs/<%= @song.id %>">
+  <label>Title:<input type="text" name="song[title]" value="<%= @song.title %>"></label>
+  <label>Album:<input type="text" name="song[album]" value="<%= @song.album %>"></label>
+  <label>Preview URL:<input type="text" name="song[preview_url]" value="<%= @song.preview_url %>"></label>
+  <label>Artist ID:
+    <select name="song[artist_id]" value="<%= @song.id %>">
+      <option value="<%= @song.artist.id %>"><%= @song.artist.name %></option>
+      <% Artist.all.each do |artist| %>
+      <option value="<%= artist.id %>"><%= artist.name %></option>
+      <% end %>
+    </select>
+  </label>
+  <label>Price (cents):<input type="text" name="song[price]" value="<%= @song.price %>"></label>
+  <input type="submit" value="UPDATE"></label>
+</form>

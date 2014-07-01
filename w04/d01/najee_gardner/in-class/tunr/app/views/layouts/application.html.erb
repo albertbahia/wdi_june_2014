@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tunr</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <style>
+    body {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .main_menu {
+      text-align: center;
+    }
+
+    .main_menu a {
+      background: #0B8BE8;
+      text-decoration: none;
+      color: white;
+      padding: 20px;
+      margin: 20px 2px;
+      border-radius: 20px;
+      height: 20px;
+      width: 20px;
+    }
+
+
+    .main_menu a:hover {
+      background: #014CFF;
+    }
+
+    .border {
+      height: 50px;
+    }
+
+    img {
+      max-height: 400px;
+      max-width: 400px;
+    }
+
+    .song_embed {
+      text-align: center;
+      width: 100px;
+      height: 50px;
+      background: blue;
+    }
+
+    .song_box {
+      margin: 0 auto;
+      background: #E5E2E8;
+      width: 400px;
+      margin-bottom: 20px;
+    }
+
+    .song_box p a {
+      background: #01DDFF;
+      margin: 30px 0;
+    }
+
+    .song_box form {
+      margin: 0;
+    }
+
+    .song_box p {
+      margin: 0;
+    }
+
+    .song_box .song_name {
+      background: #0B8BE8;
+      color: white;
+      margin: 0;
+      font-size: 30px;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Tun.r</h1>
+  <div class="main_menu">
+    <a href="/">Home</a>
+    <a href="/songs">Songs</a>
+    <a href="/artists">Artists</a>
+    <a href="/playlists">Playlists</a>
+    <a href="/about">About</a>
+  </div>
+  <div class="border"></div>
+
+<%= yield %>
+
+</body>
+</html>

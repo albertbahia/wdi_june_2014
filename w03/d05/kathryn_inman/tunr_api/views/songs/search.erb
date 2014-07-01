@@ -1,0 +1,8 @@
+
+<ul>
+    <% @api_call.each do |song| %>
+  <li>
+    <p><a href ="<%= song['trackViewUrl'] %>">Song: <%=song['trackName']%> </a></p>
+  </li>
+  <% end %>
+</ul>
