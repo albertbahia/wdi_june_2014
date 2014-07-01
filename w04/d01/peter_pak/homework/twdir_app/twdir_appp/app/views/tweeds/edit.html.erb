@@ -1,0 +1,23 @@
+<h2> tweed editing </h2>
+
+
+<form action="/tweeds/<%= @tweed.id %>" method="post">
+  <label for="tweeder">Tweeder:</label>
+  <input id="tweeder" name="tweed[author]" value="<%= @tweed.author %>"><br>
+
+  <label for="tweed">Your tweed:</label>
+  <textarea id="tweed" name="tweed[content]"><%= @tweed.content %></textarea><br>
+
+  <label for="tweedpic">Url for image:</label>
+  <input id="tweedpic" name="tweed[image_url]" value="<%= @tweed.image_url %>"><br>
+
+
+
+  <input type="submit" value="Create">
+</form>
+
+or..
+
+<form action="/tweeds/<%= @tweed.id %>/delete" method="post">
+  <input type="submit" value="DELETE ME">
+</form>
