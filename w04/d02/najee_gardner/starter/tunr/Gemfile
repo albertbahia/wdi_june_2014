@@ -29,6 +29,9 @@ gem 'spring',        group: :development
 # HTTParty helps make requests to apis and parses JSON
 gem 'httparty'
 
+# Pry-rails allows us to use pry rather than irb for rails console
+gem 'pry-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
