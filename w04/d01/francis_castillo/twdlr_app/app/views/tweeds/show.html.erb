@@ -1,0 +1,15 @@
+<h2>Tweed</h2>
+
+
+
+<strong>Author:</strong> <%= @tweed.author.capitalize %>
+</br>
+<strong>Content:</strong> <%= @tweed.content %>
+</br>
+<image src="<%= @tweed.image_url %>">
+</br>
+<strong>Posted @:</strong> <%= @tweed.created_at %>
+
+<form action="/tweeds/<%= @tweed.id %>/edit" method="get">
+  <input type="submit" value="Update Tweed">
+</form>
