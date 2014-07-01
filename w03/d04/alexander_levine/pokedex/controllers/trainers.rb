@@ -37,3 +37,9 @@ post '/trainers/:id/delete' do
   trainer.destroy
   redirect('/trainers')
 end
+
+post '/trainers/:id/get_pokemon' do
+  trainer = Trainer.find(params[:id])
+  trainer.pokemons << Pokemon.all.sample(6)
+  redirect("trainers/#{trainer.id}")
+end

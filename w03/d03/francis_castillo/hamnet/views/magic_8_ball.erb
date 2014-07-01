@@ -1,0 +1,15 @@
+<h3>Magic 8 Ball</h3>
+
+<p>Ask your question via the browser by formatting it like the example below: 'localhost:4567/magic_8_ball/Will%20I%20survive` </p>
+
+<label>
+  <% val = rand(@eight_ball_q.length)%>
+<% if params[:splat] == [""] %>
+<%= %>
+<%else%>
+<%= params[:captures][0] + "?" %>
+</br>
+<%=@eight_ball_q[val]%>
+<% end %>
+
+</label>

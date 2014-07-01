@@ -1,0 +1,16 @@
+<div id="hrefs">
+  <a href="/images/<%=@image.id%>/edit">Edit Picture</a>
+</div>
+<div id="add_descrip">
+<p>Author: <%= @image.author %></p>
+<p>Photo: <img src="<%= @image.img_url%>"></p>
+
+<p>Date Posted: <%= @image.date_posted %></p>
+<p>Caption: <%= @image.caption %></p>
+</div>
+
+<div id="delete">
+  <form action="/images/<%=@image.id%>/delete" method="post">
+    <input type="submit" value="Delete">
+  </form>
+</div>

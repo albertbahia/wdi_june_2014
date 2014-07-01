@@ -1,0 +1,12 @@
+<h2>Search Results</h2>
+
+<% @search_call['data'].each do |img| %>
+<ol>
+  <li>
+<img src= "<%= img['images']['fixed_height']['url'] %>" >
+<a href= "<%= img['images']['fixed_height']['url'] %>"><br>Click Here</a><br>
+  Quick paste:<br>
+  <%= img['images']['fixed_height']['url'] %>
+  </li>
+    <% end %>
+</ol>
