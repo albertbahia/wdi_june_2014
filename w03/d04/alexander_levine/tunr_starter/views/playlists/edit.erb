@@ -1,0 +1,16 @@
+<h2>Edit Playlist</h2>
+
+<form action="/playlists/<%= @playlist.id %>" method="post">
+  <label for="playlist[name]">Name:</label>
+  <select name="playlist[name]"> value="<%= @playlist.name %>">
+
+  </select>
+
+  <label for="artist[photo_url]">Photo URL:</label>
+  <input name="artist[photo_url]"  value="<%= @artist.photo_url %>">
+
+  <label for="artist[nationality]">Nationality:</label>
+  <input name="artist[nationality]" value="<%= @artist.nationality %>">
+
+  <input type="submit" value="Create">
+</form>

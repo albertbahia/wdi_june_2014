@@ -1,0 +1,15 @@
+<h2><%= @playlist.name %></h2>
+
+<ul>
+  <% @playlist.songs.each do |song| %>
+  <li> <%= song.title %> </li>
+    <% end %>
+</ul>
+
+<form action="/playlists/<%= @playlist.id %>/edit" method="post">
+  <input type="submit" value="Edit Playlist">
+</form>
+
+<form action="/playlists/<%= @playlist.id %>/delete" method="post">
+  <input type="submit" value="Delete Playlist">
+</form>

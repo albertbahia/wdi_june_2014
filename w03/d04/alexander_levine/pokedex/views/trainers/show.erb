@@ -2,8 +2,6 @@
 
 <h2><%= @trainers.name %></h2>
 
-<img src="http://nicenicejpg.com/350">
-
 <ul>
   <li>age: <%= @trainers.age %></li>
   <li>hometown: <%= @trainers.hometown %></li>
@@ -16,6 +14,12 @@
 </ul>
 
 <h3><a href="/trainers/<%= @trainers.id %>/edit">Edit Trainer</a></h3>
+
+  <% if @trainers.pokemons.length < 1 %>
+  <form action="/trainers/<%= @trainers.id %>/get_pokemon" method="post">
+    <input type="submit" value="Get Pokemon">
+  </form>
+    <% end %>
 
 <form action="/trainers/<%= @trainers.id %>/delete" method="post">
   <input type="submit" value="Delete Trainer">
