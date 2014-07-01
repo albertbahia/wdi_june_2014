@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  # artists
+  get  'tweeds'              => 'tweeds#index'
+  get  'tweeds/new'          => 'tweeds#new'
+  post 'tweeds'              => 'tweeds#create'
+  get  'tweeds/:id'          => 'tweeds#show'
+  get  'tweeds/:id/edit'     => 'tweeds#edit'
+  post 'tweeds/:id'          => 'tweeds#update'
+  post 'tweeds/:id/delete'   => 'tweeds#destroy'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
