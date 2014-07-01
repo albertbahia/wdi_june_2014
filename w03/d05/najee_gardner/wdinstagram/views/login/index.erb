@@ -1,0 +1,11 @@
+<div class="main_box">
+  <p>Sign In</p>
+
+  <p class="error"><%= error(@error_message) %></p>
+  <form class="login_text" method="post" action="/sign_in">
+    <input type="text" name="username" placeholder="USERNAME">
+    <input type="password" name="password" placeholder= "PASSWORD">
+    <input type="hidden" name="visit_key" value="<%= generate_visit_key %>">
+    <input class="login_button" type="submit" value="Log In">
+  </form>
+</div>
