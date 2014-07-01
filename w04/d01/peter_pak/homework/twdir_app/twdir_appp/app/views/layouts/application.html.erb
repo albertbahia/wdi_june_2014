@@ -5,10 +5,66 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Corben:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Exo+2:400,200' rel='stylesheet' type='text/css'>
+  <style>
+  a:link {
+    text-decoration: none;
+    color: gray;
+}
+
+a:visited {
+    text-decoration: none;
+    color: gray;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: gray;
+}
+
+a:active {
+    text-decoration: underline;
+    color: gray
+}
+  header {
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #CCF5EB;
+    text-align: center;
+    font-family: 'Corben', cursive;
+    font-weight: 700;
+    font-size: 70px;
+  }
+
+  h2 {
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;
+
+  }
+
+  div.tweed {
+    padding: 10px;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    background-color: #b0c4de;
+    font-family: 'Exo 2', sans-serif;
+  }
+
+  img {
+    max-width: 500px;
+  }
+  </style>
 </head>
 <body>
-<header><h1>TWDIr</h1></header>
-<p>tweedle </p>
+<header><a href="/tweeds">TWDIr</a></header>
+<h2>recent tweedles</h2>
 
 <%= yield %>
 

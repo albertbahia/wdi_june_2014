@@ -1,13 +1,12 @@
 <% @tweeds.each do |tweed| %>
 
-<table>
-<tr>
-  <td><a href="/tweeds/<%= tweed.id %>"><img src="<%= tweed.image_url %>"></a></td>
-</tr>
-<tr>
-  <td><%= tweed.content %></td>
-  <td><%= tweed.author %></td>
-  <td><%= tweed.created_at %></td>
-</tr>
-</table>
+<div class="tweed">
+
+
+  <a href="/tweeds/<%= tweed.id %>"><img src="<%= tweed.image_url %>"></a><br><br>
+  <%= tweed.content %><br>
+  <a href="/tweeds/<%= tweed.id %>">Posted by: <%= tweed.author %> on <%= tweed.created_at %>
+  </a>
+
+</div>
 <% end %>
