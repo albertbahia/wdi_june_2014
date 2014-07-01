@@ -1,0 +1,39 @@
+<html>
+<head>
+  <style>
+  body {
+    background-color: rgba(0, 20, 60, 0.15);
+    text-align: center;
+    font-family: "Arial", sans-serif;
+    color: black;
+    position: center;
+  }
+  p {
+    text-align: center;
+    font-family: "Arial", sans-serif;
+    color: blue;
+    position: center;
+  }
+  img {
+    border: solid;
+    position: center;
+  }
+  </style>
+</head>
+<body>
+  <a href="/images/new" >Add a new image!</a>
+  <ul>
+    <div>
+  <% @images.each do |img| %>
+      <img src= "<%= img.img_url %>">
+      <p>posted on: <%= img.date_posted %></p>
+      <p>by: <%= img.user.name %></p>
+      <p><a href="/images/<%= img.id %>">
+        view image page
+      </a></p>
+  <% end %>
+</div>
+</ul>
+
+</body>
+</html>

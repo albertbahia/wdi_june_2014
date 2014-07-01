@@ -1,0 +1,12 @@
+
+<p><a href="/tweeds/new">New Tweed</a></p>
+
+<ul>
+<% @tweeds.each do |tweed| %>
+  <li>
+    <p><%= tweed.name %></p>
+    <span>@Sean</span>
+    <p><a href="/tweeds/<%= tweed.id %>"><%= tweed.content %></a></p>
+  </li>
+<% end %>
+</ul>

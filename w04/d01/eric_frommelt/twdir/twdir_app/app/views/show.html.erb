@@ -1,0 +1,6 @@
+<p><%= @tweed.content %></p>
+<img src="<%= @tweed.image_url %>">
+
+<form action="/<%= @tweed.id %>/delete" method="post">
+  <input type="submit" value="Delete Tweed">
+</form>

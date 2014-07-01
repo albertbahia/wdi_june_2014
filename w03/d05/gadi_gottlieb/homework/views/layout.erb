@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <style>
+    body {
+      background-color: teal;
+    }
+    #title {
+      font-size: 36px;
+      color: orange;
+      text-align: center;
+      margin: auto;
+    }
+    #hrefs {
+      text-align: center;
+      font-size: 24px;
+    }
+    #add_descrip {
+      text-align: center;
+      font-size: 24px;
+      color: orange;
+    }
+    #smaller-titles {
+      text-align: center;
+      color: orange;
+    }
+    p {
+      font-size: 24px;
+      color: orange;
+      text-align: center;
+      margin: auto;
+    }
+    #delete{
+      text-align: center;
+    }
+    img {
+      height: 250px;
+      width: 250px;
+    }
+    </style>
+
+    
+    <title>WDInstagram</title>
+  </head>
+  <body>
+    <div id="title">
+      <h1>WDInstagram</h1>
+    </div>
+    <div id="hrefs">
+        <a href="/">Home</a>
+        <a href="/images">Images</a>
+        <a href="/images/new">Add New Image</a>
+    </div>
+
+    <%= yield %>
+  </body>
+</html>

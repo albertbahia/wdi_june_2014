@@ -1,0 +1,12 @@
+<a href= "/"> Home Page</a>
+
+
+  <ul>
+    <% @api_call.each do |gif| %>
+  <li>
+    <img src = "<%= gif['images']['original']['url'] %>">
+    <p><a href ="<%= gif['url'] %>">This gif on Giphy!</a></p>
+    <p> Link: <code><%= gif['images']['original']['url'] %></code></p>
+  </li>
+  <% end %>
+</ul>
