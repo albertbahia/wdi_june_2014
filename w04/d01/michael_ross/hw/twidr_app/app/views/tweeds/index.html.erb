@@ -1,0 +1,14 @@
+<h2>TWIDR FEED</h2>
+
+<a href="/tweeds/new">New Tweed</a>
+
+<ul>
+  <% @tweeds.each do |tweed| %>
+    <li>
+      <a href="/tweeds/<%= tweed.id %>">
+        <p>Author: <%= tweed.author %></p>
+      </li>
+        <li><p>Tweed:<%= tweed.content %></p></li>
+        <img src="<%= tweed.image_url %>"></a>
+  <% end %>
+</ul>
