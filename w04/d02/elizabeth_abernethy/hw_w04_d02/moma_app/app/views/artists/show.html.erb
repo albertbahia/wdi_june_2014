@@ -1,0 +1,16 @@
+<h2><%= @artist.name %></h2>
+<h4>Nationality: <%= @artist.nationality %></h4>
+<h4>Birthday: <%= @artist.birthday %></h4>
+<img src="<%= @artist.photo_url %>"><br>
+
+Creator of:
+<ul>
+  <% @artist.paintings.each do |painting| %>
+    <li>
+      <%= link_to(painting.title, painting_path(painting))%>
+    </li>
+  <% end %>
+</ul><br><br>
+
+<%= link_to('Edit This Artist', edit_artist_path(@artist)) %> |
+<%= link_to('Back to Artists', artists_path) %> |
