@@ -1,0 +1,9 @@
+<h3><%= @song.title %></h3>
+<p>By: <%= @song.artist.name %></p>
+<p><%= @song.preview_url %></p>
+
+<p><a href="/songs/<%= @song.id %>/edit">EDIT</a></p>
+
+<form method="POST" action="/songs/<%= @song.id %>/delete">
+  <input type="submit" value="DELETE">
+</form>
