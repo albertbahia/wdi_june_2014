@@ -1,0 +1,19 @@
+<h2><%= @trainer.name %></h2>
+<a href="/trainers/<%= @trainer.id %>/edit">Edit trainer</a>
+
+<ul>
+  <li>Name: <%= @trainer.name %></li>
+  <li>Age: <%= @trainer.age %></li>
+  <li>Hometown: <%= @trainer.hometown %></li>
+</ul>
+
+
+<h3><%= @trainer.name %>'s Pokemon:</h3>
+<h4><%= @pokemon.name %></h4>
+<img src="<%= @pokemon.img_url %>">
+<ul>
+  <li>Classification: <%= @pokemon.classification %></li>
+  <li>Species: <%= @pokemon.species %></li>
+</ul>
+
+<a href="/trainers">Take me back to the Trainers</a>

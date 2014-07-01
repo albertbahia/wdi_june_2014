@@ -1,0 +1,23 @@
+<h2>Ooops! put something in your tweed you don't want the world to see? Edit it!</h2>
+
+<form action="/tweeds/<%= @tweed.id %>" method="post">
+  <label for="tweed[author]">author:</label>
+  <input name="tweed[author]" value= "<%= @tweed.author %>">
+
+  <label for="tweed[content]">content:</label>
+  <input name="tweed[content]" value= "<%= @tweed.content %>">
+
+  <label for="tweed[image_url]">image URL (optional):</label>
+  <input name="tweed[image_url]" value= "<%= @tweed.image_url %>">
+
+  <label for="tweed[timestamp]">time posted:</label>
+  <input name="tweed[timestamp]" value= "<%= @tweed.timestamp %>">
+
+  <input type="submit" value="Edit your tweed!">
+</form>
+
+<br>
+</br>
+<form action="/tweeds/<%= @tweed.id %>/delete" method="post">
+      <input type="submit" value="Delete this tweed.">
+    </form>

@@ -1,0 +1,26 @@
+<!-- Define a route `/` that when visited this route should display 10 random gifs from the Giphy API. Each gif should: - show the original-sized gif
+- a link that can be clicked and will take the user to the giphy page for the gif
+- a plaintext link for the gif image (for easy pasting into hipchat) --> -->
+
+
+<html>
+  <head>
+    <h3> * * *    SUCH DOGE. VERY GIF. MANY.   * * * </h3>
+  </head>
+  <body>
+    <ul>
+      <% @api_call.each do |gif| %>
+    <li>
+      <img src = "<%= gif['images']['original']['url'] %>">
+      <p><a href ="<%= gif['url'] %>">This gif on Giphy!</a></p>
+      <p> Link: <code><%= gif['images']['original']['url'] %></code></p>
+    </li>
+    <% end %>
+</ul>
+<form action="/search" method="get">
+  <label for="search">Search:</label>
+  <input name="search">
+  <input type="submit" value="Search on Giphy!">
+</form>
+  </body>
+</html>
