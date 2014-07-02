@@ -1,8 +1,10 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'httparty'
+require_relative './weather'
 
+get('/') do 
 
-get '/' do
-  Weather.search(params['search'])
+  @weather = params[:search] ? Weather.search(params['search']) : Weather.search('New York City')
+  erb :home
 end
