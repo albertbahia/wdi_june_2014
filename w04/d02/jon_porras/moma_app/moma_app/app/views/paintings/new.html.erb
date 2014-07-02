@@ -1,0 +1,20 @@
+<h3>NEW PAINTING</h3>
+
+<%= form_for(@painting) do |f| %>
+  <%= f.label(:img_url) %>
+  <%= f.text_field(:img_url) %>
+
+  <%= f.label(:title) %>
+  <%= f.text_field(:title) %>
+
+  <%= f.label(:year_painted) %>
+  <%= f.text_field(:year_painted) %>
+
+  <%= f.label(:description) %>
+  <%= f.text_field(:description) %>
+
+  <% artist_arr = Artist.all.map { |artist| [artist.name, artist.id]} %>
+  <%= f.select :artist_id, options_for_select(artist_arr) %>
+
+<%= f.submit %>
+<% end %>
