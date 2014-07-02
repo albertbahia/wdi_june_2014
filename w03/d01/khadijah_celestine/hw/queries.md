@@ -14,6 +14,16 @@ Limit in active record
 
 #All pokemon with a speed less than 25 and attack over 30
 less than double where
+### will return an array of all pokemons (which are active record objects that you can call other ac record methods on) can use an each to just get the name
+Pokemon.where("speed < '25' AND attack > '30' ")
+
+### should just get us the names?
+Pokemon.where("speed < '25' AND attack > '30' ") & name
+Pokemon.where("speed < '25' AND attack > '30' "). map do |poke|
+  poke.name
+end
+
+
 
 #The 5 pokemon with the highest happiness level.
 order by ac

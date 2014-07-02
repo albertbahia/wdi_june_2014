@@ -1,0 +1,10 @@
+<% @tweeds.each do |tweed| %>
+
+  <div class="tweed">
+    <span><%= tweed.created_at.strftime('%b %d %y') %></span> <p><img src="<%= tweed.image_url%>" alt=""></p>
+    <p><%= tweed.author%></p>
+    <span><%= tweed.content %></span>
+    <a href="/tweeds/<%= tweed.id %>">View</a>
+  </div>
+
+<% end %>

@@ -1,0 +1,1 @@
+class Gear  attr_reader(:chain, :cog)  def initialize(chain, cog)    @chain = chain    @cog = cog  end  def ratio    chain / cog.to_f  endendputs Gear.new(52, 11).ratioputs Gear.new(30, 27).ratioputs "Khadijah"

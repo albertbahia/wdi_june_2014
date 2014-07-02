@@ -1,0 +1,12 @@
+<h2>TWDIR FEED</h2>
+
+<%= link_to('New Tweed', new_tweed_path) %>
+
+<ul>
+  <% @tweeds.each do |tweed| %>
+
+    <%= link_to(tweed.author, tweed_path(tweed)) %>
+    <p>"<%= link_to(tweed.content, tweed_path(tweed)) %>"</p>
+        <img src="<%= tweed.image_url %>">
+  <% end %>
+</ul>
