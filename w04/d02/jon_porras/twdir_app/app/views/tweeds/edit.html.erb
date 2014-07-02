@@ -1,15 +1,17 @@
 <h2>EDIT TWEED</h2>
-<p><a href="/tweeds">HOME</a></p>
 
-<form action="/tweeds/<%= @tweed.id %>" method="post">
-  <span><label for="tweed[content]">CONTENT:</label></span>
-  <input name="tweed[content]" value="<%= @tweed.content %>">
+<%= form_for(@tweed) do |f| %>
+  <%= f.label(:content) %>
+  <%= f.text_field(:content) %>
 
-  <span><label for= "tweed[image_url]">IMAGE URL:</label></span>
-  <input name="tweed[image_url]" value="<%= @tweed.image_url %>">
+  <%= f.label(:image_url) %>
+  <%= f.text_field(:image_url) %>
 
-  <span><label for = "tweed[author]">AUTHOR:</label></span>
-  <input name="tweed[author]" value="<%= @tweed.author %>">
+  <%= f.label(:author) %>
+  <%= f.text_field(:author) %>
 
-  <input type="submit" value="CREATE">
-</form>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to('Back', tweed_path(@tweed)) %>
+<%= link_to('Delete', tweed_path(@tweed), method: :delete) %>

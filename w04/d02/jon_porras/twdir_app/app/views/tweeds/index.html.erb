@@ -1,10 +1,10 @@
 <h3>TWEEDIR</h3>
-<a href="/tweeds/new" class="heading">TWEED</a>
+<%= link_to('TWEED', new_tweed_path) %>
 <ul>
   <% @tweeds.each do |tweed| %>
     <li>
-      <%= link_to(tweed.content, tweed_path(tweed)) %>
-      <%= link_to(tweed.author, tweed_path(tweed)) %>
+      <p><%= link_to(tweed.content, tweed_path(tweed)) %></p>
+      <p><%= link_to(tweed.author, tweed_path(tweed)) %><p>
       <a href="tweeds/<%= tweed.id %>"><img src="<%= tweed.image_url %>"></a>
       </a>
     </li>
