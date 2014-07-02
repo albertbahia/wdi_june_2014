@@ -1,0 +1,25 @@
+<h2>New Painting</h2>
+<%= form_for(@painting) do |f| %>
+  <%= f.label(:title) %>
+  <%= f.text_field(:title) %>
+
+  <%= f.label(:img_url) %>
+  <%= f.text_field(:img_url) %>
+
+  <%= f.label(:year_painted) %>
+  <%= f.text_field(:year_painted) %>
+
+  <%= f.label(:description) %>
+  <%= f.text_field(:description) %>
+
+  <%= f.label(:artist) %>
+  <%= f.collection_select :artist_id, Artist.order(:name), :id, :name, include_blank: true %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to('Back to Artists', artists_path) %>
+
+<!-- The painting new page should display a form that allows a user to create a new painting.
+There should be a dropdown menu displaying all artists currently in the database.
+A painting should NOT be added without an artist_id. All paintings must be assigned to an artist on creation. -->
