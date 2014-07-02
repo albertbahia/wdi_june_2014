@@ -1,0 +1,37 @@
+<h2>New Song</h2>
+
+<form action="/search" method="get">
+  <input type="text" name="search" />
+  <input type="submit" />
+</form>
+
+
+<form action="/songs" method="post">
+
+    <p>
+      <label for="song[title]">Name:</label>
+      <input name="song[title]">
+    </p>
+
+    <p>
+      <label for="song[album]">Album:</label>
+      <input name="song[album]">
+    </p>
+
+    <p>
+      <label for="song[preview_url]">Preview Link:</label>
+      <input name="song[preview_url]">
+    </p>
+
+    <p>
+      <label for="song[artist_id]">Artist id:</label>
+      <input name="song[artist_id]">
+    </p>
+
+    <p>
+      <label for="song[price]">Price:</label>
+      <input name="song[price]">
+    </p>
+
+  <input type="submit" value="Create Song">
+</form>

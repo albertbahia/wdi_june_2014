@@ -1,0 +1,22 @@
+<h2>New Painting</h2>
+
+<%= form_for @paintings do |f|  %>
+
+
+  <%= f.label :artist_id %>
+  <%= f.select(:artist_id, options_from_collection_for_select(@artists, "id", "name")) %><br>
+
+  <%= f.label :title %>
+  <%= f.text_field :title, :size => "35"%><br>
+
+  <%= f.label :year_painted %>
+  <%= f.text_field :year_painted %><br>
+
+  <%= f.label :img_url %>
+  <%= f.text_field :img_url, :size => "50" %><br>
+
+  <%= f.label :description %><br>
+  <%= f.text_area :description, :size => "50x15" %><br>
+  <%= f.submit %>
+
+<% end %>
