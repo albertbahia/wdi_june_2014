@@ -1,0 +1,8 @@
+<h4><%= @painting.title %></h4>
+<h4><%= @painting.year_painted %></h4>
+<p><%= @painting.description%></p>
+<img src="<%= @painting.img_url %>">
+
+<%= link_to('Back to Paintings', paintings_path) %>
+<%= link_to('Edit', edit_painting_path(@painting)) %>
+<%= link_to('Delete', paintings_path(@paintings), { method: :delete }) %>
