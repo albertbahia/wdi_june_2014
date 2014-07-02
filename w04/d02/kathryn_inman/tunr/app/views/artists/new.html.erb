@@ -1,0 +1,33 @@
+<h2>New Artist</h2>
+
+<!-- <form action="/artists" method="post">
+<label for="artist[name]">Name:</label>
+<input name="artist[name]">
+
+<label for="artistx[photo_url]">Photo URL:</label>
+<input name="artist[photo_url]">
+
+<label for="artist[nationality]">Nationality:</label>
+<input name="artist[nationality]">
+
+<label for="artist[age]">Age:</label>
+<input name="artist[age]">
+
+<input type="submit" value="Create">
+</form> -->
+
+<%= form_for(@artist) do |f| %>
+<%= f.label(:name)%>
+<%= f.text_field(:name)%>
+
+<%= f.label(:photo_url)%>
+<%= f.text_field(:photo_url)%>
+
+<%= f.label(:nationality)%>
+<%= f.text_field(:nationality)%>
+
+<%= f.submit("ARTIST") %>
+
+<% end %>
+
+<%= link_to("back to Artists", artists_path) %>
