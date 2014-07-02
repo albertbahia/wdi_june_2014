@@ -1,6 +1,6 @@
 artist1  = Artist.create({
                     name: "Salvador Domingo Felipe Jacinto Dalí",
-                    photo_url: "http://upload.wikimedia.org/wikipedia/commons/2/27/Salvador_Dali_NYWTS.jpg",
+                    photo_url: "http://pic1.dididadidi.com/201307/407834a9127e37634f8f08285daf30c0.jpg",
                     nationality: "Spain",
                     birthday: "May 11, 1904"
 })
