@@ -1,0 +1,10 @@
+<h2>ARTISTS</h3>
+<br>
+<%= link_to('Add Artist', new_artist_path)  %>
+<p><br>
+Click on the artist to find out more
+<% @artists.each do |artist| %>
+<p><%= artist.name %><br>
+<%= link_to image_tag(artist.photo_url, :class => "frontpage" ), artist_path(artist)%>
+</p>
+<% end %>
