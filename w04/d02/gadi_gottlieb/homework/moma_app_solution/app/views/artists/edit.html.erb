@@ -1,0 +1,9 @@
+<%= form_for @artist, method: :post  do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_field :photo_url %>
+  <%= f.text_field :nationality %>
+  <%= f.date_field :birthday %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to 'Delete', artist_path(@artist), method: :delete %>
