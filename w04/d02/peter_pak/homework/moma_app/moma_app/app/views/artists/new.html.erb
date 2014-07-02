@@ -1,0 +1,21 @@
+<h2>New Artist</h2>
+
+<br><br>
+
+
+<%= form_for @artists do |f|  %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
+  <%= f.label :birthday %><br>
+  <%= f.date_select :birthday, :start_year => 1800, :end_year => Time.now.year,
+  :order => [:month, :day, :year] %><br>
+  <%= f.label :nationality %><br>
+  <%= f.text_field :nationality %><br>
+  <%= f.label :photo_url %><br>
+  <%= f.text_field :photo_url %><br>
+  <%= f.submit %>
+
+<% end %>
+
+
+<%= link_to('Back to Artists', artists_path) %>
