@@ -27,7 +27,7 @@ class PaintingsController < ApplicationController
     redirect_to(painting_path(@painting))
   end
 
-  def destory
+  def destroy
     @painting = Painting.find(params[:id])
     @painting.destroy
     redirect_to(paintings_path)

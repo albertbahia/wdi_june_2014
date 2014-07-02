@@ -14,7 +14,7 @@ def get_artist_data
     },
     "renemagritte" => {
       name: "Rene Magritte",
-      nationality: "Belium",
+      nationality: "Belgium",
       birthday: "November 21st 1988",
       photo_url: "http://upload.wikimedia.org/wikipedia/en/9/92/Wolleh_magritte.jpg"
     }
