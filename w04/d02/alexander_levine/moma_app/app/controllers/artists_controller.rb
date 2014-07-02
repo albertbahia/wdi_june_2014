@@ -28,7 +28,9 @@ class ArtistsController < ApplicationController
 
   def destroy
     @artist = Artist.find(params[:id])
-    @artist.paintings.destroy
+    @artist.paintings.each do |painting|
+      painting.destroy
+    end
     @artist.destroy
     redirect_to(artists_path)
   end
