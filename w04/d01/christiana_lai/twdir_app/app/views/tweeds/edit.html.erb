@@ -1,0 +1,21 @@
+<h2>Edit Tweed</h2>
+
+<form action="/tweeds/#{@tweed.id}" method="post">
+
+  <label>Tweed Post:</label>
+  <input name="tweed[content]"  value="<%= @tweed.content %>">
+
+  <label>Tweeder:</label>
+  <input name="tweed[author]" value="<%= @tweed.author %>">
+
+  <label>Img URL:</label>
+  <input name="tweed[img_url]" value="<%= @tweed.img_url %>">
+
+  <label>Timestamp:</label>
+  <input name="tweed[created_at]" value="<%= @tweed.created_at %>">
+  <input name="tweed[updated_at]" value="<%= @tweed.updated_at %>">
+
+  <input type="submit" value="Create">
+</form>
+
+<a href="/tweeds">Home</a>

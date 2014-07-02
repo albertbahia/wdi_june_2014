@@ -1,0 +1,13 @@
+<div class="tweed">
+<h3>edit tweed</h3>
+<form action="/tweeds/<%= @tweed.id %>" method="post">
+  <input name="tweed[author]" value="<%= @tweed.author %>" type="text">
+  <input name="tweed[content]" value="<%= @tweed.content %>"type="text">
+  <input type="text" name="tweed[image_url]" value="<%= @tweed.image_url %>">
+  <button>tweed</button>
+</form>
+
+<form action="/tweeds/<%= @tweed.id %>/delete" method="post">
+    <button>DEtweed</button>
+    </form>
+</div>
