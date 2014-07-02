@@ -1,0 +1,27 @@
+<h2>Edit Painting</h2>
+<%= form_for @painting do |f| %>
+  <%= f.label(:title) %>
+  <%= f.text_field(:title)%>
+
+  <label>Artist:</label>
+  <select name="painting[artist_id]">
+    <% @artists.each_index do |index| %>
+      <option  value="<%= @artists[index].id %>"><%= @artists[index].name %></option>
+    <% end %>
+  </select>
+
+  <%= f.label(:img_url) %>
+  <%= f.text_field(:img_url)%>
+
+  <%= f.label(:year_painted) %>
+  <%= f.text_field(:year_painted)%>
+
+  <%= f.label(:description) %>
+  <%= f.text_field(:description)%>
+  <br />
+  <%= f.submit %>
+<% end %>
+
+
+<%= link_to("Back to #{@painting.title}", painting_path(@painting)) %>
+<%= link_to('Delete', painting_path(@painting), method: :delete) %>

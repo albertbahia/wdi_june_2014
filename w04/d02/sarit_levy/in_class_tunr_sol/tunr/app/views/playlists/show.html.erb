@@ -1,0 +1,31 @@
+<h2><%= @playlist.name %></h2>
+
+<ul>
+  <% @playlist.songs.each do |song| %>
+    <li>
+        <%= song.artist.name %> - <%= song.title %>
+    </li>
+  <% end %>
+</ul>
+
+<h3>Add Song by ID</h3>
+<form action="/playlists/<%= @playlist.id %>/add_song" method="post">
+  <label  for="song_id">Song ID:</label>
+  <input id="song_id" name="song_id">
+
+  <input type="submit">
+</form>
+
+<h3>Remove Song by ID</h3>
+<form action="/playlists/<%= @playlist.id %>/remove_song" method="post">
+  <label  for="song_id">Artist ID:</label>
+  <input name="song_id">
+
+  <input type="submit">
+</form>
+
+<h3>Add Song by Title</h3>
+<%= link_to('Add Song', add_song_path(@song)) %>
+
+<h3>Remove Song by Title</h3>
+  <%= link_to('Delete', playlist_path(@playlist), { :method => :delete }) %>

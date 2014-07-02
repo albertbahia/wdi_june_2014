@@ -1,0 +1,13 @@
+body {font-family: "Gill Sans"; text-align: center}
+header {position: fixed; left: 40px}
+ul {list-style-type: none; padding-left: 10px}
+li {display: inline; padding: 10px}
+a {text-decoration: none; color: black}
+div.add_photo {margin-top: 200px; padding-top: 15px}
+div {border: solid black 1px; margin: 47px 20px;}
+div.edit_photo {padding-top: 15px}
+img {padding-top: 20px}
+h3 {letter-spacing: 27px; padding-left: 19px}
+a.heading {letter-spacing: 5px}
+p.author {margin-top: -33px;}
+span {color: #B8D0E3}
