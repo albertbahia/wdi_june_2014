@@ -1,0 +1,16 @@
+<h2>New Artist</h2>
+
+<form action="<%= artists_path %>" method="post">
+  <label>Name:</label>
+  <input name="artist[name]">
+
+  <label>Photo URL:</label>
+  <input name="artist[photo_url]">
+
+  <label>Nationality:</label>
+  <input name="artist[nationality]">
+
+  <input type="submit" value="Create">
+</form>
+
+<%= link_to('Back to Artists', artists_path) %>
