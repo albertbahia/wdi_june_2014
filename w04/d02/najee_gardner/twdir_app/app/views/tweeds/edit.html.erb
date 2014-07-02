@@ -1,0 +1,16 @@
+<div class="tweed_box">
+  <p><%= @tweed.content %></p>
+  <img src="<%= @tweed.image_url %>">
+  <p><%= @tweed.author %> <span><%= @tweed.timestamp %></span></p>
+</div>
+
+<form method="post" action="/tweeds/<%= @tweed.id %>/update">
+  <label for="author">Author: </label>
+  <input id="author" type="text" name="tweed[author]" value="<%= @tweed.author %>">
+  <label for="content">Message: </label>
+  <input id="content" type="text" name="tweed[content]" value="<%= @tweed.content %>">
+  <label for="image">Image URL: </label>
+  <input id="image" type="text" name="tweed[image_url]" value="<%= @tweed.image_url %>">
+  <input type="hidden" name="tweed[timestamp]" value="<%= Time.now %>">
+  <input type="submit" value="Update">
+</form>

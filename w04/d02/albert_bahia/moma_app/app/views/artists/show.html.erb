@@ -1,0 +1,11 @@
+<br>
+<br>
+<img src="<%= @artist.photo_url %>">
+<h2>Name: <%= @artist.name %></h2>
+<h2>Nationality: <%= @artist.nationality %></h2>
+<h2>Birthdate: <%= @artist.birthday %></h2>
+
+
+
+<%= link_to('Back to Artists', artists_path) %>
+<%= link_to('Edit', edit_artist_path(@artist)) %>

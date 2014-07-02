@@ -2,21 +2,14 @@
   <h1>Personal Tweeders</h1>
 </div>
 
-<div id="hrefs">
-  <a href="/">Home</a>
-  <a href="/tweeds">Tweeds</a>
-</div>
-
 <div id="p">
+
   <h2>Author: <%= @tweed.author %></h2>
   <h3>Content: <%= @tweed.content %></h3>
   <img src="<%= @tweed.image_url %>">
 
   <h3>Created At: <%= @tweed.created_at%></h3>
 
-  <a href="/tweeds/<%= @tweed.id%>/edit">Edit Tweed</a>
-
-  <form action="/tweeds/<%= @tweed.id %>/delete" method="post">
-    <input type="submit" value="Delete Tweed">
-  </form>
+  <%= link_to("Edit Tweed", edit_tweed_path(@tweed))%>
+  <%= link_to("Delete", tweed_path(@tweed), method: :delete) %>
 </div>
