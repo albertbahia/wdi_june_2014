@@ -1,20 +1,20 @@
 <h3>Create New Artist</h3>
 
 <%= form_for(@artist) do |f| %>
-  <%= f.label(:img_url) %>
-  <%= f.text_field(:img_url) %>
+  <%= f.label(:name) %>
+  <%= f.text_field(:name) %>
 
-  <%= f.label(:title) %>
-  <%= f.text_field(:title) %>
+  <%= f.label(:photo_url, 'Photo URL') %>
+  <%= f.text_field(:photo_url) %>
 
-  <%= f.label(:year_painted) %>
-  <%= f.text_field(:year_painted) %>
+  <%= f.label(:nationality) %>
+  <%= f.text_field(:nationality) %>
 
-  <%= f.label(:description) %>
-  <%= f.text_field(:description) %>
+  <%= f.label(:birthday) %>
+  <%= f.text_field(:birthday) %>
 
   <%= f.submit %>
 
-<%= end %>
+<% end %>
 
 <%= link_to 'Back to All Artist', artists_path %>

@@ -29,10 +29,10 @@ class PaintingsController < ApplicationController
 
   def destroy
     Painting.find(params[:id]).destroy
-    redirect_to(artists_path)
+    redirect_to(paintings_path)
   end
 
   def painting_params
-    params.require(:painting).permit(:img_url, :title, :year_painted, :description)
+    params.require(:painting).permit(:img_url, :title, :year_painted, :description, :artist_id)
   end
 end

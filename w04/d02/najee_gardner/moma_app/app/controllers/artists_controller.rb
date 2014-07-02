@@ -1,4 +1,4 @@
-class ArtistsController < ApplicationControlller
+class ArtistsController < ApplicationController
 
   def index
     @artists = Artist.all
@@ -23,11 +23,14 @@ class ArtistsController < ApplicationControlller
 
   def update
     artist = Artist.find(params[:id])
+    artist.update!(artist_params)
     redirect_to(artist_path(artist))
   end
 
   def destroy
-    Artist.find(params[:id]).destroy
+    artist = Artist.find(params[:id])
+    artist.paintings.each { |p| p.destroy }
+    artist.destroy
     redirect_to(artists_path)
   end
 
