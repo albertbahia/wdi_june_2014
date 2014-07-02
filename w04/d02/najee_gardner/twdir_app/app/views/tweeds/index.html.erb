@@ -1,0 +1,12 @@
+<h3>Tweed Deck</h3>
+<%= link_to 'New Tweed', new_tweed_path %>
+
+<% @tweeds.each do |tweed| %>
+<a class="show_link" href="/tweeds/<%= tweed.id %>">
+  <div class="tweed_box">
+    <p class="content"><%= tweed.content %></p>
+    <img src="<%= tweed.image_url %>">
+    <p>Posted by: <%= tweed.author %>       <%= tweed.timestamp.to_s.split.first + " " + tweed.timestamp.to_s.split[1] %></p>
+  </div>
+</a>
+<% end %>

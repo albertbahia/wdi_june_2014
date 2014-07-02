@@ -1,0 +1,8 @@
+<h2>Welcome to MoMa!</h2>
+
+<img src="http://www.theartcareerproject.com/wp-content/uploads/2012/03/The_Museum_of_Modern_Art_3.jpg">
+
+<p>Our featured artists this week are:</p>
+<% @artists.each do |artist| %>
+  <div class="artist_link"><%= link_to("#{artist.name}", artist_path(artist)) %> </div>
+<% end %>
