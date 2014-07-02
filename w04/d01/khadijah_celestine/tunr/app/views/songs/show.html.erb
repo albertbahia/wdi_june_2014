@@ -1,0 +1,7 @@
+<h2>Song: <%= @song.title %> </h2>
+<h2>Artist: <%= @artist.name %></h2>
+<audio controls>
+  <source src="<%= @song.preview_url %>" type="audio/mpeg">
+</audio>
+<br />
+<img src="<%= @artist.photo_url %>" />

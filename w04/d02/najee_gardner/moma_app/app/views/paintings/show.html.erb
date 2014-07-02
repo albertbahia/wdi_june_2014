@@ -1,0 +1,7 @@
+<h3><%= @painting.title %></h3>
+<p>by: <%= link_to @painting.artist.name+" - "+@painting.year_painted.to_s, artist_path(@painting.artist) %></p>
+<img src="<%= @painting.img_url %>" />
+<p><%= @painting.description %></p>
+
+<%= link_to 'Edit', edit_painting_path(@painting) %>
+<%= link_to 'Delete', painting_path(@painting), method: :delete %>

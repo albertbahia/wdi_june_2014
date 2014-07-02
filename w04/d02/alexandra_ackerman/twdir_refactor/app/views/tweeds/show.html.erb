@@ -1,0 +1,6 @@
+<h2>Author: <%= @tweed.author %></h2>
+<p><%= @tweed.content %></p>
+<img src="<%= @tweed.image_url %>">
+<p><%= @tweed.timestamp %></br>
+</br>
+<%= link_to('Edit', edit_tweed_path(@tweed))%>
