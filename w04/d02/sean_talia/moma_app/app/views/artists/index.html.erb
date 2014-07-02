@@ -1,0 +1,8 @@
+<h2>MoMa Artists</h2>
+
+<% @artists.each do |artist| %>
+  <div class="artist_link"><%= link_to("#{artist.name}", artist_path(artist)) %> </div>
+<% end %>
+
+<p>~~~~~~~~~~~~~~~~~~~~~~~</p>
+<%= link_to('Add Artist', new_artist_path) %>

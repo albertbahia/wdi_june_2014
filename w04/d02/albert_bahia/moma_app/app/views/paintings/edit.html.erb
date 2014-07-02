@@ -1,0 +1,21 @@
+<h2>Edit Painting</h2>
+<form action="<%= painting_path(@painting) %>" method="put">
+  <label for="painting[title]">Title:</label>
+  <input name="painting[title]" value="<%= @painting.title %>">
+
+  <label for="painting[img_url]">Image URL:</label>
+  <input name="painting[img_url]" value="<%= @painting.img_url %>">
+
+  <label for="painting[year_painted]">Year:</label>
+  <input name="painting[year_painted]" value="<%= @painting.year_painted %>">
+
+  <label for="painting[description]">Description:</label>
+  <input name="painting[description]" value="<%= @painting.description %>">
+
+
+  <input type="submit" value="Complete Edit">
+
+</form>
+
+<%= link_to('Back to Paintings', painting_path(@painting)) %>
+<%= link_to('Delete Painting', painting_path(@painting), method: :delete) %>

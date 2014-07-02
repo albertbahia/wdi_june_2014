@@ -1,0 +1,22 @@
+<center><div id="show_img">
+  <p class= "info">
+    <%= @user.username %> | <%= @user.full_name %> | <%= @user.birthday %>
+  </p>
+  <br />
+  <p>
+    <a href="/users/<%= @user.id %>/edit" title="this user post"><span class="button" >   Edit  </span></a>
+  </p>
+
+
+  <h3> My Images </h3>
+  <ul>
+    <% @user.images.each do |img| %>
+      <li> <a href="/images/<%= img.id %>"> <img src="<%= img.image_url %>" /> </a> </li>
+    <% end %>
+  </ul>
+
+<form action="/users/<%= @user.id %>/delete" method="post">
+  <input type="submit" value="Delete User">
+</form>
+
+</div></center>
