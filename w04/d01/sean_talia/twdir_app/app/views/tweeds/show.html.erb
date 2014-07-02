@@ -1,0 +1,9 @@
+<h2>Posted by: <%= @tweed.author %> </h2>
+
+<p id="single_view">
+  <%= @tweed.content %> <br>
+  <img src="<%= @tweed.image_url %>"> <br>
+  <%= @tweed.created_at %> <br>
+
+  Need to fix your tweed? Do that <a href="/tweeds/<%=@tweed.id%>/edit">here</a>.
+</p>
