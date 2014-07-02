@@ -1,0 +1,19 @@
+<h2>Edit Artist</h2>
+
+
+<%= form_for @artists do |f|  %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
+  <%= f.label :birthday %><br>
+  <%= f.date_select :birthday %><br>
+  <%= f.label :nationality %><br>
+  <%= f.text_field :nationality %><br>
+  <%= f.label :photo_url %><br>
+  <%= f.text_field :photo_url %><br>
+  <%= f.submit %>
+
+<% end %>
+
+
+
+<%= link_to("Back to #{@artists.name}", artist_path(@artists)) %>

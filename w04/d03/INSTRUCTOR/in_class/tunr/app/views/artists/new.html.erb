@@ -1,5 +1,11 @@
 <h2>New Artist</h2>
 
+<ul>
+<% @artist.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+<% end %>
+</ul>
+
 <%= form_for(@artist) do |f| %>
   <%= f.label(:name) %>
   <%= f.text_field(:name) %>
