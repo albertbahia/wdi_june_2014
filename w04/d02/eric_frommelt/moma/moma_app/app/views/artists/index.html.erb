@@ -1,0 +1,13 @@
+<h2>Artists</h2>
+
+<%= link_to('New artist', new_artist_path) %>
+
+<ul>
+  <% @artists.each do |artist| %>
+    <li>
+      <%= link_to(artist.name, artist_path(artist)) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to('View all paintings', paintings_path) %>

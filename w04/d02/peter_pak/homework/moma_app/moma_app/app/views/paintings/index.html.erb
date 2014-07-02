@@ -1,0 +1,15 @@
+<h2> Paintings </h2>
+<%= link_to('Add New Painting', new_painting_path)  %>
+
+<p>
+click on a title for more info
+</p>
+
+<ul>
+  <% @paintings.each do |painting| %>
+    <li>
+      <%= link_to("#{painting.title} - #{painting.year_painted}", painting_path(painting)) %>
+
+    </li>
+  <% end %>
+</ul>
