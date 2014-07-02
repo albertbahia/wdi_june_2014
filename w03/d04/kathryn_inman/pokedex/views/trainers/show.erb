@@ -1,0 +1,30 @@
+<h2> Name: <%= @trainer.name %></h2>
+<br>
+</br>
+<p>Age: <%= @trainer.age %></p>
+
+<p>Hometown: <%= @trainer.hometown %></p>
+
+  <% @trainer.pokemons.each do |monster| %>
+       <p><%= monster.name %></p>
+       <p><%= monster.species %></p>
+       <img src= "<%= monster.img %>">
+       <p><%= monster.hp %></p>
+       <p><%= monster.attack %></p>
+       <p><%= monster.defense %></p>
+       <p><%= monster.speed %></p>
+       <p><%= monster.moves %></p>
+       <p><%= monster.classification %></p>
+       <p><%= monster.height %></p>
+       <p><%= monster.happiness %></p>
+       <% end %>
+
+
+
+
+
+
+<a href= '/trainers/<%= @trainer.id %>/edit'>Edit Trainer's Info?</a>
+<br>
+</br>
+<a href= '/trainers'>Back To Trainer Index</a>

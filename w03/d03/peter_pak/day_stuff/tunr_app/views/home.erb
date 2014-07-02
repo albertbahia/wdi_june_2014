@@ -1,0 +1,24 @@
+<center>
+  <IMG SRC="http://www.mikesfreegifs.com/main4/underconstruction/atwork89.gif">
+  <h1>Welcome to Tun.r!</h1>
+  <h3>Currently under construction</h3>
+  <IMG SRC="http://www.mikesfreegifs.com/main4/underconstruction/atwork89.gif">
+</center>
+<h4>Early Access List</h4>
+<p>Add your name to the early access list for awesome access things.</P>
+  <form action="/add_to_list" method="POST">
+    <label>
+      Full Name:
+    <input type="text" name="full_name" placeholder="full name">
+  </label>
+  <label>
+    Email Address:
+    <input type="email" name="email" placeholder="email@email.com">
+  </label>
+    <input type="submit" value="do it.">
+
+  </form>
+  <h4>People on the list so far:</h4>
+  <% @list.each do |hash| %>
+  <%= hash[:full_name] %> <br>
+  <% end  %>

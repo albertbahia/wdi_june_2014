@@ -1,0 +1,16 @@
+<h2><%= @image.caption %></h2>
+<h3>Posted By: <%= @image.author %></h3>
+
+<img src= "<%= @image.image_url %>"></br>
+
+Image URL: <a href><%= @image.image_url %></a></br>
+Date Posted: <%= @image.date_posted %></br>
+
+
+<form action="/images/:id/edit" method="get">
+    <input type="submit" value="Edit Image">
+</form>
+
+<form action="/images/:id/delete" method="post">
+  <input type="submit" value="Delete Image"
+</form>

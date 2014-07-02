@@ -1,0 +1,40 @@
+<h2>The Calculator</h2>
+
+<form method="get" action="/basic_math">
+
+
+  <input type="number" name="first_num" textarea="Type first number"><br>
+
+  <input type="number" name="math_operator" textarea="Choose a math operator"><br>
+
+  <input type="number" name="second_num" textarea="Type second number"><br>
+
+  <input type="submit"><br>
+
+</form>
+
+
+<h4> The result is: <%= @result %></h4>
+
+
+
+
+
+
+
+
+
+
+<!Define a calculator route. When the user clicks the Calculator link they should
+be taken to this route and the following should be displayed:
+- a title showing what page the user is on
+- a link that when pressed will return them to the homepage
+- a form that prompts the user for three inputs
+  - their first number
+  - math operation to perform
+  - their second number
+
+When the user submits the form they should be taken to another page that will
+display the results of the math operation they performed. On this results page
+there should be a link that allows the user to go back to the main calculator
+page to perform more calculations.>

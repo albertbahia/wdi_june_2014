@@ -1,0 +1,14 @@
+    <h2>ARTIST</h2>
+    <p>
+      The list of artist above will be available soon!
+    </p>
+    <ul>
+      <% @featured_artists.each do |artist| %>
+      <li><%= artist %></li>
+      <% end %>
+    </ul>
+
+    <form method = "POST" action = '/add_artists'>
+      <input type="text" name="artist_name">
+      <input type="submit">
+    </form>

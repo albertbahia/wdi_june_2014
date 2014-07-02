@@ -1,0 +1,9 @@
+<h3>Name: <%= @trainer.name %></h3>
+<h3>Age: <%= @trainer.age %></h3>
+<h3>Hometown: <%= @trainer.hometown %></h3>
+
+<form action="/trainers/<%= @trainer.id %>/edit" method="post">
+  <input type="submit" value="UpdateTrainer">
+</form>
+<a href="/trainers/new">Create a New Trainer</a>
+<a href="/trainers">BACK</a>

@@ -1,0 +1,39 @@
+/* WDINSTAGRAM STYLES */
+
+body {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+ul {
+  text-transform: uppercase;
+}
+
+img {
+  border: dotted;
+  border-width: 5px;
+  border-radius: 2px;
+  padding: 10px;
+}
+
+#main_menu {
+  display: inline;
+  text-decoration: none;
+}
+
+div.form {
+  display: block;
+
+}
+
+a {
+
+}
+
+.edit {
+  
+}

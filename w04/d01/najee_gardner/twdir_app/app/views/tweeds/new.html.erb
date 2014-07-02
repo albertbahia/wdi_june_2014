@@ -1,0 +1,12 @@
+<h3>New Tweed</h3>
+
+<form method="post" action="/tweeds/create">
+  <label for="author">Author: </label>
+  <input id="author" type="text" name="tweed[author]">
+  <label for="content">Message: </label>
+  <input id="content" type="text" name="tweed[content]">
+  <label for="image">Image URL: </label>
+  <input id="image" type="text" name="tweed[image_url]">
+  <input type="hidden" name="tweed[timestamp]" value="<%= Time.now %>">
+  <input type="submit" value="Post">
+</form>

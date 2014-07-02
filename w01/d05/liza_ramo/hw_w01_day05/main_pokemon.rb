@@ -1,6 +1,7 @@
 require_relative './pokemon'
 require_relative './trainer'
 require_relative './nurse'
+require('pry')
 
 bulbasaur = Pokemon.new("Bulbasaur", 001, "Fuzzy", 0, 0, 5, 5, 5)
 ivysaur = Pokemon.new("Ivysaur", 002, "Prickly", 0, 0, 5, 5, 5)
@@ -15,3 +16,4 @@ pikachu = Pokemon.new("Pikachu", 025,"Fuzzy",20,20,2,5,5)
 pokemon_list = [bulbasaur, ivysaur, venusaur, charmander, charmeleon, pikachu]
 
 liza = Trainer.new("Liza", 26, "Asheville", [bulbasaur, ivysaur, venusaur])
+binding.pry

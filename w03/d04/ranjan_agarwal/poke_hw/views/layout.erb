@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Pokemon Pokedex</title>
+    <link href="style.css" type="text/css">
+    <style>
+      h1 a img {margin: 0 auto;}
+      nav ul {list-style:none;text-align:center;width: 300px;}
+      nav ul a {font-size: 18px;}
+      a{color:#286AB9;text-decoration: none;}
+      .poke-list, .trainer-list {list-style:none;}
+    </style>
+  </head>
+  <body>
+  <header>
+    <h1><a href="/"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/English_Pok%C3%A9mon_logo.svg/280px-English_Pok%C3%A9mon_logo.svg.png" ></a></h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/pokemons">Pokemon Pokedex</a></li>
+        <li><a href="/trainers">Trainers</a></li>
+        <li><a href="/trainers/new">Create a New Trainer</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div id="main">
+    <%= yield %>
+  </div>
+  </body>
+</html>

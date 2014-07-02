@@ -1,0 +1,8 @@
+<p>
+<img src="<%= @image.url %>" height="400" width="450">
+<h3>Posted By: <%= @image.author %></h3>
+<h3>Post Date: <%= @image.date_posted %></h3>
+<h3>Caption: <%= @image.caption %></h3></p>
+<form action="/<%=@image.id%>/delete" method="post">
+  <input type="submit" value="Delete Image">
+</form>

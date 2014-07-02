@@ -1,0 +1,22 @@
+<div>
+  <div class="trainer">
+    <h3><%= @trainer.name %></h3>
+    <h4><%= @trainer.age %></h4>
+    <h4><%= @trainer.hometown %></h4>
+    <a href="/trainers/<%= @trainer.id %>/edit">Edit Trainer</a>
+    <% if @pokemons.empty? %>
+      <form action="/trainers/<%= @trainer.id %>/get_new_pokes" method="post">
+        <button>Get Pokemon!</button>
+      </form>
+    <% end %>
+  </div>
+  <div class='trainer_pokemons'>
+  <% @pokemons.each do |pokemon| %>
+    <div class='trainer_pokemon_div'>
+      <div class="poke_img_div"><h2><%= pokemon.name %></h2><img class='pokemon_img' src="<%= pokemon.img_url %>">
+        <p> Type: <%= pokemon.species %> | A <%= pokemon.classification  %></p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

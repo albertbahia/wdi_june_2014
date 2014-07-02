@@ -1,0 +1,12 @@
+<% @search["results"].each do |result| %>
+  <ul>
+    <li>Track: <%= result["trackName"] %>
+      <form action = "/songs/search/" method = "post">
+        <input type = "submit" value = "Add Song">
+      </form>
+  </li>
+    <li>Artist: <%= result["artistName"] %> </li>
+    <li>Album: <%= result["collectionName"] %> </li>
+    <li>Album: <%= result["trackPrice"] %> </li>
+  </ul>
+  <% end %>

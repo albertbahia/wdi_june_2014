@@ -1,0 +1,14 @@
+<h3>WDInstagram Images</h3>
+<h4>Click on an image to view it up close!</h4>
+<p>
+  <% if @images == [] %>
+    WDInstagram has no images!! Upload some, pretty please.
+  <% end %>
+  <% @images.each do |image| %>
+  <a href=<%= "/images/#{image.id}"%>><img id="index_img" src="<%=image.image_url%>"></a> <br>
+  Author: <%=image.author%>, Date Posted: <%=image.date_posted%> <br>
+  Caption: <%=image.caption%> <br>
+  <% end %>
+</p>
+
+<p>**Want to upload your own image? You can do that <a href='/images/new'>here</a>**</p>

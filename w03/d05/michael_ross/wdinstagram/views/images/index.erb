@@ -1,0 +1,9 @@
+<h2>FEED</h2>
+<div>
+  <% @images.each do |image| %>
+      <a href="/images/<%= image.id %>"><img src="<%= image.url %>"></a>
+        <p class="caption"><%= image.caption %></p>
+        <p class="author">Author: <%= image.author %></p>
+        <p class="date">Date Posted: <%= image.date_posted %></p>
+  <% end %>
+</div>
