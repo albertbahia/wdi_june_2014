@@ -1,3 +1,4 @@
+require_relative('../lib/being.rb')
 require_relative('../lib/human.rb')
 
 describe Human do

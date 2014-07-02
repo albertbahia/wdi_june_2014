@@ -1,0 +1,10 @@
+<h1>Tweeds</h1>
+
+<p><%= link_to('Add Tweed', new_tweed_path) %></br>
+
+<% @tweeds.each do |tweed| %>
+    <h2><%= tweed.author %></h2>
+    <%= link_to(tweed.content, tweed_path(tweed)) %>
+    <img src="<%= tweed.image_url %>"></a></br></p>
+<% end %>
+</br>
