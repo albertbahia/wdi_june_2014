@@ -1,0 +1,16 @@
+<h1>tWDIer</h1>
+<h2>Tweeds</h2>
+
+<%= link_to('Add Tweed', new_tweed_path) %>
+
+<ul>
+  <% @tweeds.each do |tweed| %>
+    <li>
+      <%= link_to(tweed.content, tweed_path(tweed)) %><br>
+      <%= tweed.author %><br>
+      <img src= "<%= tweed.img_url%>" width="600" height="400"><p>
+      <%= tweed.created_at %><br>
+      <%= tweed.updated_at %>
+    </li>
+  <% end %>
+</ul>
