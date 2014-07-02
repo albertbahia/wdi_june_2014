@@ -1,29 +1,31 @@
-require 'pry'
-first_half = "abcdefghijklm"
-second_half = "nopqrstuvwxyz"
-
-first = first_half.split('')
-second = second_half.split('')
+# require 'pry'
 
 def encode(string)
-	first_half = "abcdefghijklm"
-	second_half = "nopqrstuvwxyz"
-
-	first = first_half.split('')
-	second = second_half.split('')
+	
+	first = ('a'..'m').to_a
+	second = ('n'..'z').to_a
 
 	letters = string.split('')
-	result = []
 
-	letters.each do |letter|
+	result = letters.map do |letter|
 		if first.include? letter 
 			index = first.find_index(letter)
-			result << second[index]
+			rsecond[index]
 		elsif second.include? letter
 			index = second.find_index(letter)
-			result << first[index]	
+			first[index]	
 		end
 	end
 	return result.join('')
 end
-binding.pry
+
+def encode(ciph)
+
+	key = ('a'..'z').to_a
+
+  new_ciph = ciph.split(//).map do |letter|
+  	key.index(letter) < 13 ? key[key.index(letter) + 13] : key[key.index(letter)-13]
+  end
+  new_ciph.join
+end
+# binding.pry
