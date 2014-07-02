@@ -5,10 +5,11 @@ class TweedsController < ApplicationController
   end
 
   def new
+    @tweed = Tweed.new
   end
 
   def create
-    @tweed = Tweed.create(params[:tweed].permit!)
+    @tweed = Tweed.create(tweed_params)
     redirect_to("/tweeds/#{@tweed.id}")
   end
 
@@ -22,7 +23,7 @@ class TweedsController < ApplicationController
 
   def update
     @tweed = Tweed.find(params[:id])
-    @tweed.update(params[:tweed].permit!)
+    @tweed.update(tweed_params)
     redirect_to("/tweeds/#{@tweed.id}")
   end
 
@@ -30,6 +31,10 @@ class TweedsController < ApplicationController
     @tweed = Tweed.find(params[:id])
     @tweed.destroy
     redirect_to("/tweeds")
+  end
+
+  def tweed_params
+    params.require(:tweed).permit(:author, :content, :img_url)
   end
 
 end

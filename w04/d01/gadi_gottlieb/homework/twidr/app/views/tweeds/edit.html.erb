@@ -2,22 +2,17 @@
   <h2>Edit Tweed</h2>
 </div>
 
-<div id="hrefs">
-  <a href="/">Home</a>
-  <a href="/tweeds">Tweeds</a>
-</div>
-
 <div id="forms">
-  <form action="/tweeds/<%= @tweed.id %>" method="post">
-    <label >Author:</label>
-    <input name="tweed[author]" value="<%= @tweed.author %>"><br>
+  <%= form_for(@tweed) do |f| %>
+    <%= f.label(:author) %>
+    <%= f.text_field(:author) %><br>
 
-    <label >Content:</label>
-    <input name="tweed[content]" value="<%= @tweed.content %>"><br>
+    <%= f.label(:content) %>
+    <%= f.text_field(:content) %><br>
 
-    <label >Image:</label>
-    <input name="tweed[image_url]" value="<%= @tweed.image_url %>"><br>
+    <%= f.label(:image_url) %>
+    <%= f.text_field(:image_url) %><br>
 
-    <input type="submit" value="Edit">
-  </form>
+    <%= f.submit %>
+  <% end %>
 </div>
