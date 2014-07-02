@@ -5,11 +5,12 @@ class TweedsController < ApplicationController
   end
 
   def new
+    @tweed = Tweed.new
   end
 
   def create
-    @tweed = Tweed.create!(params[:tweed].permit!)
-    redirect_to("/tweeds/#{@tweed.id}")
+    @tweed = Tweed.create!(tweed_params)
+    redirect_to(tweed_path(@tweed))
   end
 
   def show
@@ -23,13 +24,18 @@ class TweedsController < ApplicationController
 
   def update
     @tweed = Tweed.find(params[:id])
-    @tweed.update!(params[:tweed].permit!)
-    redirect_to("/tweeds/#{@tweed.id}")
+    @tweed.update!(tweed_params)
+    redirect_to(tweed-path(@tweed))
   end
 
   def destroy
     @tweed = Tweed.find(params[:id])
     @tweed.destroy
-    redirect_to("/tweeds")
+    redirect_to(tweeds_path)
+  end
+
+  private
+  def tweed_params
+    params.require(:tweed).permit(:author, :content, :image_url)
   end
 end
