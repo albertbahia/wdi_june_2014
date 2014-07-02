@@ -1,0 +1,15 @@
+<h2>All Tweeds</h2>
+
+<% @tweeds.each do |tweed| %>
+  <p class="tweed">
+      <strong><%= tweed.author %></strong> at: <%= tweed.created_at %> <br>
+      <%= tweed.content %> <br>
+      <% if tweed.image_url == "" %>
+        <a href=<%= "/tweeds/#{tweed.id}"%>>View Tweet</a>
+      <% else %>
+        <a href=<%= "/tweeds/#{tweed.id}"%>><img src="<%= tweed.image_url %>"></a><br>
+      <% end %>
+  </p>
+<% end %>
+
+<p>Post a new tweed <a href="/tweeds/new">here</a>!</p>

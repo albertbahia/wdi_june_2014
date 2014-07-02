@@ -6,7 +6,7 @@ SELECT (num_cubicles, num_bathrooms) FROM offices WHERE id=3;
 SELECT * FROM storefronts WHERE kitchen='Yes';
 SELECT * FROM storefronts WHERE sq_footage = (SELECT MAX(sq_footage) FROM storefronts WHERE outdoor_seating='Yes');
 SELECT * FROM offices WHERE cubicles = (SELECT MIN(cubicles) FROM offices);
-SELECT MAX(num_cubicles), MAX(num_bathrooms) FROM offices;
+SELECT * FROM offices WHERE num_cubicles + num_bathrooms = (SELECT MAX(num_cubicles + num_bathrooms) FROM offices);
 
 
 SCHEMA---->

@@ -1,0 +1,17 @@
+<h2>The Tweed Feed</h2>
+
+<form action="/tweeds/new" method="get">
+  <input type="submit" value="Add a New Tweed">
+</form>
+
+
+<ul>
+  <% @tweeds.each do |tweed| %>
+    <li>
+      <a href="/tweeds/ <%= tweed.id %>">
+        <%= tweed.content %><br>
+        <img src="<%= tweed.image_url %>">
+      </a>
+    </li>
+  <% end %>
+</ul>

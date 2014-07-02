@@ -1,0 +1,31 @@
+<h2>New Song</h2>
+
+<form action="/songs/search" method="get">
+  <label for="search">
+    <input type="text" name='search' placeholder="search iTunes">
+    <input type="submit" name="submit">
+  </label>
+</form>
+
+<br><br>
+<form action="/songs" method="post">
+  <select name="song[artist_id]">
+    <% @artists.each do |artist| %>
+  <option value=<%= artist.id %>><%= artist.name %></option>
+    <% end %>
+  </select>
+
+  <label for="song[title]">Title:</label>
+  <input name="song[title]">
+
+  <label for="song[album]">Album:</label>
+  <input name="song[album]">
+
+  <label for="song[preview_url]">Preview url:</label>
+  <input name="song[preview_url]">
+
+  <label for="song[price]">How many dollars:</label>
+  <input name="song[price]">
+
+  <input type="submit" value="Create">
+</form>
