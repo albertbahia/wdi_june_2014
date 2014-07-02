@@ -1,0 +1,9 @@
+<h2><%= @painting.title %></h2>
+<h4>Created by: <%= link_to(@painting.artist.name, artist_path(@painting.artist_id))%></h4>
+<h4>Year Painted: <%= @painting.year_painted %></h4>
+<p>Description: <%= @painting.description %></p>
+
+<img src="<%= @painting.img_url %>"><br><br>
+
+
+<%= link_to('Edit This Painting', edit_painting_path(@painting)) %>
