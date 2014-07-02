@@ -1,5 +1,5 @@
 <h3>Tweed Deck</h3>
-<a href="/tweeds/new">New Post</a>
+<%= link_to 'New Tweed', new_tweed_path %>
 
 <% @tweeds.each do |tweed| %>
 <a class="show_link" href="/tweeds/<%= tweed.id %>">

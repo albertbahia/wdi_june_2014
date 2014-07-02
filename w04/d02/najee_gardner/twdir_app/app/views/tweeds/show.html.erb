@@ -4,7 +4,5 @@
   <p><%= @tweed.author %> <span><%= @tweed.timestamp %></span></p>
 </div>
 
-<a href="/tweeds/<%= @tweed.id %>/edit">Edit</a>
-<form method="post" action="/tweeds/<%= @tweed.id %>/delete">
-  <input type="submit" value="Delete">
-</form>
+<%= link_to 'Edit', edit_tweed_path(@tweed) %>
+<%= link_to 'Delete', tweed_path(@tweed), method: :delete %>
