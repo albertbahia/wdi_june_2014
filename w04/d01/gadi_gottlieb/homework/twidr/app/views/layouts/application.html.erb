@@ -41,6 +41,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body background="http://upload.wikimedia.org/wikipedia/commons/0/09/Desert_Twilight.jpg">
+  <div id="hrefs">
+    <%= link_to("Home", root_path) %>
+    <%= link_to("Tweeds", tweeds_path) %>
+    <%= link_to("New Tweeds", new_tweed_path) %>
+  </div>
 
 <%= yield %>
 

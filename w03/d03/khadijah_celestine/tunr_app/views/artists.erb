@@ -1,0 +1,11 @@
+<form method="POST" action="/add_artist">
+	<input type="text" name="artist"/>
+	<input type="submit" />
+</form>
+
+
+<ul>
+<% @artists.each do |song| %>
+	<li><%= song %></li>
+<% end %>
+</ul>

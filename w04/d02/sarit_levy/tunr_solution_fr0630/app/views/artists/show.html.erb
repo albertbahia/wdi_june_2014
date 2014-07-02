@@ -1,0 +1,22 @@
+<h2><%= @artist.name %></h2>
+<h3><%= @artist.nationality %></h3>
+<img src="<%= @artist.photo_url %>">
+
+<ul>
+  <% @artist.songs.each do |song| %>
+    <li><%= song.title %></li>
+  <% end %>
+</ul>
+
+setting up links to return to Index, Edit Artist
+
+<%=link_to('Back to Artists'), artists_path) %>
+<%=link_to('Edit', edit_artist_path) %>
+<%=link_to('Delete', artist_path(@artist), { method: :delete }) %>
+
+<img src="<%= @artist.photo_url %>">
+
+<!-- #using form here for 'delete' because this is a 'post' request.  The default request for links is 'get' so we need to specify 'post' here using a form. -->
+<!-- <form action="/artists/<%= @artist.id %>/delete" method="post">
+  <input type="submit" value="Delete Artist">
+</form> -->
