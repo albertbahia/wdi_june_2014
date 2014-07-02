@@ -1,0 +1,11 @@
+<form method="POST" action="/add_song">
+	<input type="text" name="song"/>
+	<input type="submit" />
+</form>
+
+
+<ul>
+<% @featured_songs.each do |song| %>
+	<li><%= song %></li>
+<% end %>
+</ul>

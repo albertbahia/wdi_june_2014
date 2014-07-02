@@ -1,0 +1,10 @@
+<h2>MoMa Paintings</h2>
+
+<p id="painting_list "> <% @paintings.each do |painting| %>
+  <div id="painting_link"><%= link_to("#{painting.title} (#{painting.year_painted})", painting_path(painting)) %> </div>
+<% end %>
+</p>
+
+<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+
+<%= link_to('Add Painting', new_painting_path) %>

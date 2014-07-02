@@ -1,0 +1,46 @@
+<h2>New Song</h2>
+<!-- <h3>Submit your own:</h3> -->
+
+
+<!-- <form action= "<%= songs_path %>" method="post">
+  <label for="song[title]">Title:</label>
+  <input name="song[title]">
+
+  <label for="song[album]">Album:</label>
+  <input name="song[album]">
+
+  <label for="song[preview_url]">Preview:</label>
+  <input name="song[preview_url]">
+
+  <label for="song[artist_id]">Artist's ID:</label>
+  <input name="song[artist_id]">
+
+  <label for="song[price]">Price:</label>
+  <input name="song[price]">
+
+  <input type="submit" value="Create">
+</form> -->
+
+<%= form_for(@song) do |f| %>
+<%= f.label(:title) %>
+<%= f.text_field(:title) %>
+
+<%= f.label(:album) %>
+<%= f.text_field(:album) %>
+
+<%= f.label(:preview_url) %>
+<%= f.text_field(:preview_url) %>
+
+<%= f.label(:artist_id) %>
+<%= f.text_field(:artist_id) %>
+
+<!-- <%= f.label(:price) %>
+<%= f.text_field(:price) %> -->
+
+<%= f.submit %>
+<% end %>
+
+
+<br>
+</br>
+<p><%= link_to("Back to songs.", songs_path) %></p>

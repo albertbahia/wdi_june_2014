@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>WDinstagram <%= @title %></title>
+		<link rel="stylesheet" type="text/css" href="/main.css" />
+	</head>
+
+	<body>
+		<div id ="page">
+			<h1>WDinstagram</h1>
+	     <div id="nav">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/images">All Images</a></li>
+					<li><a href="/images/new">New Image</a></li>
+					<li><a href="/users">All Users</a></li>
+					<li><a href="/users/new">New User</a></li>
+				</ul>
+			</div>
+			<center>
+      <div id ="content" >
+			  <%= yield %>
+      </div>
+		</center>
+		</div>
+	</body>
+</html>

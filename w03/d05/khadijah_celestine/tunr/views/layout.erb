@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Khadijah's <%= @title %></title>
+		<link rel="stylesheet" type="text/css" href="/main.css" />
+	</head>
+
+	<body>
+		<div id ="page">
+			<h1>Week 3 Day 5</h1>
+	     <div id="nav">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/songs">Songs</a></li>
+					<li><a href="/artists">Artists</a></li>
+					<li><a href="/playlists">Playlists</a></li>
+				</ul>
+			</div>
+
+      <div id ="content" >
+			  <%= yield %>
+      </div>
+		</div>
+	</body>
+</html>

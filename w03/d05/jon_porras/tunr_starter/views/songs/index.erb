@@ -1,0 +1,16 @@
+<h3>Songs</h3>
+
+<form action="songs/new" method="get">
+  <input type="submit" value="Add New Song">
+
+</form>
+
+<ul>
+  <% @songs.each do |song| %>
+  <li>
+    <a href="/songs/<%= song.id %>">
+      <%= song.title %>
+    </a>
+  </li>
+  <% end %>
+</ul>

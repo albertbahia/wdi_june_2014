@@ -1,0 +1,8 @@
+<p><a href="/tweeds">HOME</a></p>
+<img src="<%= @tweed.image_url %>">
+
+<p><%= @tweed.content %></p>
+<p><%= @tweed.author %></p>
+
+<%= link_to('Edit', edit_tweed_path(@tweed)) %>
+<%= link_to('Delete', tweed_path(@tweed), { :method => :delete }) %>
