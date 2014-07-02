@@ -5,7 +5,7 @@
 
 <ul>
   <% @artist.paintings.each do |painting| %>
-    <li><%= painting.title%></li>
+    <%= link_to(painting.title, painting_path(painting))%><br>
     <% end %>
 </ul>
 
