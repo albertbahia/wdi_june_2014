@@ -1,0 +1,22 @@
+<h2>Edit Painting</h2>
+
+<img class="painting_img" src="<%= @painting.image_url %>"> <br>
+
+<div class="form"><%= form_for(@painting) do |f| %>
+  <%= f.label(:title) %>
+  <%= f.text_field(:title) %>
+
+  <%= f.label(:image_url) %>
+  <%= f.text_field(:image_url) %>
+
+  <%= f.label(:year_painted) %>
+  <%= f.text_field(:year_painted) %>
+
+  <%= f.label(:description) %>
+  <%= f.text_field(:description) %>
+
+  <%= f.submit %>
+  <% end %>
+</div>
+<%= link_to('Back to Painting', painting_path(@painting))%>
+<%= link_to('Delete Painting', painting_path(@painting), method: :delete) %>

@@ -8,8 +8,13 @@ class ArtistsController < ApplicationController
   end
 
   def create
-    @artist = Artist.create!(artist_params)
-    redirect_to(artist_path(@artist))
+    @artist = Artist.new(artist_params)
+
+    if @artist.save
+      redirect_to(artist_path(@artist))
+    else
+      render(:new)
+    end
   end
 
   def show
@@ -36,5 +41,5 @@ class ArtistsController < ApplicationController
   def artist_params
     params.require(:artist).permit(:name, :photo_url, :nationality)
   end
-  
+
 end

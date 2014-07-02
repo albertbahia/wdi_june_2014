@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MomaApp</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <style>
+  body {
+      font-family: 'Raleway', sans-serif;
+      margin: 20px auto;
+      text-align: center;
+      color: white;
+      background-color: #336699;
+    }
+    header {
+      margin: -20px;
+      padding: 30px;
+      background-color: #25383c;
+    }
+    h1 {
+      color: white;
+      font-size: 60px;
+    }
+    h2 {
+      color: white;
+      font-size: 30px;
+      padding-top: 10px;
+    }
+    img {
+      max-width: 400px;
+      margin: 20px;
+      border: 1px solid #c0c0c0;
+      border-radius: 5px;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+      border: 2px #c0c0c0 solid;
+      border-radius: 1px;
+      padding: 2px;
+    }
+    a:hover{
+      color: #ffc996;
+      background-color: #323299;
+      transition: 0.3s;
+    }
+    ul {
+      list-style-type: none;
+      margin: 0px;
+      padding: 0px;
+    }
+    .artist_link {
+      padding: 12px;
+    }
+    .form {
+      padding-bottom: 20px;
+    }
+    #painting_link {
+      padding: 12px;
+    }
+    .options {
+      padding: 12px;
+    }
+  </style>
+  <body>
+  <header>
+    <h1>MoMApp</h1>
+    <%= link_to('MoMa Home', root_path) %>
+    <%= link_to('Artists', artists_path) %>
+    <%= link_to('Paintings', paintings_path) %>
+  </header>
+  <%= yield %>
+  </body>
+</html>
