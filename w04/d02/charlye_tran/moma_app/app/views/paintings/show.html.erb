@@ -1,0 +1,9 @@
+<h2><%= @painting.title %></h2>
+<h3>By: <%= @painting.artist.name %></h3>
+<h3>Description: <%= @painting.description %></h3>
+<h3>Year Painted: <%= @painting.year_painted%></h3>
+<img src="<%= @painting.img_url%>" height="400" width="550"><br>
+
+
+<%= link_to('Back to the view all the paintings', paintings_path) %>
+<%= link_to("Edit", edit_painting_path(@painting))%>

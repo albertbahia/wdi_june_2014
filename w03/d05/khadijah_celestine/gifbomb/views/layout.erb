@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Khadijah's <%= @title %></title>
+		<link rel="stylesheet" type="text/css" href="/main.css" />
+	</head>
+
+	<body>
+		<div id ="page">
+			<h1>Week 3 Day 5</h1>
+      <ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/kittens">Kittens</a></li>
+				<li><a href="/puppies">Puppies</a></li>
+				<li><a href="/pokemon">Pokemon</a></li>
+        <li><a href="/pandas">Pandas</a></li>
+        <li>
+          <div id="search">
+            <form action="search" method="get">
+              <input type="text" name="search" />
+              <input type="submit" />
+            </form>
+          </div>
+        </li>
+			</ul>
+
+      <div id ="content" >
+			  <%= yield %>
+      </div>
+		</div>
+	</body>
+</html>

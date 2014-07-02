@@ -1,0 +1,16 @@
+<h2>Edit Image</h2>
+
+<form action="/user/<%= @image.id %>" method="post">
+  <label for="user[username]">Username:</label>
+  <input name="user[username]" value="<%= @user.username %>">
+
+  <label for="user[full_name]">Full name:</label>
+  <input type="text" name="user[full_name]" value="<%= @image.full_name %>">
+
+
+  <label for="user[birthday]">Birthday:</label>
+  <input type="date" name="user[birthday]" value="<%= @image.birthday %>">
+
+
+	<input type="submit" value="Update">
+<form>
