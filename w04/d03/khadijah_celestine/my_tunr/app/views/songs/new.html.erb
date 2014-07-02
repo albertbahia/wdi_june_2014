@@ -1,0 +1,23 @@
+<h2>New Song</h2>
+
+<%= form_for @song do |f| %>
+  <%= f.label(:title) %>
+  <%= f.text_field(:title)%>
+
+  <%= f.label(:album) %>
+  <%= f.text_field(:album)%>
+
+  <%= f.label(:preview_url) %>
+  <%= f.text_field(:preview_url)%>
+<label>Artist:</label>
+<select name="song[artist_id]">
+  <% @artists.each_index do |index| %>
+    <option  value="<%= @artists[index].id %>"><%= @artists[index].name %></option>
+  <% end %>
+</select>
+
+  <%= f.label(:price) %>
+  <%= f.text_field(:price)%>
+  <br />
+  <%= f.submit %>
+<% end %>
