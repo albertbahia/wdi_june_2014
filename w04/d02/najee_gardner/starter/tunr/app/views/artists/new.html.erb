@@ -1,0 +1,16 @@
+<h2>New Artist</h2>
+
+<% form_for(@artist) do |f| %>
+  <%= f.label(:name) %>
+  <%= form.text_field(:name) %>
+
+  <%= f.label(:photo_url) %>
+  <%= form.text_field(:photo_url) %>
+
+  <%= f.label(:nationality) %>
+  <%= form.text_field(:nationality) %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to 'Back to All Artists', artists_path %>

@@ -1,0 +1,14 @@
+<img src="<%= @artist.photo_url %>" />
+<h3><%= @artist.name %></h3>
+<h3><%= @artist.nationality %></h3>
+<h3><%= @artist.birthday %></h3>
+
+<ul>
+  <% @artist.paintings.each do |painting| %>
+  <li><%= link_to(painting.title, painting_path(painting)) %></li>
+  <% end %>
+</ul>
+
+<%= link_to('Back to Artists', artists_path) %>
+<%= link_to('Edit', edit_artist_path(@artist)) %>
+<%= link_to('Delete', artist_path(@artist), { :method => :delete }) %>

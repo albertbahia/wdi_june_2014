@@ -1,0 +1,11 @@
+<h3>Featured Artists</h3>
+
+<%= link_to 'Add Artist', new_artist_path %>
+
+<ul>
+<% @artists.each do |artist| %>
+  <li>
+    <%= link_to artist.name+" - ("+artist.paintings.count.to_s+")", artist_path(artist) %>
+  </li>
+<% end %>
+</ul>

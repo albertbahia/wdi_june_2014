@@ -1,3 +1,4 @@
+require_relative('../lib/being.rb')
 require_relative('../lib/beast.rb')
 
 describe Beast do

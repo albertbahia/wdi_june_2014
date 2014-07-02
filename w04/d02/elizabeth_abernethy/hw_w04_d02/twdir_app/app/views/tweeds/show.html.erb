@@ -1,0 +1,10 @@
+<h1>"<%= @tweed.content %>"</h1>
+<h4>-<%= @tweed.author %></h4>
+<a href="<%= @tweed.image_url %>">
+  <img src="<%= @tweed.image_url %>"
+</a>
+<h6><%= @tweed.created_at %></h6>
+
+
+<%= link_to('Edit This Tweed', edit_tweed_path(@tweed)) %> |
+<%= link_to('Back to TweedFeed', tweeds_path) %> 

@@ -65,4 +65,11 @@ describe '#ordinator' do
     expect(ordinator(33)).to eq('33rd')
   end
 
+  it 'returns 45th for 45' do
+    expect(ordinator(45)).to eq('45th')
+  end
+
+  it 'returns 539th for 539' do
+    expect(ordinator(539)).to eq('539th')
+  end
 end
