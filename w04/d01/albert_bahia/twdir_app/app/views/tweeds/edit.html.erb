@@ -1,0 +1,18 @@
+<h2>Edit Tweed</h2>
+
+<form action="/tweeds/#{@tweed.id}" method="post">
+  <label for="tweed[author]">Author:</label>
+  <input name="tweed[author]">
+
+  <label for="tweed[content]">Content:</label>
+  <input name="tweed[content]">
+
+  <label for="tweed[photo_url]">Image URL:</label>
+  <input name="tweed[photo_url]">
+
+
+  <input type="submit" value="Complete Edit">
+</form>
+<form action="/tweeds/<%= @tweed.id %>/delete" method="post">
+  <input type="submit" value="Delete Tweed">
+</form>

@@ -1,0 +1,9 @@
+<h2><%= @tweed.author %></h2>
+<p>
+  <%= @tweed.content %>
+</p>
+<img src="<%= @tweed.image_url %>" alt="" /><br>
+<a href="/tweeds/<%= @tweed.id %>/edit">Edit Tweed </a><br>
+<form id="delete" action="/tweeds/<%= @tweed.id %>/delete" method="post"><br>
+  <input type="submit"  value="Delete">
+</form>
