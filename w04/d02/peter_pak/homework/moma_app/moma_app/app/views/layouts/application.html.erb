@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MomaApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+  <style>
+    body {
+      padding: 0px;
+      margin: 20px 0px;
+      text-align: center;
+      font-family: 'Ubuntu', sans-serif;
+    }
+    header {
+      font-size: 45px;
+      font-weight: 700;
+    }
+    ul.top_links {
+      list-style-type: none;
+    }
+    li.nav {
+      display: inline;
+    }
+    img.frontpage {
+      max-width: 450px;
+      max-height: 500px;
+    }
+    img.artist_page {
+      max-width: 450px;
+      max-height: 450px;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <a href="/">HAMoma</a>
+</header>
+<ul class="top_links">
+  <li class="nav"><%= link_to('Artists', artists_path) %> </li>  //
+  <li class="nav"><%= link_to('Paintings', paintings_path) %> </li>
+</ul>
+
+<%= yield %>
+
+</body>
+</html>
