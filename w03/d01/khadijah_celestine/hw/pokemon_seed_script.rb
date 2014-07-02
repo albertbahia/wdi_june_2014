@@ -26,46 +26,44 @@ def moves_string(moves)
 end
 
 
-filtered_pokemons = []
-
+# dont need extra array just create the pokemons from here
+# its better to change numbers into integers here before you put them in the data base
 pokemons.each do |pokemon|
-  filtered_pokemons.push(
-  {
-    :id => pokemon[:id],
+  poke = Pokemon.create({
     :name => pokemon[:name],
     :hp => pokemon[:stats][:hp],
     :attack => pokemon[:stats][:attack],
     :defense => pokemon[:stats][:defense],
     :speed => pokemon[:stats][:speed],
-    #moves_string(pokemon[:moves]) #needs method
-    :img_url => pokemon[:img],
+    :moves => pokemon[:moves][:level].map { |move| move[:name].capitalize }.join(' | '),
+    #:moves => moves_string(pokemon[:moves]),
+    :image_url => pokemon[:img],
     :classification => pokemon[:misc][:classification],
     :species => pokemon[:type].join(" "),
     :height => pokemon[:misc][:height],
     :happiness => pokemon[:misc][:happiness]
-  }
-  )
+  })
 
 end
-
-#movesss = filtered_pokemons[0]
-
-filtered_pokemons.each do |p|
-  puts
-  poke = Pokemon.create({
-    id: p[:id],
-    name: p[:name],
-    hp: p[:hp],
-    attack: p[:attack],
-    defense: p[:defense],
-    speed: p[:speed],
-    image_url: p[:img_url],
-    classification: p[:classification],
-    species: p[:species],
-    height: p[:height],
-    happiness: p[:happiness]
-
-    })
-    poke.save
-end
-#puts moves_string movesss
+#
+# #movesss = filtered_pokemons[0]
+#
+# filtered_pokemons.each do |p|
+#
+#     id: p[:id], # don't need an id because posgres will give it an id when create or save is called
+#     name: p[:name],
+#     hp: p[:hp],
+#     attack: p[:attack],
+#     defense: p[:defense],
+#     speed: p[:speed],
+#     image_url: p[:img_url],
+#     classification: p[:classification],
+#     species: p[:species],
+#     height: p[:height],
+#     happiness: p[:happiness]
+#     #remember, the keys of this hash in create MUST match with the fields of db
+#     })
+#     poke.save # redundant. only use save when you create
+# end
+#
+# puts filtered_pokemons

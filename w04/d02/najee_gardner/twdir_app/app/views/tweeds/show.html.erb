@@ -1,0 +1,8 @@
+<div class="tweed_box">
+  <p><%= @tweed.content %></p>
+  <img src="<%= @tweed.image_url %>">
+  <p><%= @tweed.author %> <span><%= @tweed.timestamp %></span></p>
+</div>
+
+<%= link_to 'Edit', edit_tweed_path(@tweed) %>
+<%= link_to 'Delete', tweed_path(@tweed), method: :delete %>

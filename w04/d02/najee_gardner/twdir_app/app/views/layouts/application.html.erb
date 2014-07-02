@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Twdir</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <style>
+    body {
+      text-align: center;
+    }
+
+    img {
+      max-width: 400px;
+      max-height: 400px;
+    }
+
+    .tweed_box {
+      width: 500px;
+      border: 5px solid #00A995;
+      margin: 20px auto;
+    }
+
+    .show_link {
+      text-decoration: none;
+      color: #003D4C;
+    }
+
+
+    .tweed_box:hover {
+      background: #006161;
+      color: white;
+    }
+
+
+    .tweet_box p span {
+      color: #4ACFAF;
+    }
+
+    .content {
+      font-size: 30px;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>tWDIr</h1>
+  <a href="/">Home</a>
+  <a href="/tweeds">Tweeds</a>
+
+  <%= yield %>
+
+</body>
+</html>

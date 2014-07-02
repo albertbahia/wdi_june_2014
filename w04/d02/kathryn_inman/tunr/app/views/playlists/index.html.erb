@@ -1,0 +1,11 @@
+<h3>Existing Playlists</h3>
+<%= link_to('Add New Playlist', new_playlist_path) %>
+<br>
+</br>
+<ul>
+  <% @playlists.each do |playlist| %>
+    <li>
+      <%= link_to("#{playlist.name}", playlist_path(playlist)) %>
+    </li>
+  <% end %>
+</ul>

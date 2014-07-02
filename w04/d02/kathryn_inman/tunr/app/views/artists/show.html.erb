@@ -1,0 +1,19 @@
+<h1><%= @artist.name %></h1>
+<h3>From: <%= @artist.nationality %></h3>
+<p>id: <%= @artist.id %> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; awesomeness?: <%= @artist.awesome %></p>
+
+
+<ul>
+  <% @artist.songs.each do |song| %>
+  <li> <%= song.title %> </li>
+  <% end %>
+</ul>
+
+<p><%= link_to("back to Artists", artists_path) %></p>
+<p><%= link_to("edit Artist", edit_artist_path(@artist)) %></p>
+<p><%= link_to("delete Artist", artist_path(@artist), {method: :delete}) %></p>
+
+
+
+
+<img src="<%= @artist.photo_url %>">

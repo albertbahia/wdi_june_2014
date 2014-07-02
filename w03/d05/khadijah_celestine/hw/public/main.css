@@ -1,0 +1,80 @@
+#page{
+  margin: auto;
+  width: 1000px;
+  height: 500px;
+}
+
+.content
+{
+  style=width: 700px ;
+  margin-left: auto ;
+  margin-right: auto ;
+}
+
+h1 {
+  color: teal;
+  font-size: 35pt;
+  text-align:center;
+}
+
+h3 {
+  color: teal;
+  font-size: 30pt;
+  padding-left: 40px;
+
+}
+
+#nav ul {
+    margin:0;
+    padding:0;
+    list-style-type:none;
+    text-align:center;
+}
+#nav li {
+    display:inline-block;
+}
+
+#nav a {
+  text-decoration: none;
+  font-size: 25pt;
+  padding: 20px;
+}
+
+
+img {
+  padding: 10px;
+}
+
+
+/* artists */
+#artists ul {
+  list-style-type:none;
+}
+
+#artists li {
+
+}
+
+#artists a {
+    text-decoration: none;
+    font-size: 20pt;
+    color: darkmagenta;
+}
+
+/* songs */
+p label {
+        display: inline-block;
+    width: 100px;
+    text-align: right;
+}
+p input {
+    width: y;
+}
+
+#itunes {
+  width: 400px;
+}
+
+#itunes form {
+  float: right;
+}
