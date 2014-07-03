@@ -1,0 +1,14 @@
+<h2>Add New Actor</h2>
+<ul>
+  <% @actor.errors.full_messages.each do |err_msg| %>
+  <li><%= err_msg %></li>
+  <% end %>
+</ul>
+
+<div id="form">
+  <%= form_for @actor do |f| %>
+  Name: <%= f.text_field(:name) %></br>
+  Photo url: <%= f.url_field(:photo_url) %>
+  <%= f.submit %>
+</div>
+  <% end %>

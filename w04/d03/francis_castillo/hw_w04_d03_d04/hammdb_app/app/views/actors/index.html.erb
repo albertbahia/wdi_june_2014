@@ -1,1 +1,6 @@
-
+<h1>Actors</h1>
+<h4><%= link_to("Add New Actor", new_actor_path) %></h4>
+<% @actors.each do |a| %>
+<p><strong><%= a.name %></strong></p>
+<%= link_to image_tag(a.photo_url), actor_path(a.id) %>
+<% end %>

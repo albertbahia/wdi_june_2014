@@ -4,5 +4,6 @@ class Movie < ActiveRecord::Base
 
   validates :title, :year, :poster_url, :plot, presence: true
   validates :year, numericality: {integer_only: true}
+  validates :title, uniqueness: true
 
 end

@@ -9,24 +9,35 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = movie.new(movie_params)
+    @movie = Movie.new(movie_params)
+    if @movie.save
+      redirect_to(movie_path(@movie))
+    else
+      render :new
+    end
   end
 
   def show
-    @movie = movie.find(params[:id])
-  end
-
-  def update
-
+    @movie = Movie.find(params[:id])
   end
 
   def edit
+    @movie = Movie.find(params[:id])
+  end
 
-
+  def update
+    @movie = Movie.find(params[:id])
+    if @movie.update(movie_params)
+      redirect_to(movie_path(@movie))
+    else
+      render :edit
+    end
   end
 
   def destroy
-
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+    redirect_to(movies_path)
   end
 
   private
