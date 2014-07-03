@@ -28,4 +28,9 @@ class ActorsController < ApplicationController
 
   end
 
+  private
+  def actor_params
+
+  end
+
 end

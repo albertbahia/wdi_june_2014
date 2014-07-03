@@ -1,5 +1,5 @@
 <h1>Movies</h1>
 <% @movies.each do |m| %>
-<p><%= m.title %></p>
-<img src="<%= m.poster_url %>" alt="">
+<p><strong><%= m.title %></strong></p>
+<%= link_to image_tag(m.poster_url), movie_path(m.id) %>
 <% end %>
