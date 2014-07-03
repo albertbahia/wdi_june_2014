@@ -1,3 +1,17 @@
+div.movie_search {
+  width: 550px;
+}
+
+div.movie_search img {
+  max-width: 200px;
+}
+
+div.movie_info {
+  width: 300px;
+  display: inline;
+  float: right;
+}
+
 div.field_with_errors {
   display: inline;
 }

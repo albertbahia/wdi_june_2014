@@ -1,5 +1,12 @@
 <h3>Add Favorite Movie</h3>
 
+<p>search for movie to add:<p>
+<%= form_tag(movie_search_path, method: "get") do %>
+  <%= text_field_tag(:query, nil, placeholder: 'search movies') %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<p>add movie manually: <p>
 <ul>
   <% @movie.errors.full_messages.each do |message| %>
   <li><%= message %></li>
@@ -8,10 +15,10 @@
 
 <%= form_for(@movie) do |f| %>
   <%= f.label(:title) %>
-  <%= f.text_field(:title) %>
+  <%= f.text_field(:title, placeholder: 'Required') %>
 
   <%= f.label(:year) %>
-  <%= f.text_field(:year) %>
+  <%= f.text_field(:year, placeholder: 'Required') %>
 
   <%= f.label(:poster_url, 'Poster URL') %>
   <%= f.text_field(:poster_url) %>

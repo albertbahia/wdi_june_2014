@@ -13,8 +13,7 @@ class MoviesController < ApplicationController
 
     movie_data = Omdb.get_movie_actor_hash(@movie.title, @movie.year)
 
-    if @movie.year == nil || @movie.poster_url = "" || @movie.plot == ""
-      @movie.year = movie_data[:movie][:year] if @movie.year == nil
+    if @movie.poster_url = "" || @movie.plot == ""
       @movie.poster_url = movie_data[:movie][:poster_url] if @movie.poster_url == ""
       @movie.plot = movie_data[:movie][:plot] if @movie.plot == ""
     end
@@ -63,6 +62,16 @@ class MoviesController < ApplicationController
     end
     movie.destroy
     redirect_to movies_path
+  end
+
+  def search
+    @results = Omdb.search(params[:query])
+    @results.each do |movie_hash|
+      if movie_hash['Poster'] == 'N/A'
+        movie_hash['Poster'] = "http://www.homeprojecthq.com/upload_images/No_Image_Available.gif"
+      end
+    end
+    @movie = Movie.new
   end
 
   def movie_params
