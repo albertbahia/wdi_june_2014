@@ -1,8 +1,23 @@
 <%= link_to 'All Movies', movies_path %>
+<ul>
+  <% @movie.errors.full_messages.each do |error_msg| %>
+    <li><%= error_msg %></li>
+  <% end %>
+</ul>
+
 <%= form_for @movie do |f| %>
+  <div>
+  <%= f.label :title %>
   <%= f.text_field :title %>
-  <%= f.text_field :year, {placeholder: 'year'} %>
+  </div>  
+  <div>
+  <%= f.label :year %>  
+  <%= f.text_field :year %>
+  </div>  
+  <div>
+  <%= f.label :poster_url %>  
   <%= f.text_field :poster_url %>
-  <%= f.text_field :plot %>
+  </div>
+
   <%= f.submit %>
 <% end %>
