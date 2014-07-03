@@ -12,3 +12,8 @@
 <%= link_to('Delete', artist_path(@artist), { :method => :delete }) %>
 
 <img src="<%= @artist.photo_url %>">
+
+<form action='/' method='get'>
+  <input type="text" name='search' placeholder='search'>
+  <input type="submit" value='enter'>
+</form>
