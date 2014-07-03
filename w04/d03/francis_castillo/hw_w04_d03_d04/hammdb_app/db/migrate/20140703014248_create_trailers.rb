@@ -3,7 +3,8 @@ class CreateTrailers < ActiveRecord::Migration
     create_table :trailers do |t|
     t.text(:title)
     t.text(:embed_url)
-    t.references :movie
+    t.belongs_to :movie
+    t.timestamps
     end
   end
 end

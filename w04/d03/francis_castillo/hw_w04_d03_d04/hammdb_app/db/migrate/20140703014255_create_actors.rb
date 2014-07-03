@@ -3,7 +3,7 @@ class CreateActors < ActiveRecord::Migration
     create_table :actors do |t|
       t.text(:name)
       t.text(:photo_url)
-      t.references :movie
+      t.belongs_to :movie
       t.timestamps
     end
   end

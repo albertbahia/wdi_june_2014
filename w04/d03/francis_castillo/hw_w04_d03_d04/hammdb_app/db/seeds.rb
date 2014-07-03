@@ -1,68 +1,23 @@
-movies =  [
-  {
-  title: "The GodFather",
-  year: 1977,
-  poster_url: "http://upload.wikimedia.org/wikipedia/en/4/4d/Godfather.jpg",
-  plot: "mafia movie"
-  },
-  {
-  title: "Menace II Society",
-  year: 1993,
-  poster_url: "http://images.moviepostershop.com/menace-ii-society-movie-poster-1993-1020189740.jpg",
-  plot: "Hood movie"
-  },
-  {
-  title: "Hitch",
-  year: 2005,
-  poster_url: "http://ia.media-imdb.com/images/M/MV5BNzYyNzM2NzM2NF5BMl5BanBnXkFtZTcwNjg5NTQzMw@@._V1_SX214_AL_.jpg",
-  plot: "RomCom movie"
-  }
-]
+batman = Movie.create(title: "Batman", year: 1989, poster_url: "http://ia.media-imdb.com/images/M/MV5BMTYwNjAyODIyMF5BMl5BanBnXkFtZTYwNDMwMDk2._V1_SX300.jpg", plot: 'The Dark Knight of Gotham City begins his war on crime with his first major enemy being the clownishly homicidal Joker.')
+goonies = Movie.create(title: "The Goonies", year: 1985, poster_url:"http://ia.media-imdb.com/images/M/MV5BMTY1Mzk3MTg0M15BMl5BanBnXkFtZTcwOTQzODYyMQ@@._V1_SX300.jpg", plot: 'A group of kids set out on an adventure in search of pirate treasure that could save their homes from foreclosure')
+robocop = Movie.create(title:"RoboCop", year: 1987, poster_url:"http://ia.media-imdb.com/images/M/MV5BMTk1MDUzMTQ3OV5BMl5BanBnXkFtZTcwMDAwNTk0NA@@._V1_SX300.jpg",plot: 'In a dystopic and crime-ridden Detroit, a terminally wounded cop returns to the force as a powerful cyborg haunted by submerged memories.')
 
-movies.each do |m|
-  Movie.create(m)
-end
+batman.actors.push(
+  Actor.create(name:"Michael Keaton", photo_url:"https://lh3.googleusercontent.com/-_rUX9_hf70A/Uu_d59wkThI/AAAAAAAA-sk/m_b9We3D3Ow/tumblr_inline_mzp..."),
+  Actor.create(name:"Jack Nicholson", photo_url:"http://www.moviemoviesite.com/People/N/nicholson_jack/jacknicholson2.jpg")
+  )
 
-actors = [
-  {
-  name: "Marlon Brando", photo_url: "http://upload.wikimedia.org/wikipedia/en/2/21/Godfather15_flip.jpg"
-  },
-  {
-  name: "Al Pacino", photo_url: "http://rubysohosaigon.com/wp-content/uploads/2012/09/Al-Pacino-2-C992CRIDK2-1024x768.jpg"
-  },
-  {
-  name: "Larenz Tate", photo_url: "http://www-deadline-com.vimg.net/wp-content/uploads/2012/10/tate__121023191701-275x401.png"
-  },
-  {
-  name: "Jada Pinkett", photo_url: "http://images.latinpost.com/data/images/full/2637/jada-pinkett-smith.jpg"
-  },
-  {
-  name: "Will Smith", photo_url: "https://www.berlinale.de/media/60_jubilaeum_1/starportraits/2005_4/2005-5823SmithWill_IMG_x900.jpg"
-  },
-  {
-  name: "Eva Mendes", photo_url: "http://4.bp.blogspot.com/--OaGvwUYQGo/T2J5w2wjYII/AAAAAAAAC74/trExcKZJzzU/s1600/Eva-Mendes-substance-abuse.jpg"
-  }
-]
+goonies.actors.push(
+  Actor.create(name:"Sean Astin", photo_url:"http://www.teenidols4you.com/blink/Actors/seanastin/seanastin_1304200069.jpg"),
+  Actor.create(name:"Josh Brolin", photo_url:"http://pmcmovieline.files.wordpress.com/2013/01/130108_brolin.jpg?w=251&h=355")
+  )
 
-actors.each do |a|
-  Actor.create(a)
-end
+robocop.actors.push(
+  Actor.create(name:"Peter Weller", photo_url:"http://collider.com/wp-content/uploads/robocop-peter-weller.jpg"),
+  Actor.create(name:"Nancy Allen", photo_url:"http://www.nndb.com/people/088/000025013/nancy-allen-1-sized.jpg")
+  )
 
-trailers =  [
-  {
-  title: "The Godfather Trailer",
-  embed_url: "https://www.youtube.com/watch?v=sY1S34973zA&feature=kp"
-  },
-  {
-  title: "Menace II Society Theatrical Trailer",
-  embed_url: "https://www.youtube.com/watch?v=CD2pjnGy8Fk&feature=kp"
-  },
-  {
-  title: "Hitch Trailer",
-  embed_url: "https://www.youtube.com/watch?v=lp--Un6fNro"
-  }
-]
 
-trailers.each do |t|
-  Trailer.create(t)
-end
+batman.trailers.push(Trailer.create(title:"Batman", embed_url: "http://www.youtube.com/embed/cPLUeA4vwik"))
+goonies.trailers.push(Trailer.create(title:"The Goonies", embed_url: "http://www.youtube.com/embed/51LY9ocoCi8"))
+robocop.trailers.push(Trailer.create(title:"RoboCop", embed_url: "http://www.youtube.com/embed/zbCbwP6ibR4"))
