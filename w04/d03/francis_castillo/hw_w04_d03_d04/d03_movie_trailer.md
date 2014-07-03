@@ -57,4 +57,4 @@ Figure out how to deploy your app to Heroku! The guide walks through step by how
 Create a new model for the omdbAPI. Define a new route for your Movie controller that will allow a user to search for a movie using the omdbAPI. There should be a button next to each of the search results that when clicked will create a new entry in the database for that movie and at least 2 actors in that movie. The user should then be redirected to that new movie's show page.
 
 ### BONUS - Nested Resources
-Try to refactor your code to use nested resources. Look at the Rails Guides. 
+Try to refactor your code to use nested resources. Look at the Rails Guides.
