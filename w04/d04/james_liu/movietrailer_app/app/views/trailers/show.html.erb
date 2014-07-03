@@ -1,0 +1,6 @@
+<h2> <%= @trailer.title %> </h2>
+
+
+<%= link_to('Edit Trailer', edit_trailer_path) %>
+<%= link_to('Back to Trailers', trailers_path) %>
+<%= link_to('Delete Trailer', trailer_path(@trailer), method: :delete) %>
