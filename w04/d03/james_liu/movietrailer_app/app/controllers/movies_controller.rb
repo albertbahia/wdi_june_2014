@@ -49,8 +49,3 @@ class MoviesController < ApplicationController
   end
 
 end
-
-- a title
-- a year
-- a poster_url
-- a plot
