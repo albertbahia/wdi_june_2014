@@ -8,11 +8,12 @@ class MoviesController < ApplicationController
     @movie = Movie.new
   end
 
-  def show
+  def create
+    @movie = movie.new(movie_params)
   end
 
-  def create
-
+  def show
+    @movie = movie.find(params[:id])
   end
 
   def update
@@ -26,5 +27,10 @@ class MoviesController < ApplicationController
 
   def destroy
 
+  end
+
+  private
+  def movie_params
+    params.require(:movie).permit(:title, :year, :poster_url, :plot)
   end
 end
