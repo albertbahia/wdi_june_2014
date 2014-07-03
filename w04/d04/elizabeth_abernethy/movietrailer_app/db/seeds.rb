@@ -1,3 +1,7 @@
+Movie.destroy_all
+Actor.destroy_all
+Trailer.destroy_all
+
 transformers = Movie.create(
   title: 'Transformers: Age of Extinction',
   year: 2014 ,
