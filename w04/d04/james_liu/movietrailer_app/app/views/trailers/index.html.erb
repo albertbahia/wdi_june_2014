@@ -4,6 +4,6 @@
 
 <ul>
   <% @trailers.each do |trailer| %>
-  <li><%= link_to('@trailer.title', trailer_path(@trailer)) %></li>
+  <li><%= link_to(trailer.title, trailer_path(trailer)) %></li>
   <% end %>
 </ul>

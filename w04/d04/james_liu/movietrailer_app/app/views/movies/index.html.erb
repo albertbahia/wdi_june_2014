@@ -2,9 +2,10 @@
 <%= link_to "Add a Movie", new_movie_path %>
 <% @movies.each do |movie|%>
 <div>
-  <p><%= movie.title %></p>
-  <p><%= movie.year %></p>
-  <p><%= movie.plot %></p>
+  <h1><%= movie.title %></h1>
+  <h4><%= movie.year %></h4>
   <%= link_to image_tag(movie.poster_url), movie_path(movie) %>
+  <h4><%= movie.plot %></h4>
+
 </div>
 <%end%>

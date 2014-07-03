@@ -1,23 +1,74 @@
-batman = Movie.create(title: "Batman", year: 1989, poster_url: "http://ia.media-imdb.com/images/M/MV5BMTYwNjAyODIyMF5BMl5BanBnXkFtZTYwNDMwMDk2._V1_SX300.jpg", plot: 'The Dark Knight of Gotham City begins his war on crime with his first major enemy being the clownishly homicidal Joker.')
-goonies = Movie.create(title: "The Goonies", year: 1985, poster_url:"http://ia.media-imdb.com/images/M/MV5BMTY1Mzk3MTg0M15BMl5BanBnXkFtZTcwOTQzODYyMQ@@._V1_SX300.jpg", plot: 'A group of kids set out on an adventure in search of pirate treasure that could save their homes from foreclosure')
-robocop = Movie.create(title:"RoboCop", year: 1987, poster_url:"http://ia.media-imdb.com/images/M/MV5BMTk1MDUzMTQ3OV5BMl5BanBnXkFtZTcwMDAwNTk0NA@@._V1_SX300.jpg",plot: 'In a dystopic and crime-ridden Detroit, a terminally wounded cop returns to the force as a powerful cyborg haunted by submerged memories.')
+movie1 = Movie.create(
+          title: "Clerks",
+          year: 1994,
+          poster_url:"http://upload.wikimedia.org/wikipedia/en/6/65/Clerks_movie_poster%3B_Just_because_they_serve_you_---_.jpg",
+          plot: "The life of two clerks"
+          )
 
-batman.actors.push(
-  Actor.create(name:"Michael Keaton", photo_url:"https://lh3.googleusercontent.com/-_rUX9_hf70A/Uu_d59wkThI/AAAAAAAA-sk/m_b9We3D3Ow/tumblr_inline_mzppneDsIG1rllljr.gif"), 
-  Actor.create(name:"Jack Nicholson", photo_url:"http://www.moviemoviesite.com/People/N/nicholson_jack/jacknicholson2.jpg")
+movie2 = Movie.create(
+          title: "Mallrats",
+          year: 1995,
+          poster_url:"http://viewaskew.com/mallrats/images/comic/mallratsc.jpg",
+          plot: "The mall"
+          )
+
+movie3 = Movie.create(
+          title: "Chasing Amy",
+          year: 1997,
+          poster_url:"http://ia.media-imdb.com/images/M/MV5BMTY5ODMyMDY4NF5BMl5BanBnXkFtZTcwNDgwMDEyMQ@@._V1_SY317_CR5,0,214,317_AL_.jpg",
+          plot: "Lesbians"
+          )
+
+movie1.actors.push(
+          Actor.create(
+            name: "Kevin Smith",
+            photo_url:"http://ia.media-imdb.com/images/M/MV5BMTQ4NTEwNDkwM15BMl5BanBnXkFtZTcwNjU5MDAwMg@@._V1_SY317_CR27,0,214,317_AL_.jpg",
+            ), 
+          Actor.create(
+            name: "Jason Mewes",
+            photo_url: "http://www2.pictures.zimbio.com/bg/Jason+Mewes+Rome+Love+Premiere+UppJ0TMY0kJl.jpg",
+            )
   )
 
-goonies.actors.push(
-  Actor.create(name:"Sean Astin", photo_url:"http://www.teenidols4you.com/blink/Actors/seanastin/seanastin_1304200069.jpg"), 
-  Actor.create(name:"Josh Brolin", photo_url:"http://pmcmovieline.files.wordpress.com/2013/01/130108_brolin.jpg?w=251&h=355")
+movie2.actors.push(
+          Actor.create(
+            name: "Jason Lee",
+            photo_url: "http://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Jason_lee02.jpg/220px-Jason_lee02.jpg",            
+          ), 
+          Actor.create(
+            name: "Shannon Doherty",
+            photo_url: "http://ia.media-imdb.com/images/M/MV5BMTQyNzcyOTM4OF5BMl5BanBnXkFtZTcwMDc1ODkzMg@@._V1_SY317_CR8,0,214,317_AL_.jpg",            
+          )
   )
 
-robocop.actors.push(
-  Actor.create(name:"Peter Weller", photo_url:"http://collider.com/wp-content/uploads/robocop-peter-weller.jpg"),
-  Actor.create(name:"Nancy Allen", photo_url:"http://www.nndb.com/people/088/000025013/nancy-allen-1-sized.jpg")
+movie3.actors.push(
+          Actor.create(
+            name: "Joey Lauren Adams",
+            photo_url: "http://img1.wikia.nocookie.net/__cb20130227075342/marriedwithchildren/images/0/0b/Joey-lauren-adams.jpg",            
+            ),
+          Actor.create(
+            name: "Ben Affleck",
+            photo_url: "http://newsbusters.org/sites/default/files/main_photos/2013/December/Affleck%201209.jpg",
+            )
   )
 
 
-batman.trailers.push(Trailer.create(title:"Batman", embed_url: "http://www.youtube.com/embed/cPLUeA4vwik"))
-goonies.trailers.push(Trailer.create(title:"The Goonies", embed_url: "http://www.youtube.com/embed/51LY9ocoCi8"))
-robocop.trailers.push(Trailer.create(title:"RoboCop", embed_url: "http://www.youtube.com/embed/zbCbwP6ibR4"))
+movie1.trailers.push(
+          Trailer.create(
+            title:"Clerks", 
+            embed_url: "http://www.youtube.com/embed/JeAgPiCi94o"
+            )
+  )
+
+movie2.trailers.push(
+          Trailer.create(
+            title:"Mallrats", 
+            embed_url: "http://www.youtube.com/embed/fX-l5zUK44I"
+            )
+  )
+movie3.trailers.push(
+          Trailer.create(
+            title:"Chasing Amy", 
+            embed_url: "http://www.youtube.com/embed/HUK_emJcut0"
+            )
+  )
