@@ -6,8 +6,17 @@ class OMDB
 
     results_array=[]
     results.each do |r|
+      movie_id = r.first["imdbID"]
+      OMDB.search(movie_id)
+    end
 
-      
+  def self.search_title(query)
+    JSON.parse(HTTParty.get(URI.escape("http://www.omdbapi.com/?t=#{query}")))
+  end
+
+  def self.search_
+
+
       # make an api call
       # store result in my results array
 
