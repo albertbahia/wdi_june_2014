@@ -11,8 +11,10 @@
   <%= f.text_field(:nationality) %>
 
   <%= f.label(:birthday) %>
-  <%= f.text_field(:birthday) %>
+  <%= f.date_field(:birthday) %>
 
+  <%= f.submit %>
 <% end %>
 
+<%= link_to('Delete', artist_path(@artist), method: :delete) %>
 <%= link_to("Back to #{@artist.name}", artists_path(@artist)) %>

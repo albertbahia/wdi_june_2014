@@ -14,5 +14,5 @@
   <%= f.text_field(:description) %>
   <%= f.submit %>
 <% end %>
-
+<%= link_to 'Delete', painting_path(@painting), method: :delete %>
 <%= link_to("Back to #{@painting.title}", paintings_path(@painting)) %>

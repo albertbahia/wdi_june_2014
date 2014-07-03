@@ -12,6 +12,9 @@
 
   <%= f.label(:description) %>
   <%= f.text_field(:description) %>
+
+  <%= f.label :artist %>
+  <%= f.select(:artist_id, options_for_select(@artists.map{|artist| [artist.name,artist.id]})) %>
   <%= f.submit %>
 <% end %>
 
