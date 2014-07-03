@@ -1,0 +1,7 @@
+<h3>Edit Trailer</h3>
+
+<%= form_for @trailer, method: :post do |f| %>
+	Title: <%= f.text_field :title %>
+	Embed URL: <%= f.text_field :embed_url %>
+	<%= f.submit %>
+<%end%>
