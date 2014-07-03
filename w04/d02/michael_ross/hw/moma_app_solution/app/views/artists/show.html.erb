@@ -1,0 +1,19 @@
+<div class="artist">
+  <h4><%= @artist.name %></h4>
+  <img src="<%= @artist.photo_url %>" alt="">
+  <div class='info'>
+  <p>Born: <%= @artist.birthday %></p>
+  <p>Nationality: <%= @artist.nationality %></p>
+  <%= link_to "Edit", edit_artist_path(@artist) %>
+  </div>
+</div>
+
+<div class="painting-show">
+  <% @artist.paintings.each do |painting| %>
+  <div class='painting'>
+    <h5><%= painting.title %></h5>
+    <img src="<%= painting.img_url %>">
+    <p><%= link_to 'View Painting', painting_path(painting) %><p>
+  </div>
+  <% end %>
+</div>

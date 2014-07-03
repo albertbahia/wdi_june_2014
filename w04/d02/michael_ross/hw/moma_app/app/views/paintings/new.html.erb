@@ -13,7 +13,7 @@
   <%= f.text_field(:description) %>
 
   <%= f.label(:artist) %>
-  <%= f.collection_select :artist_id, Artist.all, :id, :name %>
+  <%= f.select(:artist_id, options_for_select(@artists.map{|artist| [artist.name,artist.id]})) %>
 
   <%= f.submit %>
 <% end %>

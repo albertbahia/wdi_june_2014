@@ -1,10 +1,3 @@
-require 'active_record'
-
-ActiveRecord::Base.establish_connection({
-  database: 'pokemon_db',
-  adapter: 'postgresql'
-})
-
 def get_pokemon
   pokerray = [
   {
