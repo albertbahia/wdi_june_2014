@@ -1,5 +1,5 @@
 class Movie < ActiveRecord::Base
-  has_many :actors
+  has_many :actors, dependent: :destroy
 
   # Movie should have a title
   validates(:title, { presence: true })
