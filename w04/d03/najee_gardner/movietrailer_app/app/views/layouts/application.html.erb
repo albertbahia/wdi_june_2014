@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MovietrailerApp</title>
+  <title>Movie Trail.r</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <h1>Movie Trail.r</h1>
+  <%= link_to 'Movies', movies_path %>
+  <%= link_to 'Actors', actors_path %>
+  <%= link_to 'Trailers', trailers_path %>
 
 <%= yield %>
 
