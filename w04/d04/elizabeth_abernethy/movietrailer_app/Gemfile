@@ -40,3 +40,8 @@ gem 'spring',        group: :development
 
 # pry
 gem 'pry-rails'
+
+# httparty
+gem 'httparty'
+
+gem 'rails_12factor', group: :production

@@ -9,11 +9,12 @@ class ActorsController < ApplicationController
   end
 
   def create
-    @actor = Actor.create(actor_params)
-      if @actor.save
-        redirect_to actor_path(@actor)
-      else
-        render(:new)
+    @actor = Actor.new(actor_params)
+    if @actor.save
+      redirect_to(actor_path(@actor))
+    else
+      render(:new)
+    end
   end
 
   def show
@@ -27,15 +28,16 @@ class ActorsController < ApplicationController
   def update
     @actor = Actor.find(params[:id])
     if @actor.update(actor_params)
-      redirect_to actor_path(@actor)
+      redirect_to(actor_path(@actor))
     else
       render(:edit)
+    end
   end
 
   def destroy
     @actor = Actor.find(params[:id])
     @actor.destroy
-    redirect_to actors_path
+    redirect_to(actors_path)
   end
 
   private

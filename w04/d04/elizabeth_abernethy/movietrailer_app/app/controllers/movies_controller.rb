@@ -9,11 +9,12 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.create(movie_params)
+    @movie = Movie.new(movie_params)
       if @movie.save
-        redirect_to movie_path(@movie)
+        redirect_to(movie_path(@movie))
       else
         render(:new)
+      end
   end
 
   def show
@@ -26,21 +27,28 @@ class MoviesController < ApplicationController
 
   def update
     @movie = Movie.find(params[:id])
-    if @movie.update(movie_params)
-      redirect_to movie_path(@movie)
-    else
-      render(:edit)
+      if @movie.update(movie_params)
+        redirect_to(movie_path(@movie))
+      else
+        render(:edit)
+      end
   end
 
   def destroy
     @movie = Movie.find(params[:id])
     @movie.destroy
-    redirect_to movies_path
+    redirect_to(movies_path)
+  end
+
+  def search
+    @new_movie = Movie.create(movie_params)
+    search_term = params[:search]
+    @search_results = Omdb.search(search_term)
   end
 
   private
   def movie_params
-    params.require(:movie).permit(:title, :poster_url, :year, :plot)
+    params.require(:movie).permit(:title, :year, :poster_url, :plot)
   end
 
 end
