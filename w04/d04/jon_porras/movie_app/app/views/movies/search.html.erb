@@ -1,0 +1,22 @@
+<ul>
+  <% @search_results.each do |r| %>
+  <img src="<%= r["Poster"] %>" alt="" />
+  <li>TITLE: <%= r["Title"] %></li>
+  <li>REALASE YEAR: <%= r["Year"] %></li>
+  ACTORS:
+    <% actor_arr = r["Actors"].split(", ") %>
+    <% actor_arr.each do |actor| %>
+  <li><%= actor %></li>
+  <% end %>
+
+<%= form_tag("/movies", method:'post') do %>
+  <%= hidden_field_tag("movie[title]", r["Title"]) %>
+  <%= hidden_field_tag("movie[year]", r["Year"]) %>
+  <%= hidden_field_tag("movie[poster_url]", r["Poster"]) %>
+
+  <%= submit_tag("Add to DB") %>
+<% end %>
+
+  <% end %>
+
+</ul>

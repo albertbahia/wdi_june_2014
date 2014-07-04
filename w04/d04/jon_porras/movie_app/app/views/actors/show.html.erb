@@ -1,0 +1,6 @@
+<img src="<%= @actor.photo_url %>" />
+<h3><%= @actor.name %></h3>
+
+
+<%= link_to("EDIT ACTOR", edit_actor_path(@actor)) %>
+<%= link_to("DELETE ACTOR", actor_path(@actor), {:method => :delete}) %>
