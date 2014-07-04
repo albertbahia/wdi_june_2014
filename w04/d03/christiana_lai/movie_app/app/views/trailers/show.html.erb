@@ -1,0 +1,9 @@
+<h2><%= @trailer.title %></h2>
+
+<%= link_to("From the movie '#{@trailer.movie.title}'" , movie_path(@trailer.movie)) %> <p>
+
+<iframe width="420" height="345" src="<%= @trailer.embed_url %>"></iframe> <p>
+
+<%= link_to('Edit', edit_trailer_path(@trailer)) %> |
+<%= link_to('Back to Trailers', trailers_path) %> |
+<%= link_to('Delete', trailer_path(@trailer), method: :delete) %>

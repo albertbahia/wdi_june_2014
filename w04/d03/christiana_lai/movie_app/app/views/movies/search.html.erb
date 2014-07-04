@@ -1,0 +1,22 @@
+<h2> Search <h2>
+
+<ul>
+  <% @search_terms.each do |search| %>
+    <li>
+      Title: <%= search["Title"] %> <br>
+      Year: <%= search["Year"] %><br>
+      <img src="<%= search['Poster'] %>" /><br>
+      Actors: <%= search["Actors"] %> <br>
+      Plot: <%= search["Plot"] %>
+    </li>
+  <% end %>
+
+  <%= form_tag("/movies", method: "form") do %>
+
+  <%= submit_tag %>
+  <% end %>
+</ul>
+
+
+
+<%= link_to('Back', movies_path) %>
