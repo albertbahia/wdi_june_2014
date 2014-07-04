@@ -1,0 +1,6 @@
+<h2><%= @group.name %></h2>
+
+<% @groups.teams.each do |group| %>
+  <%= link_to image_tag(team.flag_url, team_path(team)) %>
+  <%= team.country %>
+<% end %>
