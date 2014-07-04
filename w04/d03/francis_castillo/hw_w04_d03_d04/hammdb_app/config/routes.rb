@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/' => 'movies#index', as: 'root'
+  get '/' => 'welcomes#index', as: 'root'
 
   resources :movies
   resources :actors
