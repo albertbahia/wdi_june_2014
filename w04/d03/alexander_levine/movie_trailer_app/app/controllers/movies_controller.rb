@@ -3,6 +3,16 @@ class MoviesController < ApplicationController
     @movies = Movie.all
   end
 
+  def search
+
+  end
+
+  def results
+    @search = params[:title]
+    @results = OMDB.search(@search)
+    @movie = Movie.new
+  end
+
   def new
     @movie = Movie.new
   end
