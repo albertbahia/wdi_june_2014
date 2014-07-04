@@ -1,0 +1,14 @@
+<img src="<% @team.flag_url %>"><br>
+<h2><%= @team.country %></h2>
+
+<b>Players:</b>
+<ul>
+  <% @team.players.each do |player| %>
+    <li><%= link_to(player.name, player_path(player)) %></li>
+    (<%= player.position %>)
+  <% end %>
+</ul>
+
+<%= link_to('Back to All Teams', teams_path) %> |
+<%= link_to("Edit #{@team.title}", edit_team_path(@team)) %> |
+<%= link_to("Delete #{@team.title}", team_path(@team), method: :delete) %>

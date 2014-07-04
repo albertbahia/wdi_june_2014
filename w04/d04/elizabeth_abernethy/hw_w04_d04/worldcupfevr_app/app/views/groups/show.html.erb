@@ -1,6 +1,12 @@
 <h2><%= @group.name %></h2>
 
-<% @groups.teams.each do |group| %>
-  <%= link_to image_tag(team.flag_url, team_path(team)) %>
-  <%= team.country %>
+<b>Teams:</b>
+<% @group.teams.each do |group| %>
+  <%= link_to image_tag(team.flag_url, team_path(team)) %><br>
+  (<%= team.country %>)
 <% end %>
+
+
+<%= link_to('Back to All Groups', groups_path) %> |
+<%= link_to("Edit #{@group.name}", edit_group_path(@group)) %> |
+<%= link_to("Delete #{@group.name}", group_path(@group), method: :delete) %>

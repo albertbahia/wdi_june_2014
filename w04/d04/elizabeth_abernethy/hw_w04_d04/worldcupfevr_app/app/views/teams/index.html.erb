@@ -1,0 +1,8 @@
+<h2>All Teams</h2>
+
+<%= link_to('Add a New Team', new_team_path) %>
+
+<% @teams.each do |team| %>
+  <%= link_to image_tag(team.flag_url, team_path(team)) %><br>
+  (<%= team.country %>)
+<% end %>
