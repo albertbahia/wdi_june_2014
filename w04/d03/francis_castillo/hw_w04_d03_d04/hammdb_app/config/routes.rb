@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get '/' => 'welcome#index', as: 'root'
-  
+  get '/' => 'movies#index', as: 'root'
+
   resources :movies
   resources :actors
   resources :trailers

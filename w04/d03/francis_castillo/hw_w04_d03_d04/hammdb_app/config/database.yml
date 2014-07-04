@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: hammdb_app_production
-  username: hammdb_app
+  # username: hammdb_app
   password: <%= ENV['HAMMDB_APP_DATABASE_PASSWORD'] %>
