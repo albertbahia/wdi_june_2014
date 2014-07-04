@@ -1,6 +1,16 @@
 <h2><%= @movie.title %></h2>
-<p><%= @movie.plot %></p>
+<p>Starring:</p> <% @movie.actors.each do |actor| %>
+  <ul>
+    <li><%= link_to(actor.name, actor_path(actor))%></li>
+  </ul>
+<% end %>
+<p>Plot: <%= @movie.plot %></p>
+
 <img src="<%= @movie.poster_url %>">
+<br>
+<% @movie.trailers.each do |trailer| %>
+  <iframe width="853" height="480" src="<%= trailer.embed_url %>" frameborder="0" allowfullscreen></iframe>
+<% end %>
 <br>
 
 <%= link_to('Back to Movies', movies_path) %> //

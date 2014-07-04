@@ -1,0 +1,27 @@
+<h3>Search results</h3>
+
+<ul>
+ <% @searches.each do |search| %>
+   <li>
+     <p><%= search['Title'] %>
+		 </p>
+     <p>
+       <%= search['Year'] %>
+     </p>
+     <img src="<%= search['Poster'] %>" />
+     <p>
+       <%= search['Actors'] %>
+     </p>
+     <p>
+       <%= search['Plot'] %>
+     </p>
+   </li>
+     <%= form_tag("/movies", method: "post") do %>
+     <%= hidden_field_tag('movie[title]', "#{search['Title']}") %>
+     <%= hidden_field_tag('movie[year]', "#{search['Year']}") %>
+     <%= hidden_field_tag('movie[poster_url]', "#{search['Poster']}") %>
+     <%= hidden_field_tag('movie[plot]', "#{search['Plot']}") %>
+     <%= submit_tag %>
+     <% end %>
+	<% end %>
+</ul>

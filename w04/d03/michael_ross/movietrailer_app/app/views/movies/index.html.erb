@@ -2,11 +2,15 @@
 
 <%= link_to('Add Movie', new_movie_path) %>
 
+<%= form_tag("/movies/search", method: "get") do %>
+  <%= text_field_tag(:search_term, "search for movie") %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <ul>
   <% @movies.each do |movie| %>
   <li>
     <%= link_to(movie.title, movie_path(movie)) %><br>
-
     <%= link_to image_tag(movie.poster_url), movie_path(movie) %>
   </li>
   <% end %>

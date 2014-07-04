@@ -40,6 +40,12 @@ class TrailersController < ApplicationController
     redirect_to(trailers_path)
   end
 
+  def add_trailer
+    @movie = Movie.find(params[:id])
+    @movie.trailers.push(Trailer.find(params[:trailer_id]))
+    redirect_to("/trailers/#{@trailer.id}")
+  end
+
   private
   def trailer_params
     params.require(:trailer).permit(:title, :embed_url)

@@ -4,6 +4,11 @@ class MoviesController < ApplicationController
     @movies = Movie.all
   end
 
+  def search
+    @searches = Omdb.search(params[:search_term])
+    redirect_to(search_path(@searches))
+  end
+
   def new
     @movie = Movie.new
   end
