@@ -1,0 +1,25 @@
+<h3> You searched for <em><%= params[:search] %></em> </h3>
+
+
+<% @search.each do |array| %>
+  <% array.each do |selection| %>
+
+    <ul>
+      <li> Movie: <%= selection[:title] %> </li>
+      <li> Year: <%= selection[:year] %> </li>
+      <li> Starring: <%= selection[:starring] %></li>
+      <li> Plot: <%= selection[:plot] %></li>
+      <li> Poster: <%= image_tag(selection[:poster]) %> </li>
+    </ul>
+    <%= form_for @movies, :url => {:action=>"create", :controller=>"movies"}, :html => {:class => "movies", :method => "POST"} do |f| %>
+    <div class="actions">
+
+      <%= f.hidden_field :title, value: selection[:title] %>
+      <%= f.hidden_field :year, value: selection[:year] %>
+      <%= f.hidden_field :plot, value: selection[:plot] %>
+      <%= f.hidden_field :poster_url, value: selection[:poster] %>
+      <%= f.submit 'Add to Movies' %>
+    </div>
+    <% end %>
+<% end %>
+<% end %>
