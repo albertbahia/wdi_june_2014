@@ -18,6 +18,7 @@ class TeamsController < ApplicationController
 	end
 
 	def show
+		@group = Group.new
 		@team = Team.find(params[:id])
 	end
 
