@@ -1,0 +1,15 @@
+<h3>Add Team</h3>
+
+<ul>
+	<% @team.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+	<% end %>
+</ul>
+
+<%= form_for @team, method: :post do |team| %>
+	Country: <%= team.text_field :country %>
+	Flag URL: <%= team.text_field :flag_url %>
+	Manager: <%= team.text_field :manager_name %>
+	
+	<%= team.submit %>
+<% end %>

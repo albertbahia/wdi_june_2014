@@ -1,0 +1,12 @@
+<%= form_for @player do |p| %>
+	Name: <%= p.text_field :name %>
+	Photo URL: <%= p.text_field :photo_url %>
+
+	Position: <%= p.select(:position, ["Forward", "Defender", "Midfielder", "Goalkeeper"] ) %>
+
+	Skill level: <%= p.text_field :skill_level %>
+	Team: <%= p.select(:team_id, Team.all.collect { |t| [ t.country, t.id ] } ) %>
+
+	<%= p.submit %>
+	
+<% end %>

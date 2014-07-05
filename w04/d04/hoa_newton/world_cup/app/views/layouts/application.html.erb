@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WorldCup</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<img src="http://allaboutwindowsphone.com/images/appicons/225931.png">
+	<%= link_to 'Home', root_path %>
+	<%= link_to 'Group', groups_path %>
+	<%= link_to 'Team', teams_path %>
+	<%= link_to 'Player', players_path %>
+
+<%= yield %>
+
+</body>
+</html>

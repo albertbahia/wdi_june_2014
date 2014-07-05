@@ -1,0 +1,20 @@
+<h4>Search for new movies</h4>
+
+<% form_tag search_movies_path, :method => 'get' do %>
+	<p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search", :name => nil%>
+	</p>
+<%end%>
+
+<h3><%= link_to 'All Movies', movies_path %></h3>
+<h2><%= @movie.title %></h2>
+<p>Year: <%= @movie.year%></p>
+<p>Plot: <%= @movie.plot%></p>
+<p>Actors: 	<%= @movie.actors.map {|actor| actor.name }.join(', ')%></p>
+<div>
+	<%= link_to 'Edit', edit_movie_path(@movie) %>
+	<%= link_to 'Delete', movie_path(@movie), method: :delete %>
+</div>
+<%= link_to image_tag(@movie.poster_url), movie_path(@movie) %>
+	
