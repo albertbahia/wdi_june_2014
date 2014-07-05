@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
-resources: :artists, :paintings 
-
+  root to: 'artists#index'
+  resources :artists, :paintings 
 end

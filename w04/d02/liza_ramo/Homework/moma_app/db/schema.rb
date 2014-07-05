@@ -28,9 +28,9 @@ ActiveRecord::Schema.define(version: 20140701220431) do
   create_table "paintings", force: true do |t|
     t.text     "img_url"
     t.string   "title"
-    t.date     "year_painted"
+    t.integer  "year_painted"
     t.string   "description"
-    t.integer  "artist_id_id"
+    t.integer  "artist_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
