@@ -1,0 +1,20 @@
+<h2>Edit Artist</h2>
+<form action="<%= artist_path(@artist) %>" method="put">
+  <label for="artist[name]">Name:</label>
+  <input name="artist[name]" value="<%= @artist.name %>">
+
+  <label for="artist[photo_url]">Photo URL:</label>
+  <input name="artist[photo_url]" value="<%= @artist.photo_url %>">
+
+  <label for="artist[nationality]">Nationality:</label>
+  <input name="artist[nationality]" value="<%= @artist.nationality %>">
+
+  <label for="artist[birthday]">Birthday:</label>
+  <input name="artist[birthday]" value="<%= @artist.birthday %>">
+
+  <input type="submit" value="Complete Edit">
+
+</form>
+
+<%= link_to('Back to Artists', artist_path(@artist)) %>
+<%= link_to('Delete Artist', artist_path(@artist), method: :delete) %>

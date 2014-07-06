@@ -1,0 +1,12 @@
+<div id="itunes">
+<ul>
+  <% @songs.each_with_index do |song, index| %>
+    <li>
+        <%= @songs["results"][index]["trackName"] %>
+      <form>
+        <input type="button" value="Add to Tun.r"/>
+      </form>
+    </li>
+  <% end %>
+</ul>
+</div>
