@@ -11,16 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140706172849) do
+ActiveRecord::Schema.define(version: 20140706191502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "users", force: true do |t|
-    t.string   "username"
-    t.string   "password"
-    t.text     "token"
-    t.boolean  "logged_in"
+  create_table "groups", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "players", force: true do |t|
+    t.string   "name"
+    t.text     "photo_url"
+    t.string   "position"
+    t.integer  "skill_level"
+    t.integer  "team_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "teams", force: true do |t|
+    t.string   "country"
+    t.text     "flag_url"
+    t.string   "manager_name"
+    t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
