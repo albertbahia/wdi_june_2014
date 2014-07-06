@@ -1,0 +1,7 @@
+<h2><%= @player.name %></h2>
+<img src="<%= @player.photo_url %>">
+<p>Position: <%= @player.position %></p>
+<p>Skill Level: <%= @player.skill_level %></p>
+<p>Team: <%= @player.team.country %></p>
+
+<%= link_to('Back to Players', players_path) %>

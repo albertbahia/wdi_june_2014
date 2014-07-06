@@ -1,12 +1,13 @@
+
 class MoviesController < ApplicationController
+
 
   def index
     @movies = Movie.all
   end
 
   def search
-    @searches = Omdb.search(params[:search_term])
-    redirect_to(search_path(@searches))
+    @search_results = Omdb.search(params[:term])
   end
 
   def new

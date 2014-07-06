@@ -5,10 +5,6 @@
   <li><%= msg %></li>
   <% end %>
 </ul>
-<%= form_tag("/movies/search", method: "get") do %>
-  <%= text_field_tag(:search_term, "search movie") %>
-  <%= submit_tag("Search") %>
-<% end %>
 
 <%= form_for(@movie) do |f| %>
   <%= f.label(:title) %>

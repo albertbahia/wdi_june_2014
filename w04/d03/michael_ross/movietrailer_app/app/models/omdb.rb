@@ -1,4 +1,4 @@
-class Omdb
+class Omdb < ActiveRecord::Base
   def self.search(term)
     search_url = URI.escape("http://www.omdbapi.com/?s=#{term}")
     api_response = HTTParty.get(search_url)
@@ -8,7 +8,7 @@ class Omdb
 
     results.each do |r|
       movie_id = r["imdbID"]
-      search_id = URI.escape("http://www.omdbapi.com/?i=#{movie_id}")
+      search_id = URI.escape("http://www.omdbapi.com/?s=#{movie_id}")
       api_call = HTTParty.get(search_id)
       id_results = JSON.parse(api_call)
       results_array << id_results

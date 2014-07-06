@@ -1,9 +1,10 @@
 <h2>Movies</h2>
 
-<%= link_to('Add Movie', new_movie_path) %>
+<div class="add_movie"><%= link_to('Add Movie', new_movie_path) %></div>
 
-<%= form_tag("/movies/search", method: "get") do %>
-  <%= text_field_tag(:search_term, "search for movie") %>
+<h3>Search:</h3>
+<%= form_tag('/search', :method => :get) do %>
+  <%= text_field_tag(:search_query, "") %>
   <%= submit_tag("Search") %>
 <% end %>
 
