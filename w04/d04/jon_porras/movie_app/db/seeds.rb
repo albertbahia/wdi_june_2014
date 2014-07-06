@@ -1,3 +1,7 @@
+Movie.destroy_all
+Actor.destroy_all
+Trailer.destroy_all
+
 bluevelvet = Movie.create(title: "Blue Velvet",
                           year: "1986",
                           poster_url: "http://4.bp.blogspot.com/_4Itf6TkQqGs/TNXMt8VznwI/AAAAAAAABus/ihfFDmKI0cY/s1600/blue-velvet.jpg")
@@ -43,7 +47,7 @@ losthighway.trailers.push(
 
 )
 
-losthighway.trailers.push(
+mulhollanddrive.trailers.push(
               Trailer.create(title: "Mulholland Drive",
                               embeded_url: "//www.youtube.com/embed/96R9MG0DxLc"),
 

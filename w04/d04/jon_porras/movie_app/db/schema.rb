@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140703151828) do
     t.datetime "updated_at"
   end
 
-  create_table "actors_movies", force: true do |t|
+  create_table "actors_movies", id: false, force: true do |t|
     t.integer "actor_id"
     t.integer "movie_id"
   end

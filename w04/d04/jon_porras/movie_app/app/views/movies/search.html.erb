@@ -4,7 +4,7 @@
   <li>TITLE: <%= r["Title"] %></li>
   <li>REALASE YEAR: <%= r["Year"] %></li>
   ACTORS:
-    <% actor_arr = r["Actors"].split(", ") %>
+    <% actor_arr = r["Actors"].split(",") %>
     <% actor_arr.each do |actor| %>
   <li><%= actor %></li>
   <% end %>
@@ -13,6 +13,7 @@
   <%= hidden_field_tag("movie[title]", r["Title"]) %>
   <%= hidden_field_tag("movie[year]", r["Year"]) %>
   <%= hidden_field_tag("movie[poster_url]", r["Poster"]) %>
+  <%= hidden_field_tag("movie[actors]", r["Actors"]) %>
 
   <%= submit_tag("Add to DB") %>
 <% end %>

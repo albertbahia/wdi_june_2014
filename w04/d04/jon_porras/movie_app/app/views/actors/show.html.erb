@@ -1,5 +1,9 @@
 <img src="<%= @actor.photo_url %>" />
 <h3><%= @actor.name %></h3>
+<% @actor.movies.each do |movie| %>
+<h3>MOVIES:</h3>
+<p> <%= link_to(movie.title, movie_path(movie)) %></p>
+<% end %>
 
 
 <%= link_to("EDIT ACTOR", edit_actor_path(@actor)) %>
