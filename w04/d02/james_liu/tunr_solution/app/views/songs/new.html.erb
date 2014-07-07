@@ -1,0 +1,41 @@
+<h2>New Song</h2>
+
+<!-- 
+<form action="<%= songs_path %>" method="post">
+  <label>Title:</label>
+  <input name="song[title]">
+
+  <label>Album:</label>
+  <input name="song[album]">
+
+  <label>Preview URL:</label>
+  <input name="song[preview_url]">
+
+  <label>Artist ID:</label>
+  <input name="song[artist_id]">
+
+  <label>Price (cents):</label>
+  <input name="song[price]">
+
+  <input type="submit" value="Create">
+</form> 
+-->
+
+<!-- Replace with:  -->
+<%= form_for (@song) do |f| %>
+  <%= f.label(:title) %>
+  <%= f.text_field(:title)%>
+
+  <%= f.label(:album) %>
+  <%= f.text_field(:album)%>
+
+  <%= f.label(:preview_url) %>
+  <%= f.text_field(:preview_url)%>
+
+  <%= f.label(:price) %>
+  <%= f.text_field(:price)%>
+
+  <%= f.submit%>
+<% end %>
+
+<%= link_to('Back to Songs', songs_path) %>
