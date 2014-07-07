@@ -5,6 +5,8 @@
   <b><%= user.username %></b><br>
   <%= "#{user.first_name} #{user.last_name}" %><br>
   <%= user.password_digest %><br>
-  <%= link_to 'Remove', user_path(user), method: :delete %>
+  <% if session[:current_user] == user.id %>
+    <%= link_to 'Remove', user_path(user), method: :delete %>
+  <% end %>
   <hr>
 <% end %>
