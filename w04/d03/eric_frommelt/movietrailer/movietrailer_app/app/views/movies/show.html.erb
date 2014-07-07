@@ -1,0 +1,21 @@
+<%= link_to 'All Movies', movies_path %>
+<h1><%= @movie.title %></h1>
+<p><%= @movie.year %></p>
+<%= link_to "Edit Movie", edit_movie_path(@movie) %>
+<p><%= image_tag(@movie.poster_url) %></p>
+<p><%= @movie.plot %></p>
+
+<% @movie.actors.each do |actor| %>
+  <div>
+    <h2><%= actor.name %></h1>
+    <%= link_to image_tag(actor.photo_url), actor_path(actor) %>
+  </div>
+<% end %>
+
+<% @movie.trailers.each do |trailer| %>
+  <div>
+    <h2><%= trailer.title %></h1>
+    <iframe id="ytplayer" type="text/html" width="640" height="390"
+  src="<%= trailer.embed_url %>" frameborder="0"/></iframe>
+  </div>
+<% end %>

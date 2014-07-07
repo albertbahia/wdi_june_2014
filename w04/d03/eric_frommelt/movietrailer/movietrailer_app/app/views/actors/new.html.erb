@@ -1,0 +1,23 @@
+<%= link_to 'All Actors', actors_path %>
+<% if @actor.errors.any? %>
+  <%= @actor.errors.full_messages.each do |error_msg| %>
+    <li><%= error_msg %></li>
+  <% end %>
+<% end %>
+
+<%= form_for @actor do |f| %>
+  <div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  </div>
+  <div>
+  <%= f.label :photo_url %>
+  <%= f.text_field :photo_url %>
+  </div>
+
+  <div>
+  <%= collection_select(:actor, :movie_id, Movie.all, :id, :title) %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

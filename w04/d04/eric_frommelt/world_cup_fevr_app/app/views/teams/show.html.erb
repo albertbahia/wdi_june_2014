@@ -1,0 +1,11 @@
+<%= link_to 'All Teams', teams_path %>
+<h1><%= @team.country %></h1>
+<%= link_to image_tag(@team.photo_url), team_path(@team) %>
+<p>Manager: <%= @team.manager_name %></p>
+<p><%= @team.group.name %></p>
+<h2>Players</h2>
+<ul>
+<% @team.players.each do |player| %>
+  <li><%= link_to player.name, player_path(player) %></li>
+<% end %>
+</ul>
