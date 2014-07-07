@@ -17,7 +17,7 @@ class MoviesController < ApplicationController
     if @movie.save
       redirect_to new_movie_trailer_path(@new_movie)
     else
-      render :new 
+      render :new
     end
   end
 
@@ -51,7 +51,7 @@ class MoviesController < ApplicationController
     new_movie = OMDB.search_by_id(params[:omdb_id_number])
     @movie = Movie.find_or_create_by(new_movie.first)
     new_movie.last.each do |actor|
-      actor = Actor.create_with(photo_url: 'http://placekitten.com/300/300').find_or_create_by(name: actor)
+      actor = Actor.create_with(photo_url: 'http://placesheen.com/400/400').find_or_create_by(name: actor)
       @movie.actors << actor
     end
     redirect_to movie_path(@movie)
