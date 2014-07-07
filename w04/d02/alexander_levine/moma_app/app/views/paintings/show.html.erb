@@ -1,0 +1,13 @@
+<h6><%= link_to('Back to Home', artists_path) %></h6>
+<img src="<%= @painting.img_url %>">
+<ul>
+  <li><%= @painting.title %></li>
+  <% artist = Artist.find(@painting.artist_id) %>
+  <li><%= artist.name %></li>
+  <li><%= @painting.year_painted %> </li>
+  <li><%= @painting.description %> </li>
+</ul>
+
+<%= link_to('Edit', edit_painting_path(@painting)) %> |
+<%= link_to('Back to Paintings', paintings_path) %> |
+<%= link_to('Delete', painting_path(@painting), method: :delete) %>
