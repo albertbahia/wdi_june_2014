@@ -1,0 +1,16 @@
+<h6><%= link_to('Back to Home', artists_path) %></h6>
+<img src="<%= @artist.photo_url %>">
+<ul>
+  <li><%= @artist.name %></li>
+  <li><%= @artist.nationality %> </li>
+</ul>
+
+<ul>
+  <% @artist.paintings.each do |painting| %>
+  <li><%= link_to("#{painting.title}", painting_path(painting)) %></li>
+  <% end %>
+</ul>
+
+<%= link_to('Edit', edit_artist_path(@artist)) %> |
+<%= link_to('Back to Artists', artists_path) %> |
+<%= link_to('Delete', artist_path(@artist), method: :delete) %>
