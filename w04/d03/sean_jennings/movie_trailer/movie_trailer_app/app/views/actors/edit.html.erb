@@ -1,0 +1,17 @@
+<%= link_to 'Back to Actor', actor_path(@actor) %>
+
+<%= form_for @actor do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.textfield :name %>
+  </div>
+  <div>
+    <%= f.label :photo_url %>
+    <%= f.textfield :photo_url %>
+  </div>
+
+    <%= submit %>
+
+<% end %>
+
+<%= button_to "Delete", actor_path(@actor), method: :delete %>
