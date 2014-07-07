@@ -1,0 +1,34 @@
+<h2>New Movie</h2>
+<ul>
+  <% @movie.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+
+<p> Add your own movie:
+
+<%= form_for(@movie) do |f| %>
+  <%= f.label(:title)%>
+  <%= f.text_field(:title)%>
+
+  <%= f.label(:year)%>
+  <%= f.text_field(:year)%>
+
+  <%= f.label(:poster_url)%>
+  <%= f.text_field(:poster_url)%>
+
+  <%= f.submit %>
+  <% end %>
+
+</p>
+
+<p> Or search the Ombd database:
+<%= form_tag("/movies/search", method: "get") do %>
+  <%= label_tag(:search_term, "Search for:") %>
+  <%= text_field_tag(:search_term) %>
+  <%= submit_tag("Search") %>
+<% end %>
+</p>
+<p>
+  <%= link_to('Back to Movies', movies_path) %>
+</p>
