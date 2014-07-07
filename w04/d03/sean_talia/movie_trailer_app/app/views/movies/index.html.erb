@@ -1,0 +1,14 @@
+<h2>Movies</h2>
+<p>
+  <%= link_to('Add Movie', new_movie_path) %>
+</p>
+
+<% @movies.each do |movie| %>
+  <div class="movie_poster">
+    <p>
+      <%= movie.title%> <br>
+      <%= link_to(image_tag(movie.poster_url), movie_path(movie)) %>
+    </p>
+  </div>
+  <% end %>
+</ul>

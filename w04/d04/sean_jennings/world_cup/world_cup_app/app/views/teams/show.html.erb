@@ -1,0 +1,9 @@
+<p>Players on <%= @team.country %></p>
+<p><%= @team.group.name %></p>
+<% @team.players.each do |player| %>
+  <ul>
+    <li>
+    <a href="/players/<%= player.id %>"><%= player.name %></a>
+    </li>
+  </ul>
+<% end %>
