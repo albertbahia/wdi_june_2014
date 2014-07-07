@@ -1,0 +1,40 @@
+<h2>Edit Song</h2>
+
+<!-- <form action="<%= song_path(@song) %>" method="post">
+  <label for="song[title]">Title:</label>
+  <input name="song[title]" value="<%= @song.title %>">
+
+  <label for="song[album]">Album:</label>
+  <input name="song[album]" value="<%= @song.album %>">
+
+  <label for="song[preview_url]">Preview URL:</label>
+  <input name="song[preview_url]" value="<%= @song.preview_url %>">
+
+  <label for="song[artist_id]">Artist ID:</label>
+  <input name="song[artist_id]" value="<%= @song.artist_id %>">
+
+  <label for="song[price]">Price (cents):</label>
+  <input name="song[price]" value="<%= @song.price %>">
+
+  <input type="submit" value="Update">
+</form> -->
+
+<!-- Replace with:  -->
+<%= form_for (@song) do |f| %>
+  <%= f.label(:title) %>
+  <%= f.text_field(:title)%>
+
+  <%= f.label(:album) %>
+  <%= f.text_field(:album)%>
+
+  <%= f.label(:preview_url) %>
+  <%= f.text_field(:preview_url)%>
+
+  <%= f.label(:price) %>
+  <%= f.text_field(:price)%>
+
+  <%= f.submit%>
+<% end %>
+
+<%= link_to('Back', song_path(@song)) %>
+<%= link_to('Delete', song_path(@song), method: :delete) %>

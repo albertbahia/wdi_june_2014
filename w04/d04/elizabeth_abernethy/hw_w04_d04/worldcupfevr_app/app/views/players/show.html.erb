@@ -1,0 +1,8 @@
+<img src="<%= @player.photo_url %>"><br>
+<h2><%= @player.name %></h2>
+
+Position: <%= @player.position %> | Skill Level: <%= @player.skill_level %><br><br>
+
+<%= link_to('Back to All Players', players_path) %> |
+<%= link_to("Edit #{@player.name}", edit_player_path(@player)) %> |
+<%= link_to("Delete #{@player.name}", player_path(@player), method: :delete) %>
