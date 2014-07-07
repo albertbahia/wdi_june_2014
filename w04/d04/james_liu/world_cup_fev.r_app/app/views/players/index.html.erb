@@ -1,0 +1,12 @@
+<h1>Superstars</h1>
+
+<%= link_to "Add a Player", new_player_path %>
+
+<ul>
+  <% @players.each do |player| %>
+    <li>  
+    <%= link_to player.name, player_path(player) %>
+    <h4><%= player.team.country %></h4>
+    </li>
+  <% end %>
+</ul>

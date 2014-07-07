@@ -1,0 +1,11 @@
+<h2><%= @group.name %></h2>
+
+<ul>
+  <% @group.teams.each do |team| %>
+  <li><%= link_to team.country, team_path(team) %> </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit Group', edit_group_path(@group) %>
+<%= link_to 'Back to Groups', groups_path %>
+<%= link_to 'Delete', group_path(@group), method: :delete%>

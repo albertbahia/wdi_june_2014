@@ -1,0 +1,27 @@
+<h2>New Player</h2>
+
+<ul>
+  <% @player.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+
+<%= form_for(@player) do |f| %>
+  <%= f.label(:name) %>
+  <%= f.text_field(:name) %>
+
+  <%= f.label(:photo_url) %>
+  <%= f.text_field(:photo_url) %>
+
+  <%= f.label(:position) %>
+  <%= f.text_field(:position) %>
+
+  <%= f.label(:skill_level) %>
+  <%= f.text_field(:skill_level) %>
+
+  Team <%= f.select(:team_id, Team.all.collect { |a| [a.country, a.id]})%>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to('Back to All Players', players_path) %>
