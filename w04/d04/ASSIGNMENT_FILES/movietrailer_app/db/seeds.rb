@@ -21,3 +21,7 @@ robocop.actors.push(
 batman.trailers.push(Trailer.create(title:"Batman", embed_url: "http://www.youtube.com/embed/cPLUeA4vwik"))
 goonies.trailers.push(Trailer.create(title:"The Goonies", embed_url: "http://www.youtube.com/embed/51LY9ocoCi8"))
 robocop.trailers.push(Trailer.create(title:"RoboCop", embed_url: "http://www.youtube.com/embed/zbCbwP6ibR4"))
+
+batman.trailers.push(Trailer.create(title:"Batman", embed_url: "http://www.youtube.com/embed/cPLUeA4vwik"))
+goonies.trailers.push(Trailer.create(title:"The Goonies", embed_url: "http://www.youtube.com/embed/51LY9ocoCi8"))
+robocop.trailers.push(Trailer.create(title:"RoboCop", embed_url: "http://www.youtube.com/embed/zbCbwP6ibR4"))
