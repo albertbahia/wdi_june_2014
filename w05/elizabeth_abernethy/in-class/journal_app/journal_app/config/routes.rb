@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # post '/users'          =>   'users#create'
   # delete '/users/:id'    =>   'users#destroy', as: 'user'
 
-  resources :users
+  resources :users, :entries
 
   # Sessions
   get '/login'       =>    'sessions#new'

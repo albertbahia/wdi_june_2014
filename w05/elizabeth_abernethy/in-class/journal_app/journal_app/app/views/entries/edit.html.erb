@@ -1,0 +1,21 @@
+<h2>Edit this Entry</h2>
+
+<ul>
+<% @entry.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+<% end %>
+</ul>
+
+<%= form_for(@entry) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br>
+
+  <%= f.label :content %>
+  <%= f.text_area :content %><br><br>
+
+  <%= f.submit 'Submit Changes' %>
+
+<% end %><br><br>
+
+<%= link_to("Back to #{@entry.title}", entry_path(@entry)) %> |
+<%= link_to("Delete #{@entry.title}", entry_path(@entry), method: :delete ) %>

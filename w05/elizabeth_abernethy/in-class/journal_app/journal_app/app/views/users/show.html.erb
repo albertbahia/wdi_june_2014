@@ -4,5 +4,8 @@
 <b>Password:</b> <%= @user.password_digest %><hr><br><br><br>
 
 <%= link_to('Back to All Users', users_path) %> |
-<%= link_to("Edit #{@user.username}", edit_user_path(@user)) %> |
-<%= link_to("Delete #{@user.username}", user_path(@user), method: :delete) %>
+
+<% if session[:current_user] == @user.id %>
+  <%= link_to("Edit #{@user.username}", edit_user_path(@user)) %> |
+  <%= link_to("Delete #{@user.username}", user_path(@user), method: :delete) %>
+<% end %>

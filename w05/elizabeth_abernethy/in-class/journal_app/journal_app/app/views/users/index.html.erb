@@ -1,4 +1,4 @@
-<h3>Users</h3>
+<h2>Users</h2>
 
 <b><%= link_to('Sign Up', new_user_path) %></b><br><br>
 
@@ -8,7 +8,9 @@
   <%= "#{user.first_name} #{user.last_name}" %><br>
   <%= user.password_digest %><br>
   <%= link_to 'View', user_path(user) %> |
-  <%= link_to 'Remove', user_path(user), method: :delete %> |
-  <%= link_to 'Edit', edit_user_path(user) %>
+    <% if session[:current_user] == user.id %>
+      <%= link_to 'Edit', edit_user_path(user) %>  |
+      <%= link_to 'Remove', user_path(user), method: :delete %>
+    <% end %>
   <hr>
 <% end %>
