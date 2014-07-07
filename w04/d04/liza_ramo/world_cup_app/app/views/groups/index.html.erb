@@ -1,0 +1,10 @@
+<h1>All Groups</h1>
+
+<%= link_to('Add Group', new_group_path) %>
+
+<div>
+<% @groups.each do |group| %>
+  <p><%= group.name %></p>
+  <%= link_to('Teams', group_path(group)) %></p>
+<% end %>
+</div>
