@@ -1,0 +1,13 @@
+<h1>Edit Team</h1>
+
+<%= form_for @team do |f| %>
+  <%= f.label :country %>:
+  <%= f.text_field :country %><br />
+  <%= f.label :flag_url %>:
+  <%= f.text_field :flag_url %><br />
+  <%= f.label :manager_name %>:
+  <%= f.text_field :manager_name %><br />
+  <%= f.submit %>
+<% end %>
+
+<%= button_to "Delete Team", team_path(@team), method: :delete %>

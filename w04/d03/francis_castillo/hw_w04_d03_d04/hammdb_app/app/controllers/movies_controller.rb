@@ -6,6 +6,7 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
+    movie_params
   end
 
   def create

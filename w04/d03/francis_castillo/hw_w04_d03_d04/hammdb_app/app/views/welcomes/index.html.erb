@@ -2,3 +2,15 @@
 <h4><%= link_to("Actors", actors_path,) %></h4>
 <h4><%= link_to("Movies", movies_path,) %></h4>
 <h4><%= link_to("Trailers", trailers_path,) %></h4>
+
+<% @welcome.each do |a| %>
+<p><strong><%= a["Title"] %></strong></p>
+<% if a["Poster"] == "N/A" %>
+  <p>Image not available</p>
+<% else %>
+  <img src=<%=a["Poster"] %> alt="" />
+<!-- <%=  button_tag"Add Movie", params: { title: a["Title"], year: a["Year"], poster_url: a["Poster"], plot: a["Plot"]  } %> -->
+<%= button_to("Add Movie", "/movies", params: {title: a["Title"], year: a["Year"], poster_url: a["Poster"], plot: a["Plot"]}, method: :create ) %>
+
+  <% end %>
+<% end %>
