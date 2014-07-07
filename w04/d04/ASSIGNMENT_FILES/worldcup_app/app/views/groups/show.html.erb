@@ -1,0 +1,10 @@
+<%= link_to 'Back', groups_path %>
+<%= link_to 'Edit', edit_group_path(@group) %>
+<div>
+<h1><%= @group.name %></h1>
+  <ul>
+    <% @group.teams.each do |team| %>
+    <li><%= link_to team.country, team %></li>
+    <% end %>
+  </ul>
+</div>
