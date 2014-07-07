@@ -1,0 +1,12 @@
+<h6><%= link_to('Back to Home', artists_path) %></h6>
+<h2>Paintings</h2>
+
+<%= link_to('Add a Painting', new_painting_path) %>
+
+<ul>
+  <% @paintings.each do |painting| %>
+    <li>
+      <%= link_to(painting.title, painting_path(painting)) %>
+    </li>
+  <% end %>
+</ul>
