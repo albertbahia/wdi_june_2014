@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # welcome
-  get '/' => 'welcome#index'
+  get '/' => 'welcome#index', as: 'root'
 
   # other routes
   resources :players, :teams, :groups
