@@ -1,0 +1,16 @@
+<div class="movies">
+<h2>Movies List</h2>
+
+<p><%= link_to 'Add a movie', new_movie_path %></p>
+
+<% @movies.each do |movie| %>
+<div class "movies-list">
+  <p><%= movie.title %></p>
+  <p><%= movie.year %></p>
+  <p><%= movie.plot %></p>
+  <% link_to image_tag(movie.poster_url), movie_path(movie) %>
+</div>
+
+<% end %>
+
+</div> <!-- end of movies -->
