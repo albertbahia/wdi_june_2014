@@ -1,0 +1,30 @@
+#page{
+  margin: auto;
+  width: 1000px;
+  height: 500px;
+}
+
+h1 {
+  color: teal;
+  font-size: 35pt;
+  text-align:center;
+}
+ul {
+    margin:0;
+    padding:0;
+    list-style-type:none;
+    text-align:center;
+}
+li {
+    display:inline-block;
+}
+
+a {
+  text-decoration: none;
+  font-size: 25pt;
+  padding: 20px;
+}
+
+p {
+  font-size: 10pt;
+}

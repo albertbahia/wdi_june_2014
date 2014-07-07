@@ -1,0 +1,20 @@
+<h2>Edit this Actor</h2>
+
+<ul>
+  <% @actor.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+
+<%= form_for(@actor) do |f| %>
+  <%= f.label(:name) %>
+  <%= f.text_field(:name) %>
+
+  <%= f.label(:photo_url) %>
+  <%= f.text_field(:photo_url) %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to("Back to #{@actor.name}", actor_path(@actor)) %> |
+<%= link_to("Delete #{@actor.name}", actor_path(@actor), method: :delete) %>

@@ -1,0 +1,13 @@
+<h1><%= @team.country %></h1>
+<h2><%= @team.group.name %> Group</h2>
+
+<ul>
+  <% @team.players.each do |player| %>
+    <li><%= player.name %></li>
+   <% end %> 
+</ul>
+
+
+<%= link_to('Edit team', edit_team_path(@team)) %>
+<%= link_to('Back to teams', teams_path) %>
+<%= link_to('Delete', team_path(@team), method: :delete)%>
