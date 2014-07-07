@@ -10,5 +10,8 @@
   <%= f.label(:manager_name) %>
   <%= f.text_field(:manager_name) %>
 
+  <%= f.label(:group_id) %>
+  <%= f.collection_select(:group_id, Group.all, :id, :name) %>
+
   <%= f.submit %>
 <% end %>

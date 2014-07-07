@@ -5,9 +5,9 @@
 
 <p><img src="<%= @team.flag_url %>"></p>
 
-<p><%= @team.manager_name %></p>
+<p>Manager Name: <%= @team.manager_name %></p>
 <ul>
   <% @team.players.each do |player| %>
-    <li><%= player.name %></li>
+    <li><%= link_to(player.name, player_path(player)) %></li>
   <% end %>
 </ul>

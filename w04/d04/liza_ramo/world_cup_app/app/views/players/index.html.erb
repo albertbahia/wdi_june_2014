@@ -5,6 +5,6 @@
 <div>
   <%= @players.each do |player| %>
     <p><%= player.name %></p>
-    <%= link_to image_tag(player.photo_url) %>
+    <%= link_to image_tag(player.photo_url), player_path(player) %>
   <% end %>
 </div>

@@ -13,5 +13,8 @@
   <%= f.label(:skill_level) %>
   <%= f.text_field(:skill_level) %>
 
+  <%= f.label(:team_id) %>
+  <%= f.collection_select(:team_id, Team.all, :id, :country) %>
+
   <%= f.submit %>
 <% end %>

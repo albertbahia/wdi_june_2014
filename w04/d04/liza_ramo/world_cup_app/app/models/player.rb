@@ -3,9 +3,9 @@ class Player < ActiveRecord::Base
 
   validates_presence_of :name, :photo_url, :position, :skill_level
 
-  validates :skill_level, numericality: { :greater_than => 0, :less_than_or_equal_to => 100}
+  validates :skill_level, numericality: { :greater_than => 0, :less_than_or_equal_to => 100 }
 
-  validates :position, inclusion: { in: [ forward, defender, midfielder, goalkeeper ] }
+  validates :position, inclusion: { in: [ "forward", "defender", "midfielder", "goalkeeper" ] }
 
 
 end

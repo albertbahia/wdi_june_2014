@@ -1,9 +1,8 @@
 class OMDB
 
   def self.search(search_term)
-    search_url = URI.escape("http://www.omdbapi.com/?s=#{search_term}")
-    api_response = HTTParty.get(search_url)
-    results = JSON.parse(api_response)["Search"]
+
+    results = JSON.parse(HTTParty.get(URI.escape("http://www.omdbapi.com/?s=#{search_term}")))["Search"]
 
     results_id_array = results.map do |r|
       r["imdbID"]
@@ -18,7 +17,9 @@ class OMDB
 end
 
 
-
+    # search_url = URI.escape("http://www.omdbapi.com/?s=#{search_term}")
+    # api_response = HTTParty.get(search_url)
+    # results = JSON.parse(api_response)["Search"]
 
       # Title, year, poster url, plot
 

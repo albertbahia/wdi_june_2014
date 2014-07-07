@@ -3,7 +3,7 @@
 <%= link_to('Add Team', new_team_path) %>
 
 <div>
-  <%= teams.each do |team| %>
+  <%= @teams.each do |team| %>
     <p><%= team.country %></p>
     <%= link_to image_tag(team.flag_url), team_path(team) %>
   <% end %>
