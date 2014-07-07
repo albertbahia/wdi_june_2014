@@ -4,7 +4,6 @@ class CreateTrailers < ActiveRecord::Migration
       t.string(:title)
       t.text(:embeded_url)
       t.references(:movie)
-      t.timestamps
     end
   end
 end

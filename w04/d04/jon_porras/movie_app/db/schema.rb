@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20140703151828) do
   create_table "actors", force: true do |t|
     t.string   "name"
     t.text     "photo_url"
-    t.integer  "movie_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -33,17 +32,14 @@ ActiveRecord::Schema.define(version: 20140703151828) do
     t.string   "title"
     t.string   "year"
     t.text     "poster_url"
-    t.integer  "actor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "trailers", force: true do |t|
-    t.string   "title"
-    t.text     "embeded_url"
-    t.integer  "movie_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string  "title"
+    t.text    "embeded_url"
+    t.integer "movie_id"
   end
 
 end

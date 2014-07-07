@@ -15,7 +15,7 @@ mulhollanddrive = Movie.create(title: "Mulholland Drive",
                           poster_url: "http://upload.wikimedia.org/wikipedia/en/0/0f/Mulholland.png")
 
 bluevelvet.actors.push(
-                Actor.create(name: "Iseabella Rossellini",
+                Actor.create(name: "Isabella Rossellini",
                             photo_url: "http://theinterrobang.com/wp-content/uploads/2013/12/ir2.jpg"),
                 Actor.create(name: "Lyle MacLachlan",
                             photo_url: "http://www.nndb.com/people/603/000023534/kyle-sized.jpg")
