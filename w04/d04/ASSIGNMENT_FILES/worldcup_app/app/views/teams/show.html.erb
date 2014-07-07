@@ -1,0 +1,13 @@
+<%= link_to 'Back', teams_path %>
+<%= link_to 'Edit', edit_team_path(@team) %>
+
+<div style='background: url(<%= @team.flag_url %>)' class='single-team'>
+  <h1><%= @team.country %> | <%= @team.group.name %></h1>
+  <% @team.players.each do |player| %>
+  <div>
+    <h3><%= link_to player.name, player %></h3>
+    <p><%= player.team.country %> | <%= player.position %></p>
+  </div>
+<% end %>
+
+</div>

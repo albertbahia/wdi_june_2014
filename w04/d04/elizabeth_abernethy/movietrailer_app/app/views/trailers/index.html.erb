@@ -1,0 +1,10 @@
+<h2>Trailers</h2>
+
+<%= link_to('Add Trailer', new_trailer_path) %><br><br>
+
+<% @trailers.each do |trailer| %>
+  <div>
+      <b><%= trailer.title %><br></b><br>
+      <%= link_to image_tag(trailer.movie.poster_url), trailer_path(trailer) %><br>
+  </div>
+<% end %>
