@@ -9,4 +9,10 @@ class ApplicationController < ActionController::Base
       redirect_to login_path
     end
   end
+
+  def authorize
+    if session[:current_user] != params[:id].to_i
+      redirect_to users_path
+    end
+  end
 end
