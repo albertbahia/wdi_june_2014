@@ -1,14 +1,18 @@
-<h2>Edit Artist</h2>
+<h2>Edit Tweed</h2>
 
-<form action="/tweeds/<%= @tweed.id %>" method="post">
-  <label>Name:</label>
-  <input name="tweed[author]" value="<%= @tweed.author %>">
+<%= form_for(@tweed) do |f| %>
 
-  <label>Tweed:</label>
-  <input name="tweed[content]" value="<%= @tweed.content %>">
+  <%= f.label(:author) %>
+  <%= f.text_field(:author) %>
 
-  <label>Image URL:</label>
-  <input name="tweed[image_url]" value="<%= @tweed.image_url %>">
+  <%= f.label(:content) %>
+  <%= f.text_field(:content) %>
 
-  <input type="submit" value="Save Changes">
-</form>
+  <%= f.label(:image_url) %>
+  <%= f.text_field(:image_url) %>
+
+  <%= f.submit %>
+
+<% end %>
+
+<%= link_to('Back to Tweeds', tweeds_path) %>
