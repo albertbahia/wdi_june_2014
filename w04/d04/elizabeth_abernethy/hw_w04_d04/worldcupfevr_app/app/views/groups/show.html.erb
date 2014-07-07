@@ -1,9 +1,11 @@
 <h2><%= @group.name %></h2>
 
 <b>Teams:</b>
-<% @group.teams.each do |group| %>
-  <%= link_to image_tag(team.flag_url, team_path(team)) %><br>
-  (<%= team.country %>)
+<% @group.teams.each do |team| %>
+  <div>
+    <%= link_to image_tag(team.flag_url, :size => "400x250"), team_path(team) %> <br>
+    (<%= team.country %>)<br><br>
+  </div>
 <% end %>
 
 

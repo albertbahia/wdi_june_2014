@@ -1,5 +1,6 @@
-<img src="<% @team.flag_url %>"><br>
+<img src="<%= @team.flag_url %>"><br>
 <h2><%= @team.country %></h2>
+Manager: <%= @team.manager_name %><br><br>
 
 <b>Players:</b>
 <ul>
@@ -10,5 +11,5 @@
 </ul>
 
 <%= link_to('Back to All Teams', teams_path) %> |
-<%= link_to("Edit #{@team.title}", edit_team_path(@team)) %> |
-<%= link_to("Delete #{@team.title}", team_path(@team), method: :delete) %>
+<%= link_to("Edit #{@team.country}", edit_team_path(@team)) %> |
+<%= link_to("Delete #{@team.country}", team_path(@team), method: :delete) %>

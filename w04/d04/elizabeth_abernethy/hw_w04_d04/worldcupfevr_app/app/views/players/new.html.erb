@@ -19,6 +19,8 @@
   <%= f.label(:skill_level) %>
   <%= f.text_field(:skill_level) %>
 
+  Team <%= f.select(:team_id, Team.all.collect { |a| [a.country, a.id]})%>
+
   <%= f.submit %>
 <% end %>
 
