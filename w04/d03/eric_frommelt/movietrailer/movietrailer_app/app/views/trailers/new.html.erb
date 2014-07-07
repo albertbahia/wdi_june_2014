@@ -1,0 +1,23 @@
+<%= link_to 'All Trailers', trailers_path %>
+<% if @trailer.errors.any? %>
+  <%= @trailer.errors.full_messages.each do |error_msg| %>
+    <li><%= error_msg %></li>
+  <% end %>
+<% end %>
+
+<%= form_for @trailer do |f| %>
+  <div>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  </div>
+  <div>
+  <%= f.label :embed_url %>
+  <%= f.text_field :embed_url %>
+  </div>
+  <div>
+  
+  <%= collection_select(:trailer, :movie_id, Movie.all, :id, :title) %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

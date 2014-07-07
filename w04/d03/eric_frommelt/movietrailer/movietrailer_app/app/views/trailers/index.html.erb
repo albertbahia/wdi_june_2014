@@ -1,0 +1,9 @@
+<h1>Trailers</h1>
+<%= link_to "Add a trailer", new_trailer_path %>
+<% @trailers.each do |trailer| %>
+  <div>
+    <h1><%= trailer.title %></h1>
+    <iframe id="ytplayer" type="text/html" width="640" height="390"
+  src="<%= trailer.embed_url %>" frameborder="0"/></iframe>
+  </div>
+<% end %>
