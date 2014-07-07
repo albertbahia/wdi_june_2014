@@ -2,5 +2,8 @@
 <h1><%= @movie.title %></h1>
 <p><%= @movie.year %></p>
 <%= link_to "Edit Movie", edit_movie_path(@movie) %>
-<p><%= image_tag(@movie.poster_url) %></p>
+<p><img src="<%= @movie.poster_url %>"></p>
 <p><%= @movie.plot %></p>
+
+<%= link_to "See actors", movie_actors_path(@movie) %>
+<%= link_to "Watch the Trailer", movie_trailers_path(@movie) %>
