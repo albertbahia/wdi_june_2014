@@ -1,0 +1,11 @@
+<%= link_to 'All Groups', groups_path %>
+<h1><%= @group.name %></h1>
+
+<h2>Teams</h2>
+<ul>
+<% @group.teams.each do |team| %>
+
+  <li><%= link_to team.country, team_path(team) %></li>
+
+<% end %>
+</ul>
