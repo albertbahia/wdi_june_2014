@@ -13,6 +13,9 @@
   <%= f.label(:embed_url) %>
   <%= f.text_field(:embed_url) %>
 
+  Movie
+  <%= f.collection_select(:ovie_id, Movieall, :id, :title) %>
+
   <%= f.submit %>
 <% end %>
 

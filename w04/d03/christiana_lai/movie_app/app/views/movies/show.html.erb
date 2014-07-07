@@ -1,5 +1,4 @@
-<h2><%= @movie.title %></h2>
-<h3><%= @movie.year %></h3>
+<h2><%= @movie.title %> (<%= @movie.year %>)</h2>
 <img src="<%= @movie.poster_url %>">
 <h3><%= @movie.plot %></h3>
 
@@ -8,6 +7,8 @@
     <li><a href="/actors/<%= actor.id %>"><%= actor.name %></li>
   <% end %>
 </ul>
+
+<%= link_to('View Trailer', trailer_path(@movie)) %><p>
 
 <%= link_to('Edit', edit_movie_path(@movie)) %> |
 <%= link_to('Back to Movies', movies_path) %> |
