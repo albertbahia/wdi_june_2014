@@ -1,0 +1,21 @@
+<br><br><img src="<%= @movie.poster_url %>"><br><br>
+<h2><%= @movie.title %></h2>
+<h4>(<%= @movie.year %>)</h4>
+
+<p>"<%= @movie.plot %>"</p>
+
+
+
+<b>Actors:</b>
+<ul>
+  <% @movie.actors.each do |actor| %>
+    <li><%= link_to(actor.name, actor_path(actor)) %></li>
+  <% end %>
+</ul>
+
+
+
+
+<%= link_to('Back to All Movies', movies_path) %> |
+<%= link_to("Edit #{@movie.title}", edit_movie_path(@movie)) %> |
+<%= link_to("Delete #{@movie.title}", movie_path(@movie), method: :delete) %>
