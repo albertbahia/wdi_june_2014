@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :authorize, only: [:edit, :update, :destroy]
+
   def index
     @users = User.all
   end
@@ -16,9 +19,27 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+<<<<<<< HEAD
+    @user.destroy
+=======
+    if @user.update(user_params)
+      redirect_to users_path
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @user = User.find(params[:id])
     @user.destroy
+    session[:current_user] = nil
+>>>>>>> 72b51923c42da833417ae197638f70f89ee58290
     redirect_to users_path
   end
 
