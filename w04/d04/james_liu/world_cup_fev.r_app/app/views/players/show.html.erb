@@ -1,0 +1,10 @@
+<h2><%= @player.name %></h2>
+<h2><%= @player.team.country %></h2>
+
+<img src="<%= @player.photo_url %>">
+
+<div> </div>
+
+<%= link_to('Edit player', edit_player_path(@player)) %>
+<%= link_to('Back to players', players_path) %>
+<%= link_to('Delete', player_path(@player), method: :delete)%>
