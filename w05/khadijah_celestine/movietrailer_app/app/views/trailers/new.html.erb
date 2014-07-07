@@ -1,9 +1,0 @@
-<%= link_to 'Movie Trailers', movie_trailers_path(@movie,@trailer) %>
-
-<%= form_for [@movie,@trailer] do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :embed_url %>
-  <%= f.text_field :embed_url %>
-  <%= f.submit %>
-<% end %>
