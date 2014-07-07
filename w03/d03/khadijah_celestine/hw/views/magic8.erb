@@ -1,0 +1,9 @@
+<% @title="Magic 8" %>
+<h2>Magic 8</h2>
+<p>To submit a question the user must put their question in the url bar as such: localhost:4567/magic/Will%20I%20survive</p>
+<p>Spaces must be 'escaped' using %20</p>
+<p>Then you shal recieve your answer</p>
+
+<% if @param %>
+<p><%=  @answer %></p>
+<% end %>

@@ -1,0 +1,10 @@
+<p>
+  Welcome to TWDIR!
+</p>
+
+<ul>
+  <% @tweeds.each do |tweed| %>
+      <%= link_to(tweed.content, tweed_path(tweed)) %><br>
+      <img src="<%= tweed.image_url %>"><br>
+  <% end %><br>
+</ul>
