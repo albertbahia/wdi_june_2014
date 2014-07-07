@@ -1,0 +1,17 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h3> <%= @player.name %> </h3>
+    <img src= "<%= @player.photo_url %>">
+    <p>Team: <%= link_to(@player.team.country, team_path(@player.team))%> </p>
+    <p>Position: <%= @player.position %> </p>
+    <p>Skill Level: <%= @player.skill.to_s %> </p>
+
+    <p> <%= link_to("Edit this player", edit_player_path(@player)) %> </p>
+    <p> <%= link_to("Back to all players", players_path) %> </p>
+    <br>
+  </br>
+  <%= button_to("Delete this player", player_path(@player), {method: :delete}) %>
+  </body>
+</html>
