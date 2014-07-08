@@ -1,0 +1,5 @@
+<div class="actor">
+	<h4><%= @actor.name %></h4>
+	<img src="<%= @actor.photo_url %>">
+</div>
+<%= link_to 'Delete', actor_path(@actor), method: :delete %>
