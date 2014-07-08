@@ -1,8 +1,12 @@
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+<%= link_to 'Movie', movie_path(@movie) %>
+<%= link_to 'Add Trailer', new_movie_trailer_path(@movie) %>
 
-</body>
-</html>
+<% @trailers.each do |trailer| %>
+	<div>
+		<p><%= trailer.title %></p>
+		<iframe id="ytplayer" type="text/html" width="640" height="390"
+    src="<%= trailer.embed_url %>"
+    frameborder="0"></iframe>
+    <%= link_to 'Edit', edit_movie_trailer_path(trailer.movie.id,trailer.id) %>
+  </div>
+<% end %>
