@@ -1,13 +1,11 @@
-
 class MoviesController < ApplicationController
-
 
   def index
     @movies = Movie.all
   end
 
-  def search
-    @search_results = Omdb.search(params[:term])
+  def show
+    @movie = Movie.find(params[:id])
   end
 
   def new
@@ -17,14 +15,10 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
     if @movie.save
-      redirect_to(movie_path(@movie))
+      redirect_to(new_movie_trailer_path(@new_movie))
     else
       render :new
     end
-  end
-
-  def show
-    @movie = Movie.find(params[:id])
   end
 
   def edit
@@ -42,8 +36,25 @@ class MoviesController < ApplicationController
 
   def destroy
     @movie = Movie.find(params[:id])
-    @movie.destroy
-    redirect_to(movies_path)
+    if @movie.destroy
+      redirect_to movies_path
+    else
+      redirect_to movie_path(@movie)
+    end
+  end
+
+  def search
+    @results = Omdb.search_by_title(params[:search])
+  end
+
+  def add_new
+    new_movie = OMDB.search_by_id(params[:omdb_id_number])
+    @movie = Movie.find_or_create_by(new_movie.first)
+    new_movie.last.each do |actor|
+      actor = Actor.create_with(photo_url: 'http://placekitten.com/300/300').find_or_create_by(name: actor)
+      @movie.actors << actor
+    end
+    redirect_to movie_path(@movie)
   end
 
   private
