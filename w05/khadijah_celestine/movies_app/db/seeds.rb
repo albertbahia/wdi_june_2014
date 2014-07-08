@@ -19,3 +19,6 @@ movies.each do |movie|
 	
 end
 
+nemo = Movie.find_by(title: 'Finding Nemo')
+t = Trailer.new(title: 'Nemo Trailer', embed_url: 'www.youtube.com/embed/wZdpNglLbt8')
+nemo.trailers.push(t)
