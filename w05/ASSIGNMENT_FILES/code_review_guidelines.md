@@ -53,7 +53,7 @@ Github will show you the changes between any two branches, commits, etc,
 including by time!
 
 To see this view, use a URL like:
-https://github.com/<USER>/<REPO>/compare/master@{1day}
+https://github.com/USER/REPO/compare/master@{1day}
 
 This will show the difference between the current master branch (implied), and the
 master branch 1 day ago. Make sure to select the appropriate time frame.
