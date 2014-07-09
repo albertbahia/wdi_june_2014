@@ -1,0 +1,16 @@
+<% kelvin = @api_call['main']['temp'] %>
+<% f_temp = (kelvin - 273.15) * 1.8 + 32 %>
+<form id="search" action="/search" method="post">
+  <input type="text" name="search" placeholder="City Name">
+  <input type="submit" value="Search">
+</form>
+<img src="http://9to5mac.files.wordpress.com/2011/10/nest-thermostat-003.jpg" alt="">
+<div class='circle'>
+  <p>
+    <%= @api_call['name'] %>
+  </p>
+  <p>
+    <%= f_temp.round(0) %>
+  </p>
+  <p>F</p>
+</div>
