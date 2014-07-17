@@ -1,0 +1,23 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h3> <%= @actor.name %> </h3>
+
+    <img src= "<%= @actor.photo_url %>">
+    <ul>
+    <% @actor.movies.each do |movie| %>
+    <li> <%= link_to movie.title, movie_path(movie) %> </li>
+    <% end %>
+  </ul>
+
+<p><%= link_to "Back to all actors.", actors_path %></p>
+
+<p><%= link_to "Edit this actor.", edit_actor_path(@actor) %></p>
+
+<%= button_to "Delete", actor_path(@actor), method: :delete %>
+
+<p><%= link_to "Back to all movies.", movies_path %></p>
+
+  </body>
+</html>

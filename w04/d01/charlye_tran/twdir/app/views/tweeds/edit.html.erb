@@ -1,17 +1,16 @@
 <h2>Edit Tweed</h2>
 
-<form action="/tweeds/<%= @tweed.id %>" method="post">
-  <label>Author:</label>
-  <input name="tweed[author]" value="<%=@tweed.author%>">
+<%= form_for(@tweed) do |f| %>
 
-  <label>What's your tweed?</label>
-  <input name="tweed[content]" value="<%=@tweed.content%>">
+  <%= f.label(:author) %>
+  <%= f.text_field(:author)%>
 
-  <label>Picture URL</label>
-  <input name="tweed[image_url]" value="<%=@tweed.image_url%>">
+  <%= f.label(:content) %>
+  <%= f.text_field(:content) %>
 
-  <label>Timestamp</label>
-  <input name="tweed[timestamp]" value="<%=@tweed.timestamp%>">
+  <%= f.label(:image_url) %>
+  <%= f.text_field(:image_url) %>
 
-  <input type="submit" value="Edit Your Tweed">
-</form>
+  <%= f.submit() %>
+
+<% end %>

@@ -1,16 +1,17 @@
 
 <table>
 <tr>
-  <td><img src="<%= @tweed.image_url %>"></td>
+  <td><img src="<%= @tweeds.image_url %>"></td>
 </tr>
 <tr>
-  <td><%= @tweed.content %></td>
+  <td><%= @tweeds.content %></td>
 </tr>
 <tr>
-  <td><%= @tweed.author %></td>
+  <td><%= @tweeds.author %></td>
 </tr>
 <tr>
-  <td><%= @tweed.created_at %></td>
+  <td><%= @tweeds.created_at %></td>
 </tr>
 </table>
-<a href="/tweeds/<%= @tweed.id %>/edit">click here to edit this tweed</a>
+<br>
+<%= link_to('click here to edit this tweed', edit_tweed_path(@tweeds)) %>

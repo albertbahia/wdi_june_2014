@@ -1,0 +1,5 @@
+<h2><%= @actor.name %></h2>
+<%= link_to('Back to Actors', actors_path) %> -
+<%= link_to('Edit', edit_actor_path(@actor)) %>
+</br>
+<img src="<%= @actor.photo_url%>">

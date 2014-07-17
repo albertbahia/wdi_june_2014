@@ -1,0 +1,9 @@
+<h3>Actors</h3>
+
+<%= link_to 'Add New Actor', new_actor_path %>
+
+<ul>
+  <% @actors.each do |actor| %>
+  <li><%= link_to actor.name+" ("+actor.movies.count.to_s+")", actor_path(actor) %></li>
+  <% end %>
+</ul>

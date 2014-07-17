@@ -1,0 +1,17 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>All actors:</h1>
+
+    <p><%= link_to "Add New Actor", new_actor_path %></p>
+    
+      <% @actors.each do |actor| %>
+      <p><%= link_to "#{actor.name}", actor_path(actor) %></p>
+      <img src= "<%= actor.photo_url %>">
+      <% end %>
+
+      <p><%= link_to "Back to all movies.", movies_path %></p>
+
+  </body>
+</html>

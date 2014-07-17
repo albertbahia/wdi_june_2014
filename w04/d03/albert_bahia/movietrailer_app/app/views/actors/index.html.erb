@@ -1,0 +1,9 @@
+<h1>Actor's Index</h1>
+<%= link_to 'Add Actor', new_actor_path %>
+
+<% @actors.each do |actor| %>
+<div>
+  <%= link_to image_tag(actor.photo_url, :size => '300x400' ), actor_path(actor) %>
+  <p><strong>Name: </strong><%= actor.name %></p>
+</div>
+<% end %>

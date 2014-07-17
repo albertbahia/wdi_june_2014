@@ -1,0 +1,15 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h3> Teams: </h3>
+    <% @teams.each do |team| %>
+    <ul>
+      <li><%= link_to(team.country, team_path(team)) %> </li>
+    </ul>
+    <% end %>
+
+    <p> <%= link_to("Add a new team.", new_team_path) %> </p>
+
+  </body>
+</html>

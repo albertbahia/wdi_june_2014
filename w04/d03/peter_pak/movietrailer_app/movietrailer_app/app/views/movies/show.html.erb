@@ -1,0 +1,30 @@
+<h2><%= @movies.title %> - <%= @movies.year %></h2>
+<%= image_tag(@movies.poster_url) %><br>
+Plot: <%= @movies.plot %><br>
+Starring:
+<% if @movies.actors == [] %>
+<%= link_to('Click here to an actor for this movie', new_actor_path) %>
+<% else %>
+  <ul>
+<% @movies.actors.each do |actor| %>
+    <li><%= link_to("#{actor.name}", actor_path(actor)) %></li>
+  </ul>
+<% end %>
+<% end %>
+<br>
+<% if @movies.trailer != nil %>
+<iframe id="ytplayer" type="text/html" width="640" height="390"
+  src="<%= @movies.trailer.embed_url %>"
+  frameborder="0"/>
+</iframe>
+<%= link_to('Click here edit this trailer', new_movie_trailer_path(@movies)) %>
+
+<% else %>
+<%= link_to('Click here to add a trailer for this movie', new_movie_trailer_path(@movies)) %>
+<% end %>
+
+
+<br>
+<%= link_to('Edit this Movie', edit_movie_path(@movies)) %>
+<br>
+<%= link_to('Back to movies', movies_path) %>
