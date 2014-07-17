@@ -1,0 +1,7 @@
+<%= link_to 'Team', team_path(@team) %>
+<%= form_for @team do |f| %>
+  <%= f.text_field :country, {placeholder: 'Country'} %>
+  <%= f.text_field :flag_url, {placeholder: 'Flag URL'} %>
+  <%= f.text_field :manager_name, {placeholder: 'Manager Name'} %>
+  <%= f.submit %>
+<% end %>
