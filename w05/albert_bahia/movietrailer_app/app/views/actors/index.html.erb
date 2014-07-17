@@ -1,0 +1,12 @@
+<%= link_to 'Back to Movie', movie_path(@movie) %>
+<%= link_to "Add a actor", new_movie_actor_path(@movie) %>
+
+<% @actors.each do |actor| %>
+	<div>
+		<p>
+		<h3><%= link_to actor.name, movie_actor_path(@movie,actor) %></h3>
+		<%= link_to "Edit", edit_movie_actor_path(@movie, actor) %>
+		</p>
+		<img src="<%= actor.photo_url %>">
+	</div>
+<% end %>

@@ -1,0 +1,39 @@
+<%= link_to 'Back', @player %>
+
+<ul>
+<% @player.errors.full_messages.each do |error| %>
+  <li><%= error %></li>
+<% end %>
+</ul>
+
+<%= form_for @player do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :photo_url %>
+    <%= f.text_field :photo_url %>
+  </div>
+
+  <div>
+    <%= f.label :position %>
+    <%= f.radio_button :position, 'Forward' %> Forward
+    <%= f.radio_button :position, 'Goalkeeper' %> Goalkeeper
+    <%= f.radio_button :position, 'Midfielder' %> Midfielder
+    <%= f.radio_button :position, 'Defender' %> Defender
+  </div>
+
+  <div>
+    <%= f.label :skill_level %>
+    <%= f.number_field :skill_level, max: 100, min: 1 %>
+  </div>
+
+  <div>
+    <%= f.label :team_id, 'Team' %>
+    <%= f.select :team_id, options_for_select(@teams.map {|team| [team.country, team.id]}) %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

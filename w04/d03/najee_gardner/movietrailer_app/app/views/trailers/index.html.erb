@@ -1,0 +1,13 @@
+<h3>Trailers</h3>
+
+<%= link_to 'Add Trailer', new_trailer_path %>
+
+
+<% @trailers_hash.each do |movie_name, trailers| %>
+  <h5><%= movie_name %></h5>
+  <ul>
+    <% trailers.each do |trailer| %>
+    <li><%= link_to trailer.title, trailer_path(trailer) %></li>
+    <% end %>
+  </ul>
+<% end %>

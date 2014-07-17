@@ -1,0 +1,15 @@
+<div id="movies">		
+		<ul>
+			<% @movies.each do |movie| %>
+				<li class="movie">
+					<%= link_to image_tag(movie.poster_url), movie_path(movie) %>
+					<p>
+					<span class="title"> <%= movie.title %> </span>
+					<span class="year"> <%= movie.year%> </span>
+					</p>
+					<p class="plot"><%= movie.plot %></p>
+
+				</li>
+			<% end %>
+		</ul>
+</div>

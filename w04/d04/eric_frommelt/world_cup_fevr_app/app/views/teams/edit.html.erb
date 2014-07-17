@@ -1,0 +1,28 @@
+<%= link_to 'Back', @team %>
+
+<ul>
+  <% @team.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+</ul>
+
+<%= form_for @team do |f| %>
+  <div>
+    <%= f.label :country %>
+    <%= f.text_field :country %>
+  </div>
+  <div>
+    <%= f.label :flag_url %>
+    <%= f.text_field :flag_url %>
+  </div>
+  <div>
+    <%= f.label :manager %>
+    <%= f.text_field :manager %>
+  </div>
+  <div>
+    <%= f.label :group_id, 'Group' %>
+    <%= f.select :group_id, options_for_select(@groups.map {|group| [group.name, group.id]}) %>
+  </div>
+  
+  <%= f.submit %>
+<% end %>
