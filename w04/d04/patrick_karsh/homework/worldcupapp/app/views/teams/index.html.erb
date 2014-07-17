@@ -1,0 +1,12 @@
+<% @teams.each do |team| %>
+
+  <h4><%= link_to team.country, team_path(team) %></h4>
+  <p>Manager: <%= team.manager %></p>
+  <p>Group: <%= team.group.name %></p>
+ 
+  <img src="<%= team.flag_url %>" alt="">
+
+
+<% end %>
+
+
