@@ -1,0 +1,5 @@
+<h1>Movie Trailers</h1>
+<%= link_to 'Create New Trailer', new_trailer_path() %>
+<% @trailers.each do |trailer| %>
+	<h4><%= link_to trailer.title, trailer_path(trailer) %></h4>
+<% end %>

@@ -1,0 +1,15 @@
+<h1>New Player</h1>
+
+<%= form_for @player do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br />
+  <%= f.label :photo_url %>:
+  <%= f.text_field :photo_url %><br />
+  <%= f.label :position %>:
+  <%= f.text_field :position %><br />
+  <%= f.label :skill_level %>:
+  <%= f.text_field :skill_level %><br />
+  <%= f.label :team_id %>:
+  <%= f.text_field :team_id %><br />
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,9 @@
+<!-- names = ["jesse", "john", "bob"]
+@artists = [artist1, artist2, artist2] -->
+
+<% @artists.each do |artist| %>
+  <h1><%= link_to artist.name, artist_path(artist) %></h1>
+<% end %>
+
+
+<%= link_to "Create New Artist", new_artist_path %>

@@ -1,0 +1,17 @@
+<h2>Trailers!</h2>
+
+<p><%= link_to('Movie Trailers Main', root_path) %></p>
+<%= link_to('Add a new Trailer', new_trailer_path) %>
+
+<ul>
+  <% @trailers.each do |trailer| %>
+    <%= link_to(trailer.title, trailer_path(trailer)) %>
+    <p><iframe id="ytplayer" type="text/html" width="640" height="390" src="<%= trailer.embed_url %>" frameborder="0"/></p>
+  <% end %>
+</ul>
+
+<ul>
+  <%= @trailers.each do |trailer| %>
+    <%= link_to(trailer.movie.title, movie_path(trailer.movie)) %>
+  <% end %>
+</ul>

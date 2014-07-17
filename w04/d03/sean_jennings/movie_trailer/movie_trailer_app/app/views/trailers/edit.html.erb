@@ -1,0 +1,17 @@
+<%= link_to 'Back to Trailer', trailer_path(@trailer) %>
+
+<%= form_for @trailer do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :embed_url %>
+    <%= f.text_field :embed_url %>
+  </div>
+
+    <%= f.submit %>
+
+<% end %>
+
+<%= button_to "Delete", actor_path(@trailer), method: :delete %>

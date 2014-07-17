@@ -1,0 +1,12 @@
+<h2><%= @actors.name %></h2>
+<%= image_tag(@actors.photo_url) %><br>
+
+<p>
+  Appears in:
+  <%= link_to("#{@movie.title}", movie_path(@movie)) %>
+</p>
+<br>
+<br>
+<%= link_to("Edit this person's info", edit_actor_path(@actors)) %>
+<br>
+<%= link_to('Back to actors', actors_path) %>

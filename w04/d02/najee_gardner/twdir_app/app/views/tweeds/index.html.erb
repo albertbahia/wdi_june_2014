@@ -6,7 +6,7 @@
   <div class="tweed_box">
     <p class="content"><%= tweed.content %></p>
     <img src="<%= tweed.image_url %>">
-    <p>Posted by: <%= tweed.author %>       <%= tweed.timestamp.to_s.split.first + " " + tweed.timestamp.to_s.split[1] %></p>
+    <p>Posted by: <%= tweed.author+"       "+tweed.timestamp.to_s.split.first + " " + tweed.timestamp.to_s.split[1] %></p>
   </div>
 </a>
 <% end %>

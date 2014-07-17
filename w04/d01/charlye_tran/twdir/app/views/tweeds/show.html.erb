@@ -3,11 +3,5 @@
 <%if @tweed.image_url%>
   <img src="<%= @tweed.image_url%>" height='400' width='450'>
 <%end%>
-<h5>Post date:<%=@tweed.timestamp%></h5>
 
-<a href="/tweeds/<%=@tweed.id%>/edit">Edit Your Tweed</a>
-
-
-<form action="/tweeds/<%=@tweed.id%>/delete" method="post">
-  <input type="submit" value="Delete Tweed">
-</form>
+<%= link_to('Edit Your Tweeds', edit_tweed_path(@tweed))%>

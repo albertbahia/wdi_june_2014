@@ -1,0 +1,15 @@
+<h2><%= @movie.title %></h2>
+<%= link_to('Back to Movies', movies_path) %> –
+<%= link_to('View Trailer', trailer_path(@movie))%> - 
+<%= link_to('Edit', edit_movie_path(@movie)) %>
+
+<h3>Year: <%= @movie.year%></h3>
+<p><%= @movie.plot%></p>
+<img src="<%= @movie.poster_url %>">
+
+
+<% @movie.actors.each do |actor| %>
+  <ul>
+    <li><%= link_to(actor.name, actor_path(actor))%></li>
+  </ul>
+<% end %>

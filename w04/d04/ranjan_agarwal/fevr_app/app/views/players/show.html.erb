@@ -1,0 +1,18 @@
+
+<div class="player-content">
+  <h2><%= @player.name %></h2>
+  <img src="<%= @player.photo_url %>" alt="" />
+  <img src="<%= @team.flag_url %>" class="player-flag" />
+  <%= link_to("Team: #{@team.country}", team_path(@team)) %>
+  <p>
+    Position: <%= @player.position %>
+  </p>
+  <p>
+    Skill Level: <%= @player.skill_level %>
+  </p>
+</div>
+<div class="changes-block">
+  <%= link_to('Back to Players', players_path) %>
+  <%= link_to('Edit', edit_player_path(@player)) %>
+  <%= link_to('Delete', player_path(@player), {method: :delete}) %>
+</div>

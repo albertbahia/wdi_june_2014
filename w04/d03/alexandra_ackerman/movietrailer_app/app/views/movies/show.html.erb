@@ -1,0 +1,26 @@
+<h2><%= @movie.title %></h2>
+<%= link_to('Back to Movies', movies_path) %> –
+<%= link_to('Edit', edit_movie_path(@movie)) %>
+
+<h3>Year: <%= @movie.year%></h3>
+<img src="<%= @movie.poster_url %>">
+
+<p><%= @movie.plot%></p>
+
+<% @movie.actors.each do |actor| %>
+  <ul>
+    <li><%= link_to(actor.name, actor_path(actor))%></li>
+  </ul>
+<% end %>
+
+<% form_tag("/movies/#{@movie.id}/add_actor") do %>
+  <%= select_tag :actor_id, options_for_select(Actor.all.map {|actor| [actor.name, actor.id]}) %>
+  <%= submit_tag('Add Actor') %>
+<% end %>
+
+<% if @movie.actors.count > 0 %>
+  <%= form_tag("/movies/#{@movie.id}/remove_actor") do %>
+    <%= select_tag :actor_id, options_for_select(@movie.actors.map { |actor| [actor.name, actor.id]}) %>
+    <%= submit_tag('Remove Actor') %>
+  <% end %>
+<% end %>

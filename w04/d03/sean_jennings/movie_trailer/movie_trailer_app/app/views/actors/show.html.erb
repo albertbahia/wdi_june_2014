@@ -1,0 +1,8 @@
+<%= link_to "Back to Actors", actors_path %>
+<div>
+  <img src="<%= @actor.photo_url %>">
+  <p><%= @actor.name %></p>
+</div>
+
+<%= link_to "Edit", edit_actor_path %>
+<%= button_to "Delete", actor_path(@actor), method: :delete %>

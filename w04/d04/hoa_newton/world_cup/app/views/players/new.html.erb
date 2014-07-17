@@ -1,0 +1,9 @@
+<h3>Add player</h3>
+
+<ul>
+	<% @player.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+	<% end %>
+</ul>
+
+<%= render "form", locals: { method: :post } %>
