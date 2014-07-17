@@ -1,0 +1,13 @@
+<h1>Bitcoin, yo.</h1>
+
+<h4>Exchange rates up to the minute:</h4>
+
+<% @rates.each do |rate| %>
+  <div>
+    <h3>Currency: <%= rate['description'] %> | Code: <%= rate['code'] %></h3>
+    <h3><%= rate['rate'] %></h3><hr>
+  </div>
+<% end %>
+
+<a href="/">Refresh Results</a> | 
+<a href="http://www.coindesk.com/price/">Powered by CoinDesk</a>
