@@ -1,0 +1,11 @@
+<h2><%= @actor.name %> </h2>
+
+<p><%= link_to('Movie Trailers Main', root_path) %></p>
+<%= link_to('Back to Actors', actors_path) %>
+
+<ul>
+  <p><img src="<%= @actor.photo_url %>" height="450" width="400"></p>
+</ul>
+
+
+<%= link_to('Edit', edit_actor_path(@actor)) %>

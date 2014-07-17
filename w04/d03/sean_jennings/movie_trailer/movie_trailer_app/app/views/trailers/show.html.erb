@@ -1,0 +1,9 @@
+<p>Trailer</p>
+<%= link_to "Back to Trailers", trailers_path %>
+<div>
+  <p><%= @trailer.title %></p>
+  <a href="<%= @trailer.embed_url %>">Link to Trailer</a>
+</div>
+
+<%= link_to "Edit", edit_trailer_path %>
+<%= button_to "Delete", trailer_path(@trailer), method: :delete %>

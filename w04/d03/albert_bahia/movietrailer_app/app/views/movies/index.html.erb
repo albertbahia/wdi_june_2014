@@ -1,0 +1,22 @@
+<h1>Movies Index</h1>
+
+<div>
+  <%= form_tag("/search", method: "get") do %>
+    <%= label_tag(:q, "Search OMDb:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+</div>
+
+<br>
+<%= link_to 'Add Movie', new_movie_path %>
+<br>
+<br>
+<% @movies.each do |movie| %>
+<div>
+  <%= link_to image_tag(movie.poster_url, :size => '300x400'), movie_path(movie) %>
+  <p><strong>Title:</strong> <%= movie.title %></p>
+  <p><strong>Year:</strong> <%= movie.year %></p>
+  <p><strong>Plot:</strong> <%= movie.plot %></p>
+</div>
+<% end %>

@@ -1,0 +1,14 @@
+
+<%= link_to "Add a Player", new_player_path %>
+<%= link_to "Home", root_path %>
+
+<ul>
+<% @players.each do |player| %>
+  <li>
+    <a href="players/<%= player.id %>"><img src="<%= player.photo_url %>" alt="player"></a>
+    <p>Name: <%= player.name %></p>
+    <p>Position: <%= player.position %></p>
+    <p>Skill Level: <%= player.skill_level %></p>
+  </li>
+<% end %>
+</ul>

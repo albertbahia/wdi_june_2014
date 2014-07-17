@@ -1,0 +1,8 @@
+<h1>Player Index</h1>
+<%= link_to "Add New Player", new_player_path %>
+
+<ul>
+  <% @players.each do |plyr| %>
+  <li><%= link_to "#{plyr.name}", player_path(plyr.id) %></li>
+  <% end %>
+</ul>

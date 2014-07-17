@@ -1,12 +1,13 @@
+<%= link_to('Post Tweed', new_tweed_path) %>
+
 <% @tweeds.each do |tweed| %>
 
 <div class="tweed">
 
-
-  <a href="/tweeds/<%= tweed.id %>"><img src="<%= tweed.image_url %>"></a><br><br>
+  <%= link_to image_tag(tweed.image_url), tweed_path(tweed) %><br>
   <%= tweed.content %><br>
-  <a href="/tweeds/<%= tweed.id %>">Posted by: <%= tweed.author %> on <%= tweed.created_at %>
-  </a>
+  <%= link_to ("Posted by: #{tweed.author} on #{tweed.created_at}"), tweed_path(tweed) %>
+
 
 </div>
 <% end %>

@@ -1,0 +1,14 @@
+<h2><%= @tweed.author %></h2>
+<h3><%= @tweed.content %></h3>
+<h4><%= @tweed.timestamp %></h4>
+<img src="<%= @tweed.image_url %>">
+
+
+Author: <%= @tweed.author %></br>
+Content: <%= @tweed.content %></br>
+Image URL: <%= @tweed.image_url %></br>
+
+
+<%= link_to('Edit', edit_tweed_path(@tweed)) %> |
+<%= link_to('Back to Tweeds', tweeds_path) %> |
+<%= link_to('Delete', tweed_path(@tweed), method: :delete) %>

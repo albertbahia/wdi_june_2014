@@ -1,0 +1,12 @@
+<h4><%= @player.name %></h4>
+
+<img src="<%= @player.photo_url %>" />
+<p>TEAM: <%= link_to(@player.team.country, team_path(@player.team)) %></p>
+<p>POSITION: <%= @player.position %></p>
+<p>SKILL LEVEL: <%= @player.skill_level %></p>
+
+<div class="bottom">
+<p class="bottom"><%= link_to('BACK TO PLAYERS', players_path) %></p>
+<p class="bottom"><%= link_to("EDIT PLAYER", edit_player_path(@player)) %></p>
+<p class="bottom"><%= link_to("DELETE PLAYER", player_path(@player), {:method => :delete}) %></p>
+</div>

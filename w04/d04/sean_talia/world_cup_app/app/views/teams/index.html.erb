@@ -1,0 +1,9 @@
+<h2>All Teams</h2>
+
+<p>
+  <%= link_to('Add Team', new_team_path) %>
+</p>
+
+<% @teams.each do |team| %>
+  <%= link_to("#{team.country} (Group #{team.group.name})", team_path(team)) %> <br>
+<% end %>
