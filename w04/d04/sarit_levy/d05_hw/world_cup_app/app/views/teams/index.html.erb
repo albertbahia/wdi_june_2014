@@ -1,0 +1,9 @@
+<h1>World Cup Teams</h1>
+
+<% @teams.each do |team| %>
+  <div>
+    <p><%=link_to team.country, team_path(team) %></p>
+  </div>
+
+<%= link_to "Add a Team", new_team_path %>
+<% end %>
