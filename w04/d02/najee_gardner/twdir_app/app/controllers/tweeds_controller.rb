@@ -17,7 +17,9 @@ class TweedsController < ApplicationController
   end
 
   def create
-    tweed = Tweed.create!(tweed_params)
+    tweed = Tweed.new(tweed_params)
+    tweed.timestamp = Time.now
+    tweed.save
     redirect_to(tweed_path(tweed))
   end
 

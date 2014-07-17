@@ -1,0 +1,31 @@
+<h3 class='edit'>Edit Player</h3>
+
+<h3> Errors </h3>
+
+<ul>
+  <% @player.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
+
+<% form_for(@player) do |f|
+
+  <%= f.label(:name) %>
+  <%= f.text_field(:name) %>
+
+  <%= f.label(:position) %>
+  <%= f.text_field(:position) %>
+
+  <%= f.label(:skill_level) %>
+  <%= f.text_field(:skill_level) %>
+
+  <%= f.label(:photo_url) %>
+  <%= f.text_field(:photo_url) %>
+
+  <%= f.select(:team_id, options_for_select(@teams.map {|team| [team.country,team.id]})) %>
+
+  <%= f.submit %>
+
+<% end %>
+
+<%= link_to('Back to Players', players_path) %>

@@ -1,0 +1,10 @@
+
+  <h1>Country: <%= @team.country %></h1>
+  <%= link_to "Edit Team", edit_team_path(@team)  %><br>
+  <img src="<%= @team.flag_url %>">
+  <h3>Manager: <%= @team.manager_name %></h3>
+  <ul>
+      <% @team.players.each do |player| %>
+        <li><%= link_to player.name, player_path(player) %></li>
+      <%end%>
+  </ul>
