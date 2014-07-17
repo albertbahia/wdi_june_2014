@@ -3,7 +3,6 @@ require 'sinatra/reloader'
 require 'active_record'
 
 require_relative 'controllers/images'
-require_relative 'controllers/users'
 
 require_relative 'models/image'
 require_relative 'models/user'

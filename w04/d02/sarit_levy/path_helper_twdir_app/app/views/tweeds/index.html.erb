@@ -1,0 +1,11 @@
+<h2>Tweeds Index</h2>
+
+<%= link_to('Add Tweed', new_tweed_path) %>
+
+<ul>
+  <% @tweeds.each do |tweed| %>
+    <li>
+      <%= link_to(tweed.author, tweed_path(tweed)) %>
+    </li>
+  <% end %>
+</ul>
