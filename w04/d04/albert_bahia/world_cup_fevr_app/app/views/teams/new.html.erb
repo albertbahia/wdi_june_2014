@@ -1,0 +1,16 @@
+<h2>Add Team</h2>
+
+<%= form_for @team do |f| %>
+  <%= f.label :country %>
+  <%= f.text_field :country %>
+
+  <%= f.label :flag_url %>
+  <%= f.text_field :flag_url %>
+
+  <%= f.label :manager_name %>
+  <%= f.text_field :manager_name %>
+
+  <%= f.submit("Add Team") %>
+<% end %>
+
+<%= link_to "Back to Teams", teams_path %>
