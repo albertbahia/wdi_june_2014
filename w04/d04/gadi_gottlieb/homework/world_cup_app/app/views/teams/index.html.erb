@@ -1,0 +1,5 @@
+<h1>Teams Index</h1>
+<%= link_to "Add Team", new_team_path(@team) %>
+<% @teams.each do |team| %>
+  <h3><%= link_to team.country, team_path(team) %></h3>
+<%end%>
