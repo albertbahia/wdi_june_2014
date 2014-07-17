@@ -1,0 +1,9 @@
+<h3>Add new movie</h3>
+
+<%= form_for @movie, method: :post do |f| %>
+	Title: <%= f.text_field :title %>
+	Year: <%= f.text_field :year %>
+	Poster URL: <%= f.text_field :poster_url %>
+	Plot: <%= f.text_field :plot %>
+	<%= f.submit %>
+<%end%>
