@@ -1,0 +1,7 @@
+<h3>My Favs</h3>
+<%= link_to 'Add New Fav', new_movie_path %>
+<ul>
+<% @movies.each do |movie| %>
+  <li><%= link_to movie.title+" ("+movie.year.to_s+")", movie_path(movie) %></li>
+<% end %>
+</ul>

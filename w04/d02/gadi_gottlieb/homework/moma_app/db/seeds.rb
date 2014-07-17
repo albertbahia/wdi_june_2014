@@ -24,6 +24,5 @@ painting_data.each_pair do |artist_name, paintings|
       year_painted:     painting[:year_painted],
       description:      painting[:description]
       })
-    end
   end
-    
+end

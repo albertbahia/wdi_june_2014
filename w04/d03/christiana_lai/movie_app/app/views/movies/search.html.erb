@@ -1,0 +1,25 @@
+<h2> Search <h2>
+
+<ul>
+  <% @search_terms.each do |search| %>
+    <li>
+      Title: <%= search["Title"] %> <br>
+      Year: <%= search["Year"] %><br> </li>
+        <img src="<%= search['Poster'] %>" /><br>
+      Actors: <%= search["Actors"] %> <br>
+      Plot: <%= search["Plot"] %>
+
+    <% actors = search["Actors"].split(',')%>
+    <% actor1 = actors[0] %>
+    <% actor2 = actors[1] %>
+
+<%= form_tag("/movies", method:"post") do %>
+      <%= hidden_field_tag('movie[title]', search['Title']) %>
+      <%= hidden_field_tag('movie[year]',  search['Year']) %>
+      <%= hidden_field_tag('movie[poster_url]',  search['Poster']) %>
+      <%= hidden_field_tag('movie[plot]',  search['Plot']) %>
+      <%= submit_tag('Add to Database') %>
+  <% end %>
+<% end %>
+
+<%= link_to('Back', movies_path) %>
