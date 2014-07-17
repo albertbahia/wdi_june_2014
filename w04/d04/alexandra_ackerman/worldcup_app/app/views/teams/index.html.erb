@@ -1,0 +1,9 @@
+<h2>Teams</h2>
+<%= link_to('Add Team', new_team_path)%>
+
+<% @teams.each do |team| %>
+	<div>
+		<%=link_to(team.country, team_path(team)) %></br>
+		<img src="<%= team.flag_url%>">
+	</div>
+<% end %>

@@ -1,0 +1,6 @@
+<%= link_to 'All Movies', movies_path %>
+<h1><%= @movie.title %></h1>
+<p><%= @movie.year %></p>
+<%= link_to "Edit Movie", edit_movie_path(@movie) %>
+<p><%= image_tag(@movie.poster_url) %></p>
+<p><%= @movie.plot %></p>

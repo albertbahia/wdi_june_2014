@@ -1,0 +1,30 @@
+<html>
+  <head>
+  </head>
+  <body>
+
+    <h3>Enter info for new actor below:</h3>
+
+    <ul>
+    <% @actor.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+
+    <%= form_for(@actor) do |f| %>
+    <%= f.label(:name)%>
+    <%= f.text_field(:name)%>
+
+    <%= f.label(:photo_url)%>
+    <%= f.text_field(:photo_url)%>
+
+    <%= f.submit %>
+
+    <% end %>
+
+    <p><%= link_to "Back to all actors.", actors_path %></p>
+
+
+
+  </body>
+</html>
