@@ -1,6 +1,19 @@
 <h3>New Tweed</h3>
 
-<form method="post" action="/tweeds/create">
+<%= form_for(@tweed) do |f| %>
+  <%= f.label(:author) %>
+  <%= f.text_field(:author) %>
+
+  <%= f.label(:content) %>
+  <%= f.text_field(:content) %>
+
+  <%= f.label(:image_url) %>
+  <%= f.text_field(:image_url) %>
+  
+  <%= f.submit %>
+<% end %>
+
+<!-- <form method="post" action="/tweeds/create">
   <label for="author">Author: </label>
   <input id="author" type="text" name="tweed[author]">
   <label for="content">Message: </label>
@@ -9,4 +22,4 @@
   <input id="image" type="text" name="tweed[image_url]">
   <input type="hidden" name="tweed[timestamp]" value="<%= Time.now %>">
   <input type="submit" value="Post">
-</form>
+</form> -->

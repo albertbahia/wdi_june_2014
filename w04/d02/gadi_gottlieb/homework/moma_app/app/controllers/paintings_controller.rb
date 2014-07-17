@@ -6,10 +6,11 @@ class PaintingsController < ApplicationController
 
   def new
     @painting = Painting.new
+    @artists = Artist.all
   end
 
   def create
-    @painting = Painting.create!(painting_params)
+    @painting = Painting.create(painting_params)
     redirect_to(painting_path(@painting))
   end
 
@@ -23,19 +24,25 @@ class PaintingsController < ApplicationController
 
   def update
     @painting = Painting.find(params[:id])
-    @painting.update!(painting_params)
-    redirect_to(painting_path(@painting))
+    if @painting.update(painting_params)
+      redirect_to(painting_path(@painting))
+    else
+      redirect_to edit_painting_path(@painting)
+    end
   end
 
   def destroy
     @painting = Painting.find(params[:id])
-    @painting.delete
-    redirect_to(paintings_path)
+    if @painting.destroy
+      redirect_to(paintings_path)
+    else
+      redirect_to painting_path(@painting)
+    end
   end
 
   private
   def painting_params
-    params.require(:painting).permit(:img_url, :title, :year_painted, :artist_id, :description)
+    params.require(:painting).permit(:img_url, :title, :year_painted, :description, :artist_id)
   end
 
 end

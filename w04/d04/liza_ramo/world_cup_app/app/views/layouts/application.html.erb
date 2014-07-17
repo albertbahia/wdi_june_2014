@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WorldCupApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <h1>Welcome to the World Cup | Copa do Mundo | Copa Mundial | Coupe du Monde | Fussball-Weltmeisterschaft</h1>
+  <%= link_to('Welcome', root_path) %>
+  <%= link_to('Groups', groups_path) %>
+  <%= link_to('Teams', teams_path) %>
+  <%= link_to('Players', players_path) %>
+<%= yield %>
+
+</body>
+</html>

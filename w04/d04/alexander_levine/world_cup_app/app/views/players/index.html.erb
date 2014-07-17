@@ -1,0 +1,11 @@
+<h6><%= link_to 'Home', groups_path %></h6>
+
+<h2>Players</h2>
+
+<% @players.each do |player| %>
+<div>
+  <p><%= link_to(player.name, player_path(player)) %></p>
+</div>
+<% end %>
+
+<h6><%= link_to "Create New Player", new_player_path(@player) %></h6>

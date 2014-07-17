@@ -1,0 +1,10 @@
+<h2>Edit Group <%= @group.name.capitalize %></h2>
+
+<%= form_for @group do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit('Edit Group') %>
+<% end %>
+
+<%= link_to("Delete Group", group_path(@group), method: :delete) %>

@@ -1,0 +1,36 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h3>Enter edits below: <h3>
+
+      <% @player.errors.full_messages.each do |msg| %>
+      <ul>
+        <li><%= msg %></li>
+      </ul>
+      <% end %>
+
+      <%= form_for @player do |f| %>
+
+      <%= f.label(:name) %>
+      <%= f.text_field(:name) %>
+
+      <%= f.label(:photo_url) %>
+      <%= f.text_field(:photo_url) %>
+
+      <%= f.label(:position) %>
+      <%= f.text_field(:position) %>
+
+      <%= f.label(:skill) %>
+      <%= f.text_field(:skill) %>
+
+      <%= f.label(:team_id) %>
+      <%= f.text_field(:team_id) %>
+
+      <%= f.submit %>
+      <% end %>
+
+      <p><%= link_to("Back to this player's page.", player_path(@player))%></p>
+
+  </body>
+</html>

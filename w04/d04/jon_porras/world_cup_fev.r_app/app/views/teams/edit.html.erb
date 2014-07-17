@@ -1,0 +1,25 @@
+<h4>EDIT GROUP</h4>
+
+<ul>
+  <% @team.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
+
+<%= form_for(@team) do |f| %>
+  <%= f.label(:country) %>
+  <%= f.text_field(:country) %>
+
+  <%= f.label(:flag_url) %>
+  <%= f.text_field(:flag_url) %>
+
+  <%= f.label(:manager_name) %>
+  <%= f.text_field(:manager_name) %>
+
+  <%= f.label(:group) %>
+  <%= f.collection_select :group_id, Group.all, :id, :name, :include_blank => "Group Not Listed" %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to('BACK TO TEAMS', teams_path) %>

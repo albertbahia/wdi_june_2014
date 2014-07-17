@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WorldCupApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+
+<h1>World Cup</h1>
+<ul>
+ <%= link_to 'Players', players_path %>
+ <%= link_to 'Groups', groups_path %> 
+ <%= link_to 'Teams', teams_path %> 
+ <%= link_to 'Add Player', new_player_path %> 
+ <%= link_to 'Add Group', new_group_path %> 
+ <%= link_to 'Add Team', new_team_path %> 
+</ul> 
+<%= yield %>
+
+</body>
+</html>

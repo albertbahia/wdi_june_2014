@@ -1,0 +1,21 @@
+<p>Add a Player</p>
+
+<%= form_for @player do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :photo_url %>
+  <%= f.text_field :photo_url %>
+  <br>
+  <%= f.label :position %>
+  <%= f.text_field :position %>
+  <br>
+  <%= f.label :skill_level %>
+  <%= f.text_field :skill_level %>
+  <br>
+
+  <% f.submit %>
+<% end %>
+<br>
+
+<%= link_to "Return to Players", players_path %>

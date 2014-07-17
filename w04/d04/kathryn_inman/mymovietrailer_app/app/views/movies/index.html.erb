@@ -1,0 +1,19 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h1> Welcome to MovieTrail.r, by HAMco<sup>TM</sup> </h1>
+
+    <p><%= link_to "Actors", actors_path %></p>
+    <p><%= link_to "Trailers", trailers_path %></p>
+    <p><%= link_to "Add New Movie", new_movie_path %></p>
+
+
+      <% @movies.each do |movie| %>
+      <p><%= link_to "#{movie.title}, #{movie.year}", movie_path(movie) %></p>
+      <img src= "<%= movie.poster_url %>">
+      <p><%= movie.plot %></p>
+      <% end %>
+
+  </body>
+</html>

@@ -1,0 +1,9 @@
+<h1>Edit Group</h1>
+
+<%= form_for @group do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br />
+  <%= f.submit %>
+<% end %>
+
+<%= button_to "Delete Group", group_path(@group), method: :delete %>

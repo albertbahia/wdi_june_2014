@@ -1,0 +1,19 @@
+<h4><%= link_to @player.name, player_path(@player) %></h4>
+<p>Team: <%= @player.team_id %></p>
+<p>Position: <%= @player.position %></p>
+<p>Skill: <%= @player.skill %></p>
+<img src="<%= @player.photo_url %>" alt="">
+
+<%= form_for @player do |f| %>
+  <%= f.label 'Name' %><br>
+  <%= f.text_field :name %><br>
+  <%= f.label 'Team ID' %><br>
+  <%= f.text_field :team_id %><br>
+  <%= f.label 'Photo URL' %><br>
+  <%= f.text_field :photo_url %><br>
+  <%= f.label 'Position' %><br>
+  <%= f.text_field :position %><br>
+  <%= f.label 'Skill' %><br>
+  <%= f.text_field :skill %><br>
+  <%= f.submit %>
+<% end %>
