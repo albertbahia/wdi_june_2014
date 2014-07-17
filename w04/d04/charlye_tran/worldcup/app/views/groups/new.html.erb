@@ -1,0 +1,20 @@
+<h3 class='new'>New Group</h3>
+
+<h3> Errors </h3>
+
+<ul>
+  <% @group.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
+
+<%= form_for(@group) do |f| %>
+
+  <%= f.label(:name) %>
+  <%= f.text_field(:name) %>
+
+  <%= f.submit %>
+
+<% end %>
+
+<%= link_to('Back to Groups', groups_path) %>

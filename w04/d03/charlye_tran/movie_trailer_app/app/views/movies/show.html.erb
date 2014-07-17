@@ -1,0 +1,20 @@
+<h2><%= @movie.title %></h2>
+<h3><%= @movie.plot %></h3>
+<h4><%= @movie.year %></h4>
+<img src="<%= @movie.poster_url%>">
+
+<ul>
+  <% @movie.actors.each do |actor| %>
+    <li><%= actor.name %></li>
+  <% end %>
+</ul>
+
+<ul>
+  <% @movie.trailers.each do |trailer| %>
+    <li><%= trailer.title %></li>
+  <% end %>
+</ul>
+
+<%= link_to('Edit', edit_movie_path(@movie))%>
+<%= link_to('Back to Movies', movies_path)%>
+<%= link_to('Back to Movie Trailer App', root_path) %>
