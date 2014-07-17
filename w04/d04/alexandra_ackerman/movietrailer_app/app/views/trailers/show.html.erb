@@ -1,0 +1,5 @@
+<h2><%= @trailer.title %></h2>
+<%= link_to('Back to Trailers', trailers_path) %> -
+<%= link_to('Edit', edit_trailer_path(@trailer)) %>
+</br>
+<iframe width="560" height="315" src="<%=@trailer.embed_url%>" frameborder="0" allowfullscreen></iframe>

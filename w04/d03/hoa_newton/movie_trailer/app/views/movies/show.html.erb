@@ -1,0 +1,12 @@
+
+<h1><%= link_to 'All Movies', movies_path %></h1>
+<h2><%= @movie.title %></h2>
+<p>Year: <%= @movie.year%></p>
+<p>Plot: <%= @movie.plot%></p>
+<p>Actors: 	<%= @movie.actors.map {|actor| actor.name }.join(', ')%></p>
+<div>
+	<%= link_to 'Edit', edit_movie_path(@movie) %>
+	<%= link_to 'Delete', movie_path(@movie), method: :delete %>
+</div>
+<%= link_to image_tag(@movie.poster_url), movie_path(@movie) %>
+	

@@ -1,0 +1,9 @@
+<%= link_to 'Back', players_path %>
+<div>
+    <h1><%= @player.name %></h3>
+    <%= image_tag @player.photo_url %>
+    <p>Team: <%= link_to @player.team.country, @player.team %>
+    <p>Postion: <%= @player.position %></p>
+    <p>Skill Level: <%= @player.skill_level %></p>
+    <p><%= link_to 'Edit', edit_player_path(@player) %></p>
+</div>

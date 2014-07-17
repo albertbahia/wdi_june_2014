@@ -1,0 +1,18 @@
+<h2>Add Group</h2>
+
+<ul>
+  <% @group.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+
+<%= form_for(@group) do |f| %>
+  <%= f.label(:name) %>
+  <%= f.text_field(:name) %>
+
+  <%= f.submit %>
+  <% end %>
+
+<div class="menu_buttons">
+  <%= link_to('Back to Groups', groups_path) %>
+</div>

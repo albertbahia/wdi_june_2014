@@ -15,9 +15,5 @@
   <%= f.text_field :photo_url %>
   </div>
 
-  <div>
-  <%= collection_select(:actor, :movie_id, Movie.all, :id, :title) %>
-  </div>
-
   <%= f.submit %>
 <% end %>

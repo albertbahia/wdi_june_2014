@@ -1,0 +1,10 @@
+<h3 class='show'><%= @group.name %> </h3>
+<h4><%= link_to("Edit #{@group.name}", edit_group_path(@group)) %></h4>
+
+<ul>
+<% @group.teams.each do |team| %>
+  <p><%= link_to(team.country, team_path(team)) %></p>
+<% end %>
+</ul>
+
+<%= link_to('Back to Groups', groups_path) %>
