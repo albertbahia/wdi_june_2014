@@ -1,0 +1,8 @@
+<h1>All Players</h1>
+<%= link_to 'New', new_player_path %>
+<% @players.each do |player| %>
+  <div>
+    <h3><%= link_to player.name, player %></h3>
+    <p><%= player.team.country %> (<%= player.position %>)</p>
+  </div>
+<% end %>
