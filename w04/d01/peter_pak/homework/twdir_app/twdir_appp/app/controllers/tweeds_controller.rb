@@ -5,49 +5,41 @@ class TweedsController < ApplicationController
   end
 
   def new
+    @tweeds = Tweed.new
 
   end
 
   def create
-    new_tweed = Tweed.create!(params[:tweed].permit!)
-    redirect_to("/tweeds/#[new_tweed.id]")
+    @tweeds = Tweed.create!(tweed_params)
+    redirect_to(tweed_path(@tweeds))
   end
 
   def show
-    @tweed = Tweed.find(params[:id])
+    @tweeds = Tweed.find(params[:id])
   end
 
   def edit
-    @tweed = Tweed.find(params[:id])
+    @tweeds = Tweed.find(params[:id])
   end
 
   def update
-    tweed_update = Tweed.find(params[:id])
-    tweed_update.update!(params[:tweed].permit!)
-    redirect_to("/tweeds/#[tweed_update.id]")
+    @tweeds = Tweed.find(params[:id])
+    @tweeds.update!(tweed_params)
+    redirect_to(tweed_path(@tweeds))
   end
 
-  def delete
-    tweelete = Tweed.find(params[:id])
-    tweelete.destroy
-    redirect_to("/tweeds")
+  def destroy
+    @tweeds = Tweed.find(params[:id])
+    @tweeds.destroy
+    redirect_to(tweeds_path)
   end
 
 
+  private
+  def tweed_params
+    params.require(:tweed).permit(:author, :content, :image_url)
+  end
 
 
 
 end
-
-
-
-
-  #
-  #
-  # get 'tweeds' => 'tweeds#index'
-  # get 'tweeds/new' => 'tweeds#new'
-  # post 'tweeds'  => 'tweeds#create'
-  # get 'tweeds/:id' => 'tweeds#show'
-  # get 'tweeds/:id/edit' => 'tweeds#edit'
-  # post 'tweeds/:id' => 'tweeds#update'
-  # post 'tweeds/:id/delete' => 'tweeds#delete'

@@ -1,0 +1,9 @@
+<h2>Players Index</h2>
+
+<%= link_to "Add Player", new_player_path %>
+
+<ul>
+  <% @players.each do |player| %>
+    <li><%= link_to "#{player.name.capitalize}", player_path(player) %></li>
+  <% end %>
+</ul>
