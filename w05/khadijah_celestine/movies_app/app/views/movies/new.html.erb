@@ -1,0 +1,16 @@
+
+<form method="get" action="/search">
+	<input type="text" name="search" placeholder"search" />
+	<input type="submit" />
+</form>
+
+
+<% @results.each do |result| %>
+<%= result["Title"] %>
+<%= imdb = result["imdbID"] %>
+<%= link_to "Sign-In", add_new_movie_path %>
+<form method="post" action="add_new_movie">
+<input type="hidden" name="imdb_id" value="#{imdb}">
+<input type="submit" />
+</form>
+<% end %>

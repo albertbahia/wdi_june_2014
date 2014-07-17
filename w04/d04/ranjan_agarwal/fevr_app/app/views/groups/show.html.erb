@@ -1,0 +1,14 @@
+<div class="group-content">
+  <h2><%= @group.name %></h2>
+  <ul>
+    <% @group.teams.each do |team| %>
+      <li><a href="/teams/<%= team.id %>"><%= team.country %></a></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="changes-block">
+  <%= link_to('Back to Groups', groups_path) %>
+  <%= link_to('Edit', edit_group_path(@group)) %>
+  <%= link_to('Delete', group_path(@group), {method: :delete}) %>
+</div>

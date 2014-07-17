@@ -1,0 +1,12 @@
+<h3><%= @team.country %> </h3>
+
+<p><%= link_to("Edit #{@team.country}", edit_team_path(@team)) %></p>
+<img src="<%= @team.flag_url %>" height="300" width="500">
+
+<ul>
+  <% @team.players.each do |player| %>
+    <p><%= link_to(player.name, player_path(player)) %></p>
+  <% end %>
+</ul>
+
+<%= link_to("Back to Teams", teams_path) %>

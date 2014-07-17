@@ -1,10 +1,9 @@
-class ActorsController <ApplicationController
+class ActorsController < ApplicationController
 
   def index
-    @actor = Actor.all
+    @actors = Actor.all
   end
-  # setting @actor to Actor.new creates an empty object. The controller then
-  # sends back a form that points to the create route
+
   def new
     @actor = Actor.new
   end
@@ -15,6 +14,7 @@ class ActorsController <ApplicationController
       redirect_to actor_path(@actor)
     else
       redirect_to new_actor_path
+    end
   end
 
   def show
@@ -31,6 +31,7 @@ class ActorsController <ApplicationController
       redirect_to actor_path(@actor)
     else
       redirect_to edit_actor_path(@actor)
+    end
   end
   # fetches actor objectdata from model by id, then deletes that object from db
   def destroy
@@ -43,5 +44,5 @@ class ActorsController <ApplicationController
 
   def actor_params
     params.require(:actor).permit(:name, :photo_url)
-
+  end
 end

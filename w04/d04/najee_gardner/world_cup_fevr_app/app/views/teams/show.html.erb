@@ -1,0 +1,17 @@
+<h2><%= @team.country %></h2>
+<h3>Manager: <%= @team.manager_name %></h3>
+<h3>Group: <%= @team.group.name %></h3>
+
+
+<%= image_tag @team.flag_url %>
+
+<h4>Players</h4>
+<ul>
+  <% @team.players.each do |player| %>
+  <li><%= link_to player.name, player_path(player) %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_team_path(@team) %>
+<%= link_to 'Delete', team_path(@team), method: :delete %>
+<%= link_to 'Back', teams_path %>

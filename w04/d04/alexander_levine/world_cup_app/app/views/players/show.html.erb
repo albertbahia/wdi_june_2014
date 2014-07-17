@@ -1,0 +1,6 @@
+<h6><%= link_to 'See All Players', players_path %></h6>
+<h2><%= @player.name %> | <%= link_to 'Edit', edit_player_path(@player) %></h2>
+<h3>Country - <%=link_to(@team.country, team_path(@team)) %></h3>
+<p><img src="<%= @player.photo_url %>"/></p>
+<p><%= @player.position %></p>
+<p>Skill Level: <%= @player.skill_level %></p>

@@ -1,0 +1,11 @@
+<div class="team">
+  <h4><%= @team.country %></h4>
+  <p>Manager: <%= @team.manager %></p>
+  <p>Manager: <%= @team.group_id %></p>
+  <%= link_to "Edit", edit_team_path(@team) %><br>
+  <img src="<%= @team.flag_url %>" alt="">
+</div>
+ 
+
+
+
