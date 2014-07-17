@@ -1,12 +1,16 @@
 <h2>Artist Information</h2>
 <h3><%= @artist.name %></h3>
 <img src="<%= @artist.photo_url %>">
-<h3>Nationality: <%= @artist.nationality%> </h3>
 <h3>Birthday: <%= @artist.birthday %></h3>
+<h3>Nationality: <%= @artist.nationality%> </h3>
 
 <ul>
   <% @artist.paintings.each do |painting| %>
-    <li><img src="<%= painting.img_url %>"></li>
+    <li>
+      <p><%= painting.title %>  </p>
+      <img src="<%= painting.img_url %>">
+      <p><%= link_to "View Painting", painting_path(painting) %></p>
+    </li>
   <% end %>
 </ul>
 

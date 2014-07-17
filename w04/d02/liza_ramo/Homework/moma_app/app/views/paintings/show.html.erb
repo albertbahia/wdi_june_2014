@@ -1,0 +1,13 @@
+<div class='painting'>
+  <h5><%= @painting.title %></h5>
+  <p>Artist: <%= link_to @painting.artist.name, artist_path(@painting.artist) %>
+  <img src="<%= @painting.img_url %>">
+  <%= link_to 'View', painting_path(@painting) %>
+  <%= link_to 'Edit', edit_painting_path(@painting) %>
+  <p><%= @painting.description %><%= @painting.year_painted%></p>
+</div>
+
+
+<%= link_to('Edit', edit_painting_path(@painting)) %>
+<%= link_to('Back to Paintings', paintings_path) %>
+<%= link_to('Delete', painting_path(@painting), {method: :delete}) %>

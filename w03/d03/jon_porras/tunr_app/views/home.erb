@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Tun.r</title>
+  </head>
+  <body>
+    <p>
+    Are you ready? Tunr is about to blow your mind with the freshest technology in the music streaming game.
+    </p>
+    <h4>Early Access List</h4>
+    <form method="POST" action="/add_to_list">
+      <label>
+        Full Name:
+      <input type="text" name="full_name">
+      </label>
+      <label>
+        Email:
+      <input type="email" name="email">
+      </label>
+            <input type="submit">
+    </form>
+
+    <h4>Peeps on the List</h4>
+
+    <% @list.each do |info_hash| %>
+    <%= info_hash[:name] %>: <%= info_hash[:email] %><br>
+    <% end %>
+
+  </body>
+</html>

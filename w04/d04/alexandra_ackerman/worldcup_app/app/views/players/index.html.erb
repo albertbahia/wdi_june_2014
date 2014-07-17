@@ -1,0 +1,10 @@
+<h2>Players</h2>
+<%= link_to('Add Player', new_player_path)%> 
+
+<% @players.each do |player| %>
+	<div>
+	<%=link_to(player.name, player_path(player)) %></br>
+	<img src="<%= player.photo_url%>">
+	</div>
+<% end %>
+

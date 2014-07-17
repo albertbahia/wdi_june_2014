@@ -1,0 +1,37 @@
+<html>
+  <head>
+  </head>
+  <body>
+
+    <h3>Edit info for movie below:</h3>
+
+    <ul>
+    <% @movie.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+
+    <%= form_for(@movie) do |f| %>
+    <%= f.label(:title)%>
+    <%= f.text_field(:title)%>
+
+    <%= f.label(:poster_url)%>
+    <%= f.text_field(:poster_url)%>
+
+    <%= f.label(:year)%>
+    <%= f.text_field(:year)%>
+
+    <%= f.label(:plot)%>
+    <%= f.text_field(:plot)%>
+
+    <%= f.submit %>
+
+    <% end %>
+
+    <p><%= link_to "Back to all movies.", movies_path %></p>
+
+    <p><%= link_to "Nevermind.", movie_path(@movie) %></p>
+
+
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<h2>Movies</h2>
+<%= link_to('Add Movie', new_movie_path)%>
+</br>
+<h4>Search for a movie to add:</h4>
+
+<form action='/movies/search' method='get'>
+	<input type="text" name="search">
+	<input type="submit" value="search">
+</form>
+
+<div>
+<% @movies.each do |movie| %>
+	<p>
+		<%= "#{movie.title} - #{movie.year}"%>
+		<%= link_to('View', movie_path(movie)) %>
+	</p>
+		<%= link_to image_tag(movie.poster_url), movie_path(movie)%>
+<% end %> 
+</div>
