@@ -1,0 +1,16 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h3>* T E A M * * G R O U P S *</h3>
+    <% @groups.each do |group|%>
+    <ul>
+      <li><%= link_to(group.name, group_path(group)) %></li>
+    </ul>
+      <% end %>
+
+      <p><%= link_to("Add New Group", new_group_path) %></p>
+      <p><%= link_to("All Teams", teams_path) %></p>
+      <p><%= link_to("All Players", players_path) %></p>
+  </body>
+</html>

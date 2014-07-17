@@ -1,0 +1,6 @@
+<h1><%= @movie.title %></h1>
+<p><%= @movie.year %></p>
+<p><img src="<%= @movie.poster_url %>"></p>
+
+<p><%= link_to('Edit', edit_movie_path(@movie)) %></p>
+<p><%= link_to('Delete', movie_path(@movie) { method :delete}) %></p>

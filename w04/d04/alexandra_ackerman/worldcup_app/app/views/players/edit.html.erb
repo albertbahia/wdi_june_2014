@@ -1,0 +1,29 @@
+<h2>Edit Player</h2>
+
+<ul>
+	<% @player.errors.full_messages.each do |msg| %>
+		<li><%= msg %> </li>
+	<% end %>
+</ul>
+
+<%= form_for(@player) do |f| %>
+	<%= f.label(:name) %>
+	<%= f.text_field(:name)%>
+
+	<%= f.label(:skill_level) %>
+	<%= f.number_field(:skill_level) %>
+	
+	<%= f.label(:position) %>
+	<%= f.select(:position, options_for_select({"Forward" => "Forward", "Midfielder" => "Midfielder", "Defender" => "Defender", "Goalkeeper" => "Goalkeeper"}), :prompt => "Position") %>
+
+	<%= f.label(:photo_url)%>
+	<%= f.text_field(:photo_url)%>
+
+	<%= f.label(:team_id)%>
+	<%= f.collection_select(:team_id, Team.all, :id, :country) %>
+
+	<%= f.submit %>
+<% end %>
+
+<%= link_to('Back to Players', players_path)%>
+<%= link_to('Delete Player', player_path(@player), method: :delete)%>

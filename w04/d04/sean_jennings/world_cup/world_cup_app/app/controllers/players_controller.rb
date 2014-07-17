@@ -1,7 +1,7 @@
 class PlayersController < ApplicationController
 
   def index
-    @players = Players.all
+    @players = Player.all
   end
 
   def new
@@ -18,6 +18,10 @@ class PlayersController < ApplicationController
   end
 
   def show
+    @player = Player.find(params[:id])
+  end
+
+  def edit
     @player = Player.find(params[:id])
   end
 

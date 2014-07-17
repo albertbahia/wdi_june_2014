@@ -1,0 +1,13 @@
+<h1>Show Team</h1>
+
+<ul>
+  <li><strong>Country: </strong> <%= @team.country %></li>
+  <li><%= link_to image_tag(@team.flag_url) %></li>
+  <li><strong>Manager: </strong><%=  @team.manager_name %></li>
+  <li><strong>Group: </strong><%=  @team.group.name %></li>
+    <%  @team.players.each.with_index do |tm, i| %>
+  <li><%= "#{tm.position}" + ": " %><%= link_to "#{tm.name}", player_path(tm.id) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Edit Team", edit_team_path(@team.id) %>

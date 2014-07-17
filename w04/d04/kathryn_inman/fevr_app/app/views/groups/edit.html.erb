@@ -1,0 +1,18 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h3>Enter edits below: <h3>
+
+      <%= form_for @group do |f| %>
+
+      <%= f.label(:name) %>
+      <%= f.text_field(:name) %>
+
+      <%= f.submit %>
+      <% end %>
+
+      <p><%= link_to("Back to this group's page.", group_path(@group))%></p>
+
+  </body>
+</html>

@@ -1,0 +1,12 @@
+<h2><%= @player.name %></h2>
+
+<div>
+	<%=link_to('Back to Players', players_path) %>
+	<%=link_to('Edit', edit_player_path(@player))%>
+</div>
+<div>
+<h3><%= "#{@player.name} | #{@player.team.country}" %></h3>
+<h4>Position: <%= @player.position %></h4>
+<h4>Skill: <%= @player.skill_level %></h4>
+<img src="<%= @player.photo_url%>">
+</div>

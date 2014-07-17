@@ -1,0 +1,13 @@
+<h2 class="head">Teams</h2>
+
+
+  <p><%= link_to('World Cup Fev.r', root_path) %> </p>
+  <p><%= link_to('Add a New Team', new_team_path) %></p>
+<div class="index">
+  <ul>
+    <% @teams.each do |team| %>
+      <p><%= link_to(team.country, team_path(team))%></p>
+      <p><img src="<%=team.flag_url%>" height="300" width="500"></p>
+      <% end %>
+  </ul>
+</div>

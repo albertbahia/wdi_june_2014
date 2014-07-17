@@ -1,6 +1,18 @@
 
 <!-- #show a list of the Groups -->
-
+<div>
 <% @groups.each do |group| %>
   <%= link_to "#{group.name}", group_path(group) %>
 <% end %>
+
+<%= link_to "Add Group", new_group_path %>
+</div>
+<br>
+
+<div>
+  <%= link_to "All Players", players_path %>
+</div>
+
+<div>
+  <%= link_to "All Teams", teams_path %>
+</div>

@@ -1,0 +1,7 @@
+
+<% @entries.each do |entry| %>
+<p>
+	<%= entry.title %> <%= entry.content %>
+	<%= entry.user.first_name %>
+</p>
+<% end %>
