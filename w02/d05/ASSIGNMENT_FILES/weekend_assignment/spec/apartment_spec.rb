@@ -12,32 +12,26 @@ describe Apartment do
 
   it 'has a floor' do
     expect(apartment.floor).to_not be_nil
-
   end
 
   it 'has a price' do
     expect(apartment.price).to_not be_nil
-
   end
 
   it 'has a sqftage' do
     expect(apartment.sqft).to_not be_nil
-
   end
 
   it 'has bedrooms' do
     expect(apartment.bedrooms).to_not be_nil
-
   end
 
   it 'has bathrooms' do
     expect(apartment.bathrooms).to_not be_nil
-
   end
 
   it 'has tenants' do
     expect(apartment.tenants).to_not be_nil
-
   end
 
   describe '#info' do
@@ -48,7 +42,6 @@ describe Apartment do
   describe '#list_tenants' do
     xit 'lists all of the tenants information' do
     end
-
   end
 
   describe '#add_tenant' do
