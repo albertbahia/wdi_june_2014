@@ -1,0 +1,27 @@
+<h2>New Trailer</h2>
+
+<ul>
+  <% @trailer.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+
+<%= form_for(@trailer) do |f| %>
+  <%= f.label(:title) %>
+  <%= f.text_field(:title) %>
+
+  <%= f.label(:embed_url) %>
+  <%= f.text_field(:embed_url) %>
+
+  <%= f.label(:movie_id)%>
+  <%= f.collection_select(:movie_id, Movie.all, :id, :title)%>
+
+  <%= f.submit %>
+<% end %>
+
+<%= form_tag("/trailers/#{@trailer.id}/add_trailer") do %>
+  <%= select_tag :movie_id, options_for_select(Movie.all.map {|movie| [movie.title, movie.id]}) %>
+  <%= submit_tag('Add to Movie') %>
+ <% end %>
+
+<%= link_to('Back to Trailers', trailers_path) %>

@@ -1,0 +1,10 @@
+<h2>MOVIES</h3>
+
+<%= link_to('Click to add a Movie', new_movie_path) %>
+
+<p>  Click on the movie to find out more</p>
+  <div>
+    <% @movies.each do |movie| %>
+    <p><%= link_to("#{movie.title} - #{movie.year}", movie_path(movie)) %></p>
+    <% end %>
+  </div>

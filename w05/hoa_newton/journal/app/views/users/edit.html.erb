@@ -1,0 +1,14 @@
+<h4>Update User</h4>
+<%= link_to "Back to all Users", users_path %>
+
+<ul>
+	<% @user.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+	<% end %>
+</ul>
+
+<%= form_for @user, method: :put do |user| %>
+	UserName: <%= user.text_field :username %>
+	
+	<%= user.submit %>
+<% end %>

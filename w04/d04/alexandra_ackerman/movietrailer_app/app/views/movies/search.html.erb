@@ -1,0 +1,23 @@
+<h2>Movie Search Results</h2>
+<%= link_to('Back to Movies', movies_path)%>
+
+<% @search_results.each do |result| %>
+	<p>
+		Title: <%= result['Title']%></br>
+		Year: <%= result['Year']%></br>
+		Director: <%= result['Director']%></br>
+		<img src="<%= result['Poster']%>">
+	</p>
+
+	<%= form_for @movie do |f| %>
+		<%= f.hidden_field(:title , value: result['Title'])%>
+		<%= f.hidden_field(:year , value: result['Year'])%>
+		<%= f.hidden_field(:poster_url, value: result['Poster'])%>
+		<%= f.hidden_field(:plot, value: result['Plot'])%>
+		
+		<%= f.submit("Add Movie") %> 
+	<% end %>
+
+
+<% end %>
+

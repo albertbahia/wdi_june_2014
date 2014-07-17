@@ -1,0 +1,16 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h3>Teams in <%= @group.name %>:</h3>
+    <% @group.teams.each do |team|%>
+    <ul>
+      <li><%= link_to(team.country, team_path(team)) %></li>
+    </ul>
+      <% end %>
+
+      <p><%= link_to("Edit this group", edit_group_path(@group)) %></p>
+      <%= button_to("Delete this group", group_path(@group), {method: :delete}) %>
+      
+  </body>
+</html>

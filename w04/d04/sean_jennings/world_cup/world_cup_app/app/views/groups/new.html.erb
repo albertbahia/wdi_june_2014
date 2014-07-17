@@ -1,0 +1,12 @@
+<!-- country flag_url manager_name -->
+<p>Add a Group</p>
+
+<%= form_for @group do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <% f.submit %>
+<% end %>
+<br>
+
+<%= link_to "Return to Groups", groups_path %>

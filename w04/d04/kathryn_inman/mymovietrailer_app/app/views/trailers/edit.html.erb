@@ -1,0 +1,33 @@
+<html>
+  <head>
+  </head>
+  <body>
+
+    <h3>Enter edits to trailer below:</h3>
+
+    <ul>
+    <% @trailer.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+
+    <%= form_for(@trailer) do |f| %>
+    <%= f.label(:title)%>
+    <%= f.text_field(:title)%>
+
+    <%= f.label(:embed_url)%>
+    <%= f.text_field(:embed_url)%>
+
+    <%= f.label(:movie_id)%>
+    <%= f.text_field(:movie_id)%>
+
+    <%= f.submit %>
+
+    <% end %>
+
+    <p><%= link_to "Back to all trailers.", trailers_path %></p>
+
+
+
+  </body>
+</html>

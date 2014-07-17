@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MoviesApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="page">
+	<div id="nav">
+	<ul>
+		<li> <%= link_to "Movies", movies_path %> </li>
+	</ul>
+	</div> <!-- end nav -->
+	<div id="content">
+	<div id="messages">
+<p> Welcome to MovieTraile.r. Please <%= link_to "movies", new_movie_path %> as you like. Enjoy :) </p>
+</div><! -- end messages -->		
+	<%= yield %>
+</div> <!-- end content -->
+</div><!-- end page -->
+</body>
+</html>
