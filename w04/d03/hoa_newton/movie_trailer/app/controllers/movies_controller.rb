@@ -2,6 +2,7 @@ class MoviesController < ApplicationController
 
 	def index
 		@movies = Movie.all
+		@movies = OMDB.search(params[:search])
 	end
 
 	def new
@@ -40,6 +41,9 @@ class MoviesController < ApplicationController
 		@movie = Movie.find(params[:id])
 		@movie.destroy
 		redirect_to movies_path
+	end
+
+	def search
 	end
 
 	private
