@@ -1,0 +1,18 @@
+
+div.tractor {
+  border: 1px solid #E04946;
+  background-color: rgba(250, 132, 126, .5);
+  margin: 12px;
+  padding: 12px;
+  width: 500px;
+}
+
+div.tractor-img {
+  width:300px;
+  border: 1px solid #3BA686;
+  padding: 6px;
+}
+
+div.tractor-img:hover {
+  border: 1px solid #FFD495;
+}
