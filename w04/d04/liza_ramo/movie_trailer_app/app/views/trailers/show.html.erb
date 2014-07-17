@@ -1,0 +1,9 @@
+<h1><%= @trailer.title %></h1>
+
+<p><%= link_to('Edit', edit_trailer_path(@trailer)) %></p>
+<p><%= link_to('Delete', trailer_path(@trailer) { method :delete }) %></p>
+
+<p><iframe id="ytplayer" type="text/html" width="320" height="195"
+  src="<%= @trailer.embed_url %>"
+  frameborder="0"/>
+</p>

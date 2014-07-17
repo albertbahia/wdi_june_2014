@@ -1,0 +1,22 @@
+<h2> <%= @movie.title %> </h2>
+<p><%= link_to 'Back to All Movies', movies_path %></p>
+
+<img src= "<%= @movie.poster_url %>">
+
+<p><%= @movie.year %></p>
+  <% @movie.actors.each do |actor| %>
+  <div>
+  <p><%= link_to("#{actor.name}", actor_path(actor)) %></p>
+  </div>
+  <% end %>
+<p><%= @movie.plot %></p>
+
+<p><%= link_to('Edit Movie', edit_movie_path(@movie)) %></p>
+
+<h4>Watch Trailer</h4>
+<% @movie.trailers.each do |trailer| %>
+  <iframe width="420" height="345"
+  src="<%= trailer.embed_url %>">
+  </iframe>
+  <%= link_to('Edit Trailer', edit_trailer_path(trailer)) %>
+<% end %>
