@@ -1,0 +1,18 @@
+<h2>Movies</h2>
+
+<%= link_to('Add Movie', new_movie_path) %>
+<%= form_tag("/movies/search", method: "get") do %>
+
+  <%= text_field_tag(:search_term, "search movie") %>
+  <%= submit_tag("Search") %>
+
+<% end %>
+
+
+<ul>
+  <% @movies.each do |movie| %>
+    <li>
+      <%= link_to("#{movie.title} - #{movie.year}", movie_path(movie)) %>
+    </li>
+  <% end %>
+</ul>

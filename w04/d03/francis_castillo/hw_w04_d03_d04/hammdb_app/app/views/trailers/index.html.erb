@@ -1,0 +1,7 @@
+<h1>Trailers</h1>
+<h4><%= link_to("Add New Trailer", new_trailer_path) %></h4>
+<% @trailers.each do |t| %>
+<p><strong><%= link_to(t.title, trailer_path(t)) %></strong></p>
+
+<embed src=<%=t.embed_url %> width=”375″ height=”225″ />
+<% end %>

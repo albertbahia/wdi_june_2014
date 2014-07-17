@@ -1,0 +1,28 @@
+<h4>EDIT PLAYER</h4>
+
+<ul>
+  <% @player.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
+
+<%= form_for(@player) do |f| %>
+  <%= f.label(:name) %>
+  <%= f.text_field(:name) %>
+
+  <%= f.label(:photo_url) %>
+  <%= f.text_field(:photo_url) %>
+
+  <%= f.label(:position) %>
+  <%= f.text_field(:position) %>
+
+  <%= f.label(:skill_level) %>
+  <%= f.text_field(:skill_level) %>
+
+  <%= f.label(:team) %>
+  <%= f.collection_select :team_id, Team.all, :id, :country, :include_blank => "Team Not Listed" %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to('BACK TO PLAYERS', players_path) %>

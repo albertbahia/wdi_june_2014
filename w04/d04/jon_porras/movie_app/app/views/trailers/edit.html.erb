@@ -1,0 +1,22 @@
+<h3>EDIT TRAILER</h3>
+
+<ul>
+  <% @trailer.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
+
+  <%= form_for(@trailer) do |f| %>
+    <%= f.label(:title) %>
+    <%= f.text_field(:title) %>
+
+    <%= f.label(:embeded_url) %>
+    <%= f.text_field(:embeded_url) %>
+
+    <%= f.label(:movie) %>
+    <%= f.collection_select :movie_id, Movie.all, :id, :title, :include_blank => "Group Not Listed" %>
+
+    <%= f.submit %>
+  <% end %>
+
+<%= link_to('BACK TO TRAILERS', trailers_path) %>

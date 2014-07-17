@@ -1,0 +1,10 @@
+<h1>Trailer's Index</h1>
+
+<%= link_to 'Add Trailer', new_trailer_path %>
+
+<% @trailers.each do |trailer| %>
+<div>
+  <iframe width="560" height="315" src="<%= trailer.embed_url %>" frameborder="0" allowfullscreen></iframe>
+  <p><strong>Title: </strong><%= link_to "#{trailer.title}", trailer_path(trailer) %></p>
+</div>
+<% end %>

@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   # home
-  get "/"              =>       "home#index", as: "root"
-
+  root to: "artists#index"
   resources :artists, :paintings
 
 

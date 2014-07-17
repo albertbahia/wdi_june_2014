@@ -1,0 +1,11 @@
+<h1>All Paintings<h1>
+<ul>
+  <% @paintings.each do |painting|%>
+  <li>
+  <p><%= link_to("#{painting.title}, #{painting.year_painted}", artist_paintings_path(painting.artist, painting)) %></p>
+  </li>
+  <% end %>
+</ul>
+
+<p><%= link_to("(Back to Home Page)", artists_path) %></p>
+<p><%= link_to("Add New Painting", new_paintings_path) %></p>
