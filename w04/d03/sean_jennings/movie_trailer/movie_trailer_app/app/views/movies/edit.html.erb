@@ -1,0 +1,24 @@
+
+<%= link_to "return to Movie", movie_path(@movie) %>
+
+<div>
+  <%= form_for @movie do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <br>
+
+    <%= f.label :year %>
+    <%= f.text_field :year %>
+    <br>
+
+    <%= f.label :poster_url %>
+    <%= f.text_field :poster_url %>
+    <br>
+
+    <%= f.label :plot %>
+    <%= f.text_area :plot %>
+    <br>
+
+    <%= f.submit %>
+  <% end %>
+</div>

@@ -1,0 +1,11 @@
+
+<%= link_to "Return to Movies", movies_path %>
+
+<div>
+<p><%= @movie.title %></p>
+<p><%= @movie.year %></p>
+<p><%= @movie.plot %></p>
+</div>
+
+<%= link_to "edit", edit_movie_path %>
+<%= button_to "Delete", movie_path(@movie), method: :delete %>
