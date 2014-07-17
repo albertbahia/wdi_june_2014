@@ -1,0 +1,11 @@
+<h2>All Players</h2>
+
+<p>
+  <%= link_to('Add Player', new_player_path) %>
+</p>
+
+<div id="player_list">
+  <% @players.each do |player| %>
+    <%= link_to("(#{player.team.country}) #{player.name}", player_path(player)) %> <br>
+  <% end %>
+</div>
