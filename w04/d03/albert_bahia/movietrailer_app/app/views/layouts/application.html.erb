@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MovieTrailer App</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <h1>MovieTrail.er</h1>
+    <a href='/'>Home</a>
+    <a href='/actors'>Actors</a>
+    <a href='/movies'>Movies</a>
+    <a href='/trailers'>Trailers</a>
+    <%= yield %>
+
+  </body>
+</html>
