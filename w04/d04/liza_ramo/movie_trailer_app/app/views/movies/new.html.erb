@@ -1,0 +1,9 @@
+<%= link_to 'All Movies', movies_path %>
+
+<%= form_for @movie do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_field :year %>
+  <%= f.text_field :poster_url %>
+  <%= f.text_field :plot %>
+  <%= f.submit %>
+<% end %>

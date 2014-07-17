@@ -1,0 +1,13 @@
+<h2>OMDB Search Results:</h2>
+
+<ul>
+  <% @omdb.each do |result| %>
+    <li><%= result["Title"] %></li>
+    <p><%= result["Actors"] %></p>
+    <%= form_for @movie do |f| %>
+      <!-- <% @movie[:title] = result["Title"] %> -->
+      <%= f.submit("Add #{result["Title"]} to the Database") %>
+    <% end %>
+  <% end %>
+
+</ul>

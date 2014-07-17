@@ -1,0 +1,11 @@
+<h2><%= @group.name %> | <%= link_to "Edit", edit_group_path(@group) %></h2>
+<h6><%= link_to 'Back to Groups', groups_path %></h6>
+
+<% @group.teams.each do |team| %>
+<div>
+<%= link_to(image_tag(team.flag_url), team_path(team)) %>
+</div>
+<div>
+<%= link_to(team.country, team_path(team)) %>
+</div>
+<% end %>

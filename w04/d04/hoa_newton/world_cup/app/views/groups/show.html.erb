@@ -1,0 +1,13 @@
+<h3>Group: <%= @group.name %></h3>
+<h4>Teams </h4>
+
+<% @group.teams.map do |team| %>
+	<ul>
+		<li><%= link_to team.country, team_path(team) %></li>
+	</ul>
+<% end %>
+
+<div>
+	<%= link_to "Edit", edit_group_path(@group) %>
+	<%= link_to "Delete", group_path(@group), method: :delete %>
+</div>

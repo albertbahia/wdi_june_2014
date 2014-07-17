@@ -1,0 +1,20 @@
+<h2>New Song</h2>
+
+<%= form_for(@songs) do |form| %>
+  <% form.label(:title) %>
+  <% form.text_fiels(:title) %>
+
+  <% form.label(:album) %>
+  <% form.text_fiels(:album) %>
+
+  <% form.label(:preview_url) %>
+  <% form.text_fiels(:preview_url) %>
+
+  <% form.label(:artist_id) %>
+  <% form.text_fiels(:artist_id) %>
+
+  <% form.label(:price) %>
+  <% form.text_fiels(:price) %>
+
+
+<%= link_to('Back to Songs', songs_path) %>

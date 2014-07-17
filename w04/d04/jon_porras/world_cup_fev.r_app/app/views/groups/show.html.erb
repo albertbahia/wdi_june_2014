@@ -1,0 +1,13 @@
+<h4><%= @group.name %></h4>
+
+<h4>TEAMS:</h4>
+
+<% @group.teams.each do |team| %>
+<p><%= link_to(team.country, team_path(team)) %></p>
+<% end %>
+
+<div class="bottom">
+<p class="bottom"><%= link_to('BACK TO GROUPS', groups_path) %></p>
+<p class="bottom"><%= link_to("EDIT GROUP", edit_group_path(@group)) %></p>
+<p class="bottom"><%= link_to("DELETE GROUP", group_path(@group), {:method => :delete}) %></p>
+</div>

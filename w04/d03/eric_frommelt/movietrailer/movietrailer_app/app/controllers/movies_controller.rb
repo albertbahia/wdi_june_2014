@@ -40,6 +40,16 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+  def search
+    @results = OMDB.search_by_title(params[:search])
+  end
+
+  def add_new
+    new_movie = OMDB.search_by_id(params[:omdb_id_number])
+    @movie = Movie.find_or_create_by(new_movie.first)
+    redirect_to movie_path(@movie)
+  end
+
   private
 
   def movie_params

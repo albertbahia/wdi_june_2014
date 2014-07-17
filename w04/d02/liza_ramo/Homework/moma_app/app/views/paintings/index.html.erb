@@ -1,0 +1,8 @@
+<%= link_to 'Add Painting', new_painting_path %>
+<% @paintings.each do |painting| %>
+  <div class='painting'>
+    <h5><%= painting.title %></h5>
+    <img src="<%= painting.img_url %>">
+    <%= link_to 'View', painting_path(painting) %>
+  </div>
+<% end %>

@@ -1,0 +1,24 @@
+<h2>Edit Trailer</h2>
+
+<ul>
+  <% @trailer.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+
+
+<%= form_for(@trailer) do |f| %>
+  <%= f.label(:title) %>
+  <%= f.text_field(:title) %>
+
+  <%= f.label(:embed_url) %>
+  <%= f.text_field(:embed_url) %>
+
+  <%= f.label(:movie) %>
+  <%= f.collection_select(:movie_id, Movie.all, :id, :title) %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to("Back to #{@trailer.title}", movie_path(@trailer)) %>
+<%= link_to('Delete', movie_path(@trailer), {method: :delete}) %>

@@ -1,0 +1,9 @@
+<h3><%= @trailer.title %></h3>
+
+<div>
+  <%= @trailer.embed_url.html_safe %>
+</div>
+
+<%= link_to 'Movie Page', movie_path(@trailer.movie) %>
+<%= link_to 'Edit', edit_trailer_path(@trailer) %>
+<%= link_to 'Delete', trailer_path(@trailer), method: :delete %>
