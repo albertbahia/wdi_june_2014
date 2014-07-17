@@ -1,0 +1,12 @@
+<h2>Group <%= @group.name %></h2>
+
+<p> The following countries are in Group <%= @group.name %>: <br>
+  <% @group.teams.each do |team| %>
+  <%= link_to(team.country, team_path(team)) %>
+  <% end %>
+</p>
+
+<div class="menu_buttons">
+  <%= link_to('Back to Groups', groups_path) %>
+  <%= link_to('Edit Group', edit_group_path(@group))%>
+</div>

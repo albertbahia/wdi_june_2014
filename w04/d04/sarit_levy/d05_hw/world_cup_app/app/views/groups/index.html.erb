@@ -1,0 +1,9 @@
+<h1>World Cup Groups</h1>
+
+<% @groups.each do |group| %>
+  <div>
+    <p><%=link_to group.name, group_path(group) %></p>
+  </div>
+
+<%= link_to "Add a Group", new_group_path %>
+<% end %>

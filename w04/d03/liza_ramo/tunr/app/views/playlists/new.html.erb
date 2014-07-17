@@ -1,0 +1,10 @@
+<h2>New Song</h2>
+
+<form action="/playlists" method="post">
+  <label for="playlist[name]">Name:</label>
+  <input name="playlist[name]">
+
+  <input type="submit" value="Create">
+</form>
+
+<%= link_to('Back to Playlists', playlists_path) %>

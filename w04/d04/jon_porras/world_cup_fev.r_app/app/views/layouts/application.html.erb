@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WorldCupFevRApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header>
+  <h2>WORLD CUP FEV.R</h2>
+
+<%= link_to("GROUPS", groups_path) %>
+<%= link_to("TEAMS", teams_path) %>
+<%= link_to("PLAYERS", players_path) %>
+</header>
+
+<%= yield %>
+
+</body>
+</html>

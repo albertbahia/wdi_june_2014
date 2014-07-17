@@ -1,0 +1,7 @@
+<h2>Artist</h2>
+<% @artist.each do |a| %>
+    <h4><%= link_to(a.name, artist_path(a)) %></h4>
+    <img src="<% a.photo_url %>"/>
+    <p>Born: <%= a.birthday %></p>
+    <p>Nationality: <%= a.nationality %></p>
+<% end %>

@@ -1,0 +1,11 @@
+<h2>Groups</h2>
+
+<ul class="group-list index-list">
+  <% @groups.each do |group| %>
+    <li>
+      <%= link_to("#{group.name}", group_path(group)) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to('Add Group', new_group_path) %>

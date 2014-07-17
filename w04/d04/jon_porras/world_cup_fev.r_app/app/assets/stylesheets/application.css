@@ -1,0 +1,7 @@
+body {font-family: "Gill Sans"; font-weight: lighter; text-align: center}
+header {word-spacing: 17px; letter-spacing: 7px; padding-left: 19px}
+h2, h4 {letter-spacing: 3px; word-spacing: 3px; color: #93A0B8}
+h2, h3, h4 {font-weight: lighter}
+ul {margin-top: -13px}
+li {list-style-type: none; padding-right: 39px; padding-top: 9px}
+a {text-decoration: none; color: black}

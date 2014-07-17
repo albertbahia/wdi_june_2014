@@ -1,0 +1,11 @@
+<h2>Actors!</h2>
+
+<p><%= link_to('Movie Trailers Main', root_path) %></p>
+<%= link_to('Add a new Actor', new_actor_path) %>
+
+<ul>
+  <% @actors.each do |actor| %>
+    <%= link_to(actor.name, actor_path(actor)) %>
+    <p><img src="<%= actor.photo_url %>" height="450" width="400"></p>
+  <% end %>
+<ul>

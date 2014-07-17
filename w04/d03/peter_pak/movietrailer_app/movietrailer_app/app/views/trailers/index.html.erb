@@ -1,0 +1,8 @@
+<% if @movies.trailer != nil %>
+<iframe id="ytplayer" type="text/html" width="640" height="390"
+  src="<%= @movies.trailer.embed_url %>"
+  frameborder="0"/>
+</iframe>
+<% else %>
+<%= link_to('Click here to add a trailer for this movie', new_movie_trailer_path) %>
+<% end %>

@@ -1,0 +1,10 @@
+<form method="get" action="/">
+  <input type="text" name="search_term" placeholder="search">
+  <input type="submit" value="enter"
+</form>
+
+<p class="name"><%= @location %></p>
+<img src="http://9to5mac.files.wordpress.com/2011/10/nest-thermostat-003.jpg" alt="">
+<div class='circle'>
+  <p><%= @fahr.round(2).to_s + " F" %></p>
+</div>

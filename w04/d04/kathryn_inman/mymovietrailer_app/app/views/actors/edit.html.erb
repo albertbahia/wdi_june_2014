@@ -1,0 +1,31 @@
+<html>
+  <head>
+  </head>
+  <body>
+
+    <h3>Edit info for this actor below:</h3>
+
+    <ul>
+    <% @actor.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+
+    <%= form_for(@actor) do |f| %>
+    <%= f.label(:name)%>
+    <%= f.text_field(:name)%>
+
+    <%= f.label(:photo_url)%>
+    <%= f.text_field(:photo_url)%>
+
+    <%= f.submit %>
+
+    <% end %>
+
+    <p><%= link_to "Back to all actors.", actors_path %></p>
+
+    <p><%= link_to "Nevermind.", actor_path(@actor) %></p>
+
+
+  </body>
+</html>

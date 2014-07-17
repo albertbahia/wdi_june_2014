@@ -1,0 +1,9 @@
+<h1>Team: <%= @player.name %></h1>
+  <p>Team: <%= @player.team_id %></p>
+  <p>Position: <%= @player.position %></p>
+  <p>Skill: <%= @player.skill %></p>
+<img src="<%= @player.photo_url %>" alt=""><br>
+
+<%= link_to "Edit", edit_player_path(@player) %><br>
+
+<%= link_to 'Delete', player_path(@player), method: :delete %>

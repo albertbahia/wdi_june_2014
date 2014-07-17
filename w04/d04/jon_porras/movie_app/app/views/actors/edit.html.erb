@@ -1,0 +1,22 @@
+<h3>EDIT ACTOR</h3>
+
+<ul>
+  <% @actor.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
+
+<%= form_for(@actor) do |f| %>
+    <%= f.label(:name) %>
+    <%= f.text_field(:name) %>
+
+    <%= f.label(:photo_url) %>
+    <%= f.text_field(:photo_url) %>
+
+    <%= f.label(:movie) %>
+    <%= f.collection_select :id, Movie.all, :id, :title, :include_blank => "Group Not Listed" %>
+
+    <%= f.submit %>
+  <% end %>
+
+<%= link_to('BACK TO ACTORS', actors_path) %>
