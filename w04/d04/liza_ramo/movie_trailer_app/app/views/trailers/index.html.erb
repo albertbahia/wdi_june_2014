@@ -1,0 +1,7 @@
+<h1>Trailers List</h1>
+
+<div>
+  <% @trailers.each do |trailer| %>
+    <p><%= link_to(trailer.title, trailer_path(trailer)) %></p>
+  <% end %>
+</div>

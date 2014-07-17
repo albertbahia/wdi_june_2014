@@ -1,0 +1,18 @@
+<% @results.each do |result| %>
+<div>
+<h3><%= result[0] %></h3>
+<p><img src="<%= result[2] %>"></p>
+<p><%= result[1] %></p>
+<p><%= result[3] %></p>
+  <% result[4].each do |actor| %>
+<p><%= actor %></p>
+  <% end %>
+  <%= form_for(@movie) do |f| %>
+    <%= f.hidden_field :title, :value => result[0] %>
+    <%= f.hidden_field :year, :value => result[1] %>
+    <%= f.hidden_field :poster_url, :value => result[2] %>
+    <%= f.hidden_field :plot, :value => result[3] %>
+    <%= submit_tag("Add Movie") %>
+  <% end %>
+</div>
+<% end %>

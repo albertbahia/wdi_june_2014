@@ -1,0 +1,12 @@
+<img src="<%= @movie.poster_url %>" />
+<h3><%= @movie.title %></h3>
+<p><%= @movie.year %></p>
+
+<h4>ACTORS:</h4>
+
+<% @movie.actors.each do |actor| %>
+<p><%= link_to(actor.name, actor_path(actor)) %></p>
+<% end %>
+
+<%= link_to("EDIT MOVIE", edit_movie_path(@movie)) %>
+<%= link_to("DELETE MOVIE", movie_path(@movie), {:method => :delete}) %>

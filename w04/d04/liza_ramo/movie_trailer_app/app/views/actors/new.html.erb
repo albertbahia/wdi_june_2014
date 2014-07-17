@@ -1,0 +1,7 @@
+<%= link_to 'All Actors', actors_path %>
+
+<%= form_for @actor do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_field :photo_url %>
+  <%= f.submit %>
+<% end %>

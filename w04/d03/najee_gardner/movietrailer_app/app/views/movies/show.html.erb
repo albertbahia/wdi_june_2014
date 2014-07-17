@@ -1,0 +1,26 @@
+<h3><%= @movie.title+" ("+@movie.year.to_s+")" %></h3>
+<p>
+  Actors:
+  <% @movie.actors.each do |actor| %>
+    <% actor_name = actor.name %>
+    <% actor_name << ", " if @movie.actors.last != actor %>
+    <%= link_to actor_name, actor_path(actor) %>
+  <% end %>
+</p>
+<img src="<%= @movie.poster_url %>" />
+
+<h4>Plot Summary:</h4>
+<p>
+  <%= @movie.plot %>
+</p>
+
+<h4>Trailers</h4>
+
+<ul>
+  <% @movie.trailers.each do |trailer| %>
+  <li><%= link_to trailer.title, trailer_path(trailer) %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_movie_path(@movie) %>
+<%= link_to 'Delete', movie_path(@movie), method: :delete %>

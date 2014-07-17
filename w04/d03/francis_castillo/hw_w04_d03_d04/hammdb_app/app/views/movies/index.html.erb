@@ -1,0 +1,13 @@
+<h1>Movies</h1>
+<h4><%= link_to("Add New Movie", new_movie_path) %></h4>
+<% @movies.each do |m| %>
+<p><strong><%= m.title %></strong></p>
+<%= link_to image_tag(m.poster_url), movie_path(m.id) %>
+<% end %>
+
+
+<%= form_tag("/", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>

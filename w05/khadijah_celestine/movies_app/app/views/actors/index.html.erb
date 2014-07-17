@@ -1,0 +1,11 @@
+<div id="movies">		
+		<ul>
+			<% @actors.each do |actor| %>
+				<div class="movie">
+					<p class="plot"><%= actor.name %> has <%= actor.movies.count %> movies on MovieTrail.r</p>
+					
+					<%= link_to "image tag later", actor_path(actor) %>
+				</div>
+			<% end %>
+		</ul>
+</div>

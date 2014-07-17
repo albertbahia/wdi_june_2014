@@ -1,0 +1,6 @@
+<h1><%= @actor.name %></h1>
+<%= link_to "Edit Actor", edit_actor_path(@actor) %>
+<p><%= image_tag(@actor.photo_url) %></p>
+<% @actor.movies.each do |movie|%>
+	<p> <%= movie %> <p>
+<% end %>

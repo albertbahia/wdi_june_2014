@@ -5,9 +5,9 @@
 <ul>
   <% @paintings.each do |painting| %>
   <li>
-    <%= link_to(painting.title, painting_path(painting)) %>
+    <%= painting.title %>
     <img src="<%= painting.img_url %> ">
-    <%= painting.year_painted %>
+    <%= link_to "View", painting_path(painting) %>
   </li>
   <% end %>
 </ul>

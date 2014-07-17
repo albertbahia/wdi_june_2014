@@ -1,0 +1,14 @@
+<h2>Edit Actor</h2>
+
+<%= form_for @actor do |f| %>
+
+  <%= f.label :photo_url %>
+  <%= f.text_field :photo_url %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit('Edit Actor') %>
+<% end %>
+
+<%= link_to("Delete Actor", actor_path(@actor), method: :delete) %>
