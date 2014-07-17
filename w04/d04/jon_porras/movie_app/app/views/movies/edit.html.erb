@@ -1,0 +1,22 @@
+<h3>EDIT MOVIE</h3>
+
+<ul>
+  <% @movie.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
+
+<%= form_for(@movie) do |f| %>
+    <%= f.label(:title) %>
+    <%= f.text_field(:title) %>
+
+    <%= f.label(:year) %>
+    <%= f.text_field(:year) %>
+
+    <%= f.label(:poster_url) %>
+    <%= f.text_field(:poster_url) %>
+
+    <%= f.submit %>
+  <% end %>
+
+<%= link_to('BACK TO MOVIES', movies_path) %>

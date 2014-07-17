@@ -1,0 +1,18 @@
+<h2>Edit Movie</h2>
+<ul>
+  <% @movie.errors.full_messages.each do |err_msg| %>
+  <li><%= err_msg %></li>
+  <% end %>
+</ul>
+
+<div id="form">
+  <%= form_for @movie do |f| %>
+  Title: <%= f.text_field(:title) %></br>
+  Year: <%= f.number_field(:year) %></br>
+  Poster url: <%= f.url_field(:poster_url) %></br>
+  Plot: <%= f.text_field(:plot) %></br>
+  <%= f.submit %>
+</div>
+<% end %>
+
+<h4><%= button_to("Delete Movie", movie_path(@movie), method: :delete) %></h4>

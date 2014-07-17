@@ -1,0 +1,10 @@
+<h2>Group <%= @group.name.capitalize %></h2>
+<p><strong>Teams:</strong></p>
+<ul>
+  <% @group.teams.each do |team| %>
+    <li><%= link_to "#{team.country.capitalize}", team_path(team) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Back to Groups", groups_path %>
+<%= link_to "Edit Group", edit_group_path(@group) %>

@@ -1,0 +1,7 @@
+<h3><%= @trailer.title %></h3>
+
+<iframe width="560" height="315" src="<%= @trailer.embeded_url  %>" frameborder="0" allowfullscreen></iframe>
+
+
+<%= link_to("EDIT TRAILER", edit_trailer_path(@trailer)) %>
+<%= link_to("DELETE TRAILER", trailer_path(@trailer), {:method => :delete}) %>

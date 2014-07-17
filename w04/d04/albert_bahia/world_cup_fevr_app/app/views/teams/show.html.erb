@@ -1,0 +1,13 @@
+<h2>Team: <%= @team.country.capitalize %></h2>
+<h2>Group: <%= @team.group.name.capitalize %></h2>
+<p><img src="<%= @team.flag_url %>"><p>
+<p><strong>Manager:</strong> <%= @team.manager_name.capitalize %></p>
+<p><strong>Players:</strong>
+<ul>
+  <% @team.players.each do |player| %>
+    <li><%= link_to "#{player.name.capitalize}", player_path(player) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Back to Teams", teams_path %>
+<%= link_to "Edit Team", edit_team_path(@team) %>

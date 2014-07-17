@@ -1,0 +1,19 @@
+<h2>Edit Movie</h2>
+
+<%= form_for @movie do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :year %>
+  <%= f.text_field :year %>
+
+  <%= f.label :poster_url %>
+  <%= f.text_field :poster_url %>
+
+  <%= f.label :plot %>
+  <%= f.text_field :plot %>
+
+  <%= f.submit('Edit Movie') %>
+<% end %>
+
+<%= link_to("Delete Movie", movie_path(@movie), method: :delete) %>

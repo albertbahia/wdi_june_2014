@@ -1,0 +1,11 @@
+<h2>Movies!</h2>
+
+<p><%= link_to('Movie Trailers Main', root_path) %></p>
+<%= link_to('Add a new Movie', new_movie_path) %>
+
+<ul>
+  <% @movies.each do |movie| %>
+    <%= link_to(movie.title, movie_path(movie)) %>
+    <p><img src="<%= movie.poster_url %>" height="550" width="400"></p>
+  <% end %>
+<ul>

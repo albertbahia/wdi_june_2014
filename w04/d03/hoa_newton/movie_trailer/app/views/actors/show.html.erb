@@ -1,0 +1,7 @@
+<h4><%= link_to @actor.name, actor_path(@actor) %></h4>
+<%= link_to image_tag(@actor.photo_url), actor_path(@actor) %>
+
+<div>
+	<%= link_to 'Edit', edit_actor_path(@actor) %>
+	<%= link_to 'Delete', actor_path(@actor), method: :delete %>
+</div>

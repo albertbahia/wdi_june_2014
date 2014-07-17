@@ -1,0 +1,12 @@
+<%= link_to "Add a Team", new_team_path %>
+<%= link_to "Home", root_path %>
+
+<ul>
+<% @teams.each do |team| %>
+  <li>
+    <a href="teams/<%= team.id %>"><img src="<%= team.flag_url %>" alt="team"></a>
+    <p>Country: <%= team.country %></p>
+    <p>Manager Name: <%= team.manager_name %></p>
+  </li>
+<% end %>
+</ul>

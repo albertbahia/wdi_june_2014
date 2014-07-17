@@ -1,0 +1,15 @@
+<h4>Update Group</h4>
+<%= link_to "Back to all Group", groups_path %>
+
+<ul>
+	<% @group.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+	<% end %>
+</ul>
+
+<%= form_for @group, method: :put do |group| %>
+	Name: <%= group.text_field :name %>
+	
+	<%= group.submit %>
+<% end %>
+
