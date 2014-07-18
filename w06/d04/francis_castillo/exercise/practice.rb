@@ -38,8 +38,6 @@ end
   maybe(0.2) { puts 'hello' }
 
 
-
-
   def my_each(array)
     i = 0
     while i < array.count
@@ -49,8 +47,9 @@ end
   end
 
   animals = ["cats", "dogs", "birds", "lizards"]
-  my_each(animals) {|animal| puts animal}
+  # my_each(animals) {|animal| puts animal}
 
+  new_proc = Proc.new {|ele| puts ele}
 
   def my_each_proc(array,proc_to_run)
     i = 0
@@ -59,7 +58,7 @@ end
       i+=1
     end
   end
-
+my_each(animals)
   fav_nums = [9,15,41,17,22,21]
 
   print_num_as_favorite = Proc.new { |num| puts "#{num} is my new favorite number" }
