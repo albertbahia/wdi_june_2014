@@ -9,7 +9,7 @@ def find_index(string)
   while i < array.length do
     index = yield array[i]
   end
-    puts index
+  puts index
 end
 
 # MAP
