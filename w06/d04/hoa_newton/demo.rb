@@ -112,7 +112,8 @@ my_each_for_procs(my_fav_num, add_one)
 print_number_as_favorite = Proc.new { |num| puts "My fav num is #{num}"}
 my_each_for_procs(my_fav_num, print_number_as_favorite)
 
-
+#Lambda
+print_number_as_cool = -> (num) { puts "#{num} is cool" }
 
 
 
