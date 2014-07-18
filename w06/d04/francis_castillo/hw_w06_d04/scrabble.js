@@ -17,7 +17,7 @@ var words_score = [0,0,0,0,0,0];
   }
   console.log(words_score);
 
-var numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 89];
+var numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 89, 100];
 var numArr = numArr.sort();
 var fibNums = [0,1];
   for(y=2; y < Math.max.apply(null, numArr); y++) {
