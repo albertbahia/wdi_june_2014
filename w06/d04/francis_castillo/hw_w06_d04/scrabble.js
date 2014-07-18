@@ -1,7 +1,7 @@
 var scrabbleLetterValues = [[],['A','E','I','U','N','R','S','L','O','T'],['G','D'],['C','M','P','B'],['F','H','W','V','Y'],['K'],[],[],['J','X'],[],['Q','Z']];
 var words = ['watermelon','Juicy','Colorful','beautiful','eat','SWAG'];
-
 var words_score = [0,0,0,0,0,0];
+
   for(z=0; z < scrabbleLetterValues.length; z++){
     for (x = 0; x < words.length; x++) {
       words[x] = words[x].toUpperCase();
