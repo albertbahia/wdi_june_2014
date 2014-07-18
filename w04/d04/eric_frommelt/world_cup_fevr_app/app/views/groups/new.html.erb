@@ -1,0 +1,14 @@
+<%= link_to 'Back', groups_path %>
+
+<ul>
+  <% @group.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+</ul>
+<%= form_for @group do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <%= f.submit %>
+<% end %>

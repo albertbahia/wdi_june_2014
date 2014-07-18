@@ -1,0 +1,40 @@
+<h2>Edit Movie</h2>
+<div>
+<ul>
+<% @movie.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+<% end %>
+</ul>
+
+<%= form_for(@movie) do |f| %>
+  <%= f.label(:title) %>
+  <%= f.text_field(:title) %>
+
+  <%= f.label(:year) %>
+  <%= f.number_field(:year) %>
+
+  <%= f.label(:poster_url) %>
+  <%= f.text_field(:poster_url) %>
+
+  <%= f.label(:plot) %>
+  <%= f.text_field(:plot)%>
+
+  <%= f.submit %>
+<% end %>
+
+</br>
+<%= link_to('Back to Movie', movie_path(@movie))%>
+<%= link_to('Delete', movie_path(@movie), method: :delete)%>
+</div>
+</br>
+<%= form_tag("/movies/#{@movie.id}/add_actor") do %>
+  <%= select_tag :actor_id, options_for_select(Actor.all.map {|actor| [actor.name, actor.id]}) %>
+  <%= submit_tag('Add Actor') %>
+ <% end %>
+
+<% if @movie.actors.count > 0 %>
+  <%= form_tag("/movies/#{@movie.id}/remove_actor") do %>
+    <%= select_tag :actor_id, options_for_select(@movie.actors.map { |actor| [actor.name, actor.id]}) %>
+    <%= submit_tag('Remove Actor') %>
+  <% end %>
+<% end %>

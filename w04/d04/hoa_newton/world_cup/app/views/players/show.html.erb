@@ -1,0 +1,14 @@
+<h3><%= @player.name %></h3>
+<p>Position: <%= @player.position %></p>
+<p> Skill Level: <%= @player.skill_level %></p>
+
+<% unless @player.team.nil? %>
+	<p>Team: <%= @player.team.country %></p>
+<% end %>
+
+<%= link_to image_tag(@player.photo_url), player_path(@player) %>
+
+<div>
+	<%= link_to "Edit", edit_player_path(@player) %>
+	<%= link_to "Delete", player_path(@player), method: :delete %>
+</div>

@@ -1,0 +1,33 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h3>Enter edits below: <h3>
+
+      <% @team.errors.full_messages.each do |msg| %>
+      <ul>
+        <li><%= msg %></li>
+      </ul>
+      <% end %>
+
+      <%= form_for @team do |f| %>
+
+      <%= f.label(:country) %>
+      <%= f.text_field(:country) %>
+
+      <%= f.label(:photo_url) %>
+      <%= f.text_field(:photo_url) %>
+
+      <%= f.label(:manager_name) %>
+      <%= f.text_field(:manager_name) %>
+
+      <%= f.label(:group_id) %>
+      <%= f.text_field(:group_id) %>
+
+      <%= f.submit %>
+      <% end %>
+
+      <p><%= link_to("Back to this team's page.", team_path(@team))%></p>
+
+  </body>
+</html>

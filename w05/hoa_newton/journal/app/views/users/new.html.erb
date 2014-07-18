@@ -1,0 +1,13 @@
+<h3>New User</h3>
+
+<ul>
+	<% @user.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+	<% end %>
+</ul>
+
+<%= form_for @user, method: :post do |user| %>
+	UserName: <%= user.text_field :username %>
+	
+	<%= user.submit %>
+<% end %>

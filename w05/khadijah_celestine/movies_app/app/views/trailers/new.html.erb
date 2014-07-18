@@ -1,0 +1,19 @@
+<ul>
+  <% @trailer.errors.full_messages.each do |error_msg| %>
+    <li><%= error_msg %></li>
+  <% end %>
+</ul>
+
+<%= form_for @trailer do |f| %>
+  <div>
+  <%= f.label :embed_url %>
+  <%= f.text_field :embed_url %>
+  </div>  
+
+  <div>  
+	<%= f.label :movie %>
+  <%= f.select(:movie_id, options_for_select(@movies.map{|movie| [movie.title, movie.movie_id]})) %>
+  </div>  
+
+  <%= f.submit %>
+<% end %>

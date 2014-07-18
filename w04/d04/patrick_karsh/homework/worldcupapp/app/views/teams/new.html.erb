@@ -1,0 +1,12 @@
+<%= form_for @team do |f| %>
+  <%= f.label 'Group ID' %><br>
+  <%= f.text_field :group_id %><br>
+  <%= f.label 'Country' %><br>
+  <%= f.text_field :country %><br>
+  <%= f.label 'Flag URL' %><br>
+  <%= f.text_field :flag_url %><br>
+  <%= f.label 'Manager' %><br>
+  <%= f.text_field :manager %><br>
+  <%= f.submit %>
+  
+<% end %>

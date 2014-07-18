@@ -1,0 +1,9 @@
+<p><%= link_to 'Back to movies', movies_path %></p>
+<p><%= link_to 'Add a trailer', new_trailer_path %></p>
+
+<% @trailers.each do |trailer| %>
+  <div>
+    <a href="/trailers/<%= trailer.id %>"<p><%= trailer.title %></p>
+    <a href="<%=trailer.embed_url%>">Link to trailer</a>
+  </div>
+  <% end %>
