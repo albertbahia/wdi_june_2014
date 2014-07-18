@@ -3,10 +3,10 @@ function printer(arr) {
     console.log(arr[index]);
   }
 
+  // Alternate 'for' syntax
   // for(var index in arr) {
   //   console.log(arr[index]);
   // }
-
 }
 
 printer([1, 2, 3, 4, 5]);
