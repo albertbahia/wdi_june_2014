@@ -1,0 +1,19 @@
+<div class="team-info">
+  <h2><%= @team.country %></h2>
+  <img src="<%= @team.flag_url %>" class="flag-img" alt="" />
+  <%= link_to("Group: #{@group.name}", group_path(@group)) %>
+  <p>
+     Manager: <%= @team.manager_name %>
+  </p>
+  <ul>
+    <% @team.players.each do |player| %>
+      <li><a href="/players/<%= player.id %>"><%= player.name %></a></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="changes-block">
+  <%= link_to('Back to Teams', teams_path) %>
+  <%= link_to('Edit', edit_team_path(@team)) %>
+  <%= link_to('Delete', team_path(@team), {method: :delete}) %>
+</div>

@@ -1,0 +1,17 @@
+<h4>Update Team <%= @team.country %> </h4>
+<%= link_to "Back to Team List", teams_path %>
+
+<ul>
+	<% @team.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+	<% end %>
+</ul>
+
+<%= form_for @team, method: :put do |p| %>
+	Country: <%= p.text_field :country %>
+	Flag URL: <%= p.text_field :flag_url %>
+	Manager: <%= p.text_field :manager_name %>
+
+	<%= p.submit %>
+	
+<% end %>

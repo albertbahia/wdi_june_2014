@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tunr</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <h1>Tun.r</h1>
+  <a href="/">Home</a>
+  <!-- <a href="<%= artists_path %>">Songs</a>
+  <a href="<%= songs_path %>">Artists</a>
+  <a href="<%= playlists_path %>">Playlists</a>
+   -->
+  <%= link_to('Songs', songs_path) %>
+  <%= link_to('Artists', artists_path) %>
+  <%= link_to('Playlists', playlists_path) %>
+
+  <a href="/about">About</a>
+  <%= yield %>
+</body>
+
+</html>

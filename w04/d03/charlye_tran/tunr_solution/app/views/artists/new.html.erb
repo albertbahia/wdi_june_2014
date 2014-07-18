@@ -1,0 +1,22 @@
+<h2>New Artist</h2>
+
+<ul>
+<% @artist.errors.full_messages.each do |message| %>
+   <li><%= message %></li>
+   <% end %>
+</ul>
+
+<%= form_for(@artist) do |form| %>
+  <%= form.label(:name) %>
+  <%= form.text_field(:name) %>
+
+  <%= form.label(:photophoto_url) %>
+  <%= form.text_field(:photo_url) %>
+
+  <%= form.label(:nationality) %>
+  <%= form.text_field(:nationality) %>
+
+  <%= form.submit() %>
+<%end%>
+
+<%= link_to('Back to Artists', artists_path) %>

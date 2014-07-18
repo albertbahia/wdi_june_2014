@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MomaApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div>
+  <img src="http://upload.wikimedia.org/wikipedia/en/9/9f/Moma-1-logo.jpg">
+  <%= link_to 'Home', artists_path %>
+  <%= link_to 'Add Artist', new_artist_path %>
+  <%= link_to 'View Paintings', paintings_path %>
+</div>
+<%= yield %>
+
+</body>
+</html>

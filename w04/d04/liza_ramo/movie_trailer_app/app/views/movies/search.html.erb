@@ -1,0 +1,16 @@
+<div>
+<% @search_results.each do |result| %>
+  <p><%= result["Title"] %></p>
+  <p><%= result["Year"] %></p>
+  <p><%= result["Plot"] %></p>
+  <img src="<%= result["Poster"] %>">
+</div>
+
+<%= form_for @movie do |f| %>
+  <%= f.hidden_field :title, :value => result["Title"] %>
+  <%= f.hidden_field :year, :value => result["Year"] %>
+  <%= f.hidden_field :poster_url, :value => result["Poster"] %>
+  <%= f.hidden_field :plot, :value => result["Plot"] %>
+  <%= f.submit %>
+  <% end %>
+<% end %>

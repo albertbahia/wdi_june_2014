@@ -1,0 +1,7 @@
+<h3>Add new Actor</h3>
+
+<%= form_for @actor, method: :post do |f| %>
+	Name: <%= f.text_field :name %>
+	Photo URL: <%= f.text_field :photo_url %>
+	<%= f.submit %>
+<%end%>

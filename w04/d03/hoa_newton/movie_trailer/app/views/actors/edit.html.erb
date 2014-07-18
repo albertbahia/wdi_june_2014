@@ -1,0 +1,10 @@
+<%= link_to 'Back to this Actor', movie_path(@actor) %>
+
+<%= form_for @actor, method: :put do |f| %>
+	Name: <%= f.text_field :name %>
+	Photo URL: <%= f.text_field :photo_url %>
+	<%= f.submit %>
+<%end%>
+
+
+<%= link_to 'Delete', actor_path(@actor), method: :delete %>
