@@ -5,9 +5,6 @@
 
 
 for (var i = 0; i < fibonacci.length; i++) {
-
-
   sum += parseInt(fibonacci[i])
+  console.log(sum)
 }
-
-console.log(sum)
