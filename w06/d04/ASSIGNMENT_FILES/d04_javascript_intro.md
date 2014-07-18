@@ -9,14 +9,14 @@ Homework 06-04
 
 ## Part 1 - Your Namesake
 
-Define a set of methods, similar to how you defined the each method in class, that will perform the following different array methods:
+Define a set of methods, similar to how you defined the each method in class, that will perform the following array methods:
 
 - find_index
 - select
 - reject
 - map
 
-The methods that you defined should perform exactly as the normal ruby counterparts would perform. To make sure that your methods are functional define blocks to test them using the guidelines below.
+The methods that you defined should perform exactly as their normal ruby counterparts would perform. To make sure that your methods are functional define blocks to test them using the guidelines below.
 
 - select only even numbers from an array
 - reject strings longer than two characters
