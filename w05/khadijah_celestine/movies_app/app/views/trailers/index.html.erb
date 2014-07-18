@@ -1,0 +1,13 @@
+<div id="trailers">		
+			<% @trailers.each do |trailer| %>
+				<div class="trailer">
+					<%= divnk_to image_tag(trailer.poster_url), movie_path(trailer) %>
+					<p>
+					<span class="title"> <%= trailer.title %> </span>
+					<span class="year"> <%= trailer.year%> </span>
+					</p>
+					<p class="plot"><%= trailer.plot %></p>
+
+				</div>
+			<% end %>
+</div>

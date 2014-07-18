@@ -1,0 +1,18 @@
+<h2>Create Movie</h2>
+
+<%= link_to 'All Movies', movies_path %>
+<%= form_for @movie do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :year %>
+  <%= f.text_field :year %>
+
+  <%= f.label :poster_url %>
+  <%= f.text_field :poster_url %>
+
+  <%= f.label :plot %>
+  <%= f.text_field :plot %>
+
+  <%= f.submit('Create Movie') %>
+<% end %>

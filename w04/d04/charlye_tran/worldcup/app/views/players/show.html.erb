@@ -1,0 +1,11 @@
+<h3><%= @player.name %> </h3>
+
+<p><img src="<%= @player.photo_url %>" height="180" width="180"></p>
+<%= @player.position %>
+
+<p><%= link_to(@player.team.country, team_path(@player.team)) %></p>
+<img src="<%= @player.team.flag_url %>" height="100" width="150">
+
+
+<p><%= link_to("Edit #{@player.name}", edit_player_path(@player)) %></p>
+<%= link_to("Back to Players", players_path) %>

@@ -1,0 +1,17 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h1> All trailers </h1>
+
+    <ul>
+      <% @trailers.each do |trailer| %>
+      <li><%= link_to "#{trailer.title}", trailer_path(trailer) %></li>
+      <% end %>
+    </ul>
+
+      <p><%= link_to "Add new trailer for a movie", new_trailer_path %></p>
+      <p><%= link_to "Back to all movies.", movies_path %></p>
+
+  </body>
+</html>

@@ -1,0 +1,11 @@
+<h2>Teams</h2>
+
+<ul class="index-list player-list">
+  <% @teams.each do |team| %>
+    <li>
+      <%= link_to("#{team.country}", team_path(team)) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to('Add Team', new_team_path) %>

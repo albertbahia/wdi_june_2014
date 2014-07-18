@@ -3,14 +3,14 @@
 <%= form_for @actor do |f| %>
   <div>
     <%= f.label :name %>
-    <%= f.textfield :name %>
+    <%= f.text_field :name %>
   </div>
   <div>
     <%= f.label :photo_url %>
-    <%= f.textfield :photo_url %>
+    <%= f.text_field :photo_url %>
   </div>
 
-    <%= submit %>
+    <%= f.submit %>
 
 <% end %>
 

@@ -1,23 +1,18 @@
 <h2> tweed editing </h2>
 
 
-<form action="/tweeds/<%= @tweed.id %>" method="post">
-  <label for="tweeder">Tweeder:</label>
-  <input id="tweeder" name="tweed[author]" value="<%= @tweed.author %>"><br>
+<%= form_for @tweeds do |f| %>
+<%= f.label :author %>
+<%= f.text_field :author %><br>
 
-  <label for="tweed">Your tweed:</label>
-  <textarea id="tweed" name="tweed[content]"><%= @tweed.content %></textarea><br>
+<%= f.label :content %>
+<%= f.text_area :content %><br>
 
-  <label for="tweedpic">Url for image:</label>
-  <input id="tweedpic" name="tweed[image_url]" value="<%= @tweed.image_url %>"><br>
+<%= f.label :image_url %>
+<%= f.text_field :image_url %><br>
 
+<%= f.submit('tweed!') %><br><br>
+<% end %>
+or..<br><br>
 
-
-  <input type="submit" value="Create">
-</form>
-
-or..
-
-<form action="/tweeds/<%= @tweed.id %>/delete" method="post">
-  <input type="submit" value="DELETE ME">
-</form>
+<%= link_to('DELETE', tweed_path(@tweeds), { method: :delete }) %>

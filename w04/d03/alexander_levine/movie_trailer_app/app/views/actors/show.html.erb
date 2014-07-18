@@ -1,0 +1,6 @@
+<p><%= link_to 'Back to All Movies', movies_path %></p>
+<%= link_to "Back to #{@actor.movie.title}", movie_path(@actor.movie_id) %>
+<h2><%= @actor.name %></h2>
+<p><img src="<%= @actor.photo_url %>"></p>
+
+<%= link_to 'Edit Actor', edit_actor_path(@actor) %>

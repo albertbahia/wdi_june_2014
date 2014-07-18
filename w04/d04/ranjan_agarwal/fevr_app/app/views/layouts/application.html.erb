@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FevrApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <header>
+    <h1><a href="/"><img src="http://cloud.ranjanagarwal.com/image/110l3z2K2p0G/fevr.png" /></a></h1>
+    <h2><img src="http://cloud.ranjanagarwal.com/image/3q431p2T3h2W/fifa-wc.png" /></h2>
+    <nav>
+      <ul>
+        <li><%= link_to('Home', '/') %></li>
+        <li><%= link_to('Groups', groups_path) %></li>
+        <li><%= link_to('Teams', teams_path) %></li>
+        <li><%= link_to('Players', players_path) %></li>
+      </ul>
+    </nav>
+  </header>
+  <div id="main">
+    <%= yield %>
+  </div>
+</body>
+</html>
