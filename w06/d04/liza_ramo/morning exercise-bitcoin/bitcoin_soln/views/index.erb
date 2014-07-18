@@ -1,0 +1,12 @@
+<h1>Bitcoin</h1>
+
+<h4>Exchange rates: USD | EUR | GBP</h4>
+
+<% @rates.each do |rate| %>
+  <div>
+    <h3>Currency: <%= rate['description'] %> | Code: <%= rate['code'] %></h3>
+    <h3><%= rate['rate'] %></h3>
+  </div>
+<% end %>
+
+<a href="/">Refresh results</a>
