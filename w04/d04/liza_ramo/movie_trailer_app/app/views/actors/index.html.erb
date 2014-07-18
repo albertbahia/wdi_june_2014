@@ -1,0 +1,8 @@
+<h1>Actors</h1>
+
+<div>
+<% @actors.each do |actor| %>
+    <p><%= actor.name %></p>
+    <%= link_to image_tag(actor.photo_url), actor_path(actor) %>
+<% end %>
+</div>

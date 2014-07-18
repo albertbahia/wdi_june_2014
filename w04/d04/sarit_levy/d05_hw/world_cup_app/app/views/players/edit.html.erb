@@ -1,0 +1,8 @@
+<%= link_to 'Player', player_path(@player) %>
+<%= form_for @player do |f| %>
+  <%= f.text_field :name, {placeholder: 'Name'} %>
+  <%= f.text_field :photo_url, {placeholder: 'Photo URL'} %>
+  <%= f.text_field :position, {placeholder: 'Position'} %>
+  <%= f.text_field :skill_level, {placeholder: 'Skill Level'} %>
+  <%= f.submit %>
+<% end %>

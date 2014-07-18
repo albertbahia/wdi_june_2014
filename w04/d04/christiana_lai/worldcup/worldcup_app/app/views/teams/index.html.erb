@@ -1,0 +1,7 @@
+<h1>All Teams</h1>
+<%= link_to 'Add Team', new_team_path %>
+<% @teams.each do |team| %>
+    <h1><%= team.country %></h1>
+    <%= link_to 'View Team', team %>
+  </div>
+<% end %>

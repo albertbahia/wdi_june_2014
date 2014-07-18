@@ -1,0 +1,30 @@
+<h3> You searched for <em><%= params[:search] %></em> </h3>
+<% @api_call.each do |array| %>
+<ul>
+  <li>
+    <ul>
+      <li> Artist: <%= array["artistName"] %> </li>
+      <li> Track: <%= array["trackName"] %> </li>
+      <li> Album: <%= array["collectionName"] %> </li>
+      <li> Price: $<%= array["trackPrice"] %> </li>
+      <li> <audio controls>
+      <source src="<%= array["previewUrl"]%>" type="audio/mpeg">
+      </audio></li>
+      <% if @artists.find_by({ name: array["artistName"]} == true) %>
+
+         <form action="/songs" method="post">
+           <% add_artist_id = @artists.find_by({ name: array["artistName"] }) %>
+          <input type="hidden" value="<%= add_artist_id.id %>" name=song[artist_id]>
+          <input type="hidden" value="<%= array["trackName"] %>" name=song[title]>
+          <input type="hidden" value="<%= array["collectionName"] %>" name=song[album]>
+          <input type="hidden" value="<%= array["previewUrl"] %>" name=song[preview_url]>
+          <input type="hidden" value="<%= array["trackPrice"] %>" name=song[price]>
+          <input type="submit" value="ADD to database">
+        </form>
+
+      <% end %>
+    </ul>
+  </li>
+</ul>
+
+<% end %>

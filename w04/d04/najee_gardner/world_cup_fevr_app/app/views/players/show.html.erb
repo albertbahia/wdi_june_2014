@@ -1,0 +1,11 @@
+<h2><%= @player.name %></h2>
+<h3>Team: <%= @player.team.country %></h3>
+
+<p>Position: <%= @player.position %></p>
+<p>Skill Level: <%= @player.skill_level %></p>
+
+<%= image_tag @player.photo_url %>
+
+<%= link_to 'Edit', edit_player_path(@player) %>
+<%= link_to 'Delete', player_path(@player), method: :delete %>
+<%= link_to 'Back', players_path %>

@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'tweeds' => 'tweeds#index'
-  get 'tweeds/new' => 'tweeds#new'
-  post 'tweeds'  => 'tweeds#create'
-  get 'tweeds/:id' => 'tweeds#show'
-  get 'tweeds/:id/edit' => 'tweeds#edit'
-  post 'tweeds/:id' => 'tweeds#update'
-  post 'tweeds/:id/delete' => 'tweeds#delete'
+  resources :tweeds
 
 end
 
@@ -15,7 +9,14 @@ end
 
 
 
-
+#
+# get 'tweeds' => 'tweeds#index'
+# get 'tweeds/new' => 'tweeds#new'
+# post 'tweeds'  => 'tweeds#create'
+# get 'tweeds/:id' => 'tweeds#show'
+# get 'tweeds/:id/edit' => 'tweeds#edit'
+# post 'tweeds/:id' => 'tweeds#update'
+# post 'tweeds/:id/delete' => 'tweeds#delete'
 
 
 

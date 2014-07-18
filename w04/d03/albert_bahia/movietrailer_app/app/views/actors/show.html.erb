@@ -1,0 +1,6 @@
+<div>
+  <%= image_tag(@actor.photo_url, :size => '300x400') %>
+  <p><strong>Name: </strong><%= @actor.name %></p>
+</div>
+
+<%= link_to 'Edit Actor', edit_actor_path(@actor) %>

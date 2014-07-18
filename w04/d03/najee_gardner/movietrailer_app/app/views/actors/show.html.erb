@@ -1,0 +1,12 @@
+<h3><%= @actor.name %></h3>
+<img src="<%= @actor.photo_url %>" />
+
+<h4>Movie List</h4>
+<ul>
+  <% @actor.movies.each do |movie| %>
+  <li><%= link_to movie.title, movie_path(movie) %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_actor_path(@actor) %>
+<%= link_to 'Delete', actor_path(@actor), method: :delete %>
