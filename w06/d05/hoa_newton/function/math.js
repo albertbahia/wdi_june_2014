@@ -1,9 +1,9 @@
-// function subtraction(x, y){
-// 	return x - y;
-// }
-// console.log(subtraction(30, 15));
+function subtraction(x, y){
+	return x - y;
+}
+console.log(subtraction(30, 15));
 
-// // product
+// product
 
 function product(x, y){
 	var result = 0;
@@ -12,45 +12,45 @@ function product(x, y){
 	}
 	return result;
 }
-// console.log(product(10, 2));
+console.log(product(10, 2));
 
-// division
-// function division(x, y){
-// 	var result = 0;
-// 	if (y === 0){
-// 		return undefined;
-// 	} else if (x < y){
-// 		return 0;
-// 	} else{
-// 		while (x >= y){
-// 	  	x -= y;
-// 			result++;
-// 		}
-// 	}
-// 	return result;
-// }
-// console.log(division(10, 2));
+division
+function division(x, y){
+	var result = 0;
+	if (y === 0){
+		return undefined;
+	} else if (x < y){
+		return 0;
+	} else{
+		while (x >= y){
+	  	x -= y;
+			result++;
+		}
+	}
+	return result;
+}
+console.log(division(10, 2));
 
-// Factorial
-// function factorial(x){
-// 	var result = 0;
-// 	for (i = x; i >= 0; i--){
-// 		result += product(x, (x - 1));
-// 	}
-// 	return result;
-// }
+Factorial
+function factorial(x){
+	var result = 0;
+	for (i = x; i >= 0; i--){
+		result += product(x, (x - 1));
+	}
+	return result;
+}
 
-//Recursion factorial
-// function factorial(x){
-// 	if (x === 1){
-// 		return 1;
-// 	}
-// 	return product(x, factorial(x - 1))
-// }
-// console.log(factorial(5));
-// console.log(factorial(4));
+Recursion factorial
+function factorial(x){
+	if (x === 1){
+		return 1;
+	}
+	return product(x, factorial(x - 1))
+}
+console.log(factorial(5));
+console.log(factorial(4));
 
-// Power
+Power
 function power(x, y){
 	var result = x;
 	if (y === 0){

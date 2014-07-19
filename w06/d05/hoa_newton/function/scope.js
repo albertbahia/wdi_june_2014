@@ -1,14 +1,16 @@
 var each = function(fxn, arr) {
-	for (var i = 0; i < arr.length; i++ ){
-		fxn(arr[i]);
-	}
+  for(var index = 0; index < arr.length; index++) {
+    fxn(arr[index]);
+  }
 };
 
-// var element = function(el){
-// 	console.log(el);
-// };
+var app = function() {
+  var prefix = "Fruit: ";
+  var printAThing = function(el) {
+    console.log(prefix + el);
+  }
+  var fruits = ['apple', 'orange', 'banana'];
+  each(printAThing, fruits);
+};
 
-// var my_array = [1, 2, "hello"];
-// each(element, my_array);
-// each(element, ["dog", 'cat', 13]);
-
+app();
