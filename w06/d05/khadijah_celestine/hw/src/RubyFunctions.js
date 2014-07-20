@@ -24,3 +24,13 @@ var select = function(arr, fxn) {
   }
   return result;
 };
+
+var reject = function(arr, fxn) {
+  result = [];
+  for( i in arr ) {
+    if( !fxn(arr[i]) ) {
+      result.push(arr[i]);
+    }
+  }
+  return result;
+};
