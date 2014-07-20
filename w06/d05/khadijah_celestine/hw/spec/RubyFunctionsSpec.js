@@ -27,6 +27,10 @@ describe('Include', function() {
   });
 });
 
+var odd = function(num) {
+  return num % 2 !== 0;
+};
+
 describe('Select', function() {
   xit('should accept a function that returns true or false as input', function() {
   });
