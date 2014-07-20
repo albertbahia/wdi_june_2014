@@ -1,3 +1,7 @@
+var add_one = function(num) {
+  return ++num;
+};
+
 describe('Map', function() {
   it('should return a new array with the new elements via the callback', function() {
     expect(map([1, 2, 3],add_one)).toEqual([2,3,4]);
