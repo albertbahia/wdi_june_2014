@@ -21,4 +21,8 @@ describe('Include', function() {
   it('should return false if the value is not in the array', function() {
     expect(include(arr, 6)).toEqual(false);
   });
+  it('should not change the original array', function () {
+    include(arr, 4);
+    expect(arr).toEqual([3,4,5]);
+  });
 });
