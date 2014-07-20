@@ -35,10 +35,10 @@ describe('Select', function() {
   xit('should accept a function that returns true or false as input', function() {
   });
   it('should return a new array of values that retured true from funtion', function() {
-    expect(select(arr,odd)).toEqual(3,5);
+    expect(select(arr,odd)).toEqual([3,5]);
   });
   it('should not change the original array', function() {
     select(arr, odd);
-    expect(arr).toEqual(3, 4, 5);
+    expect(arr).toEqual([3, 4, 5]);
   });
 });
