@@ -18,20 +18,13 @@ var computeScrabbleValue = function(original_word) {
   score = 0
   word = original_word.toUpperCase();
   for (var letter_index in word) {
-//    console.log(word[letter_index])
     currentLetter = word[letter_index];
     for (var score_array_index in scrabbleLetterValues) {
-  //    console.log(scrabbleLetterValues[score_array_index]);
       score_array = scrabbleLetterValues[score_array_index];
-      if ( score_array.indexOf(currentLetter) > -1 )
-      {
+      if ( score_array.indexOf(currentLetter) > -1 ) {
         score += score_array.indexOf(currentLetter);
-//        console.log('yes' + score_array.indexOf(currentLetter));
-        //console.log(score_array.indexOf(currentLetter) );
       }
-
     }
-   //array.indexOf(value) > -1
   }
   console.log(original_word + ' ' + score );
 };
