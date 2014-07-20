@@ -14,3 +14,13 @@ var include = function(arr, value) {
    return false;
   }; 
 };
+
+var select = function(arr, fxn) {
+  result = [];
+  for( i in arr ) {
+    if( fxn(arr[i]) ) {
+      result.push(fxn(arr[i]));
+    }
+  }
+  return result;
+};
