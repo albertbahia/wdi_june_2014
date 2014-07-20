@@ -19,7 +19,7 @@ var select = function(arr, fxn) {
   result = [];
   for( i in arr ) {
     if( fxn(arr[i]) ) {
-      result.push(fxn(arr[i]));
+      result.push(arr[i]);
     }
   }
   return result;
