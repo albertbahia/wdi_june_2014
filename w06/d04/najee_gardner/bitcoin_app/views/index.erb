@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Bitcoin Exchange Rates</title>
+
+    <style>
+      h1 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p><%= @time_updated %></p>
+    <h1><%= @usd['description'] %></h1>
+    <p><%= @usd['symbol'] %><%= @usd['rate'] %></p>
+    <h1><%= @gbp['description'] %></h1>
+    <p><%= @gbp['symbol'] %><%= @gbp['rate'] %></p>
+    <h1><%= @eur['description'] %></h1>
+    <p><%= @eur['symbol'] %><%= @eur['rate'] %></p>
+
+    <a href="/">Refresh</a>
+  </body>
+</html>

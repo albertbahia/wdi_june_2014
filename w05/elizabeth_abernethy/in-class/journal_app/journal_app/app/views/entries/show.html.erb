@@ -1,0 +1,12 @@
+<h2><%= @entry.title %></h2>
+"<i><%= @entry.content %>"</i><br><br>
+By: <%= @entry.user.first_name %><br>
+<hr>
+<br><br>
+
+<%= link_to('Back to All Entries', entries_path) %> |
+
+<% if session[:current_user] == @entry.user.id %>
+  <%= link_to("Edit #{@entry.title}", edit_entry_path(@entry)) %> |
+  <%= link_to("Delete #{@entry.title}", entry_path(@entry), method: :delete) %>
+<% end %>

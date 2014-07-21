@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  background-image:url('http://www.picturesnew.com/media/images/simple-backgrounds.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  display: block;
+  align-content: center;
+}
+
+#content {
+  width: 600px;
+  margin: auto;
+  padding:0;
+}
+
+div{
+  align-items: center;
+}
