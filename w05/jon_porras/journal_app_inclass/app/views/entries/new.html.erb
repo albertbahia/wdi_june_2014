@@ -1,0 +1,14 @@
+<h2>NEW ENTRY</h2>
+
+<%= form_for @entry do |f| %>
+
+<%= f.label :title %>
+<%= f.text_field :title, size: "27"%>
+
+<%= f.label :content %>
+<%= f.text_area :content, size: "67x15" %>
+
+<%= f.submit "PUBLISH" %>
+<% end %>
+
+<%= link_to("POSTS", entries_path) %>
