@@ -1,0 +1,16 @@
+<h2>Entries</h2>
+
+<b><%= link_to('Create a New Entry', new_entry_path) %></b><br><br>
+
+<% @entries.each do |entry| %>
+  <p>
+    <b><%= link_to entry.title, entry_path(entry) %></b><br><br>
+    "<i><%= entry.content %>"</i><br><br>
+    By: <%= entry.user.first_name %><br><br>
+    <% if session[:current_user] == entry.user.id %>
+      <%= link_to 'Edit', edit_entry_path(entry) %> |
+      <%= link_to 'Remove', entry_path(entry), method: :delete %>
+    <% end %>
+    <hr>
+  </p>
+<% end %>
