@@ -28,7 +28,7 @@ var select = function(arr, fxn) {
 var reject = function(arr, fxn) {
   result = [];
   for( i in arr ) {
-    if( !fxn(arr[i]) ) {
+    if( fxn(arr[i]) === false ) {
       result.push(arr[i]);
     }
   }
