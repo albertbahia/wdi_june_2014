@@ -15,22 +15,26 @@ function TicTacToe() {
   this.checkRows = function() {
 
     for (row in this.board) {
-      var xspots = 0;
-      var ospots = 0;
+      // var xspots = 0;
+      // var ospots = 0;
 
-      for (index in this.board[row]) {
-        if (this.board[row][index] === 'X') {
-          xspots++;
-        } else if (this.board[row][index] === 'O') {
-          ospots++;
-        }
+      // for (index in this.board[row]) {
+      //   if (this.board[row][index] === 'X') {
+      //     xspots++;
+      //   } else if (this.board[row][index] === 'O') {
+      //     ospots++;
+      //   }
+      // }
+
+      if (this.board[row][0] === this.board[row][1] && this.board[row][0] === this.board[row][2]) {
+        return this.board[row][0];
       }
 
-      if (xspots === 3) {
-        return 'X';
-      } else if (ospots === 3) {
-        return 'O';
-      }
+      // if (xspots === 3) {
+      //   return 'X';
+      // } else if (ospots === 3) {
+      //   return 'O';
+      // }
     }
 
     return false;
@@ -39,21 +43,25 @@ function TicTacToe() {
   this.checkColumns = function() {
 
     for (var column = 0; column < this.board[0].length; column++) {
-      var xspots = 0;
-      var ospots = 0;
+      // var xspots = 0;
+      // var ospots = 0;
+      //
+      // for (var row = 0; row < this.board.length; row++) {
+      //   if (this.board[row][column] === 'X') {
+      //     xspots++;
+      //   } else if (this.board[row][column] === 'O') {
+      //     ospots++;
+      //   }
+      // }
+      //
+      // if (xspots === 3) {
+      //   return 'X';
+      // } else if (ospots === 3) {
+      //   return 'O';
+      // }
 
-      for (var row = 0; row < this.board.length; row++) {
-        if (this.board[row][column] === 'X') {
-          xspots++;
-        } else if (this.board[row][column] === 'O') {
-          ospots++;
-        }
-      }
-
-      if (xspots === 3) {
-        return 'X';
-      } else if (ospots === 3) {
-        return 'O';
+      if (this.board[0][column] === this.board[1][column] && this.board[0][column] === this.board[2][column]) {
+        return this.board[0][column];
       }
     }
 
@@ -96,6 +104,8 @@ function TicTacToe() {
       return 'O';
     }
 
+
+
     return false;
   };
 
@@ -107,8 +117,6 @@ function TicTacToe() {
         winner = this.checkDiagonals();
       }
     }
-
-
 
     return winner;
   };
@@ -123,11 +131,6 @@ function TicTacToe() {
     return false;
   };
 }
-
-[00, 01, 02]
-[10, 11, 12]
-[20, 21, 22]
-
 
 var game = new TicTacToe();
 game.play('x', 1, 1);
