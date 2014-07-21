@@ -1,0 +1,29 @@
+<h2>Create Your Account</h2>
+
+
+<ul>
+<% @user.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+<% end %>
+</ul>
+
+<%= form_for(@user) do |f| %>
+  <%= f.label(:username) %>
+  <%= f.text_field(:username) %><br>
+
+  <%= f.label(:first_name) %>
+  <%= f.text_field(:first_name) %><br>
+
+  <%= f.label(:last_name) %>
+  <%= f.text_field(:last_name) %><br>
+
+  <%= f.label(:password) %>
+  <%= f.password_field(:password) %><br>
+
+  <%= f.label(:password_confirmation) %>
+  <%= f.password_field(:password_confirmation) %><br><br>
+
+  <%= f.submit 'Sign Up' %>
+<% end %><br><br>
+
+<%= link_to('Back to All Users', users_path) %>
