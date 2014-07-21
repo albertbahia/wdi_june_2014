@@ -68,9 +68,60 @@ for (property in dumbo) {
 
 
 function makeObj() {
-
+  return {};
 }
 
-function makeMonkey() {
-
+function makeAdamMonkey() {
+  return {
+    name: "Adam",
+    species: "Squirrel Monkey",
+    foodsEaten: [],
+    eatSomething: function(food) {
+      this.foodsEaten.push(food);
+      return food;
+    },
+    introduce: function() {
+      return "Hi, I'm " + this.name + " and I'm a " + this.species + " who has eaten " + this.foodsEaten;
+    }
+  };
 }
+
+myMonkey = makeAdamMonkey();
+myMonkey.introduce();
+
+function makeGenericMonkey(name, species) {
+  return {
+    name: name,
+    species: species,
+    foodsEaten: [],
+    eatSomething: function(food) {
+      this.foodsEaten.push(food);
+      return food;
+    },
+    introduce: function() {
+      return "Hi, I'm " + this.name + " and I'm a " + this.species + " who has eaten " + this.foodsEaten;
+    }
+  };
+}
+
+
+
+
+function Monkey(name, species) {
+  this.name = name;
+  this.species = species;
+  this.foodsEaten = [];
+
+  this.eatSomething = function(food) {
+    this.foodsEaten.push(food);
+    return food;
+  };
+
+  this.introduce = function() {
+    return "Hi, I'm " + this.name + " and I'm a " + this.species + " who has eaten " + this.foodsEaten;
+  };
+}
+
+harisMonkey = new Monkey("Wilbur Booper", "Probiscus");
+
+mcksMonkey = new Monkey("William", "probicus");
