@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Bitcoin Exchange Rates</title>
+  </head>
+  <body>
+    <h2>Current exchange rates:</h2>
+    <% @bpi["bpi"].each_value do |currency| %>
+    <ul>
+      <li>
+      <%= currency["code"] %>:
+      <%= currency["symbol"] %><%= sprintf( %0.02f, currency["rate_float"]) %>
+      </li>
+    </ul>
+    <% end %>
+    <div id="time">
+      <p>
+        <em>BPI last updated <%= @bpi["time"]["updated"] %></em><br>
+        <a href=".">Click to refresh this page</a>
+      </p>
+    </div>
+  </body>
+</html>

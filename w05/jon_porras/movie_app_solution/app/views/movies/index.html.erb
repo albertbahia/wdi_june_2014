@@ -1,0 +1,15 @@
+<h1>Movies List</h1>
+<%= form_tag('/search', method: 'get') do %>
+  <%= search_field_tag 'search' %>
+  <%= submit_tag 'Search' %>
+<% end %>
+<%= link_to "Add a Movie", new_movie_path %>
+
+<% @movies.each do |movie|%>
+<div>
+	<p><%= movie.title %></p>
+	<p><%= movie.year %></p>
+  <p><%= movie.plot %></p>
+	<%= link_to image_tag(movie.poster_url), movie_path(movie) %>
+</div>
+<%end%>
