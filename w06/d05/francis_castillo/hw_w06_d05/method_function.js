@@ -1,7 +1,7 @@
-// ///////MAP Function ///////
 numbers = [1, 2, 3, 4];
 numbers1 = [125, 5, 5, 5];
 strings = ['a','b','c','d','e','f','g'];
+//////////////////MAP Function ///////////////////
 
 function map (arr, fxn) {
   newArr = [];
@@ -15,12 +15,13 @@ var blockMap = function(arg) {
   return arg += 100;
 };
 
+console.log("****Map****");
 console.log(map(numbers, blockMap));
 console.log(map(numbers, function(arg) {
   return arg += 200;
 }));
 
-//////////Include/////////////////////
+/////////////////////Include///////////////////////////
 
 function include (arr, find) {
   for (var i = 0; i < arr.length; i++) {
@@ -31,10 +32,11 @@ function include (arr, find) {
   return false;
 }
 
+console.log("****Include****");
 console.log(include(strings, "c"));
-console.log(include(strings, "f"));
+console.log(include(strings, "h"));
 
-///////////////Select///////////////////////
+///////////////////////Select///////////////////////
 
 function select (arr, fxn) {
   newArr = [];
@@ -52,6 +54,7 @@ var blockSelect = function(arg) {
   }
 };
 
+console.log("****Select*****");
 console.log(select(numbers, blockSelect));
 console.log(select(numbers, function(arg) {
     if (arg < 3) {
@@ -59,7 +62,7 @@ console.log(select(numbers, function(arg) {
     }
 }));
 
-//////////////////Reject////////////////
+/////////////////////Reject////////////////////////////
 
 function reject (arr, fxn) {
   newArr = [];
@@ -76,6 +79,8 @@ var blockReject = function(arg) {
     return arg;
   }
 };
+
+console.log("****Reject****");
 console.log(reject(numbers, blockReject));
 console.log(reject(numbers, function(arg) {
     if (arg < 3 === false) {
@@ -83,7 +88,7 @@ console.log(reject(numbers, function(arg) {
     }
 }));
 
-///////////////Reduce/////////////////
+//////////////////////////Reduce//////////////////////////
 
 function reduce (arr, fxn) {
   var total = arr[0];
@@ -106,35 +111,39 @@ var blockReduceDivide = function(arg1, arg2) {
   return arg1 / arg2;
 };
 
+console.log("****Reduce****");
 console.log(reduce(numbers, blockReduceAdd));
 console.log(reduce(numbers, blockReduceSub));
 console.log(reduce(numbers, blockReduceMultiply));
 console.log(reduce(numbers1, blockReduceDivide));
 
-//////////////Sample/////////////
+/////////////////////////////Sample//////////////////////////////
 
 function random(num) {
   var max = num;
   var min = 0;
+
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function sample1 (arg1,fxn) {
+function sample1 (arg1) {
   return arg1[random((arg1.length - 1))];
 }
 
 function sample2 (arg1, arg2) {
   oldArr = arg1;
   newArr = [];
+
   if(arg2 > arg1.length) {
     return console.log("Size of argument to large array is " + arg1.length + " elements long!");
   }
+
   for (var i = 0; i < arg2; i++) {
     var index = random((arg1.length - 1));
     newArr.push(oldArr[index]);
-    console.log(oldArr);
     oldArr.splice(index,1);
   }
+
   return newArr;
 }
 
@@ -146,6 +155,7 @@ function sample (arg1, arg2) {
   }
 }
 
+console.log("****Sample****");
 console.log(random(4));
 console.log(sample(strings));
 console.log(sample(strings,3));
