@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JournalApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <b><%= link_to('Users', users_path) %> |
+  <%= link_to('Entries', entries_path) %></b><br><br><br>
+  <p>
+  <% if session[:current_user] %>
+    <b>Welcome back, <%= User.find(session[:current_user]).first_name %>!</b> |
+    <%= link_to 'Log Out', logout_path %>
+  <% else %>
+    <%= link_to 'Log In', login_path %> |
+    <%= link_to 'Sign Up', new_user_path %>
+  <% end %>
+  </p>
+<%= yield %>
+
+</body>
+</html>

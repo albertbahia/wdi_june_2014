@@ -1,0 +1,18 @@
+<h2>Users</h2>
+<hr>
+<% @users.each do |user| %>
+  <%= user.id %><br>
+  <b><%= user.username %></b><br>
+  <%= "#{user.first_name} #{user.last_name}" %><br>
+
+  <% if session[:current_user] == user.id %>
+  <%= link_to 'Remove', user_path(user), method: :delete %>
+  <% end %>
+  <% if session[:current_user] == user.id %>
+  <%= link_to 'Edit', edit_entry_path(user) %>
+  <% end %>
+  <% if session[:current_user] == user.id %>
+  <%= link_to 'Entries', entries_path(user) %>
+  <% end %>
+  <hr>
+<% end %>
