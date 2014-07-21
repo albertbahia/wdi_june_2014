@@ -1,3 +1,3 @@
-# WDI June 2014
+#WDI June 2014
 
-__General Assemb.ly__
+__A HAMco Product__
