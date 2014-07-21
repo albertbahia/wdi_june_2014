@@ -5,15 +5,15 @@ function reduce(array, callback) {
   // }
   // return result;
 
-  // recursive (doesn't work for subtraction and division because of order of operation)
+  // recursive (doesn't work for subtr)
   var tempArray = array.slice(0);
-  var result = parseInt(tempArray.splice(0,1)[0]);
+  var result = tempArray.pop();
 
   if (tempArray.length === 1) {
-    return callback(result, tempArray[0])
+    return callback(tempArray[0], result)
   }
 
-  return callback(result, reduce(tempArray, callback));
+  return callback(reduce(tempArray, callback), result);
 }
 
 var add = function(a, b) {
