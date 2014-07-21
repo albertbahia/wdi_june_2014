@@ -1,0 +1,11 @@
+<h2>bitcoin xChange r8s</h2>
+
+<% @rates.each do |rate| %>
+<div>
+<p>Currency: <%= rate['description']%> | Code: <%= rate['code'] %> </p>
+  <p>Rate:<%= rate['rate'] %></p>
+</div>
+<% end %>
+
+
+<p><a href='/'>refresh r8s</a></p>
