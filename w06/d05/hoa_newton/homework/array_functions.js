@@ -67,7 +67,7 @@ console.log(reject(rejectedNum, my_arr));
 /////////// REDUCE + //////////////
 function reduce(fxn, array){
   var result = array[0];
-  for (var i = 0; i < array.length; i++){
+  for (var i = 1; i < array.length; i++){
     result = fxn(result, array[i])
   }
   return result;
