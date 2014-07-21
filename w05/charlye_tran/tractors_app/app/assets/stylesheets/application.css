@@ -14,23 +14,19 @@
  *= require_self
  */
 
-body {
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
-  background-image:url('http://www.picturesnew.com/media/images/simple-backgrounds.jpg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  display: block;
-  align-content: center;
+div.tractor {
+  border: 1px solid #cccccc;
+  margin: 12px;
+  padding: 12px;
+  width: 500px;
 }
 
-#content {
-  width: 600px;
-  margin: auto;
-  padding:0;
+div.tractor-img {
+  width:300px;
+  border: 1px solid #cccccc;
+  padding: 6px;
 }
 
-div{
-  align-items: center;
+div.tractor-img:hover {
+  border: 1px solid black;
 }

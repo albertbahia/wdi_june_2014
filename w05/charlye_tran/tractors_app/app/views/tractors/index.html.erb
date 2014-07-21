@@ -1,0 +1,10 @@
+<h1>Our Suite Tractors</h1>
+
+<%= link_to 'New Tractor', new_tractor_path %>
+<hr>
+
+<% @tractors.each do |tractor| %>
+  <%= render partial: 'tractor', locals: { tractor: tractor } %>
+<% end %>
+
+<%= render partial: 'tractors/tractor', locals: { tractor: @random_tractor } %>
