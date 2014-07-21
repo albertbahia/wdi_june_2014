@@ -1,0 +1,21 @@
+<h2>Create a New Entry</h2>
+
+<ul>
+<% @entry.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+<% end %>
+</ul>
+
+<%= form_for(@entry) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br>
+
+  <%= f.label :content %>
+  <%= f.text_area :content %><br><br>
+
+  <%= f.submit 'Journ.l It!' %>
+
+<% end %><br><br>
+
+
+<%= link_to('Back to All Entries', entries_path) %>
