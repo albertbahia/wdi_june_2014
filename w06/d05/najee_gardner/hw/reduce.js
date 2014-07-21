@@ -5,7 +5,7 @@ function reduce(array, callback) {
   // }
   // return result;
 
-  // recursive (doesn't work for subtr)
+  // recursive
   var tempArray = array.slice(0);
   var result = tempArray.pop();
 
