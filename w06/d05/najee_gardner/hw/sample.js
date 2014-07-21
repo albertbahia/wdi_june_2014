@@ -36,18 +36,30 @@ function sample(array, sampleSize) {
 
 
     // Attempt 3
+    // sampleSize = sampleSize || 1;
+    //
+    // var arrayCopy = array.splice(0);
+    // var newArray = [];
+    //
+    // while (newArray.length < sampleSize) {
+    //   var randIndex = Math.floor(Math.random() * arrayCopy.length);
+    //   newArray.push(arrayCopy.splice(randIndex, 1)[0]);
+    // }
+    // return newArray;
+
+    //recursive
     sampleSize = sampleSize || 1;
 
-    var arrayCopy = array.splice(0);
-    var newArray = [];
+    var tempArray = array.slice(0);
+    var randomIndex = Math.floor(Math.random() * tempArray.length);
 
-    while (newArray.length < sampleSize) {
-      var randIndex = Math.floor(Math.random() * arrayCopy.length);
-      newArray.push(arrayCopy.splice(randIndex, 1)[0]);
+    if (sampleSize === 1) {
+      return tempArray[randomIndex];
     }
-    return newArray;
+
+    return [tempArray.splice(randomIndex, 1)[0]].concat(sample(tempArray, sampleSize - 1));
 }
 
 var words = ['hello', 'goodbye', 'swag', 'besss', 'fingah', 'gillyun'];
 
-console.log(sample(words, 2));
+console.log(sample(words, 4));

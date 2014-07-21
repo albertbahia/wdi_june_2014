@@ -1,9 +1,19 @@
 function reduce(array, callback) {
-  var result = array[0];
-  for (var i = 1; i < array.length; i++) {
-    result = callback(result, array[i]);
+  // var result = array[0];
+  // for (var i = 1; i < array.length; i++) {
+  //   result = callback(result, array[i]);
+  // }
+  // return result;
+
+  // recursive (doesn't work for subtraction and division because of order of operation)
+  var tempArray = array.slice(0);
+  var result = parseInt(tempArray.splice(0,1)[0]);
+
+  if (tempArray.length === 1) {
+    return callback(result, tempArray[0])
   }
-  return result;
+
+  return callback(result, reduce(tempArray, callback));
 }
 
 var add = function(a, b) {
