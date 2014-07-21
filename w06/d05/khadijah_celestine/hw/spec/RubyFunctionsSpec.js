@@ -54,3 +54,12 @@ describe('Reject', function() {
     expect(arr).toEqual([3, 4, 5]);
   });
 });
+
+describe('Sample', function() {
+  xit('should accept an array and return a random value from that array', function() {
+  });
+  xit('should accept an extra argument to limit the choices to sample from', function() {
+  });
+  xit('should default to the size of the array if the limit is greater than the size of the array', function() {
+  });
+});
