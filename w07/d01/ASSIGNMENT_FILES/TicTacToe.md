@@ -23,12 +23,17 @@ Write three methods that will be used by checkWin:
 myGame = new TicTacToe();
 myGame.currentPlayer;
 myGame.checkWin();
+
 myGame.play("X", 1, 1);
-myGame.checkWin();
 myGame.play("O", 0, 0);
 myGame.checkWin();
+
 myGame.play("X", 1, 0);
 myGame.play("O", 0, 1);
+myGame.play("O", 2, 2);
+// returns false because not 'O's turn
+myGame.checkWin();
+
 myGame.play("X", 1, 2);
 myGame.checkWin();
 ```
