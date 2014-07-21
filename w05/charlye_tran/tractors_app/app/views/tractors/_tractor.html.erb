@@ -1,0 +1,14 @@
+
+<div class="tractor">
+  <h2><%= tractor.model %></h2>
+  <h4>$<%= tractor.price %></h4>
+  <div class="tractor-img">
+    <img src="<%= tractor.img_url %>" alt="<%= tractor.model %>" width="300"/>
+  </div>
+  <p>
+    Rating: <b><%= tractor.rating %> stars</b> |
+    <%= link_to 'Show', tractor %> |
+    <%= link_to 'Edit', edit_tractor_path(tractor) %> |
+    <%= link_to 'Destroy', tractor, method: :delete %>
+  </p>
+</div>

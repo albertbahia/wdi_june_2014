@@ -1,0 +1,26 @@
+<%= link_to 'Back to Movie', movie_path(@movie) %>
+<ul>
+  <% @movie.errors.full_messages.each do |error_msg| %>
+    <li><%= error_msg %></li>
+  <% end %>
+</ul>
+
+<%= form_for @movie do |f| %>
+  <div>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  </div>  
+  <div>
+  <%= f.label :year %>  
+  <%= f.text_field :year %>
+  </div>  
+  <div>
+  <%= f.label :poster_url %>  
+  <%= f.text_field :poster_url %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
+
+
+<%= button_to "Delete", movie_path(@movie), method: :delete %>
