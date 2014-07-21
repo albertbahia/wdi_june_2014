@@ -1,0 +1,16 @@
+<h2>EDIT ENTRY</h2>
+
+<%= form_for @entry do |f| %>
+
+<%= f.label :title %>
+<%= f.text_field :title, size: "27"%>
+
+<%= f.label :content %>
+<%= f.text_area :content, size: "67x15" %>
+
+<%= f.submit "PUBLISH POST" %>
+<% end %>
+
+<%= link_to "DELETE POST", entry_path(@entry), method: :delete %>
+
+<%= link_to("POSTS", entries_path) %>
