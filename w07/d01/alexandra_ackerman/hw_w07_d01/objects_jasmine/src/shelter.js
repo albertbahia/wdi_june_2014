@@ -1,24 +1,29 @@
-function Shelter(name, address, animals){
-  this.name = name;
-  this.address = address;
-  this.animals = [];
-
-  this.animalDetails = function() {
-    var array = this.animals;
-    for (i = 0; i < array.length; i++) {
-      console.log(array[i].readCollar());
-    };
+var animalDetailsFunction = function(array) {
+  var array = this.animals;
+  for (var i = 0; i < array.length; i++) {
+    console.log(array[i].readCollar());
   };
+};
 
-  this.acceptAnimal = function(animal) {
-    this.animals.push(animal);
-  };
+var acceptAnimalFunction = function(animal) {
+  this.animals.push(animal);
+};
 
-  this.offerForAdoption = function() {
-    this.animals.pop
-  };
-}
+var offerForAdoptionFunction = function() {
+  var random = Math.floor(Math.random() * this.animals.length + 1);
+  var animal = this.animals[random];
+  var index = this.animals.indexOf(animal);
+  this.animals.splice(index, random);
+};
 
+var shelter = {
+  name: "Happy Tails",
+  address: "112 W. 11TH ST",
+  animals: [],
+  acceptAnimal: acceptAnimalFunction,
+  animalDetails: animalDetailsFunction,
+  offerForAdoption: offerForAdoptionFunction
+};
 
 function Dog(name, breed, furColor, weight, age, toys) {
   this.name = name;
@@ -71,6 +76,13 @@ function Cat(name, breed, furColor, weight, age, hairballs) {
       this.hairballs.push("hairball");
     } else {
       return this.hairballs = [];
-    }
-  };
+    };
+  }
 }
+
+myDog = new Dog("Alex", "Golden Retriever", "Golden", 70, 7);
+myCat = new Cat("Shawn", "Tabby", "Black", 10, 22);
+shelter.acceptAnimal(myCat)
+shelter.acceptAnimal(myDog)
+shelter.animalDetails();
+shelter.offerForAdoption();
