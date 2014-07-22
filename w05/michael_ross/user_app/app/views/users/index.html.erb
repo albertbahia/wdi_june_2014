@@ -1,0 +1,18 @@
+<h2>Users</h2>
+<% if session[:current_user] != user.id %>
+<%= link_to 'Sign Up', new_user_path %>
+<% end %>
+
+  <% @users.each do |user| %>
+    <p><%= user.id %></p>
+    <p>Username: <%= user.username %></p>
+    <p>First Name: <%= user.first_name %></p>
+    <p>Last Name: <%= user.last_name %></p>
+    <p>PW Digest: <%= user.password_digest %></p>
+    <% if session[:current_user] == user.id %></p>
+    <%= link_to('Remove', user_path(user), method: :delete) %> |
+    <%= link_to('Edit User', edit_user_path(user)) %>
+    <% end %>
+
+<hr>
+  <% end %>

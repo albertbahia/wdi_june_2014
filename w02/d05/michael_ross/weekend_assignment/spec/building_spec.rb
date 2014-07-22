@@ -42,7 +42,7 @@ describe Building do
     end
     it 'does not rent an apartment that is full' do
       building.rent_apartment(tenant_2, apartment)
-      expect(building.rent_apartment(tenant_1, apartment)).to eq ("Apartment has been rented.")
+      expect(building.rent_apartment(tenant_1, apartment)).to eq("Apartment has been rented.")
     end
   end
 end
