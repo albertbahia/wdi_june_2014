@@ -1,6 +1,4 @@
 require 'active_record'
-require 'pry'
-require_relative './trainer_seed'
 require_relative '../lib/trainer'
 
 ActiveRecord::Base.establish_connection({
@@ -8,14 +6,23 @@ ActiveRecord::Base.establish_connection({
   adapter: 'postgresql'
 })
 
+trainer_names = %w(Ash Misty Brock Gary Lorelei Bruno Agatha Lance)
+trainer_ages = [10, 13, 15, 25, 76, 32, 89, 345, 21, 9001]
+trainer_hometown = [
+  'Pallet Town',
+  'Saffron City',
+  'Cerulean City',
+  'Celadon City',
+  'Cinnabar Island',
+  'Fuschia City',
+  'Goldenrod City'
+  ]
+
 
 10.times do
-  new_trainer = poke_trainer()
   Trainer.create(
-    name: new_trainer[0],
-    age: new_trainer[1],
-    hometown: new_trainer[2]
+    name: trainer_names.sample,
+    age: trainer_ages.sample,
+    hometown: trainer_hometown.sample
     )
 end
-
-binding.pry

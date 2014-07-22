@@ -1,0 +1,7 @@
+<h2>Search Results</h2>
+
+<% @songsearch.each do |result| %>
+    <img src="<%= result['artistName'] %>">
+    <p><a href="<%= result['trackViewUrl'] %>" target="_blank">View on Itunes</a></p>
+    <p><code><%= result['artistViewURL'] %></code></p>
+<% end %>
