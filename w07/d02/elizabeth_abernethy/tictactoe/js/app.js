@@ -33,4 +33,5 @@ function displayGame(game) {
     .addClass('header')
     .text("Tic Tac Toe")
     .prependTo(board);
+    
 };
