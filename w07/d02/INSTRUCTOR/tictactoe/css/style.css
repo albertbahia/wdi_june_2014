@@ -10,4 +10,7 @@
   border: 5px solid #ccc;
   border-radius: 5px;
   float: left;
+  font-size: 36px;
+  line-height: 100px;
+  text-align: center;
 }
