@@ -19,12 +19,10 @@ console.log("Times function result: " + times(2, 2))
 //divided
 function divided(num1, num2) {
   counter = 0;
-
-  while(num1>0){
+  while(num1>num2){
         num1 -= num2
         counter+=1;
     }
-
   return counter;
 }
 
