@@ -25,6 +25,4 @@ function Cat(name, breed, furColor, weight, age, hairballs) {
     this.hairballs.length = 0;
   }
 };
-
-
 }
