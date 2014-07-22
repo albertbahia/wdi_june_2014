@@ -1,0 +1,17 @@
+div.tractor {
+  border: 1px solid #cccccc;
+  background-color: #439BFF;
+  margin: 12px;
+  padding: 12px;
+  width: 500px;
+}
+
+div.tractor-img {
+  width:300px;
+  border: 1px solid #cccccc;
+  padding: 6px;
+}
+
+div.tractor-img:hover {
+  border: 1px solid black;
+}

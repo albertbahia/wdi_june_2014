@@ -48,14 +48,7 @@ describe Apartment do
 
   describe '#list_tenants' do
     it 'lists all of the tenants information' do
-      apartment.add_tenant(tenant)
-      apartment.add_tenant(tenant_2)
-      expect(apartment.list_tenants).to include(tenant.name)
-      expect(apartment.list_tenants).to include(tenant.age.to_s)
-      expect(apartment.list_tenants).to include(tenant.gender)
-      expect(apartment.list_tenants).to include(tenant_2.name)
-      expect(apartment.list_tenants).to include(tenant_2.age.to_s)
-      expect(apartment.list_tenants).to include(tenant_2.gender)
+      expect(apartment.list_tenants).to include(apartment.tenants)
     end
   end
 
@@ -67,7 +60,7 @@ describe Apartment do
       apartment.add_tenant(tenant)
       apartment.add_tenant(tenant_2)
       apartment.add_tenant(tenant_3)
-      expect(apartment.tenants.length).to eq (2)
+      expect(apartment.tenants.length).to eq(2)
     end
   end
 
