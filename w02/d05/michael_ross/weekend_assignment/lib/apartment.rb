@@ -10,7 +10,7 @@ class Apartment
     @sqft = sqft
     @bedrooms = bedrooms
     @bathrooms = bathrooms
-    @tenants = [ ]
+    @tenants = []
   end
 
   def info
@@ -25,7 +25,7 @@ class Apartment
     info_string += "Tenant Age: #{tenant.age} | "
     info_string += "Tenant Gender #{tenant.gender} |"
     }
-    return info_string
+    info_string
   end
 
   def add_tenant(tenant)
