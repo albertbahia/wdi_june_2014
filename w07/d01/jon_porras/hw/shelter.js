@@ -63,14 +63,13 @@ var shelter = {
   listOfAnimals: [],
 
   animalDetails: function() {
-    for (animal in listOfAnimals) {
-      return animal.readCollar;
+    for(var i=0;i<this.listOfAnimals.length;i++){
+      console.log(this.listOfAnimals[i].readCollar());
     }
   },
 
   acceptAnimal: function(animal) {
     this.listOfAnimals.push(animal);
-    return this.listOfAnimals;
   },
 
   offerForAdoption: function() {
@@ -94,9 +93,10 @@ cloe = new Cat("Cloe", "Tabby", "Orange", 20, 4);
 // console.log(cloe);
 
 //test shelter functions
-console.log(shelter.acceptAnimal(balder));
 console.log(shelter.acceptAnimal(bear));
+console.log(shelter.acceptAnimal(balder));
 console.log(shelter.acceptAnimal(fido));
 console.log(shelter.acceptAnimal(cloe));
+console.log(shelter.animalDetails());
 console.log(shelter.offerForAdoption());
 console.log(shelter)
