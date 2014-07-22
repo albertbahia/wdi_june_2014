@@ -17,5 +17,5 @@ function Dog (name, breed, furColor, weight, age) {
   };
   this.chewUpToy = function(arguments) {
     return "Sorry, I destroyed the " + this.toys.pop();
-  }
+  };
 }

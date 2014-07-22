@@ -14,27 +14,27 @@ describe("dog", function() {
     expect(dog.name).toBeDefined();
     expect(dog.name).toBe('Pinky');
   });
-  
+
   it("should have a breed ", function() {
     expect(dog.breed).toBeDefined();
     expect(dog.breed).toBe('Great Dane');
   });
-  
+
   it("should have a furColor", function() {
     expect(dog.furColor).toBeDefined();
     expect(dog.furColor).toBe('Black')
   });
-  
+
   it("should have a weight", function() {
     expect(dog.weight).toBeGreaterThan(0);
     expect(dog.weight).toEqual(200);
   });
-  
+
   it("should have an age", function() {
     expect(dog.age).toBeGreaterThan(0);
     expect(dog.age).toBe(4)
   });
-  
+
   it("should be able to have toys", function() {
     expect(dog.toys).toBeDefined();
     expect(dog.toys).toEqual([]);
@@ -47,7 +47,7 @@ describe("dog", function() {
       expect(dog.bark()).toBe('Bow Wow Wow Yippie Yo Yippie Yay')
     });
   });
-  
+
   describe("readCollar", function() {
     it("should be a list of the dog's information", function() {
       expect(dog.readCollar).toBeDefined();
@@ -73,4 +73,5 @@ describe("dog", function() {
       expect(dog.toys.length).toBe(0)
     });
   });
+});
 });
