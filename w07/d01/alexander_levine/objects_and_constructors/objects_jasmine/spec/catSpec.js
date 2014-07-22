@@ -8,7 +8,7 @@ describe("Cat", function() {
     var age = 4;
     cat = new Cat(name, breed, furColor, weight, age)
   })
-  
+
 // Attributes
   it("should have a name", function() {
     expect(cat.name).toBeDefined();
@@ -54,7 +54,7 @@ describe("Cat", function() {
     });
   });
   describe("readCollar", function() {
-    it("should be a list of the dog's information ", function() {
+    it("should be a list of the cat's information ", function() {
       expect(cat.readCollar).toBeDefined();
       expect(cat.readCollar()).toBe('Name: Brain // Age: 4 // 10lbs // Roan Tabby')
     });

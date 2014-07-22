@@ -1,4 +1,4 @@
-function Cat(name, breed, furColor, weight) {
+function Cat(name, breed, furColor, weight, age) {
   this.name = name;
   this.breed = breed;
   this.furColor = furColor;
@@ -6,12 +6,23 @@ function Cat(name, breed, furColor, weight) {
   this.age = age;
   this.hairballs = [];
   this.meow = function() {
-    return "Meooow!";
+    return 'No.';
   };
   this.judgeHuman = function() {
-    return "Looks at human, stares, stalks away unimpressed.";
+    return 'Yawn...Not impressed';
   };
-  this.haveCollarRead = function() {
-    return "Collar has been read"
-  }
+  this.readCollar = function() {
+    return 'Name: ' + this.name + ' // Age: ' + this.age + ' // ' +
+    this.weight+'lbs' + ' // ' + this.furColor + ' ' + this.breed;
+  };
+  this.lick = function() {
+    if (this.hairballs.length < 3) {
+      this.hairballs.push("hairball");
+    } else {
+      this.hairballs.splice(0, 3);
+    }
+  };
 }
+
+boots = new Cat('boots', 'housecat', 'black', 10, 5);
+henry = new Cat('henry', 'housecat', 'red', 14, 5);
