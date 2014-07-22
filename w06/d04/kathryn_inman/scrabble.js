@@ -4,15 +4,23 @@
 var scrabbleLetterValues = [[],['A','E','I','U','N','R','S','L','O','T'],['G','D'],['C','M','P','B'],['F','H','W','V','Y'],['K'],[],[],['J','X'],[],['Q','Z']];
 var words = ['watermelon','Juicy','Colorful','beautiful','eat','SWAG'];
 
+var finalScores = [];
+
 
 for (var i = 0; i < words.length; i++) {
-	 var letter_array = (words[i].split(""));
-	 	for (var x = 0; x < scrabbleLetterValues.length; x++) {
-	 	 if (scrabbleLetterValues[x].length > 0) {
-	 	 	console.log (scrabbleLetterValues[x]);
-	 	 } 
+	 var tiles = (words[i].split(""));
+	 var count = 0;
+	 	for (var x = 0; x < tiles.length; x++) {
+	 		var tile = tiles[x].toUpperCase();
+	 		for (var k = 0; k < scrabbleLetterValues.length; k++) {
+	 			if ( scrabbleLetterValues[k].indexOf( tile ) != -1) {
+	 				count += k;
+	 			}
+	 		}	
 	 	}
+	 	finalScores.push( count )
 }
+console.log(finalScores)
 
 
 
