@@ -1,7 +1,7 @@
 require 'pry'
 def sum_of_even_fibonaccis(limit)
   holder = [1,2]
-  
+
   while (holder[-1] + holder[-2]) < limit
     holder.push(holder[-1] + holder[-2])
     puts holder[-1]
@@ -27,5 +27,5 @@ end
 def sum_of_even_fibonaccis(limit)
   holder = (1...limit).select do |num| Math.sqrt(5*(num**2)+4).to_i == Math.sqrt(5*(num**2)+4) || Math.sqrt(5*(num**2)-4).to_i == Math.sqrt(5*(num**2)-4)
   end
-  holder.select { |num| num.even? }.reduce(:+) 
+  holder.select { |num| num.even? }.reduce(:+)
 end
