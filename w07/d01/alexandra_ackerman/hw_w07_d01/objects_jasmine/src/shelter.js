@@ -82,6 +82,8 @@ function Cat(name, breed, furColor, weight, age, hairballs) {
 
 myDog = new Dog("Alex", "Golden Retriever", "Golden", 70, 7);
 myCat = new Cat("Shawn", "Tabby", "Black", 10, 22);
+myCat2 = new Cat("Tamar", "Fancy Feast", "White", 9, 19);
+myDog2 = new Dog("Francia", "Corgi", "Orange", 10, 22);
 shelter.acceptAnimal(myCat)
 shelter.acceptAnimal(myDog)
 shelter.animalDetails();
