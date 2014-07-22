@@ -61,3 +61,4 @@ console.log(myGame.board);
 myGame.play("0", 2, 2);
 console.log(myGame.board);
 myGame.play("X", 0, 2);
+myGame.checkWin();
