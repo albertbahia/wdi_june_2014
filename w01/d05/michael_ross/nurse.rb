@@ -10,17 +10,20 @@ class Nurse
     @town = town
   end
 
+  def name
+    return @name.capitalize
+  end
+
   def nurse_info
     info_string = "| Name: #{name} | "
     info_string += "Age: #{age} | "
     info_string += "Town: #{town} |"
   end
 
-  # def heal_pokemons(input)
-  #   arsenal.each do |x|
-  #     input(x).restore_hp
-  #   end
-  # end
+  def heal_pokemons(trainer)
+    trainer.pokemons.each { |pokemon| pokemon.full_restore } 
+  end
+
 
 end
 

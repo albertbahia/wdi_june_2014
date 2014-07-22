@@ -1,7 +1,6 @@
 require_relative 'apartment.rb'
 require_relative 'tenant.rb'
 
-
 class Building
 
   attr_reader(:name, :address, :floors, :apartments)
@@ -14,9 +13,10 @@ class Building
   end
 
   def list_apartments
-    apartments.each { |apartment|
+    apt_info = apartments.map do |apartment|
     return apartment.info
-    }
+  end
+  apt_info
   end
 
   def rent_apartment(tenant, apartment)
