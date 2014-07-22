@@ -1,0 +1,13 @@
+<h1>User List</h1>
+
+<%= link_to "Add New User", new_user_path %><br>
+
+<% @users.each do |user| %>
+<hr>
+  <%= user.id %><br>
+  <b><%= user.username %></b><br>
+  <%= "#{user.first_name} #{user.last_name}" %><br>
+  <%= user.password_digest %>
+  <%= link_to "Remove", user_path(user), method: :destroy %>
+<hr>
+<%end%>
