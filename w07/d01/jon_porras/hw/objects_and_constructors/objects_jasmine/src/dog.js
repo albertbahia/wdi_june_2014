@@ -19,7 +19,7 @@ function Dog(name, breed, furColor, weight, age) {
   }
 
   this.chewUpToy = function(toy) {
-    chewedToy = this.toys[Math.random()*this.toys.length]
+    chewedToy = this.toys[Math.floor(Math.random()*this.toys.length)]
     index = this.toys.indexOf(chewedToy);
     this.toys.splice(index, 1);
     return "/Sorry, I destroyed the/" + chewedToy;
