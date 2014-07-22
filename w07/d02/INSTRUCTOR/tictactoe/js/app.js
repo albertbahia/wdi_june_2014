@@ -1,7 +1,8 @@
+var game;
+
 $(function() {
   console.log('JS loaded.');
-
-  // Call the function once the page is loaded
+  game = new TicTacToe();
   displayGame();
 });
 
