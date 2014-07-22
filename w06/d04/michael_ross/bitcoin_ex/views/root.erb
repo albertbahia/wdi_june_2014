@@ -1,0 +1,11 @@
+<% @api_call.each do |results| %>
+  <div>
+    <p>
+      <%= results["description"] %> |
+      (<%= results["code"] %>) : <%= results["rate"] %>
+    </p>
+  </div>
+
+<% end %>
+
+<a href="/">Refresh our Results</a>
