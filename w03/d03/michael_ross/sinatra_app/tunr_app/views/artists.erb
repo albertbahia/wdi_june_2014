@@ -1,0 +1,21 @@
+<h1>Artists</h1>
+  <p>
+  Tun.r will have songs by:
+  </p>
+  <ul>
+    <% @featured_artists.each do |artist| %>
+    <li><%= artist %></li>
+    <% end %>
+  </ul>
+
+<p>Suggest an artist to be added to TUN.r</p>
+<form method="POST" action="/add_new_artist">
+  <label>Artist Name: <input type="text" name="new_artist" placeholder="Artist Name"></label>
+  <input type="submit">
+</form>
+
+<h4>Artists suggested so far:</h4>
+
+<% @artist_wish_list.each do |artist| %>
+  <%= artist %><br>
+<% end %>

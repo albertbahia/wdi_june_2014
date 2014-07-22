@@ -1,0 +1,16 @@
+.row {
+  width: 360px;
+  height: 120px;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  border: 5px solid #ccc;
+  border-radius: 5px;
+  float: left;
+  font-size: 36px;
+  line-height: 100px;
+  text-align: center;
+}
