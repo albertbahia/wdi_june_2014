@@ -1,4 +1,4 @@
-### Vanilla Javascript DOM manipulation
+### jQuery DOM manipulation
 
 * Access the page title
 * Access the list
