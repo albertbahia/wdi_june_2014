@@ -18,12 +18,14 @@ post '/trainers' do
 end
 
 #MEMBER
+
 #show
 get '/trainers/:id' do
   @trainer = Trainer.find(params[:id])
   @pokemons = Trainer.find(params[:id]).pokemons
   erb(:"trainers/show")
 end
+
 #edit
 get '/trainers/:id/edit' do
   @trainer = Trainer.find(params[:id])

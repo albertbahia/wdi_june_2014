@@ -1,0 +1,9 @@
+<h1>Tractors</h1>
+
+<h3>One App to Rule Them All</h3>
+
+<%= link_to 'View Our Suite Tractors', tractors_path %>
+
+<h4> have you seen this tractor yet? </h4>
+
+<%= render partial: 'tractor', locals: {tractor: @tractors.sample} %>

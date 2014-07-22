@@ -1,0 +1,76 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+  margin: 50px;
+}
+
+h1, h2, h3, h4, h5, h6, a, p {
+  font-family: "Helvetica Neue";
+  font-weight: lighter;
+}
+
+input {
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+
+h1 {
+  text-shadow: 3px 3px #8AFFFF;
+  font-size: 50px;
+  text-align: center;
+}
+
+h2 {
+  text-transform: uppercase;
+  text-shadow: 2px 2px #8AFFFF;
+  letter-spacing: 8px;
+}
+
+ul {
+  list-style-type: circle;
+}
+
+li {
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+a:hover {
+  color: #ff0000;
+  text-shadow: 1px 1px #8AFFFF;
+  cursor: crosshair;
+  text-decoration: underline;
+}
+
+a:visited {
+  text-shadow: 3px 3px #ff0450;
+}
+
+
+nav {
+  font-size: 20px;
+}
+
+div.youtube {
+  margin-top: 30px;
+}

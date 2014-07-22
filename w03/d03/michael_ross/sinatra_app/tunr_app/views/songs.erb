@@ -1,0 +1,21 @@
+<h1>Songs</h1>
+<p>
+  Some of the songs that will be available on TUN.r are:
+</p>
+<ul>
+  <% @featured_songs.each do |song| %>
+    <li><%= song %></li>
+  <% end %>
+</ul>
+
+<p>Suggest a song to be added to TUN.r</p>
+<form method="POST" action="/add_new_song">
+  <label>Song Title:<input type="text" name="new_song" placeholder="Song Title"></label>
+  <input type="submit">
+</form>
+
+<h4>Songs suggested so far:</h4>
+
+<% @song_wish_list.each do |song| %>
+  <%= song %><br>
+<% end %>
