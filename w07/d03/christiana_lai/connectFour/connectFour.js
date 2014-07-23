@@ -17,10 +17,14 @@ function startGame() {
 
 var changeColor = function() {
   var piece = $(this);
-  if (turn % 2 === 0) {
-    piece.addClass('red');
+  if (piece.hasClass('red') || piece.hasClass('black')) {
+    // if peice has has already been played, don't do anything.
   } else {
-    piece.addClass('black');
+    if (turn % 2 === 0) {
+      piece.addClass('red');
+    } else {
+      piece.addClass('black');
+    }
+    turn++;
   }
-  turn++;
 };
