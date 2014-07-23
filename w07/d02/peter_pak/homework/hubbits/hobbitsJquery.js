@@ -239,6 +239,6 @@ function thereAndBackAgain() {
   // remove all the baddies from the document
   $('.baddy-list').remove();
   // Move all the hobbits back to the shire
-  var shire = $('article').eq(0);
-  $('.hobbit-list').appendTo(shire);
+  var shire = $('article').eq(0).append('<ul id-"hubbits">');
+  $('.hobbit').appendTo(shire);
 }
