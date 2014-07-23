@@ -97,7 +97,7 @@ function theBalrog() {
 function hornOfGondor() {
   alert("The horn of gondor has been blown!");
   $('.Boromir').css('text-decoration', 'line-through');
-  $('.the').empty();
+  $('.The').empty();
 
 }
 
