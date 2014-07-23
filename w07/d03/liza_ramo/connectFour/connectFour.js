@@ -23,10 +23,10 @@ function turnColor() {
 
   // if piece's class !== .red, turn to .red
   if (!piece.hasClass('red')) {
-    piece.removeClass('black').addClass('red');
+    piece.addClass('red');
   }
   // else if piece's class === .red, turn to black
   else {
-    piece.removeClass('red').addClass('black');
+    piece.addClass('black');
   }
 }
