@@ -5,7 +5,11 @@
   <li><%= link_to image_tag(@team.flag_url) %></li>
   <li><strong>Manager: </strong><%=  @team.manager_name %></li>
   <li><strong>Group: </strong><%=  @team.group.name %></li>
+<<<<<<< HEAD
+    <%  @team.players.each do |tm| %>
+=======
     <%  @team.players.each.with_index do |tm, i| %>
+>>>>>>> 48b038186cabc5348965f1d45e3757cb0ee124c9
   <li><%= "#{tm.position}" + ": " %><%= link_to "#{tm.name}", player_path(tm.id) %></li>
   <% end %>
 </ul>
