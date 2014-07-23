@@ -5,23 +5,28 @@ $(function() {
 });
 
 function startGame() {
-  var gamePieces = $('.piece');
-  gamePieces.mouseenter(function(){
-    $(this).addClass('hover')
-  });
-  gamePieces.mouseleave(function(){
-    $(this).removeClass('hover')
-  });
+
 }
 
 var makeEmRed = function() {
   var piece = $(this);
-  piece.css('background-color', 'red');
-  $('.piece').on('click', makeEmBlack);
+  if (piece.attr('class') !== 'piece red' && piece.attr('class') !== 'piece black' ){
+    if ($('.red').length === $('.black').length) {
+    piece.attr('class', 'piece red');
+    } else {
+      piece.attr('class', 'piece black');
+    }
+  }
 };
 
-var makeEmBlack = function() {
-  var piece = $(this);
-  piece.css('background-color', 'black');
-  $('.piece').on('click', makeEmRed);
-};
+
+// var makeEmBlack = function() {
+//   var piece = $(this);
+//   if (piece.css('background-color') !== 'rgb(255,0,0)') && (piece.css('background-color') !== 'rgb(0,0,0)') {
+//     piece.css('background-color', 'black');
+//   }
+//   $('.piece').on('click', makeEmRed);
+// };
+//
+//
+// $('.red').lenght
