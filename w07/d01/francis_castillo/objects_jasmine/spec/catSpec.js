@@ -8,7 +8,7 @@ describe("Cat", function() {
     var age = 4;
     cat = new Cat(name, breed, furColor, weight, age)
   })
-  
+
 // Attributes
   it("should have a name", function() {
     expect(cat.name).toBeDefined();
