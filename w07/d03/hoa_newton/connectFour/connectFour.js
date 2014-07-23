@@ -2,23 +2,26 @@ $(function() {
   console.log('Loaded, bro');
   startGame();
 
-  $('.piece').click(turnColor);
+  // $('.piece').click(turnRed);
+
+  (function () {
+  var count = 0;
+
+  $('.piece').click(function () {
+  	var piece = $(this);
+    count += 1;
+
+    if (count % 2 === 0) {
+      piece.addClass('red');
+    }else {
+    	piece.addClass('black');
+    }
+  });
+})();
+
+//the closing brackets
 });
 
-var turnColor = function(){
-	console.log('Turn color Damn it!');
-	var piece = $(this);
-
-	if (piece.hasClass('red')){
-		piece.removeClass('red');
-		piece.addClass('black');
-	} else if (piece.hasClass('black')){
-		piece.removeClass('black');
-		piece.addClass('red');
-	} else{
-	piece.addClass('red');
-	}
-}
 
 function startGame() {
   var gamePieces = $('.piece');
@@ -29,3 +32,5 @@ function startGame() {
   //   $(this).removeClass('hover')
   // });
 }
+
+
