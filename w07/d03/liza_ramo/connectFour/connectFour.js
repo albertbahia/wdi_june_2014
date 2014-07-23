@@ -2,17 +2,9 @@ $(function() {
   console.log('Loaded, bro');
   startGame();
 
-  // Listeners:
-
-  // When click on piece, turn red
-  $('.piece').on('click', turnRed);
-
-  // 
-
-
-
-
-
+  // Listeners go here:
+  // When click on piece, turn color
+  $('.piece').on('click', turnColor);
 
 });
 
@@ -26,7 +18,15 @@ function startGame() {
   });
 }
 
+function turnColor() {
+  var piece = $(this);
 
-function turnRed() {
-  $(this).css('background-color', 'red');
+  // if piece's class !== .red, turn to .red
+  if (!piece.hasClass('red')) {
+    piece.removeClass('black').addClass('red');
+  }
+  // else if piece's class === .red, turn to black
+  else {
+    piece.removeClass('red').addClass('black');
+  }
 }
