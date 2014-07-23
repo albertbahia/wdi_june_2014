@@ -24,6 +24,11 @@ class Pokemon
     info_string += "Speed: #{speed} |"
   end
 
+  def full_restore
+    @hp = 100
+  end
+  
+
   def restore_hp
     if @hp >= 0
       @hp = @hp + (100 - @hp) unless @hp == 100
