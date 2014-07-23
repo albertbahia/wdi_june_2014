@@ -1,0 +1,4 @@
+.buddy:first-of-type {
+  background-color: white;
+  border: gray solid 5px;
+}
