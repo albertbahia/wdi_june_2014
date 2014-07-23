@@ -126,5 +126,5 @@ function thereAndBackAgain () {
 
   $('#gollum').remove();
   $('.baddies').remove();
-  $('.hobbits').appendTo($('.hobbits-list'))
+  $('.hobbits').appendTo($('.hobbits-list'));
 }
