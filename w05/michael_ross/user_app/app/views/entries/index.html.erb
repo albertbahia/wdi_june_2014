@@ -1,0 +1,10 @@
+<h2>Entries</h2>
+
+<%= link_to('New Entry', new_entry_path) %>
+<hr>
+<% @entries.each do |entry| %>
+<h3><strong><%= entry.title %></strong></h3>
+<p><%= entry.content %></p>
+<small>by: <%= entry.user.username %></small>
+<hr>
+<% end %>
