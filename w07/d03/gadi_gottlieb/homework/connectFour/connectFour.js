@@ -5,15 +5,42 @@ $(function() {
 });
 
 function startGame() {
-  var gamePieces = $('.piece');
-  gamePieces.on('click', addPiece);
+  $('.piece').on('click', addPiece);
 }
 
 var addPiece = function(){
-  var piece = $(this);
-  if (piece !== 'red') {
-    piece.addClass('red');
-    // piece.toggleClass('black');
+  console.log('piece was added')
+  // var redPiece = $(this).addClass('red')
+  // var blackPiece = $(this).addClass('black')
+
+  if ($(this).hasClass('red')){
+    $(this).removeClass('red').addClass('black');
+  } else {
+    $(this).removeClass('black').addClass('red');
   }
-  piece.toggleClass('black');
+}
+
+
+
+
+
+  //  hasClass('red') !== true) {
+  //   $(this).addClass('red');
+  // }
+
+
+// }
+//   if (piece !== 'rgba(250,255,255,.5)') {
+//     return piece.addClass('red')
+//     if (piece.contents() === '<div red>'){
+//       piece
+//     }
+//       {piece.addClass('black')
+//     }
+//   }
+//     piece.addClass('black');
+//   }
+
+var playerChange = function(){
+
 }
