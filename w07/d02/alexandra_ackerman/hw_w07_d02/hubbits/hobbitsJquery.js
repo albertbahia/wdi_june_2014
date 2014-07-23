@@ -129,6 +129,8 @@ var thereAndBackAgain = function() {
   gollum.remove();
   var baddies = $('.baddy');
   baddies.remove();
-  var hobbitsToShire = $('#hobbits');
-  hobbitsToShire.appendTo('#land-0');
+  var froto = $('#hobbit-0');
+  var sam = $('#hobbit-1');
+  froto.appendTo('#land-0');
+  sam.appendTo('#land-0');
 };
