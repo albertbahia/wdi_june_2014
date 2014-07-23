@@ -139,14 +139,14 @@ function forgeTheFellowShip() {
   // create a new div called 'the-fellowship'
   $('<div>').attr('id', 'the-fellowship').appendTo(rivendell);
   // add an h1 with the text 'The Fellowship'
-  $('<h1>').text('The Fellowship').appendTo($('#the-fellowship'));
-
-
-  // add each hobbit and buddy one at a time to 'the-fellowship'
-  for (var i = 0; i < ul.length; i++) {
-    ul.eq(i).appendTo($('#the-fellowship'));
-    alert( ul.eq(i) + "has joined the fellowship");
-  };
+  // $('<h1>').text('The Fellowship').appendTo($('#the-fellowship'));
+  //
+  //
+  // // add each hobbit and buddy one at a time to 'the-fellowship'
+  // for (var i = 0; i < ul.length; i++) {
+  //   ul.eq(i).appendTo($('#the-fellowship'));
+  //   alert( ul[i] + "has joined the fellowship");
+  // };
 
   // ul.each(function() {
   //   ( this ).appendTo($('#the-fellowship'));
@@ -154,7 +154,20 @@ function forgeTheFellowShip() {
   // })
 
   // after each character is added make an alert that they have joined your party
+    // // mck solution
 
+    var theFellowship = $('<div>').attr('id', 'the-fellowship')
+      .append('<h1>The Fellowship</h1>');
+    var hobbitBuddyList = $('<ul>');
+    for (var i = 0; i < hobbits.length; i++) {
+      hobbitBuddyList.append(hobbits[i]);
+      alert(hobbits[i].innerText + " has joined");
+    }
+    for (var i = 0; i < buddys.length; i++) {
+      hobbitBuddyList.append(buddys[i]);
+      alert(buddys[i].innerText + " has joined");
+    }
+    theFellowship.append(hobbitBuddyList).appendTo($('#the-fellowship'))
 }
 
 
@@ -168,6 +181,7 @@ function theBalrog() {
   gandalf.css('background-color', 'white');
   gandalf.css('border-style', 'solid');
   gandalf.css('border-color', 'grey');
+  gandalf.css('color', 'grey');
   // make the background 'white', add a grey border
 }
 
@@ -223,8 +237,8 @@ function thereAndBackAgain() {
   $('#gollum').remove();
   // remove Gollum and the Ring from the document
   // remove all the baddies from the document
-  $('.baddy').remove();
+  $('.baddy-list').remove();
   // Move all the hobbits back to the shire
   var shire = $('article').eq(0);
-  $('.hobbit').appendTo(shire);
+  $('.hobbit-list').appendTo(shire);
 }
