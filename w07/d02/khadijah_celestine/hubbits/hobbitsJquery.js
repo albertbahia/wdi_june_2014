@@ -29,8 +29,7 @@ var lands = ["The Shire", "Rivendell", "Mordor"];
 function makeMiddleEarth(lands) {
 section = $('<section>').attr('id','middle-earth');
 for(i in lands) {
-  article = $('article');
-  $('h1').text(lands[i]).appendTo(article);
+  $('').append('').text(lands[i]);
   article.appendTo(section);
 }
 section.appendTo('body');
