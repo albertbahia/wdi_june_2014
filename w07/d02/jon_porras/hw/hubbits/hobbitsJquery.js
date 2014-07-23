@@ -91,8 +91,9 @@ function forgeTheFellowShip() {
       alert($(this,'.buddy').text() + "has joined the fellowship.")
     });
 
-    $('.baddies').each(function(){
-      $('.baddies').appendTo(fellowship);
+    $('.hobbit').each(function(){
+      $('.hobbit').appendTo(fellowship);
+      alert($(this,'.hobbit').text() + "has joined the fellowship.")
     });
 }
 
