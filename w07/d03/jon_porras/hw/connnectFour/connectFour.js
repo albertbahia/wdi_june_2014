@@ -18,11 +18,16 @@ function startGame() {
 var num = 0;
 var pieceClick = function() {
   piece = $(this);
-  if(num === 0){
-    piece.addClass('red');
-    num = 1;
-  } else {
-    piece.addClass('black');
-    num = 0;
-  }
+
+if(piece.hasClass('red') || piece.hasClass('black')){
+      ;
+    } else {
+      if(num === 0){
+        piece.addClass('red');
+        num = 1;
+      } else {
+        piece.addClass('black');
+        num = 0;
+      }
+    }
 }
