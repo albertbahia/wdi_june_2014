@@ -17,4 +17,11 @@ function startGame() {
 var makeEmRed = function() {
   var piece = $(this);
   piece.css('background-color', 'red');
+  $('.piece').on('click', makeEmBlack);
+};
+
+var makeEmBlack = function() {
+  var piece = $(this);
+  piece.css('background-color', 'black');
+  $('.piece').on('click', makeEmRed);
 };
