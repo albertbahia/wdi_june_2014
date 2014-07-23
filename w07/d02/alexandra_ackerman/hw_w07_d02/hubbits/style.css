@@ -1,0 +1,8 @@
+.white {
+  background: white;
+  border: 5px gray;
+}
+
+.dead {
+  text-decoration: line-through;
+}
