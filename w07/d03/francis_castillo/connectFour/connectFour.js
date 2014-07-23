@@ -2,7 +2,7 @@ $(function() {
   console.log('Loaded, bro');
   startGame();
   addClass();
-  $('.pieces').click(changeToRed);
+  $('.pieces').click(toggleColor);
 
 });
 
@@ -39,3 +39,21 @@ function addClass (arguments) {
 var changeToRed = function() {
   $(this).addClass("red");
 }
+
+var changeToBlack = function() {
+  $(this).addClass("black");
+}
+
+var toggleColor = function() {
+  var piece = $(this);
+  if (piece.hasClass("red")) {
+    piece.removeClass("red");
+    piece.addClass("black");
+    console.log(piece);
+    console.log("changing to black");
+  } else {
+    piece.removeClass("black");
+    piece.addClass("red");
+  }
+
+};
