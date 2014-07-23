@@ -1,20 +1,53 @@
 $(function() {
   console.log('Loaded, bro');
+  $('#reload').on('click', startGame);
+
   startGame();
 });
 
 
-
-
-
-
-
 function startGame() {
   var gamePieces = $('.piece');
-  gamePieces.mouseenter(function(){
-    $(this).addClass('hover')
-  });
-  gamePieces.mouseleave(function(){
-    $(this).removeClass('hover')
-  });
+
+  $('.piece').on('click', turnRed);
+
+};
+
+var turnRed = function(){
+  	var piece = $(this);
+  	piece.addClass('red');
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
