@@ -1,8 +1,8 @@
 $(function() {
   console.log("Hi");
   $('.card').on('click', cardClick);
-  $('.done').on('click', removeCard);
-  $('.todo').on('click', finishCard);
+  $('.delete').on('click', removeCard);
+  $('.finish').on('click', finishCard);
   $('#new-card-button').on('click', createCard);
 
 });
@@ -15,14 +15,12 @@ var cardClick = function() {
 }
 
 var removeCard = function() {
-  console.log('remove');
-  $(this).remove();
+  $(this).parent().remove();
 }
 
 var finishCard = function() {
-  console.log('finish');
   var doneList = $('#done-column ul.card-list');
-  var card = $(this);
+  var card = $(this).parent();
 
   // Update classes
   card.removeClass('todo');
@@ -31,9 +29,12 @@ var finishCard = function() {
   // Move to done list
   card.appendTo(doneList);
 
-  // Update listeners
-  card.off();
-  card.on('click', removeCard);
+  // Update listeners - irrelevant now because listeners are not on card
+  // card.off();
+  // card.on('click', removeCard);
+
+  // Remove finish button
+  $(this).remove();
 }
 
 var createCard = function() {
@@ -47,8 +48,15 @@ var createCard = function() {
   // Add text to card
   card.text(input.val());
 
-  // Add listener to card
-  card.on('click', finishCard);
+  // Add buttons to card
+  var finishButton = $('<span>').addClass('finish').text('Finish');
+  var deleteButton = $('<span>').addClass('delete').text('X');
+  finishButton.on('click', finishCard);
+  deleteButton.on('click', removeCard);
+  card.append(deleteButton).append(finishButton);
+
+  // Add listener to card - irrelevant since cards don't have listeners anymore
+  // card.on('click', finishCard);
 
   // Add card to todo list
   card.appendTo(todoList);
