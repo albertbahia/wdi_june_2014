@@ -45,6 +45,14 @@ Before moving to the next step make sure that clicks are alternating between red
 
 __COMMIT__
 
+
+
+
+
+
+
+
+
 ### Make It Stick!
 
 Now when gamepieces are clicked they will alternate between red and black. Edit your code so that when a gamepiece is clicked:
@@ -54,12 +62,28 @@ Now when gamepieces are clicked they will alternate between red and black. Edit 
 
 __COMMIT__
 
+
+
+
+
+
+
+
+
+
+
 ### Only Down Below
 
 Edit your code so that only the bottommost piece in a given column can be clicked and have its color change. 
 
 
 _There are many ways to go about doing this. Before jumping into the code aspect of this problem, plan it out. Think about the attributes of the gamepieces, the attributes of the gameboard and the methods available to you for jQuery objects that might be useful to achieve this goal._
+
+
+
+
+
+
 
 ## BONUS
 

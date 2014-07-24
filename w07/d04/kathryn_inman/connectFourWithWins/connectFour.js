@@ -11,30 +11,31 @@ function startGame() {
   gamePieces.removeClass('red');
   gamePieces.removeClass('black');
   colorToggle = 'red'
-  limitToBottom();
-
-  $('.bottom-piece').on('click', markPiece);
-  // $('.piece').on('click', markPiece);
-
+  
+  $('.piece').on('click', markPiece);
 };
 
-function limitToBottom() {
-	var gameColumns = $('.column');
-	console.log(gameColumns);
-
-	for (var i = 0; i < gameColumns.length; i++) {
-		gameColumns.eq(i).children().eq(5).addClass('bottom-piece');
-	}
-}
 
 function markPiece(){
-  	var piece = $(this);
-  	// var piecesInClickedColumn = $(this).parent().children();
-  	// var piece = piecesInClickedColumn.eq(5);
-  	// console.log(piece);
+	console.log(this);
+  	var clickedPiece = $(this);
+  	
+  	clickedPiece.findNext = function() {
+  	 	var markedPieceTest = $(this).parent().children('.red', '.black');
+  		var nextPiece = 0;
+  		if (markedPieceTest.length) {
+  			console.log(markedPieceTest.length);
+  			nextPiece = markedPieceTest.last().prev();
+  			return nextPiece;
+  		} else {
+  			nextPiece = $(this).parent().children().eq(5);
+  			return nextPiece;
+  		}
+  	};
 
+  	var piece = clickedPiece.findNext();  // bottommost unmarked piece
 
-  	piece.toggleColor = function() {
+	piece.toggleColor = function() {
   		if (colorToggle === 'red') {
       		colorToggle = 'black';
     	} else if (colorToggle === 'black') {
@@ -62,6 +63,7 @@ function markPiece(){
 			console.log(piece.attr('class'));
 		}
 	}
+
 };
 
 
