@@ -1,6 +1,7 @@
 $(function() {
   console.log('Loaded, bro');
   startGame();
+  
 });
 
 var currentPlayer = 'red';
