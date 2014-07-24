@@ -4,7 +4,7 @@ $(function() {
 
   // Listeners go here:
   // When click on piece, turn color
-  $('.piece').on('click', turnColor);
+  $('.piece').on('click', changeColor);
 
 });
 
@@ -18,15 +18,76 @@ function startGame() {
   });
 }
 
-function turnColor() {
-  var piece = $(this);
+// function changeColor() {
+//   var piece = $(this);
+//
+//   // if piece's class !== .red, turn to .red
+//   if (!piece.hasClass('red')) {
+//     piece.removeClass('black').addClass('red');
+//   }
+//   // else if piece's class === .red, turn to black
+//   else {
+//     piece.removeClass('red').addClass('black');
+//   }
+// }
 
-  // if piece's class !== .red, turn to .red
-  if (!piece.hasClass('red')) {
-    piece.addClass('red');
+function makeMove() {
+  var piece = $(this);
+  var turn = 0;
+  var siblingsBelow = (piece.siblings():lt(piece.index()));
+
+  if (piece.hasClass('piece 1')) {
+    if (!piece.hasClass('red') || !piece.hasClass('black')) {
+      if (turn % 2 === 0) {
+        piece.addClass('red');
+        turn++;
+      } else {
+        piece.addClass('black');
+        turn++;
+      }
+    }
   }
-  // else if piece's class === .red, turn to black
   else {
-    piece.addClass('black');
+      if (piece.hasClass('red') || piece.hasClass('black')) {
+        alert("This spot's taken");
+      } else {
+          if (siblingsBelow.hasClass ...)
+          for (var i = 0; i < array.length; i++) {
+            array[i]
+          }
+      }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
