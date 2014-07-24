@@ -3,20 +3,30 @@ $(function() {
   startGame();
 
   (function () {
-  	var count = 0;
+  	var count = 1;
 
-	  $('.piece').click(function () {
-	  	var piece = $(this);
+		$('.piece').click(function() {
+	  	var thisPiece = $(this);
+
+	  	//column
+	  	var column = thisPiece.parent();
+
+	  	// select all pieces without color
+	  	var blankPieces = column.children(":not(.filled)");
+
+	  	// select the last uncolored child of column
+	  	var lastPiece = blankPieces.last();
 	    
-	    if( !piece.hasClass('red') && !piece.hasClass('black')){
+	    if( !thisPiece.hasClass('red') && !thisPiece.hasClass('black')){
 		    if (count % 2 != 0) {	
-		      piece.addClass('red'); 
+		      lastPiece.addClass('red filled'); 
 		    }else {
-		    	piece.addClass('black');
+		    	lastPiece.addClass('black filled');
 		    }
 		    count += 1;
 		   } 
 	  });
+
 	})();  // Functions closing brackets
 
 //the closing brackets
@@ -32,5 +42,15 @@ function startGame() {
   //   $(this).removeClass('hover')
   // });
 }
+
+
+
+
+
+
+
+
+
+
 
 
