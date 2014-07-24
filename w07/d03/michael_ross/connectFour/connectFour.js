@@ -1,22 +1,19 @@
 $(function() {
   console.log('Loaded, bro');
   startGame();
-  $('.piece').on('click', makeRed);
+  $('.piece').on('click', addClass);
 });
 
 function startGame() {
   var gamePieces = $('.piece');
-  gamePieces.mouseenter(function(){
-    $(this).addClass('hover')
-  });
-  gamePieces.mouseleave(function(){
-    $(this).removeClass('hover')
-  });
 }
 
 
-var makeRed = function() {
+var addClass = function() {
   var button = $(this);
-  button.addClass('red');
-
+  if (button.hasClass('red')) {
+    button.toggleClass('black').removeClass('red');
+  } else {
+    button.toggleClass('red').removeClass('black')
+  }
 };

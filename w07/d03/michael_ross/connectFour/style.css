@@ -27,9 +27,6 @@ div.piece {
   margin: 3px;
   background: rgba(250,255,255,.5)
 }
-div.hover {
-  background: rgba(250,255,255,.8)
-}
 
 div.red {
   background: rgb(255,0,0);
