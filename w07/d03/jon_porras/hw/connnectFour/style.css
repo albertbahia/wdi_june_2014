@@ -38,3 +38,13 @@ h1 {
   color: blue;
   font-family: Comic Sans MS;
 }
+
+#restart {
+  font-family: 'Gill Sans';
+  background-color: white;
+  border: solid black 1px;
+  height: 20px;
+  width: 100px;
+  margin-left: 300px;
+  text-align: center;
+}
