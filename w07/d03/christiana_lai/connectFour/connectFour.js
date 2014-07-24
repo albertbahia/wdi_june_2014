@@ -31,9 +31,14 @@ var changeColor = function(piece) {
 
 var makeMove = function() {
   var piece = $(this);
-  console.log(piece.index());
-  if (piece.index() === 5) {
+  var pieceArray = piece.parent().children('.piece');
+  // getting index of piece that we clicked on
+  var pieceIndex = pieceArray.index(piece);
+  // only if last piece in column is filled can next move be made
+  if (pieceIndex === 5) {
     changeColor(piece);
-  } else {
+  // preceding piece must be taken before moves can be made
+  } else if (pieceArray.eq(pieceIndex + 1).hasClass('taken')) {
+    changeColor(piece);
   }
 };
