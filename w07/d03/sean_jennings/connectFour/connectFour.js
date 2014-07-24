@@ -1,6 +1,9 @@
+var turn;
+
 $(function() {
   console.log('Loaded, bro');
   startGame();
+  turn = 0;
 });
 
 
@@ -14,17 +17,14 @@ function startGame() {
 
 var changeColor = function() {
 
-  if ($(this).hasClass('red')) {
+  if ($(this).attr('class') == 'piece') {
 
-    $(this).toggleClass('black')
-  } else {
-
-    $(this).toggleClass('red');
+    if (turn % 2 == 0) {
+      $(this).addClass('red');
+      turn++;
+    } else {
+      $(this).addClass('black');
+      turn++;
+    }
   }
 }
-
-// if current piece is red
-//   change it to black
-// else
-//   change it to red
-// end
