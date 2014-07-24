@@ -1,10 +1,11 @@
 $(function() {
   console.log('Loaded, bro');
   startGame();
-  $('h3').click(clearBoard);
+  $('h2').click(clearBoard);
 
   (function () {
-  	var count = 1;
+
+  	count = 1;
 
 		$('.piece').click(function() {
 	  	var thisPiece = $(this);
@@ -36,6 +37,7 @@ $(function() {
 // Clear board
 var clearBoard = function(){
 	$('.piece').removeClass('red black filled');
+	count = 1;
 };
 
 function startGame() {
