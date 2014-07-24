@@ -1,3 +1,5 @@
+var colorArr = ["red"];
+var num = 1;
 $(function() {
   console.log('Loaded, bro');
   startGame();
@@ -12,48 +14,59 @@ function startGame() {
 
 function addClass (arguments) {
   var piecesArr = $('#gameboard-container div');
-  var columns = ['one', 'two', 'three', 'four', 'five', 'six', 'seven']
+  var columns = [ '', 'one', 'two', 'three', 'four', 'five', 'six', 'seven']
 
   piecesArr.each(
     function(index) {
-      $(this).addClass((index + 1).toString());
+      var idx = index + 1;
+      $(this).addClass((idx).toString());
 
-      if (index < 7) {
-        $(this).addClass(columns[0]);
-      } else if (index < 14 && index > 6) {
-        $(this).addClass(columns[1]);
-      } else if (index < 21 && index > 13) {
-        $(this).addClass(columns[2]);
-      } else if (index < 28 && index > 20) {
-        $(this).addClass(columns[3]);
-      } else if (index < 35 && index > 27) {
-        $(this).addClass(columns[4]);
-      } else if (index < 42 && index > 34) {
-        $(this).addClass(columns[5]);
+      if (num % 7 === 0 && idx < 36) {
+        $(this).attr("id", columns[num]);
+        $(this).addClass("not-playable");
+        num = 1;
+      } else if (idx > 35) {
+        $(this).attr("id", columns[num]);
+        $(this).addClass("playable");
+        num+=1;
+      } else {
+        $(this).attr("id", columns[num]);
+        $(this).addClass("not-playable");
+        num+=1;
       }
-
     }
   );
 }
 
-var changeToRed = function() {
-  $(this).addClass("red");
+var changeColorTo = function(piece,color) {
+  piece.addClass(color);
 }
 
-var changeToBlack = function() {
-  $(this).addClass("black");
-}
 
 var toggleColor = function() {
   var piece = $(this);
-  if (piece.hasClass("red")) {
-    piece.removeClass("red");
-    piece.addClass("black");
-    console.log(piece);
-    console.log("changing to black");
+  var red = "red";
+  var black = "black";
+  var id = '#' + piece.attr('id') + '.not-playable';
+  var index = (colorArr.length - 1);
+
+  if (piece.hasClass("red") || piece.hasClass("black")) {
+    console.log("choose another piece");
   } else {
-    piece.removeClass("black");
-    piece.addClass("red");
+    if (colorArr[index] === "red"  && piece.hasClass("playable")) {
+      changeColorTo(piece, colorArr[index]);
+      $(id).last().removeClass("not-playable").addClass('playable');
+
+      colorArr.push(black);
+    } else if ( colorArr[index] === "black"  && piece.hasClass("playable") ) {
+      changeColorTo(piece, colorArr[index]);
+      $(id).last().removeClass("not-playable").addClass('playable');
+      colorArr.push(red);
+    }
   }
 
 };
+
+// var bottomMost = function() {
+//   $(this).
+// }
