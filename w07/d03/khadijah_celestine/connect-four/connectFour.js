@@ -1,14 +1,21 @@
 $(function() {
-  console.log('Loaded, bro');
+  console.log('Khadijah');
   startGame();
 });
 
 function startGame() {
   var gamePieces = $('.piece');
-  gamePieces.mouseenter(function(){
-    $(this).addClass('hover')
-  });
-  gamePieces.mouseleave(function(){
-    $(this).removeClass('hover')
-  });
+
+  gamePieces.on('click', toggle );
+
 }
+  var toggle = function() {
+    if ($(this).hasClass('red')) {
+      $(this).removeClass('red');
+      $(this).addClass('black');
+    } else {
+      $(this).removeClass('black');
+      $(this).addClass('red');
+    } 
+  }
+
