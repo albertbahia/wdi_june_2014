@@ -42,3 +42,11 @@ h1 {
   color: blue;
   font-family: Comic Sans MS;
 }
+.button {
+  padding: 10px 15px;
+  background: #4479BA;
+  color: #FFF;
+  font: helvetica;
+  font-size: 18px;
+  border-radius: 50%;
+}
