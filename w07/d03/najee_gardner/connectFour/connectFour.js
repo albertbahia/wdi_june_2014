@@ -3,15 +3,23 @@ $(function() {
   startGame();
 });
 
+var currentPlayer = 'red';
+
 function startGame() {
-  $('.piece').click(makePieceBlack);
-  $('.piece').click(makePieceRed);
+  $('.piece').click(changePieceColor);
 }
 
-function makePieceRed() {
-  $(this).toggleClass('red');
+function changePieceColor() {
+  if(!$(this).hasClass('black') && !$(this).hasClass('red')) {
+    $(this).addClass(currentPlayer);
+    toggleTurn();
+  }
 }
 
-function makePieceBlack() {
-  $(this).toggleClass('black', $(this).hasClass('red'));
+function toggleTurn() {
+  if (currentPlayer === 'red') {
+    currentPlayer = 'black';
+  } else {
+    currentPlayer = 'red';
+  }
 }
