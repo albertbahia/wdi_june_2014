@@ -1,6 +1,7 @@
 $(function() {
   console.log('Loaded, bro');
   startGame();
+  $('h3').click(clearBoard);
 
   (function () {
   	var count = 1;
@@ -32,6 +33,10 @@ $(function() {
 //the closing brackets
 });
 
+// Clear board
+var clearBoard = function(){
+	$('.piece').removeClass('red black filled');
+};
 
 function startGame() {
   var gamePieces = $('.piece');
