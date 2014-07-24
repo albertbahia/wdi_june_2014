@@ -1,8 +1,8 @@
 $(function() {
   console.log("Hi");
   $('.card-list li').click(cardClick);
-  $('.done').click(removeFromDone);
-  $('.todo').click(taskDone);
+  $('.delete').click(removeFromDone);
+  $('.finish').click(taskDone);
   $('#new-card-button').click(addTask);
 });
 
@@ -12,25 +12,32 @@ var cardClick = function() {
 };
 
 var removeFromDone = function() {
-  $(this).remove();
+  $(this).parent().remove();
 };
 
 var taskDone = function() {
-  var task = $(this);
+  var task = $(this).parent();
   task.removeClass().addClass("card done");
   task.prependTo($('#done-column ul'));
   task.off();
-  task.click(removeFromDone);
+  $(this).remove();
 };
 
 var addTask = function() {
-  var todoList = $('#new-card-text')
-  var inputVal = todoList.val();
+  var task = $('#new-card-text')
+  var inputVal = task.val();
   var card = $('<li>');
+  var delButton =
+    $('<span>').addClass("delete").text('X');
+  var finButton =
+    $('<span>').addClass("finish").text('Finish');
 
   card.text(inputVal).addClass("card todo");
   card.prependTo($('#todo-column ul'));
-  card.off();
-  card.click(taskDone);
-  todoList.val('');
+  finButton.click(taskDone);
+  delButton.click(removeFromDone);
+  card.append(delButton, finButton);
+  task.val('');
+
+
 };
