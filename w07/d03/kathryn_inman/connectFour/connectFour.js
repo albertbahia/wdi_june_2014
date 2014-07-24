@@ -8,14 +8,31 @@ $(function() {
 
 function startGame() {
   var gamePieces = $('.piece');
+  gamePieces.removeClass('red');
+  gamePieces.removeClass('black');
   colorToggle = 'red'
+  limitToBottom();
 
+  // $('.bottom-piece').on('click', markPiece);
   $('.piece').on('click', markPiece);
 
 };
 
+var limitToBottom = function() {
+	var gameColumns = $('.piece').parent();
+	console.log(gameColumns);
+	// for (pieceDiv in gameColumns) {
+	// 	pieceDiv.addClass('bottom-piece')
+	// }
+	// console.log(gamePieces);
+}
+
 var markPiece = function(){
   	var piece = $(this);
+  	// var piecesInClickedColumn = $(this).parent().children();
+  	// var piece = piecesInClickedColumn.eq(5);
+  	// console.log(piece);
+
 
   	piece.toggleColor = function() {
   		if (colorToggle === 'red') {
@@ -47,9 +64,6 @@ var markPiece = function(){
 	}
 };
 
-// - If it is set to red and clicked again it will not change color 
-// - If it is set to black and clicked again it will not change color
-// - An invalid click (on a colored piece) should not affect the order of the color of the next valid click. (i.e. if I am supposed to play red, and i click on a red, then next valid click should turn that gamepiece red, not black)
 
 
 
