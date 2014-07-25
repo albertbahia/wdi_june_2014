@@ -7,28 +7,18 @@ function startGame() {
   var gamePieces = $('.piece');
   var columns = $('.column');
   var turn = true;
-  gameBoard = [
-    [null, null, null, null, null, null, null, null, 7],
-    [null, null, null, null, null, null, null, null, 7],
-    [null, null, null, null, null, null, null, null, 7],
-    [null, null, null, null, null, null, null, null, 7],
-    [null, null, null, null, null, null, null, null, 7],
-    [null, null, null, null, null, null, null, null, 7]
+  gameBoard = [ /* 0    1     2     3     4      5
+   /* 0 row */  ['a', 'c', null, null, null, null],
+   /* 1 row */  ['b', null, null, null, null, null],
+   /* 2 row */  [null, null, null, null, null, null],
+   /* 3 row */  [null, null, null, null, null, null],
+   /* 4 row */  [null, null, null, null, null, null],
+   /* 5 row */  [null, null, null, null, null, null],
+   /* 6 row */  [null, null, null, null, null, null],
+   /* 7 row */  [   7,    7,    7,    7,    7,    7]
     ];
   
   columns.on('click', function() { 
-  /*  col = $(this);
-    id = col.attr('id');
-    console.log('COLUMN');
-    console.log(id);
-    piecesInCol = col.children('.piece');
-    console.log(piecesInCol);
-    console.log(piecesInCol[0]);
-    for (var i = piecesInCol.length; i >= 0; i--) {
-      console.log(piecesInCol.eq(i).attr('id'));
-      console.log(piecesInCol.eq(i).hasClass('black') || piecesInCol.eq(i).hasClass('red') );
-    }
-  */
   col = $(this);
   colId = col.attr('id');
   // console.log(colId);
@@ -43,28 +33,9 @@ function startGame() {
   });
 
   gamePieces.on('click', function() { 
-    /*
-    if($(this).hasClass('red') || $(this).hasClass('black') ) {
-    } else {
-       piece = $(this);
-       col = piece.parent();
-       loc = parseInt(piece.attr('id'));
-
-       console.log(loc + ' ' + getCoordinates(loc));
-     if(turn) {
-       $(this).removeClass('red');
-       $(this).addClass('black');
-     } else {
-       $(this).removeClass('black');
-       $(this).addClass('red');
-     }
-    turn = !turn;
-    }
-    */
   });
-
-
 }
+
 //                  board,   4   , red
 var play = function(board, column, color) {
   index = board[column][8];
@@ -73,9 +44,14 @@ var play = function(board, column, color) {
 };
 
 var playPiece = function(board, column, color) {
-  index = board[column][8];
+  console.log('colid' + column, color);
+  index = board[column][6];
+  console.log(index)
   board[column][index] = color;
-  board[column][8]--;
+  board[column][6]--;
+  console.log('PP');
+  console.log('col: ' + column + 'row: ' + index);
+  console.log('PP');
 };
 
 var toggle = function() {
