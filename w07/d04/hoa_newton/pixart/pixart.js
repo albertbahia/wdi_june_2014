@@ -26,4 +26,7 @@ function turnGreen() {
 function changeColor(){
 	colorClass = $(this).css('background');
 	$('.brush').css('background', colorClass);
+	$('.square').mouseover(function(){
+		$(this).css('background', colorClass)
+	})
 }
