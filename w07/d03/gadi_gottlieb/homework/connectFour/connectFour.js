@@ -17,10 +17,10 @@ var addPiece = function(){
   console.log('piece was added')
   var piece = $(this);
   if (piece.hasClass('red') === false && piece.hasClass('black') === false) {
-    if (turn % 2 == 0) {
+    if (turn % 2 === 0) {
       piece.addClass('red');
       turn++;
-    } else {
+    } else if (turn % 2 === 1) {
       piece.addClass('black');
       turn++;
     }
