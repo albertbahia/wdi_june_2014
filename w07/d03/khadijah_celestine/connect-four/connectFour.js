@@ -4,8 +4,8 @@ $(function() {
 });
 
 function startGame() {
-  var gamePieces = $('.piece');
   var columns = $('.column');
+  var COUNTER = 6;
   var turn = true;
                 /*col*/
   var gameBoard = [ /* 0    1     2     3     4      5    6
@@ -19,24 +19,29 @@ function startGame() {
     ];
   
   columns.on('click', function() { 
-    col = $(this);
-    colId = col.attr('id');
-    if (gameBoard[6][colId] < 0) {
+    column = $(this);
+    columnId = column.attr('id');
+    if (gameBoard[COUNTER][columnId] < 0) {
       console.log('no more plays');
     } else {
       if(turn) {
         console.log('red');
-        playPiece(gameBoard, colId, 'red');
+        playPiece(gameBoard, columnId, 'red');
 
       } else { 
         console.log('black');
-        playPiece(gameBoard, colId, 'black');
+        playPiece(gameBoard, columnId, 'black');
       }
       turn = !turn;
     }
   });
 }
 
+// checks if this piece is a winner in the gameBoard array
+// using its row and columns
+var checkWin = function(row, column) {
+  
+};
 
 //                        board,   4   , red
 var playPiece = function(board, column, color) {
