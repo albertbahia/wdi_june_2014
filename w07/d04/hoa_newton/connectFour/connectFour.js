@@ -5,19 +5,12 @@ $(function() {
 
   (function () {
   	count = 1;
-
 		$('.piece').click(function() {
 	  	var thisPiece = $(this);
-
-	  	//column
-	  	var column = thisPiece.parent();
-
-	  	// select all pieces without color
-	  	var blankPieces = column.children(":not(.filled)");
-
-	  	// select the last uncolored child of column
-	  	var lastPiece = blankPieces.last();
-	    
+	  	var column = thisPiece.parent();    //column
+      var thisPieceRow = thisPiece.attr('id');
+	  	var blankPieces = column.children(":not(.filled)");   // select all pieces without color
+	  	var lastPiece = blankPieces.last();       // select the last uncolored child of column
 	    if( !thisPiece.hasClass('red') && !thisPiece.hasClass('black')){
 		    if (count % 2 != 0) {	
 		      lastPiece.addClass('red filled'); 
@@ -28,12 +21,10 @@ $(function() {
 		    checkWinHorizontal();
 		    checkWinVertical();
 		   } 
-	  });
+	  });  // closing if statement
 
 	})();  // Functions closing brackets
-
-//the closing brackets
-});
+});   //the closing brackets
 
 // Clear board
 var clearBoard = function(){
@@ -53,24 +44,18 @@ function startGame() {
 
 function checkWinHorizontal() {
   var column = $('.column');
-  var checkWin = []; 		// class name strings
-
-  //loop through 7 columns
-  for (var i = 0; i < 7; i++) {    
-  	//push all classname strings of each column, first row into checkWin array
-    var piecesOfCol = column.eq(i).children();
-
-    // for (var i = 0; i < 6; i++){
-    	var rowsClass = piecesOfCol.eq(0); 
-    // }
-    var rowsClassNames = rowsClass.attr('class');
+  var checkWin = []; 		           // class name strings
+  for (var i = 0; i < 7; i++) {    //loop through 7 columns
+    var piecesOfCol = column.eq(i).children();   //push all classname strings of each column, first row into checkWin array
+    var row = piecesOfCol.eq(0); 
+    var rowsClassNames = row.attr('class');
     checkWin.push(rowsClassNames); 
   }
   for (var i = 0; i < 4; i++) {
   	if (checkWin[i] === 'piece red filled' || checkWin[i] === 'piece black filled'){
   		if (checkWin[i] === checkWin[i+1] && checkWin[i+1] === checkWin[i+2] && checkWin[i+2] === checkWin[i+3]) {
       	$('<h3>').text(checkWin[i] + ' wins!').appendTo('body');
-      	clearBoard();
+        $('.piece').addClass('filled');
     	}
   	}  
   }
@@ -93,10 +78,36 @@ function checkWinVertical(){
   	}
   }
 }
-  // for (var i = 0; i < 3; i++){
-  // 	if ()
-  // }
+ 
+// function checkWinHorizontal() {
+//   var redPieces = [];
+//   var blackPieces = [];
 
+//   $('.piece').each(function() {
+//     if ($(this).hasClass('red')) {
+//       redPieces.push($(this));
+//     } else if ($(this).hasClass('black')) {
+//       blackPieces.push($(this));
+//     }
+//   });
+
+//   redPieces.
+ 
+// }
+
+// function checkWinHorizontal() {
+//   var column = thisPiece.parent();
+//   var allPieces = $('.piece');
+  
+//     for (var index = 0; index < 4; index++){
+//       if (allPieces.eq(index).attr('class') === allPieces.eq(index+1).attr('class') 
+//         && allPieces.eq(index+1).attr('class') === allPieces.eq(index+2).attr('class')
+//         && allPieces.eq(index+2).attr('class') === allPieces.eq(index+3).attr('class')){
+//           $('<h3>').text('Someone Wins!').appendTo('body');
+//         }
+//     }  
+  
+// }
 
 
 
