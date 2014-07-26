@@ -28,12 +28,13 @@ function startGame() {
   columns.on('click', function() { 
     column = $(this);
     columnId = column.attr('id');
-    if (gameBoard[COUNTER][columnId] < 0) {
-      console.log('no more plays');
-    } else {
-      turn = playPiece(gameBoard, columnId, turn);
+     if (gameBoard[COUNTER][columnId] < 0) {
+       console.log('no more plays');
+     } else {
+       turn = playPiece(gameBoard, columnId, turn);
     }
-    anyPlaysLeft(gameBoard, columnId) ? console.log('no plays') : playPiece(gameBoard, columnId, turn)
+
+   // anyPlaysLeft(gameBoard, columnId, COUNTER) ? console.log('no plays') : turn = playPiece(gameBoard, columnId, turn);
   });
 }
 
@@ -55,9 +56,13 @@ var playPiece = function(board, column, turn) {
     board[6][column]--;
     return !turn;
 };
-
+// true if some plays left
 var anyPlaysLeft = function(gameBoard, columnId, counter) {
-  return gameBoard[counter][columnId] < 0;
+  console.log('col ' + columnId);
+  console.log('should be 6: ' + counter);
+  console.log(gameBoard[counter][columnId]);
+  console.log(gameBoard[counter][columnId] > 0);
+  return gameBoard[counter][columnId] > 0;
 };
 
 // seems unnessacary to use array here but I like it
