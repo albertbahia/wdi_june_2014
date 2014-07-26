@@ -16,17 +16,24 @@ function startGame() {
    /* 4 row */  ['f', null, null, null, null, null, null],
    /* 5 row */  ['g', null, null, null, null, null, null],
    /* 6 row */  [   5,    5,    5,    5,    5,    5,   5]
-    ];
-  
+  ];
+ 
+// for on click function write two functions
+// one that will take in a column and check if there are any more plays
+// and one that will take in a boolean and then call playPiece on the right color
+//                                                    and return new value of turn
+// this way I could refractor my onClick function to a one liner something like this
+// anyPlaysLeft(columnId) ? console.log('no plays') : playPiece(gameBoard, columnId, turn)
+
   columns.on('click', function() { 
     column = $(this);
     columnId = column.attr('id');
     if (gameBoard[COUNTER][columnId] < 0) {
       console.log('no more plays');
     } else {
-      turn ? playPiece(gameBoard, columnId, 'red') : playPiece(gameBoard, columnId, 'black')
-      turn = !turn;
+      turn = playPiece(gameBoard, columnId, turn);
     }
+    anyPlaysLeft(gameBoard, columnId) ? console.log('no plays') : playPiece(gameBoard, columnId, turn)
   });
 }
 
@@ -36,17 +43,24 @@ var checkWin = function(row, column) {
   
 };
 
+
 //                        board,   4   , red
-var playPiece = function(board, column, color) {
+var playPiece = function(board, column, turn) {
+    var color = turn ? 'red' : 'black'
     var index = board[6][column];
     idOfPiece = getId([index,column]);
     piece = $('#' + idOfPiece); 
     piece.addClass(color);
     board[index][column] = color;
     board[6][column]--;
+    return !turn;
 };
 
+var anyPlaysLeft = function(gameBoard, columnId, counter) {
+  return gameBoard[counter][columnId] < 0;
+};
 
+// seems unnessacary to use array here but I like it
 var getId = function(arr) {
   var locationRow = arr[0];
   var locationCol = arr[1];
