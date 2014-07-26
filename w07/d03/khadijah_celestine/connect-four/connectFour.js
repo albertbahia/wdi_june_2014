@@ -24,14 +24,7 @@ function startGame() {
     if (gameBoard[COUNTER][columnId] < 0) {
       console.log('no more plays');
     } else {
-      if(turn) {
-        console.log('red');
-        playPiece(gameBoard, columnId, 'red');
-
-      } else { 
-        console.log('black');
-        playPiece(gameBoard, columnId, 'black');
-      }
+      turn ? playPiece(gameBoard, columnId, 'red') : playPiece(gameBoard, columnId, 'black')
       turn = !turn;
     }
   });
@@ -53,21 +46,13 @@ var playPiece = function(board, column, color) {
     board[6][column]--;
 };
 
-var toggle = function() {
-  if ($(this).hasClass('red')) {
-    $(this).removeClass('red');
-    $(this).addClass('black');
-  } else {
-    $(this).removeClass('black');
-    $(this).addClass('red');
-  } 
-};
 
 var getId = function(arr) {
   var locationRow = arr[0];
   var locationCol = arr[1];
   return locationCol * 6 + locationRow;
 };
+
 var getCoordinates = function(id) {
   var locationRow = parseInt(id / 6);
   var locationCol = id - locationRow * 6;
