@@ -40,21 +40,15 @@ function startGame() {
 
 //                        board,   4   , red
 var playPiece = function(board, column, color) {
-  if (board[6][column] < 0)
-  {
-    console.log('no more plays. sorry.');
-    return false;
-  } else {
     var index = board[6][column];
     console.log('index: ' + index);
-    console.log('should be null' + board[index][column]);
+    console.log('piece to change' + board[index][column]);
+    console.log('id: ' + getId([index,column]));
     board[index][column] = color;
     console.log('should be ' + color + ':' + board[index][column]);
     console.log('whats in the counter column ' + board[6][column]);
     board[6][column]--;
     console.log('whats in the counter column now: ' + board[6][column]);
-    return true;
-  }
 };
 
 var toggle = function() {
