@@ -18,9 +18,8 @@ $(function() {
 		    	lastPiece.addClass('black filled');
 		    }
 		    count += 1;
-		    // checkWinHorizontal(0);
         checkWinHorizontalAllRows();
-		    // checkWinVertical();
+		    checkWinVertical();
 		   } 
 	  });  // closing if statement
 
@@ -43,7 +42,7 @@ function startGame() {
   // });
 }
 
-
+/////////// CHECK WIN HORIZONTAL ////////////////////
 function checkWinHorizontalAllRows() {    // check win for all rows
   var offset = 7;                         // check win every set of 7 elements
   for (var i = 0; i < 6; i++) {
@@ -65,8 +64,6 @@ function checkWinByRow(startCell) {
       checkWin.push(cellsClassNames);      //push all classname strings of each column, first row into checkWin array
     }
   } 
-  // console.log("CHECKWIN: " + checkWin);
-
   // search the checkWin array for matching 4 in a 7 piece horizontal group 
   for (var i = startCell; i < startCell+4; i++) {   //check one set of 4 cells for winning possibility
   	if (checkWin[i] === 'piece red filled' || checkWin[i] === 'piece black filled'){
@@ -78,21 +75,24 @@ function checkWinByRow(startCell) {
   }
 };
 
+////////// CHECK WIN VERTICAL ////////////////////
 function checkWinVertical(){
-	// var column = $('.column');
- //  var checkWin = []; 
+	var columns = $('.column');
 
-  var begin = 0;
-  var column = $('.column');
+  for (var j = 0; j < 7; j++){                  //loop through 7 columns
+    var col = columns.eq(j);
+    var piecesOfCol = col.children();
 
-  var setOfFourPieces = column.children().eq(0).slice(begin, 4);
-  for (var i = 0; i < 4; i++){
-  	if ( setOfFourPieces.eq(0).attr('class') === setOfFourPieces.eq(1).attr('class') 
-  		&& setOfFourPieces.eq(1).attr('class') === setOfFourPieces.eq(2).attr('class')
-  		&& setOfFourPieces.eq(2).attr('class') === setOfFourPieces.eq(3).attr('class')){
-  		$('<h3>').text(checkWin[i] + ' wins!').appendTo('body');
-      	clearBoard();
-  	}
+    for (var i = 0; i < 3; i++){
+      if (piecesOfCol.eq(i).hasClass('red') || piecesOfCol.eq(i).hasClass('black')){
+        if (piecesOfCol.eq(i).attr('class') === piecesOfCol.eq(i+1).attr('class') &&
+        piecesOfCol.eq(i+1).attr('class') === piecesOfCol.eq(i+2).attr('class') &&
+        piecesOfCol.eq(i+2).attr('class') === piecesOfCol.eq(i+3).attr('class')){
+        $('<h3>').text( piecesOfCol.eq(i).attr('class')+ ' wins!').appendTo('body');
+        $('.piece').addClass('filled');
+        }
+      } 
+    }
   }
 }
  
