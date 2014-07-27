@@ -12,7 +12,6 @@ body {
 div.column {
   width: 107px;
   height: 600px;
-  border: 1px solid black;
   box-sizing: border-box;
   float: left;
 
@@ -39,6 +38,7 @@ div.black {
   background: rgb(0,0,0);
 }
 h1 {
+
   font-size: 50px;
   color: blue;
   font-family: Comic Sans MS;
