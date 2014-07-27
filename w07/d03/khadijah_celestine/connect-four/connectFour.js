@@ -29,25 +29,24 @@ function startGame() {
   });
 }
 
-// checks if this piece is a winner in the gameBoard array
-// using its row and columns
 var checkWin = function(gameBoard, row, col) {
   var win = false;
   // check horizontal left win
   col=(+col)
-  if ( col + 3 < 7 ) {
-    for(var i = col+3; i > col; i--) {
-      console.log('just played ' + row, col + ' position ' + row, i);
-      console.log('just played ' + gameBoard[row][col] + ' position ' + gameBoard[row][i]);
-      if (gameBoard[row][col] != gameBoard[row][i]) {
-        console.log('one of them will not work');
-      } else {
-        console.log('winner');
+  if ( col + 3 < 7 ) { // only if we're in col 0, 1, 2 or 3
+      if (gameBoard[row][col] === gameBoard[row][col+3] &&
+          gameBoard[row][col] === gameBoard[row][col+2] && 
+          gameBoard[row][col] === gameBoard[row][col+1]) {
+        console.log('yes all');
+        id = getId([row,col])
+        piece = $('#' + id);
+        color = piece.hasClass('red') ? 'red' : 'black';
+        console.log(color + ' wins the game. ');
       }
-    } 
   } else {
     console.log('too far out');
   }
+  if ( col
   return win;
 };
 
