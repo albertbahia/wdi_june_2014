@@ -18,8 +18,9 @@ $(function() {
 		    	lastPiece.addClass('black filled');
 		    }
 		    count += 1;
-		    checkWinHorizontal();
-		    checkWinVertical();
+		    // checkWinHorizontal(0);
+        checkWinHorizontalAllRows();
+		    // checkWinVertical();
 		   } 
 	  });  // closing if statement
 
@@ -42,16 +43,32 @@ function startGame() {
   // });
 }
 
-function checkWinHorizontal() {
+
+function checkWinHorizontalAllRows() {    // check win for all rows
+  var offset = 7;                         // check win every set of 7 elements
+  for (var i = 0; i < 6; i++) {
+    checkWinByRow(i * offset);      // check win all 6 rows
+    // console.log("checking row starting with cell " + i*offset)
+  }
+}
+
+function checkWinByRow(startCell) {
   var column = $('.column');
   var checkWin = []; 		           // class name strings
-  for (var i = 0; i < 7; i++) {    //loop through 7 columns
-    var piecesOfCol = column.eq(i).children();   //push all classname strings of each column, first row into checkWin array
-    var row = piecesOfCol.eq(0); 
-    var rowsClassNames = row.attr('class');
-    checkWin.push(rowsClassNames); 
-  }
-  for (var i = 0; i < 4; i++) {
+
+  // populate checkWin with current class names of all pieces
+  for (var j = 0; j < 6; j++ ) {     // loop through 6 rows to get all the cells
+    for (var i = 0; i < 7; i++) {    //loop through 7 columns to get 1 row
+      var piecesOfCol = column.eq(i).children();   
+      var cell = piecesOfCol.eq(j);   // loop through all cells, one cell at a time to get classes of each 
+      var cellsClassNames = cell.attr('class');
+      checkWin.push(cellsClassNames);      //push all classname strings of each column, first row into checkWin array
+    }
+  } 
+  // console.log("CHECKWIN: " + checkWin);
+
+  // search the checkWin array for matching 4 in a 7 piece horizontal group 
+  for (var i = startCell; i < startCell+4; i++) {   //check one set of 4 cells for winning possibility
   	if (checkWin[i] === 'piece red filled' || checkWin[i] === 'piece black filled'){
   		if (checkWin[i] === checkWin[i+1] && checkWin[i+1] === checkWin[i+2] && checkWin[i+2] === checkWin[i+3]) {
       	$('<h3>').text(checkWin[i] + ' wins!').appendTo('body');
