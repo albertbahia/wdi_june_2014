@@ -27,13 +27,11 @@ function makePlay() {
   // so that I may check for the bottom most elements first
   for (var i = pieces.length - 1; i > -1; i--) {
     if (!pieces.eq(i).hasClass('black') && !pieces.eq(i).hasClass('red')) {
-      if ($(this).get(0) === pieces.get(i)) {
-        $(this).addClass(currentPlayer);
-        toggleTurn();
-      }
 
-      checkCol(currentPiece);
-      checkRow(currentPiece);
+      pieces.eq(i).addClass(currentPlayer);
+      toggleTurn();
+
+      checkAndDisplayWinner(currentPiece);
       break;
     }
   }
@@ -70,8 +68,55 @@ function checkRow(piece) {
 }
 
 
-function checkDiag(piece) {
-  piece.parent()
+function checkDiagLeftRight(piece) {
+  var columnIndex = parseInt(piece.parent().attr('class').split(' ')[1]);
+  var rowIndex = parseInt(piece.attr('class').split(' ')[1]);
+
+  var rowStart = rowIndex - columnIndex;
+
+  var columns = $('.column');
+  var pieces = $();
+
+  // creates array of piece elements from the left to right cross
+  for (var i = 0; i < columns.length; i++) {
+    var diagPiece = columns.eq(i).children().eq(rowStart);
+    if (rowStart >= 0 && diagPiece != undefined) {
+      pieces = pieces.add(diagPiece);
+    }
+    rowStart++
+  }
+
+  var newDiag = convertPiecesToSimpleArray(pieces);
+  var winner = checkSimpleArrayWinner(newDiag);
+
+  return winner;
+
+}
+
+function checkDiagRightLeft(piece) {
+  var columnIndex = parseInt(piece.parent().attr('class').split(' ')[1]);
+  var rowIndex = parseInt(piece.attr('class').split(' ')[1]);
+
+  var rowEnd = (rowIndex - (7 - columnIndex)) - 1;
+
+  var columns = $('.column');
+  var pieces = $();
+
+
+  // creates array of piece elements from the right to left cross
+  for (var i = columns.length - 1; i >= 0; i--) {
+    var diagPiece = columns.eq(i).children().eq(rowEnd);
+    if (rowEnd >= 0 && diagPiece != undefined) {
+      pieces = pieces.add(diagPiece);
+    }
+
+    rowEnd++;
+  }
+
+  var newDiag = convertPiecesToSimpleArray(pieces);
+  var winner = checkSimpleArrayWinner(newDiag);
+
+  return winner;
 }
 
 
@@ -96,14 +141,42 @@ function convertPiecesToSimpleArray(jArray) {
 function checkSimpleArrayWinner(array) {
   var winner = 'n';
 
-  for (var i = 0; i < 3; i++) {
+  for (var i = 0; i < 4; i++) {
     if (array[i] === array[i + 1] &&
         array[i] === array[i + 2] &&
         array[i] === array[i + 3]) {
 
-      winner = array[i];
+      if (array[i]) {
+        winner = array[i];
+      }
     }
   }
 
   return winner;
+}
+
+function checkAndDisplayWinner(piece) {
+  var colWinner = checkCol(piece);
+  var rowWinner = checkRow(piece);
+  var diagLeftRightWinner = checkDiagLeftRight(piece);
+  var diagRightLeftWinner = checkDiagRightLeft(piece);
+  var winner = 'n';
+
+  if (colWinner !== 'n') {
+    winner = colWinner;
+  } else if (rowWinner !== 'n') {
+    winner = rowWinner;
+  } else if (diagLeftRightWinner !== 'n') {
+    winner = diagLeftRightWinner;
+  } else if (diagRightLeftWinner !== 'n') {
+    winner = diagRightLeftWinner;
+  }
+
+  if (winner === 'r' && !$('h2').hasClass('winner'))   {
+    $('<h2 class="winner">').text('RED Wins...Fatality').appendTo('#gameboard-container');
+    gameOver = true;
+  } else if (winner === 'b' && !$('h2').hasClass('winner')) {
+    $('<h2 class="winner">').text('Black Wins...Flawless Victory').appendTo('#gameboard-container')
+    gameOver = true;
+  }
 }
