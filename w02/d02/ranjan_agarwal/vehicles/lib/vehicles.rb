@@ -1,16 +1,13 @@
-class Vehicles
-  attr_reader(:company, :on,:seats)
-  def initialize(company, on)
+class Vehicle
+  attr_reader(:company,:on,:seats)
+  def initialize(company,on,seats)
     @company = company
     @on = on
-    @seats = nil
+    @seats = seats
+  end
+  def turn_off
+    @on = false
+    
   end
 
-  def turn_off
-    if on == true
-      return "Do nothing"
-    else
-      return "Turn off"
-    end
-  end
 end
