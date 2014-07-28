@@ -79,13 +79,9 @@ function checkColumns() {
         if (columnChildren.eq(r).attr('class') === 'circle red') {
           redArray.push(r);
           blackArray = [];
-          console.log('blackArray = ', blackArray)
-          console.log('redArray = ', redArray)
         } else if (columnChildren.eq(r).attr('class')  === 'circle black') {
           blackArray.push(r);
           redArray = [];
-          console.log('blackArray = ', blackArray)
-          console.log('redArray = ', redArray)
         }
       }
     if (redArray.length === 4) {
@@ -104,32 +100,34 @@ var checkRows = function() {
   var blackArray = [];
 
   for (var r = 0; r < 6; r++) {
-    var startCol = $('.circle').eq(r);
+    var colIndex = r;
+    var startCol = $('.circle').eq(colIndex);
     for (var c = 0; c < 7; c++ ) {
       if (startCol.attr('class') === 'circle red') {
-        var colIndex = 
-        redArray.push(r);
+        redArray.push(c);
         blackArray = [];
-        console.log('blackArray = ', blackArray);
-        console.log('redArray = ', redArray);
-        startCol = startCol.parent().children().eq(r + 6);
+        startCol = $('.circle').eq(colIndex + 6);
       } else if (startCol.attr('class') === 'circle black') {
-        blackArray.push(r);
+        var colIndex = startCol.index();
+        blackArray.push(c);
         redArray = [];
-        console.log('blackArray = ', blackArray);
-        console.log('redArray = ', redArray);
-        startCol = startCol.parent().children().eq(r + 6);
+        startCol = $('.circle').eq(colIndex + 6);
+      } else {
+        blackArray = [];
+        redArray = [];
+      }
+      if (redArray.length === 4) {
+        alert('red wins!')
+      } else if (blackArray.length === 4) {
+        alert('black wins!')
+      } else {
+        console.log('no one wins')
       }
     }
-    if (redArray.length === 4) {
-      alert('red wins!')
-    } else if (blackArray.length === 4) {
-      alert('black wins!')
-    } else {
-      console.log('no one wins')
-    }
+
   };
 };
+
 
 var checkDiags = function() {
 
