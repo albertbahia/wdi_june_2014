@@ -1,0 +1,12 @@
+<h2><%= @song.title %></h2>
+<h3><%= @song.artist.name %></h3>
+
+Album: <%= @song.album %></br>
+Preview_url:
+    <audio controls>
+      <source src="<%= @song.preview_url %>" type="audio/mp4">
+    </audio><br>
+Price: <%= @song.price %></br>
+<%= link_to('Edit', edit_song_path(@song)) %>
+<%= link_to('Back to Songs', songs_path) %>
+<%= link_to('Delete', song_path(@song), {method: :delete}) %>
