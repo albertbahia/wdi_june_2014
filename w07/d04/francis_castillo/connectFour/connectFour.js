@@ -108,11 +108,9 @@ var checkWinner = function(piece, playablePiece) {
   console.log(colId);
 
   if (col > 3) {
-    checkWinnerColumn(colId);
+    checkWinnerColumnRow(colId, 7);
   } else if (row > 3) {
-    checkWinnerRow(rowId);
-  } else if (row > 3) {
-    checkWinnerRow(rowId);
+    checkWinnerColumnRow(rowId, 1);
   }
 
 };
@@ -127,36 +125,38 @@ var makeWinnersArr = function(piecesArr) {
   return winsArr.reverse();
 };
 
-var checkWinnerColumn = function(piecesArr) {
+var checkWinnerColumnRow = function(piecesArr, diffNum) {
   var winsArr = makeWinnersArr(piecesArr);
 
-  if ( (winsArr[0] - winsArr[1]) === 7 && (winsArr[2] - winsArr[3])
-    === 7 && (winsArr[1] - winsArr[2]) === 7) {
+  if ( (winsArr[0] - winsArr[1]) === diffNum && (winsArr[2] - winsArr[3])
+    === diffNum && (winsArr[1] - winsArr[2]) === diffNum) {
 
-    $('<h2>').appendTo('#gameboard-container')
-      .text(colorArr[colorArr.length - 2] + " wins!");
-    $('.pieces').click(playPiece).off()
+    returnWinner();
   }
 
 };
 
-var checkWinnerRow = function(piecesArr) {
-  var winsArr = makeWinnersArr(piecesArr);
-
-  if ( (winsArr[0] - winsArr[1]) === 1 && (winsArr[2] - winsArr[3])
-     === 1 && (winsArr[1] - winsArr[2]) === 1) {
-
-    $('.pieces').click(playPiece).off()
-    $('<h2>').appendTo('#gameboard-container')
-      .text(colorArr[colorArr.length - 2] + " wins!");
-  }
-
-};
+// var checkWinnerRow = function(piecesArr) {
+//   var winsArr = makeWinnersArr(piecesArr);
+//
+//   if ( (winsArr[0] - winsArr[1]) === 1 && (winsArr[2] - winsArr[3])
+//      === 1 && (winsArr[1] - winsArr[2]) === 1) {
+//
+//     returnWinner();
+//   }
+//
+// };
 
 var checkWinnerDiagonally = function() {
 
 
 };
+
+var returnWinner = function() {
+  $('.pieces').click(playPiece).off()
+  $('<h2>').appendTo('#gameboard-container')
+    .text(colorArr[colorArr.length - 2] + " wins!");
+}
 
 var connectFourBoard = [
   [  1,  2,  3,  4,  5,  6,  7 ],
