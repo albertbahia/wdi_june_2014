@@ -127,7 +127,8 @@ function hornOfGondor() {
 }
 
 function itsDangerousToGoAlone(){
-  var frodoAndSam = $('#hobbits li:first-child li:nth-child(2)');
+  var frodo = $('#hobbits li:first-child');
+  var sam =  $('#hobbits li:nth-child(2)');
   frodoAndSam.remove();
   // take Frodo and Sam out of the fellowship and move them to Mordor
   // add a div with an id of 'mount-doom' to Mordor

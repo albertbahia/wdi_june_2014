@@ -12,7 +12,6 @@ body {
 div.column {
   width: 107px;
   height: 600px;
-  border: 1px solid black;
   box-sizing: border-box;
   float: left;
 
@@ -39,7 +38,34 @@ div.black {
   background: rgb(0,0,0);
 }
 h1 {
+
   font-size: 50px;
   color: blue;
   font-family: Comic Sans MS;
+  margin: 0;
+}
+
+h2 {
+  font-size: 45px;
+  color: red;
+  font-family: Comic Sans MS;
+  margin: 0;
+}
+
+button {
+  height: 100px;
+  width: 760px;
+  font-size: 40px;
+  border: none;
+  color: #661305;
+  background: #E82C0C;
+  border-bottom: 5px solid #661305;
+}
+
+button:hover {
+  color: whitesmoke;
+}
+
+button:active {
+  background: #661305;
 }
