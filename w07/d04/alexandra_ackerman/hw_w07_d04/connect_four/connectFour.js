@@ -68,13 +68,13 @@ var lowestPiece = function(column) {
   return false;
 }
 
-var checkWin = function(circle, )
+// var checkWin = function(circle, )
 
-var sameTogether = function(circle1, circle2) {
-  var red = circle1.hasClass('red') && circle2.hassClass('red');
-  var black = circle1.hasClass('red') && circle2.hassClass('red');
-  return (red || black);
-};
+// var sameTogether = function(circle1, circle2) {
+//   var red = circle1.hasClass('red') && circle2.hassClass('red');
+//   var black = circle1.hasClass('red') && circle2.hassClass('red');
+//   return (red || black);
+// };
 
 var circleBelow = function(circle) {
   var inColumn = circle.siblings();
