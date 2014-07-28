@@ -45,7 +45,10 @@ end
 
 # Add Pokemon
 post "/trainers/:id/add_pokemon" do
-  @trainer = Trainer.find(params[:id])
-  @trainer.pokemon << Pokemon.find(params[:pokemon_id])
-  redirect("/trainers/#{@trainer.id}")
+  trainer = Trainer.find(params[:id])
+  if trainer.pokemon.count == 0
+    selected_pokemons = Pokemon.get_pokemon
+    trainer.choose_pokemon(selected_pokemons)
+  end
+  redirect("/trainers/#{trainer.id}")
 end

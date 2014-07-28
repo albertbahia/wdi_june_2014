@@ -1,9 +1,11 @@
 require_relative('../lib/knight.rb')
 require_relative('../lib/king.rb')
+require_relative('../lib/peasant.rb')
 
 describe Knight do
   let(:brienne) { Knight.new('Brienne', 'Tarth', 'Oathkeeper') }
   let(:ned) { King.new('Ned', 'Stark', 'North') }
+
   it 'has a name' do
     expect(brienne.name).to eq('Brienne')
   end
@@ -30,8 +32,8 @@ describe Knight do
         expect(brienne.pledge_loyalty(ned)).to eq(true)
       end
       it 'should return false if a non-king object is given' do
-
-        expect(brienne.pledge_loyalty(!ned)).to eq(false)
+        piers = Peasant.new('Piers', 'Piers Parsnip Farm')
+        expect(brienne.pledge_loyalty(piers)).to eq(false)
         #
       end
     end

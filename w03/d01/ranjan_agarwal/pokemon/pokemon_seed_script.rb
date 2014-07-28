@@ -16,6 +16,7 @@ poke_array.each do |poke_info|
   attack = poke_info[:stats][:attack].to_i
   defense = poke_info[:stats][:defense].to_i
   speed = poke_info[:stats][:speed].to_i
+  # poke_info[:moves][:level].map { |move| move[:name].capitalize}.join(' | ')
   moves = ""
   poke_info[:moves].each do |move_type, moves_arr|
     moves_arr.each do |move_hash|
@@ -27,6 +28,25 @@ poke_array.each do |poke_info|
   classification = poke_info[:misc][:classification]
   height = poke_info[:misc][:height].to_s
   happiness = poke_info[:misc][:happiness].to_i
+
+=begin
+pokemon_array = get_pokemon
+pokemon_array.each do |poke_hash|
+  Pokemon.create({
+    name: poke_hash[:name]
+    img: poke_hash[:img]
+    hp: poke_hash[:stats][:hp].to_i
+    attack: poke_hash[:stats][:attack].to_i
+    defense: poke_hash[:stats][:defense].to_i
+    speed: poke_hash[:stats][:speed].to_i
+    species: poke_hash[:type].join(' | ')
+    moves: poke_hash[:moves][:level].map { |move| move[:name].capitalize}.join(' | ')
+    classification: poke_hash[:misc][:classification]
+    height: poke_hash[:misc][:height].to_s
+    happiness: poke_hash[:misc][:happiness].to_i
+  })
+=end
+
 
   Pokemon.create(
     id: id,
