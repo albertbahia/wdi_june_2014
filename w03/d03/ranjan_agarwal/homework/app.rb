@@ -85,7 +85,7 @@ get '/tip' do
 end
 
 get '/tip/:total/:percent' do
-  tip = (( params[:percent].to_f) * (params[:total].to_f)/10)
+  tip = (( params[:percent].to_f) * (params[:total].to_f)/100)
    "$#{tip} <a href='/tip'>Back</a>"
 end
 post '/calculate' do

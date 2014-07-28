@@ -13,6 +13,15 @@
     </form>
 
   </div>
+
+  <% unless @trainer.has_pokemon? %>
+    <div class="add_pokemon_form">
+      <form action="/trainers/<%= @trainer.id %>/add_pokemon" method="post">
+        <input type="submit" value="Choose Random Pokemon">
+      </form>
+    </div>
+  <% end %>
+
   <div class="poke-info">
     <ul>
       <% @trainer.pokemon.each do |poke| %>
