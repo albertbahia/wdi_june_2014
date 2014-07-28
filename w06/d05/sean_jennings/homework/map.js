@@ -5,7 +5,7 @@
    var emptyArray = [];
    for (var index = 0; index < arr.length; index++) {
 
-      newIndexValue = fxn(arr[index]);
+      var newIndexValue = fxn(arr[index]);
       emptyArray.push(newIndexValue);
 
     }

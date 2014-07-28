@@ -1,47 +1,37 @@
-require 'active_record'
+require_relative 'pokemon.rb'
+require_relative 'pokemon_seed.rb'
 require 'pry'
-require_relative '../pokemon_seed.rb'
 
-ActiveRecord::Base.establish_connection({
-  database: 'pokemon_db',
-  adapter: 'postgresql'
-})
+=begin
+poke_hash[:name]
+poke_hash[:img]
+poke_hash[:stats][:hp]
+poke_hash[:stats][:attack]
+poke_hash[:stats][:defense]
+poke_hash[:stats][:speed]
+poke_hash[:type].join(' | ')
+poke_hash[:moves][:level].map { |move| move[:name].capitalize }.join(' | ')
+poke_hash[:misc][:classification]
+poke_hash[:misc][:height]
+poke_hash[:misc][:happiness]
+=end
 
-#Define the show class
+# pokemon_array = get_pokemon()
 
-class Pokemon < ActiveRecord::Base
+# pokemon_array.each do |poke_hash|
+#   Pokemon.create({
+#     name: poke_hash[:name],
+#     img_url: poke_hash[:img],
+#     hp: poke_hash[:stats][:hp].to_i,
+#     attack: poke_hash[:stats][:attack].to_i,
+#     defense: poke_hash[:stats][:defense].to_i,
+#     speed: poke_hash[:stats][:speed].to_i,
+#     species: poke_hash[:type].join(' | '),
+#     moves: poke_hash[:moves][:level].map { |move| move[:name].capitalize }.join(' | '),
+#     classification: poke_hash[:misc][:classification],
+#     height: poke_hash[:misc][:height],
+#     happiness: poke_hash[:misc][:happiness].to_i
+#     })
+# end
 
-end
-
-
-pokemon = get_pokemon()
-
-pokemon.each do |hash|
-  name = hash[:name]
-  hp = hash[:stats][:hp].to_i
-  attack = hash[:stats][:attach].to_i
-  defense = hash[:stats][:defense].to_i
-  speed = hash[:stats][:speed].to_i
-  moves = hash[:moves][:level].map { |moves| moves[:name] }.join(', ')
-  image = hash[:img]
-  classification = hash[:misc][:classification]
-  species = hash[:type].join(',')
-  height = hash[:misc][:height].to_i
-  happiness = hash[:misc][:happiness].to_i
-
-Pokemon.create(
-  :name => name,
-  :hp => hp,
-  :attack => attack,
-  :defense => defense,
-  :speed => speed,
-  :moves => moves,
-  :image => image,
-  :classification => classification,
-  :species => species,
-  :height => height,
-  :happiness => happiness
-)
-
-end
 binding.pry
