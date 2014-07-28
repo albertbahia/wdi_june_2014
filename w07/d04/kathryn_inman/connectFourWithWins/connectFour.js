@@ -10,7 +10,7 @@ function startGame() {
   var gamePieces = $('.piece');
   gamePieces.removeClass('red');
   gamePieces.removeClass('black');
-  colorToggle = 'red'
+  turn = 0;
   
   $('.piece').on('click', markPiece);
 };
@@ -20,12 +20,13 @@ function markPiece(){
 	console.log(this);
   	var clickedPiece = $(this);
   	
+  	
   	clickedPiece.findNext = function() {
-  	 	var markedPieceTest = $(this).parent().children('.red', '.black');
+  	 	var markedPieceTest = $(this).parent().children('.marked');
   		var nextPiece = 0;
   		if (markedPieceTest.length) {
-  			console.log(markedPieceTest.length);
-  			nextPiece = markedPieceTest.last().prev();
+  			console.log("marked pieces in column: " + markedPieceTest.length);
+  			nextPiece = markedPieceTest.first().prev();
   			return nextPiece;
   		} else {
   			nextPiece = $(this).parent().children().eq(5);
@@ -33,37 +34,52 @@ function markPiece(){
   		}
   	};
 
-  	var piece = clickedPiece.findNext();  // bottommost unmarked piece
+  	var piece = clickedPiece.findNext();  
 
-	piece.toggleColor = function() {
-  		if (colorToggle === 'red') {
-      		colorToggle = 'black';
-    	} else if (colorToggle === 'black') {
-      		colorToggle = 'red';
-    	} else {
-    		alert('hleP')
-    	}
-  	};
-
-	if (piece.hasClass('red')) {
-		console.log("already red");
-	} else if (piece.hasClass('black')) {
-		console.log("already black");  
+	if (piece.hasClass('marked')) {
+		console.log("already marked");
 	} else {
-		if (colorToggle == 'red') {
-			piece.addClass('red');
-			piece.toggleColor();
-			console.log(colorToggle);
-		} else if (colorToggle == 'black') {
-			piece.addClass('black');
-			piece.toggleColor();
-			console.log(colorToggle);
-		} else {
-			console.log(colorToggle);
-			console.log(piece.attr('class'));
+		if (turn % 2 === 0) {
+			piece.toggleClass('red').toggleClass('marked');
+			turn++;
+			console.log("turns played: " + turn);
+		} else if (turn % 2 === 1) {
+			piece.toggleClass('black').toggleClass('marked');
+			turn++;
+			console.log("turns played: " + turn);
 		}
 	}
 
+	piece.testForWin = function() {
+		var win = 0; // should get set to 'red' or 'black'
+
+		function winHorizontal() {
+
+		}
+
+		function winVertical() {
+			
+		}
+
+		function winDiagonalForward() {
+			
+		}
+
+		function windiagonalBackwards() {
+			
+		}
+	}
+
+	var win = piece.testForWin();
+
+	if (win) {
+		if (win === 'red') {
+			alert('red wins')
+		} else if (win === 'black') {
+			alert('black wins')
+		}
+	};
+		
 };
 
 
