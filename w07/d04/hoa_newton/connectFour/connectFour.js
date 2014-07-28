@@ -20,6 +20,7 @@ $(function() {
 		    count += 1;
         checkWinHorizontalAllRows();
 		    checkWinVertical();
+        checkWinDiagonal();
 		   } 
 	  });  // closing if statement
 
@@ -96,41 +97,34 @@ function checkWinVertical(){
   }
 }
  
-// function checkWinHorizontal() {
-//   var redPieces = [];
-//   var blackPieces = [];
+function checkWinDiagonal(){
+  // var columns = $('.column');
+  var pieces = $('.piece');
 
-//   $('.piece').each(function() {
-//     if ($(this).hasClass('red')) {
-//       redPieces.push($(this));
-//     } else if ($(this).hasClass('black')) {
-//       blackPieces.push($(this));
-//     }
-//   });
+  // check win left to right down
+  for (var i = 0; i < 21; i++){
+    if (pieces.eq(i).hasClass('red') || pieces.eq(i).hasClass('black')){
+      if ( pieces.eq(i).attr('class') === pieces.eq(i + 7).attr('class') &&
+      pieces.eq(i + 7).attr('class') === pieces.eq(i + 14).attr('class') &&
+      pieces.eq(i + 14).attr('class') === pieces.eq(i + 21).attr('class')){
+        $('<h3>').text( pieces.eq(i).attr('class')+ ' wins!').appendTo('body');
+        $('.piece').addClass('filled');
+      }
+    }
+    
+  }
 
-//   redPieces.
- 
-// }
-
-// function checkWinHorizontal() {
-//   var column = thisPiece.parent();
-//   var allPieces = $('.piece');
-  
-//     for (var index = 0; index < 4; index++){
-//       if (allPieces.eq(index).attr('class') === allPieces.eq(index+1).attr('class') 
-//         && allPieces.eq(index+1).attr('class') === allPieces.eq(index+2).attr('class')
-//         && allPieces.eq(index+2).attr('class') === allPieces.eq(index+3).attr('class')){
-//           $('<h3>').text('Someone Wins!').appendTo('body');
-//         }
-//     }  
-  
-// }
-
-
-
-
-
-
-
-
+  // Check win left to right up
+  for (var i = 3; i <= 23; i++){
+    if (pieces.eq(i).hasClass('red') || pieces.eq(i).hasClass('black')){
+      if ( pieces.eq(i).attr('class') === pieces.eq(i + 5).attr('class') &&
+      pieces.eq(i + 5).attr('class') === pieces.eq(i + 10).attr('class') &&
+      pieces.eq(i + 10).attr('class') === pieces.eq(i + 15).attr('class')){
+        $('<h3>').text( pieces.eq(i).attr('class')+ ' wins!').appendTo('body');
+        $('.piece').addClass('filled');
+      }
+    }
+    
+  }
+}
 
