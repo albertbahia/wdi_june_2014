@@ -1,8 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Monoton);
 
-body {
-
-}
 .brush {
   width: 100px;
   height: 100px;
@@ -10,6 +7,12 @@ body {
   margin: 15px auto;
 }
 
+.swatch {
+  width: 25px;
+  height: 25px;
+  background: #1B4370;
+  margin: 15px auto;
+}
 .square {
   float: left;
   width: 10px;
