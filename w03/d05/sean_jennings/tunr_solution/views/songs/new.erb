@@ -1,0 +1,37 @@
+<h2>New Song</h2>
+
+
+<form method="get" action="/songs/search">
+  <label for="search">Search:</label>
+  <input type="text" name="song_search" placeholder="name of song">
+  <input type="submit">
+</form>
+
+<form action="/songs" method="post">
+  <label for="song[title]">Title:</label>
+  <input name="song[title]">
+
+  <label for="song[album]">Album:</label>
+  <input name="song[album]">
+
+  <label for="song[preview_url]">Preview URL:</label>
+  <input name="song[preview_url]">
+
+  <label for="song[artist_id]">Artist ID:</label>
+  <input name="song[artist_id]">
+
+  <label for="song[price]">Price (cents):</label>
+  <input name="song[price]">
+
+  <input type="submit" value="Create">
+</form>
+
+<% @api_call.each do |search_result| %>
+
+  <p>Title: <%= search_result["trackName"] %></p>
+  <p>Album: <%= search_result["collectionName"] %></p>
+  <p>Preview URL: <%= search_result["previewUrl"] %></p>
+  <p>Artist ID: <%= search_result["artistId"] %></p>
+  <p>Price: <%= search_result["trackPrice"] %></p>
+
+<% end %>
