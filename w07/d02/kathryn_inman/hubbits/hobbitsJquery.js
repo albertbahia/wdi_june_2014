@@ -68,7 +68,7 @@ function keepItSecretKeepItSafe() {
   var ringDiv = $('<div>')
     .text('The One Ring')
     .attr('id', 'the-ring')
-    .appendTo($('li.hobbit:eq(0)'));
+    .appendTo($('.hobbit').eq(0));
   // create a div with an id of 'the-ring'
   // add the ring as a child of Frodo
 }
@@ -107,64 +107,66 @@ function leaveTheShire() {
 
 
 function beautifulStranger() {
-  var strangerAtTheInn = $('li.buddy:eq(3)');
+  var strangerAtTheInn = $('.buddy').eq(3);
   strangerAtTheInn.text('Aragorn');
   // change the buddy 'Strider' textnode to "Aragorn"
 }
 
 
 function forgeTheFellowShip() {
-  // move the hobbits and the buddies to Rivendell
-  // create a new div called 'the-fellowship'
-  var fellowshipDiv = $('<div>')
-    .attr('id', 'the-fellowship')
-    .appendTo($('#rivendell'));
-  // add an h1 with the text 'The Fellowship'
-  $('<h3>').text('The Fellowship').appendTo(fellowshipDiv);
-  // add each hobbit and buddy one at a time to 'the-fellowship'
-  for (var hobbitElementIndex = 0; hobbitElementIndex < $('.hobbit').length; hobbitElementIndex++) {
-    // $('.hobbit')[hobbitElementIndex].remove();
-    $('.hobbit')[hobbitElementIndex].appendTo(fellowshipDiv);
-    // console.log("A hubbit has joined you!");
-  }
-  for (var buddyElementIndex = 0; buddyElementIndex < $('.buddy').length; buddyElementIndex++) {
-    // $('.buddy')[buddyElementIndex].remove();
-    $('.buddy')[buddyElementIndex].appendTo(fellowshipDiv);
-    // console.log("A buddy has joined your Fellowship");
-  }
-  // after each character is added make an alert that they have joined your party
+  var hobbits = $('.hobbit');
+  var buddies =  $('.buddy');
+  var fellowshipDiv = $('<div>').attr('id', 'the-fellowship').append('<h1>The Fellowship</h1>');
+  fellowshipDiv.appendTo($('#rivendell'))
+  var hobbitBuddyList = $('<ul>');
+  hobbitBuddyList.appendTo(fellowshipDiv);
+  for (var i = 0; i < hobbits.length; i++) {
+    hobbitBuddyList.append(hobbits[i]);
+    alert(hobbits[i].innerText);
+  };
+  for (var x = 0; x < buddies.length; x++) {
+    hobbitBuddyList.append(buddies[x]);
+    alert(buddies[x].innerText);
+  } 
 }
 
 function theBalrog() {
   // change the 'Gandalf' textNode to 'Gandalf the White'
-  var gandalf = $('h1#rivendell.li.buddy:eq(1)');
+  var gandalf = $('.buddy').eq(0);
   gandalf.text('Gandalf the White');
   // apply style to the element
-  gandalf.attr('style', 'background: white');
-  gandalf.attr('style', 'border: grey');
+  gandalf.css({'background':'whitesmoke', 'border':'2px solid grey'});
   // make the background 'white', add a grey border
 }
 
-// function itsDangerousToGoAlone(){
-//   // take Frodo and Sam out of the fellowship and move them to Mordor
-
-//   // add a div with an id of 'mount-doom' to Mordor
-// }
-
-
-// function weWantsIt() {
-//   // Create a div with an id of 'gollum' and add it to Mordor
-//   // Remove the ring from Frodo and give it to Gollum
-//   // Move Gollum into Mount Doom
-// }
+function itsDangerousToGoAlone(){
+  // take Frodo and Sam out of the fellowship and move them to Mordor
+  var duo = $('.hobbit:lt(2)');
+  var mordor = $('<div>').attr('id', 'mount-doom').appendTo($('#mordor'))
+  duo.appendTo($('#mount-doom'));
+  // add a div with an id of 'mount-doom' to Mordor
+}
 
 
+function weWantsIt() {
+  // Create a div with an id of 'gollum' and add it to Mordor
+  var gollum = $('<div>').attr('id', 'gollum').appendTo($('#mordor'));
+  // Remove the ring from Frodo and give it to Gollum
+  $('#the-ring').appendTo($('#gollum'))
+  // Move Gollum into Mount Doom
+  $('#gollum').appendTo($('#mount-doom'))
+}
 
-// function thereAndBackAgain() {
-//   // remove Gollum and the Ring from the document
-//   // remove all the baddies from the document
-//   // Move all the hobbits back to the shire
-// }
+
+
+function thereAndBackAgain() {
+  // Move all the hobbits back to the shire
+  $('.hobbit').appendTo($('#the-shire'));
+  // remove Gollum and the Ring from the document
+  // remove all the baddies from the document
+  $('#gollum').remove();
+  $('.baddy').remove();
+}
 
 
 

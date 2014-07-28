@@ -17,30 +17,47 @@ function ticTacToe(){
 
 
     this.checkWin = function(){
-      var winnerStringX="";
-      var winnerStringO="";
+      var winnerArrayX=[];
+      var winnerArrayO=[];
 
       for(var indOne=0;indOne<this.board.length;indOne++){
         for(var indTwo=0;indTwo<this.board[indOne].length;indTwo++){
           if(this.board[indOne][indTwo]=="X"){
 
-            winnerStringX += (String(indOne)+String(indTwo));
+            winnerArrayX.push(String(indOne) + String(indTwo));
 
           } else if(this.board[indOne][indTwo]=="O"){
 
-            winnerStringO += (String(indOne)+String(indTwo));
+            winnerArrayO.push(String(indOne) + String(indTwo));
           }
         }
+
       }
 
-      if (winnerStringX==("000102"||"101112"||"202122"||"001020"||"011112"||"202122"||"001122"||"021120")){
-        console.log("X IS THE WINNNNNEERR");
-      } else if(winnerStringO==("000102"||"101112"||"202122"||"001020"||"011112"||"202122"||"001122"||"021120")){
-        console.log("O IS THE WINNNERRRR");
-      } else {
-        console.log("Keep Playing.")
-        console.log(this.board);
-      }
+console.log(winnerArrayO);
+      // if (winnerArrayX==("000102"||"101112"||"202122"||"001020"||"011112"||"202122"||"001122"||"021120")){
+      //   console.log("X IS THE WINNNNNEERR");
+      // } else if(winnerArrayO==("000102"||"101112"||"202122"||"001020"||"011112"||"202122"||"001122"||"021120")){
+      //   console.log("O IS THE WINNNERRRR");
+      // } else {
+      //   console.log("Keep Playing.")
+      //   console.log(this.board);
+      // }
+
+        if((winnerArrayX.indexOf("00")!=-1) && (winnerArrayX.indexOf("01")!=-1) && (winnerArrayX.indexOf("02")!=-1) ||
+          (winnerArrayX.indexOf("10")!=-1) && (winnerArrayX.indexOf("11")!=-1) && (winnerArrayX.indexOf("12")!=-1) ||
+          (winnerArrayX.indexOf("20")!=-1) && (winnerArrayX.indexOf("21")!=-1) && (winnerArrayX.indexOf("22")!=-1) ||
+          (winnerArrayX.indexOf("00")!=-1) && (winnerArrayX.indexOf("10")!=-1) && (winnerArrayX.indexOf("20")!=-1) ||
+          (winnerArrayX.indexOf("01")!=-1) && (winnerArrayX.indexOf("11")!=-1) && (winnerArrayX.indexOf("12")!=-1) ||
+          (winnerArrayX.indexOf("00")!=-1) && (winnerArrayX.indexOf("11")!=-1) && (winnerArrayX.indexOf("22")!=-1) ||
+          (winnerArrayX.indexOf("02")!=-1) && (winnerArrayX.indexOf("11")!=-1) && (winnerArrayX.indexOf("20")!=-1)){
+          console.log("X IS THE WINNNNNEERR");
+        }
+
+
+
+
+
   }
 }
 
