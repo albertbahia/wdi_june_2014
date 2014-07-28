@@ -31,7 +31,7 @@ function startGame() {
 
 var checkWin = function(gameBoard, row, col) {
   col=(+col)
-  winCheckFunctions = [checkHorizontalLeft, checkHorizontalRight, checkVerticalDown, checkDiagonalNE]; 
+  winCheckFunctions = [checkHorizontalLeft, checkHorizontalRight, checkVerticalDown, checkDiagonalNE, checkDiagonalNW, checkDiagonalSE, checkDiagonalSW]; 
   for( var i = 0; i < winCheckFunctions.length; i++) {
     var win = winCheckFunctions[i](gameBoard, row, col)
     if (win) {
@@ -64,10 +64,6 @@ var determineWinner = function(arr) {
 
 };
 var checkDiagonalNE = function(gameBoard, row, col) {
-  console.log(row, col);
-  console.log(gameBoard[row][col], gameBoard[row-3][col+3]);
-  console.log(gameBoard[row][col], gameBoard[row-2][col+2]);
-  console.log(gameBoard[row][col], gameBoard[row-1][col+1]);
   if ( row - 3 >= 0 && col + 3 <= 6 ) {
     if (gameBoard[row][col] === gameBoard[row-3][col+3] &&
         gameBoard[row][col] === gameBoard[row-2][col+2] &&
@@ -80,14 +76,40 @@ var checkDiagonalNE = function(gameBoard, row, col) {
 };
 
 var checkDiagonalNW = function(gameBoard, row, col) {
+  // No Such Thing ?
+  if ( row - 3 >= 0 && col - 3 >= 0 ) {
+    if (gameBoard[row][col] === gameBoard[row-3][col-3] &&
+        gameBoard[row][col] === gameBoard[row-2][col-2] &&
+        gameBoard[row][col] === gameBoard[row-1][col-1] ) {
 
+         console.log('yes NW');
+         return determineWinner([row,col]);
+    }
+  }
 };
 
 var checkDiagonalSE = function(gameBoard, row, col) {
-
+  console.log(row, col);
+  console.log(row + 3, col + 3);
+  if ( row + 3 <= 5 && col + 3 <= 6 ) {
+    if (gameBoard[row][col] === gameBoard[row+3][col+3] &&
+        gameBoard[row][col] === gameBoard[row+2][col+2] &&
+        gameBoard[row][col] === gameBoard[row+1][col+1] ) {
+        console.log('SE');
+        return determineWinner([row,col]);
+    }
+  }
 };
 
 var checkDiagonalSW = function(gameBoard, row, col) {
+  if ( row + 3 <= 5 && col - 3 >= 0 ) {
+    if (gameBoard[row][col] === gameBoard[row+3][col-3] &&
+        gameBoard[row][col] === gameBoard[row+2][col-2] &&
+        gameBoard[row][col] === gameBoard[row+1][col-1] ) {
+        console.log('SW');
+        return determineWinner([row,col]);
+    }
+  }
 
 };
 
