@@ -92,11 +92,11 @@ function forgeTheFellowShip() {
   var fellowshipHeader = $('<h1>').text('The Fellowship').appendTo(theFellowship);
 
   for (var i = 0; i < hobbitList.length; i++) {
-    alert(hobbitList.eq(i) + "has joined the fellowship!");
+    alert(hobbitList[i].innerText + "has joined the fellowship!");
     hobbitList.eq(i).appendTo(theFellowship);
   };
   for (var i = 0; i < buddyList.length; i++) {
-    alert(buddyList.eq(i) + "has joined the fellowship!");
+    alert(buddyList[i].innerText + "has joined the fellowship!");
     buddyList.eq(i).appendTo(theFellowship);
   };
 }

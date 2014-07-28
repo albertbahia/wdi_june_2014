@@ -1,6 +1,6 @@
 require_relative'vehicles.rb'
 
-class  Plane < Vehicles
+class  Plane < Vehicle
   def initialize(company, on, seats)
     super(company,on)
     @seats = 100

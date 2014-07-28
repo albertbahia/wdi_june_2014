@@ -9,10 +9,10 @@
 
 .square {
   float: left;
-  width: 100px;
-  height: 100px;
+  width: 10px;
+  height: 10px;
   background: #E7E5DB;
-  margin: 10px;
+  margin: 0px;
 }
 
 h1 {
@@ -27,4 +27,12 @@ h1 {
 
 body {
   background-image: url('ps_neutral.png');
+}
+
+.swatch {
+  width: 100px;
+  height: 100px;
+  background: #aaaaaa;
+  margin: 15px 30px;
+  display: inline-block;
 }
