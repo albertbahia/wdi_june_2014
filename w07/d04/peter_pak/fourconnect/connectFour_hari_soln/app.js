@@ -28,6 +28,8 @@ var startGame = function() {
         highlight.appendTo(pieceToPlay.prev());
       }
     }
+    checkColumns();
+    checkRows();
   });
 
   // ---------------------
