@@ -20,7 +20,8 @@ $(document).ready(function() {
   console.log('Loaded, bro.');
   fetchAndRenderCards();
   $('body').on('click', '.delete', deleteCard);
-  $('body').on('click', '.finish', markAsFinished);
+  // $('body').on('click', '.finish', markAsFinished);
+  $('#new-card-button').on('click', createCard);
 })
 
 // jQuery automatically converts JSON to an array
@@ -37,23 +38,75 @@ function renderCards(cards) {
     if (currentCard.completed) {
       renderCompleted(currentCard);
     } else {
-      renderToDo(currentCard);
+      renderTodo(currentCard);
     }
   });
 }
 
 function renderCompleted(card) {
-  var listItem = $('<li class="card done">');
+  var listItem = $('<li class="card done" data-id="' + card.id + '">');
   var deleteSpan = $('<span class="delete">X</span>');
   listItem.prepend(deleteSpan);
   listItem.append(card.description);
   $('#completed-column').find('.card-list').append(listItem);
 }
 
-function renderToDo(card) {
-  var listItem = $('<li class="card todo">');
+function renderTodo(card) {
+  var listItem = $('<li class="card todo" data-id="' + card.id + '">');
   var deleteSpan = $('<span class="delete">X</span>');
   var finishSpan = $('<span class="finish">Finish</span>');
   listItem.append(card.description).append(deleteSpan).append(finishSpan);
   $('#todo-column').find('.card-list').append(listItem);
 }
+
+function deleteCard() {
+  var id = $(this).parent().data('id');
+  $(this).parent().remove();
+  // sends DELETE request to database
+  $.ajax("/cards/" + id, {type: "DELETE"});
+}
+
+function createCard() {
+  var newCardDescription = $('#new-card-text').val();
+  $('#new-card-text').val('');
+  $.post("/cards", {card: {description: newCardDescription, completed: false }})
+    .done(renderTodo);
+}
+
+
+// function markAsFinished() {
+//   var doneList = $('#done-column ul.card-list');
+//   var id = $(this).parent().data('id');
+//   var card = $(this).parent();
+//
+//   card.removeClass('todo');
+//   card.addClass('done');
+//
+//   card.appendTo(doneList);
+//   $(this).remove();
+// }
+
+
+
+
+// function createCard() {
+// var todoList = $('#todo-column ul.card-list');
+// var input = $('#new-card-text');
+// var card = $('<li class="card todo">');
+// var deleteSpan = $('<span class="delete">X</span>');
+// var finishSpan = $('<span class="finish">Finish</span>');
+// todoList.append(card);
+// card.text(input.val());
+// card.append(deleteSpan).append(finishSpan);
+
+// sends POST request to the database
+// $.ajax({
+//   url: "/cards",
+//   type: "POST",
+//   data: { card:
+//     {description: input.val(), completed: false } }
+//   });
+//
+// // clears the 'What do you need to do?' box at the top
+// input.val('');
+// }

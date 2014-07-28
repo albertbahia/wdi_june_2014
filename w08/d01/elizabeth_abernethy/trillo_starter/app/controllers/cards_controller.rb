@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  
+
   def index
     @cards = Card.all
     render json: @cards
@@ -12,7 +12,7 @@ class CardsController < ApplicationController
   end
 
   def card_params
-    params.require(:card).permit(:description, :created)
+    params.require(:card).permit(:description, :completed)
   end
 
   # finds card, destroys it, returns nothing
