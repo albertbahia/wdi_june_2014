@@ -31,7 +31,7 @@ function startGame() {
 
 var checkWin = function(gameBoard, row, col) {
   col=(+col)
-  winCheckFunctions = [checkHorizontalLeft, checkHorizontalRight, checkVerticalDown]; 
+  winCheckFunctions = [checkHorizontalLeft, checkHorizontalRight, checkVerticalDown, checkDiagonalNE]; 
   for( var i = 0; i < winCheckFunctions.length; i++) {
     var win = winCheckFunctions[i](gameBoard, row, col)
     if (win) {
@@ -64,11 +64,17 @@ var determineWinner = function(arr) {
 
 };
 var checkDiagonalNE = function(gameBoard, row, col) {
+  console.log(row, col);
+  console.log(gameBoard[row][col], gameBoard[row-3][col+3]);
+  console.log(gameBoard[row][col], gameBoard[row-2][col+2]);
+  console.log(gameBoard[row][col], gameBoard[row-1][col+1]);
   if ( row - 3 >= 0 && col + 3 <= 6 ) {
     if (gameBoard[row][col] === gameBoard[row-3][col+3] &&
         gameBoard[row][col] === gameBoard[row-2][col+2] &&
         gameBoard[row][col] === gameBoard[row-1][col+1] ) {
 
+         console.log('yes NE');
+         return determineWinner([row,col]);
     }
   }
 };
