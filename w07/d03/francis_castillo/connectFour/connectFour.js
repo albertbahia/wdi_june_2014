@@ -4,12 +4,8 @@ var num = 1;
 
 $(function() {
   console.log('Loaded, bro');
-
   startGame();
   // event listeners
-  $('.pieces').click(playPiece);
-  $('.button').click(startGame);
-
 });
 
 function startGame () {
@@ -58,6 +54,11 @@ function startGame () {
       }
     }
   );
+
+  $('.pieces').click(playPiece);
+  $('.button').click(startGame);
+  $('#gameboard-container h2')
+    .text("");
 }
 
 var addColorClass = function(piece,color) {
@@ -131,7 +132,9 @@ var checkWinnerColumn = function(piecesArr) {
 
   if ( (winsArr[0] - winsArr[1]) === 7 && (winsArr[2] - winsArr[3])
     === 7 && (winsArr[1] - winsArr[2]) === 7) {
-    console.log(colorArr[colorArr.length - 2] + " wins!");
+
+    $('<h2>').appendTo('#gameboard-container')
+      .text(colorArr[colorArr.length - 2] + " wins!");
     $('.pieces').click(playPiece).off()
   }
 
@@ -142,9 +145,10 @@ var checkWinnerRow = function(piecesArr) {
 
   if ( (winsArr[0] - winsArr[1]) === 1 && (winsArr[2] - winsArr[3])
      === 1 && (winsArr[1] - winsArr[2]) === 1) {
-    console.log(colorArr[colorArr.length - 2] + " wins!");
-    $('.pieces').click(playPiece).off()
 
+    $('.pieces').click(playPiece).off()
+    $('<h2>').appendTo('#gameboard-container')
+      .text(colorArr[colorArr.length - 2] + " wins!");
   }
 
 };
