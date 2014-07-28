@@ -19,6 +19,8 @@
 $(document).ready(function() {
   console.log('Loaded, bro.');
   fetchAndRenderCards();
+  $('body').on('click', '.delete', deleteCard);
+  $('body').on('click', '.finish', markAsFinished);
 })
 
 // jQuery automatically converts JSON to an array
