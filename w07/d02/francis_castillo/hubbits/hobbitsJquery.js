@@ -42,7 +42,7 @@ function makeMiddleEarth (lands) {
 function makeHobbits (hobbits) {
   var article = $('<ul>').addClass("hobbits-list").appendTo($('article')[0]);
   for (var i = 0; i < hobbits.length; i++) {
-    $('<li>').addClass(hobbits[i]).text(hobbits[i]).appendTo($('.hobbits'));
+    $('<li>').addClass(hobbits[i]).text(hobbits[i]).appendTo($('.hobbits-list'));
   }
 }
 
@@ -77,7 +77,7 @@ function beautifulStranger() {
 function forgeTheFellowShip() {
   $('<h1>').text("The Fellowship").appendTo($('article')[1]);
   $('<div>').addClass("the-fellowship").appendTo($('article')[1]);
-  $('.hobbits').empty();
+  $('.hobbits-list').empty();
   $('.buddies').empty();
     var article = $('<ul>').addClass("fellow-items").appendTo($('.the-fellowship'));
     for (var i = 0; i < buddies.length; i++) {

@@ -48,7 +48,7 @@ function makeMiddleEarth(lands) {
 }
 
 function makeHobbits(hobbits) {
-  var ul = $('<ul>').addClass('hobbits').appendTo('body');
+  var ul = $('<ul>').addClass('hobbits').appendTo('article').eq(0);
   for(var i=0;i<hobbits.length;i++){
     $('<li>').text(hobbits[i]).addClass('hobbit').appendTo(ul);
   }
@@ -82,9 +82,8 @@ function beautifulStranger() {
 }
 
 function forgeTheFellowShip() {
-  $('.buddies').appendTo('section article:nth-child(2)');
-  $('.hobbits').appendTo('section article:nth-child(2)');
-  var fellowship = $('<div>').html('<h1>The Fellowship</h1>').addClass('the-fellowship').appendTo('body');
+
+  var fellowship = $('<div>').html('<h1>The Fellowship</h1>').addClass('the-fellowship').appendTo('article').eq(1);
 
     $('.buddy').each(function(){
       $('.buddy').appendTo(fellowship);
@@ -95,6 +94,7 @@ function forgeTheFellowShip() {
       $('.hobbit').appendTo(fellowship);
       alert($(this,'.hobbit').text() + "has joined the fellowship.")
     });
+
 }
 
 function theBalrog() {

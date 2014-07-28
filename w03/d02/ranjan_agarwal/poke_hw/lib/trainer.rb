@@ -6,8 +6,6 @@ class Trainer < ActiveRecord::Base
   end
 
   def choose_pokemon
-    trainer = Trainer.find(1)
-    poke = Pokemon.find(1)
-    trainer.pokemon << poke
+    selected_pokemon.each { |pokemon| self.pokemons << pokemon } if self.pokemons.count < 6
   end
 end
