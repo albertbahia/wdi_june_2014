@@ -1,0 +1,20 @@
+.row {
+  width: 360px;
+  height: 110px;
+
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  border: 1px solid black;
+  float: left;
+  font-size: 90px;
+  text-align: center;
+  font-family: "Arial";
+}
+
+.player {
+  font-family: "Arial";
+}

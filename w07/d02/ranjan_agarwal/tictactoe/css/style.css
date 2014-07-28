@@ -1,0 +1,4 @@
+#board {width: 360px;}
+#board .row .square {border: 5px solid #000; width: 100px; height: 100px; float: left; margin: 4px; border-radius: 3px; line-height: 97px; font-size: 100px; font-family: Gill sans; font-weight: 500; text-align: center;}
+#board .row .square:nth-child(2n + 1) {border: 5px solid #429ABF;}
+#current-player {font-family: 'Gill sans';font-size: 40px;}
