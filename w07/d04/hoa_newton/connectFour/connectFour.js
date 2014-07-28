@@ -69,8 +69,7 @@ function checkWinByRow(startCell) {
   for (var i = startCell; i < startCell+4; i++) {   //check one set of 4 cells for winning possibility
   	if (checkWin[i] === 'piece red filled' || checkWin[i] === 'piece black filled'){
   		if (checkWin[i] === checkWin[i+1] && checkWin[i+1] === checkWin[i+2] && checkWin[i+2] === checkWin[i+3]) {
-      	$('<h3>').text(checkWin[i] + ' wins!').appendTo('body');
-        $('.piece').addClass('filled');
+        winMessage(cell);
     	}
   	}  
   }
@@ -89,8 +88,7 @@ function checkWinVertical(){
         if (piecesOfCol.eq(i).attr('class') === piecesOfCol.eq(i+1).attr('class') &&
         piecesOfCol.eq(i+1).attr('class') === piecesOfCol.eq(i+2).attr('class') &&
         piecesOfCol.eq(i+2).attr('class') === piecesOfCol.eq(i+3).attr('class')){
-        $('<h3>').text( piecesOfCol.eq(i).attr('class')+ ' wins!').appendTo('body');
-        $('.piece').addClass('filled');
+        winMessage(piecesOfCol.eq(i));
         }
       } 
     }
@@ -98,7 +96,6 @@ function checkWinVertical(){
 }
  
 function checkWinDiagonal(){
-  // var columns = $('.column');
   var pieces = $('.piece');
 
   // check win left to right down
@@ -107,8 +104,7 @@ function checkWinDiagonal(){
       if ( pieces.eq(i).attr('class') === pieces.eq(i + 7).attr('class') &&
       pieces.eq(i + 7).attr('class') === pieces.eq(i + 14).attr('class') &&
       pieces.eq(i + 14).attr('class') === pieces.eq(i + 21).attr('class')){
-        $('<h3>').text( pieces.eq(i).attr('class')+ ' wins!').appendTo('body');
-        $('.piece').addClass('filled');
+        winMessage(pieces.eq(i));
       }
     }
     
@@ -120,11 +116,25 @@ function checkWinDiagonal(){
       if ( pieces.eq(i).attr('class') === pieces.eq(i + 5).attr('class') &&
       pieces.eq(i + 5).attr('class') === pieces.eq(i + 10).attr('class') &&
       pieces.eq(i + 10).attr('class') === pieces.eq(i + 15).attr('class')){
-        $('<h3>').text( pieces.eq(i).attr('class')+ ' wins!').appendTo('body');
-        $('.piece').addClass('filled');
+        winMessage(pieces.eq(i));
       }
     }
     
   }
 }
+
+function winMessage(element){
+  if (element.hasClass('red')){
+    $('<h3>').text('GAME OVER! Red wins! ').appendTo('body');
+    $('.piece').addClass('filled');
+  }else if (element.hasClass('black')){
+    $('<h3>').text('GAME OVER! Black wins!').appendTo('body');
+    $('.piece').addClass('filled');
+  }
+        
+}
+
+
+
+
 
