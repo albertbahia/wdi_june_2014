@@ -5,7 +5,13 @@ class Trainer < ActiveRecord::Base
     "ID: #{id} Name: #{name} Ages: #{age} Hometown: #{hometown}."
   end
 
-  def choose_pokemon
-    selected_pokemon.each { |pokemon| self.pokemons << pokemon } if self.pokemons.count < 6
+  def choose_pokemon(selected_pokemon)
+    if self.pokemon.count + selected_pokemon.count <= 6
+      selected_pokemon.each { |pokemon| self.pokemon << pokemon }
+    end
+  end
+
+  def has_pokemon?
+    return self.pokemon.count > 0
   end
 end
