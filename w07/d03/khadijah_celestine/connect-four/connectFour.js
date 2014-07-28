@@ -30,26 +30,15 @@ function startGame() {
 }
 
 var checkWin = function(gameBoard, row, col) {
-  var win = false;
-  // check horizontal left win
   col=(+col)
-  if ( col + 3 < 7 ) { // only if we're in col 0, 1, 2 or 3
-      if (gameBoard[row][col] === gameBoard[row][col+3] &&
-          gameBoard[row][col] === gameBoard[row][col+2] && 
-          gameBoard[row][col] === gameBoard[row][col+1]) {
-        console.log('yes all');
-        id = getId([row,col])
-        piece = $('#' + id);
-        color = piece.hasClass('red') ? 'red' : 'black';
-        console.log(color + ' wins the game. ');
-      }
-  } else {
-    console.log('too far out');
-  }
-  if ( col
-  return win;
+  winCheckFunctions = [checkHorizontalLeft, checkHorizontalRight, checkVerticalDown]; 
+  for( var i = 0; i < winCheckFunctions.length; i++) {
+    var win = winCheckFunctions[i](gameBoard, row, col)
+    if (win) {
+      return win;
+    }
+  } 
 };
-
 
 //                        board,   4   , red
 var playPiece = function(board, column, turn) {
@@ -61,13 +50,66 @@ var playPiece = function(board, column, turn) {
     board[row][column] = color;
 
     isWinner = checkWin(board, row, column);
-
-
-
-
+    console.log('isWinner: ' + isWinner);
 
     board[6][column]--;
     return !turn;
+};
+
+var checkDiagonalNE = function(gameBoard, row, col) {
+
+};
+
+var checkDiagonalNW = function(gameBoard, row, col) {
+
+};
+
+var checkDiagonalSE = function(gameBoard, row, col) {
+
+};
+
+var checkDiagonalSW = function(gameBoard, row, col) {
+
+};
+
+var checkVerticalUp = function(gameBoard, row, col) {
+
+};
+
+var checkVerticalDown = function(gameBoard, row, col) {
+
+};
+
+var checkHorizontalRight = function(gameBoard, row, col) {
+ if ( col - 3 > -1 ) { // only if we're in col 4, 5 or 6
+   if (gameBoard[row][col] === gameBoard[row][col-3] &&
+       gameBoard[row][col] === gameBoard[row][col-2] && 
+       gameBoard[row][col] === gameBoard[row][col-1]) {
+         console.log('yes right');
+         id = getId([row,col])
+         piece = $('#' + id);
+         color = piece.hasClass('red') ? 'red' : 'black';
+         console.log(color + ' wins the game. ');
+         return color;
+    }
+  }
+ return false;
+};
+
+var checkHorizontalLeft = function(gameBoard, row, col) {
+ if ( col + 3 < 7 ) { // only if we're in col 0, 1, 2 or 3
+   if (gameBoard[row][col] === gameBoard[row][col+3] &&
+       gameBoard[row][col] === gameBoard[row][col+2] && 
+       gameBoard[row][col] === gameBoard[row][col+1]) {
+         console.log('yes all');
+         id = getId([row,col])
+         piece = $('#' + id);
+         color = piece.hasClass('red') ? 'red' : 'black';
+         console.log(color + ' wins the game. ');
+         return color;
+    }
+  }
+ return false;
 };
 
 var getId = function(arr) {
