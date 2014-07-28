@@ -55,9 +55,22 @@ var playPiece = function(board, column, turn) {
     board[6][column]--;
     return !turn;
 };
+var determineWinner = function(arr) {
+  id = getId(arr)
+  piece = $('#' + id);
+  color = piece.hasClass('red') ? 'red' : 'black';
+  console.log(color + ' wins the game. ');
+  return color;
 
+};
 var checkDiagonalNE = function(gameBoard, row, col) {
+  if ( row - 3 >= 0 && col + 3 <= 6 ) {
+    if (gameBoard[row][col] === gameBoard[row-3][col+3] &&
+        gameBoard[row][col] === gameBoard[row-2][col+2] &&
+        gameBoard[row][col] === gameBoard[row-1][col+1] ) {
 
+    }
+  }
 };
 
 var checkDiagonalNW = function(gameBoard, row, col) {
@@ -73,11 +86,32 @@ var checkDiagonalSW = function(gameBoard, row, col) {
 };
 
 var checkVerticalUp = function(gameBoard, row, col) {
+  // no such thing as checking up. Needs to be removed.
+  if ( row - 3 > -1 ) {
+    if (gameBoard[row][col] === gameBoard[row-1][col] &&
+        gameBoard[row][col] === gameBoard[row-2][col] &&
+        gameBoard[row][col] === gameBoard[row-3][col]) {
 
+         console.log('yes up');
+         color = determineWinner([row,col]);
+         return color;
+    }
+  }
+  return false;
 };
 
 var checkVerticalDown = function(gameBoard, row, col) {
+  if ( row + 3 < 6 ) {
+    if (gameBoard[row][col] === gameBoard[row+1][col] &&
+        gameBoard[row][col] === gameBoard[row+2][col] &&
+        gameBoard[row][col] === gameBoard[row+3][col]) {
 
+         console.log('yes down');
+         color = determineWinner([row,col]); 
+         return color;
+    }
+  }
+  return false;
 };
 
 var checkHorizontalRight = function(gameBoard, row, col) {
@@ -86,10 +120,7 @@ var checkHorizontalRight = function(gameBoard, row, col) {
        gameBoard[row][col] === gameBoard[row][col-2] && 
        gameBoard[row][col] === gameBoard[row][col-1]) {
          console.log('yes right');
-         id = getId([row,col])
-         piece = $('#' + id);
-         color = piece.hasClass('red') ? 'red' : 'black';
-         console.log(color + ' wins the game. ');
+         color = determineWinner([row,col]); 
          return color;
     }
   }
@@ -102,10 +133,7 @@ var checkHorizontalLeft = function(gameBoard, row, col) {
        gameBoard[row][col] === gameBoard[row][col+2] && 
        gameBoard[row][col] === gameBoard[row][col+1]) {
          console.log('yes all');
-         id = getId([row,col])
-         piece = $('#' + id);
-         color = piece.hasClass('red') ? 'red' : 'black';
-         console.log(color + ' wins the game. ');
+         color = determineWinner([row,col]); 
          return color;
     }
   }
