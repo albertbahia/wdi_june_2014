@@ -17,9 +17,12 @@
 
 $(document).ready(function() {
   console.log("HHELLLLOOOOO!");
+
   fetchAndRenderCards();
+
+  // event listeners
   $('body').on('click', '.delete', deleteCard);
-  // will implement tomorrow
+  // we will implement tomorrow
   // $('body').on('click', '.finish', markAsCompleted);
 });
 
@@ -30,7 +33,6 @@ function fetchAndRenderCards() {
 }
 
 function renderCards(cards) {
-
   cards.forEach(function(currentCard) {
     if (currentCard.completed) {
       renderCompleted(currentCard);
@@ -41,16 +43,22 @@ function renderCards(cards) {
 }
 
 function renderCompleted(card) {
-  var listItem = $('<li class="card done">');
+  var listItem = $('<li class="card done" data-id="' + card.id + '" >');
   var deleteSpan = $('<span class="delete">X</span>');
   listItem.append(deleteSpan).append(card.description);
   $('#completed-column').find('.card-list').append(listItem);
 }
 
 function renderTodo(card) {
-  var listItem = $('<li class="card todo">');
+  var listItem = $('<li class="card todo" data-id="' + card.id + '" >');
   var deleteSpan = $('<span class="delete">X</span>');
   var finishSpan = $('<span class="finish">Finish</span>');
   listItem.append(card.description).append(deleteSpan).append(finishSpan);
   $('#todo-column').find('.card-list').append(listItem);
+}
+
+function deleteCard() {
+  var id = $(this).parent().data('id');
+  $(this).parent().remove();
+  $.ajax("/cards/" + id, {type: "DELETE"});
 }
