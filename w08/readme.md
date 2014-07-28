@@ -12,6 +12,6 @@
 | Hari       | 4:00 - 4:40 | Ranjan     | Gadi      | Hoa         | Albert    |        |
 |            | 4:40 - 5:20 | Patrick    | Alexandra | Sarit       | Peter     |        |
 |            | 5:20 - 6:00 |            |           |             |           |        |
-| Adam       | 4:00 - 4:40 | TBD        | N/A       | TBD         | TBD       |        |
-|            | 4:40 - 5:20 | TBD        | N/A       | TBD         | TBD       |        |
+| Adam       | 4:00 - 4:30 | Fen        | N/A       | TBD         | TBD       |        |
+|            | 4:30 - 5:00 | Christiana | N/A       | TBD         | TBD       |        |
 |            | 5:20 - 6:00 | TBD        | N/A       | TBD         | TBD       |        |
