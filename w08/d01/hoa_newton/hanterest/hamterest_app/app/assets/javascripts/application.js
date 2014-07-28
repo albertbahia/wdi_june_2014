@@ -21,6 +21,7 @@ $( function () {
 
 	fetchPosts();
 	$('#new-post').click(addPost);
+	$('body').on('click', '.remove', removePost);
 })
 
 function fetchPosts() {
@@ -46,7 +47,6 @@ function renderPost(post) {
 	var category = $('<div class="category">').text(post.category);
 	var deleteButton = $('<span class="remove">Delete</span>');
 
-
 	postContainer.append(postDiv.append(title).append(author)
 		.append(image.append(img)).append(content)
 		.append(category).append(deleteButton));
@@ -68,7 +68,11 @@ function addPost() {
 	}}).done(renderPost);
 }
 
-// ###### removePost
-// - When the user clicks the delete button, a request should be made to the server that will remove the object associated with the post from the database
-// - The post should be removed from the DOM
+function removePost() {
+	console.log(this)
+	var id = $(this).parent().data('id');
+	$(this).parent().remove();
+	$.ajax({ url: "posts/" + id, type: "DELETE"});
+}
+
 
