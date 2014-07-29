@@ -107,11 +107,10 @@ function editCard() {
 }
 
 function updateCard() {
-  //PUT '/cards/14'
-  var card = $(this).closest('.card');
-  var id = card.data('id');
+  var cardElement = $(this).closest('.card');
+  var id = cardElement.data('id');
 
-  var newDescription = card.find('.edit-description').val();
+  var newDescription = cardElement.find('.edit-description').val();
 
   var params = {
     card: {
@@ -119,5 +118,15 @@ function updateCard() {
     }
   };
 
-  $.ajax('/cards/' + id, { type: "PUT", data: params });
+  $.ajax('/cards/' + id, { type: "PUT", data: params })
+    .done(function(card) {
+      // This will replace only the inner spans
+      // var editElement = cardElement.find('.edit');
+      // var descriptionSpan = $('<span class="description">').text(card.description);
+      // editElement.replaceWith(descriptionSpan);
+
+      // This will replace the entire card
+      cardElement.remove();
+      renderTodo(card);
+    });
 }
