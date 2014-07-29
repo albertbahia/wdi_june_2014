@@ -46,8 +46,9 @@ function renderCards(cards) {
 function renderCompleted(card) {
   var listItem = $('<li class="card done" data-id="' + card.id + '">');
   var deleteSpan = $('<span class="delete">X</span>');
+  var descriptionSpan = $('<span class="description">' + card.description + '</span>');
   listItem.prepend(deleteSpan);
-  listItem.append(card.description);
+  listItem.append(descriptionSpan);
   $('#completed-column').find('.card-list').append(listItem);
 }
 
@@ -55,7 +56,8 @@ function renderTodo(card) {
   var listItem = $('<li class="card todo" data-id="' + card.id + '">');
   var deleteSpan = $('<span class="delete">X</span>');
   var finishSpan = $('<span class="finish">Finish</span>');
-  listItem.append(card.description).append(deleteSpan).append(finishSpan);
+  var descriptionSpan = $('<span class="description">' + card.description + '</span>');
+  listItem.append(descriptionSpan).append(deleteSpan).append(finishSpan);
   $('#todo-column').find('.card-list').append(listItem);
 }
 
