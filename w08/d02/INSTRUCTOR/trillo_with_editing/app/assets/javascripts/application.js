@@ -25,7 +25,15 @@ $(document).ready(function() {
   $('body').on('click', '.delete', deleteCard);
   $('body').on('click', '.finish', finishCard);
   $('#todo-column').on('click', '.description', editCard);
-  $('body').on('click', '.edit-button', updateCard);
+  $('body').on('keypress', '.edit-description', function(event) {
+    var theActualInputBox = this;
+    if (event.which === 13) {
+      updateCard.call(theActualInputBox);
+    }
+  });
+
+  // Example of handling keypress events
+  $('body').on('keypress', keypressHandler);
 });
 
 function createCard() {
@@ -96,12 +104,10 @@ function editCard() {
 
   var editSpan = $('<span class="edit">');
   var editInput = $('<input type="text" class="edit-description">');
-  var editButton = $('<button class="edit-button">');
 
   editInput.val(descriptionSpan.text());
-  editButton.text('Update');
 
-  editSpan.append(editInput).append(editButton);
+  editSpan.append(editInput);
 
   descriptionSpan.replaceWith(editSpan);
 }
@@ -109,15 +115,13 @@ function editCard() {
 function updateCard() {
   var cardElement = $(this).closest('.card');
   var id = cardElement.data('id');
-
   var newDescription = cardElement.find('.edit-description').val();
-
   var params = {
     card: {
       description: newDescription
     }
   };
-
+  // console.log(cardElement);
   $.ajax('/cards/' + id, { type: "PUT", data: params })
     .done(function(card) {
       // This will replace only the inner spans
@@ -129,4 +133,9 @@ function updateCard() {
       cardElement.remove();
       renderTodo(card);
     });
+}
+
+// Example of handling keypress events
+function keypressHandler(event) {
+  console.log(event.which);
 }
