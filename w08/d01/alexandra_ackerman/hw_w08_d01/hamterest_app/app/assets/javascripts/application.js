@@ -20,6 +20,7 @@ $(document).ready(function() {
   fetchPosts();
   $('#new-post').on('click', addPost);
   $('body').on('click', '.remove', removePost);
+  $(window).on('scroll', showMore);
 });
 
 function fetchPosts() {
@@ -60,14 +61,15 @@ function addPost() {
   var cardContent = $('#content-input').val();
   var cardCategory = $('#category-input').val();
 
-  $.post('/posts', { post: {
-      title: cardTitle,
-      content: cardContent,
-      image_url: cardImage,
-      author: cardAuthor,
-      category: cardCategory
-    }})
-  .done(displayPost);
+  var postInfo = {post: {
+    title: cardTitle,
+    author: cardAuthor,
+    image_url: cardImage,
+    content: cardContent,
+    category: cardCategory
+  }}; 
+
+  $.post('/posts', postInfo).done(renderPosts);
 
   $('#title-input').val('');
   $('#author-input').val('');
@@ -83,25 +85,7 @@ function removePost() {
   $.ajax('/posts/' + id , {type: 'DELETE'});
 };
 
-// function removePost() {
-//   var post = $(this).parent();
-//   post.remove();
-//   $.ajax('/posts/' + id , {type: 'DELETE'});
-// }
-
-
-// function addPost() {
-//   var titleValue = $('#title-input').val();
-//   var authorValue = $('#author-input').val();
-//   var imageValue = $('#image-input').val();
-//   var contentValue = $('#content-input').val();
-//   var categoryValue = $('#category-input').val();
-
-//   $.post('/posts' { post: {
-//     title: titleValue,
-//     author: authorValue,
-//     image_url: imageValue,
-//     content: contentValue,
-//     category: categoryValue }})
-//       .done(displayPost);
-// }
+function showMore(){
+  var more = 10;
+  $.get('/posts', {limit: 10 + more, order: 'desc'}).done(renderPosts);
+}
