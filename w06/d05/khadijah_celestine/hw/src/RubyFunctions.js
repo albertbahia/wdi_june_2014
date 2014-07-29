@@ -34,3 +34,13 @@ var reject = function(arr, fxn) {
   }
   return result;
 };
+
+var sample = function(arr, limit) {
+  if (limit > arr.size || limit < 0) {
+    limit = arr.size
+  }
+  rand_index = rand(index);
+  return arr[rand_index];
+};
+
+console.log(sample[1,2,3]);
