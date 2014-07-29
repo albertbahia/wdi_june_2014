@@ -75,5 +75,8 @@ function deleteCard() {
 
 function finishCard() {
   var id = $(this).parent().data('id');
-  $.ajax('/cards/' + id, { type: "PUT" });
+  var params = {
+    card: { completed: true }
+  };
+  $.ajax('/cards/' + id, { type: "PUT", data: params });
 }
