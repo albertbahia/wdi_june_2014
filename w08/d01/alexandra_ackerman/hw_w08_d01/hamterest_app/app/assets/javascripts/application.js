@@ -19,7 +19,7 @@ $(document).ready(function() {
   console.log('Ready, bro!');
   fetchPosts();
   $('#new-post').on('click', addPost);
-  $('#posts-containter').on('click', '.remove', removePost);
+  $('body').on('click', '.remove', removePost);
 });
 
 function fetchPosts() {
@@ -77,17 +77,17 @@ function addPost() {
 };
 
 
-// function removePost() {
-//   var id = $(this).parent().attr('data-id')
-//   $(this).parent().remove();
-//   $.ajax('/posts/' + id , {type: 'DELETE'});
-// };
-
 function removePost() {
-  var post = $(this).parent();
-  post.remove();
+  var id = $(this).parent().data('id');
+  $(this).parent().remove();
   $.ajax('/posts/' + id , {type: 'DELETE'});
-}
+};
+
+// function removePost() {
+//   var post = $(this).parent();
+//   post.remove();
+//   $.ajax('/posts/' + id , {type: 'DELETE'});
+// }
 
 
 // function addPost() {
