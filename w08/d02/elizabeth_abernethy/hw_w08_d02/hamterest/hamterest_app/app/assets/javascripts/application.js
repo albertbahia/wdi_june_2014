@@ -159,6 +159,10 @@ function fetchOne() {
 
 function openModal() {
   $('#modal').show();
+  var imageDiv = $(this);
+  var clickedImage = (imageDiv).find('img');
+  var cardInfoDiv = $('#card-info');
+  cardInfoDiv.append(clickedImage);
 }
 
 function closeModal() {
