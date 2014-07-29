@@ -22,6 +22,8 @@ $(document).ready(function() {
   $('body').on('click', '.delete', deleteCard);
   $('body').on('click', '.finish', finishCard);
   $('#new-card-button').on('click', createCard);
+  $('#todo-column').on('click', '.description', editCard);
+  $('#todo-column').on('click', '.edit-button', updateCard);
 })
 
 // jQuery automatically converts JSON to an array
@@ -90,4 +92,36 @@ function finishCard() {
       // Remove the card from the todo column
       $(finishSpan).parent().remove();
     });
+}
+
+
+function editCard() {
+  var descriptionSpan = $(this);
+  // Create new items
+  var editSpan = $('<span class="edit">');
+  var editInput = $('<input type="text" class="edit-description">');
+  var editButton = $('<button class="edit-button">');
+  // Set value of input field = existing text
+  editInput.val(descriptionSpan.text());
+  editButton.text('Update');
+  // add input and button to edit span
+  editSpan.append(editInput).append(editButton);
+  // replace old span with new span
+  descriptionSpan.replaceWith(editSpan);
+}
+
+function updateCard() {
+  // Find my closest ancestor that matches this criteria
+  var card = $(this).closest('.card');
+  var id = card.data('id');
+  // Catch the new description for this card
+  var newDescription = card.find('.edit-description').val();
+  // Construct your parameters
+  var params = {
+    card: {
+      description: newDescription
+    }
+  };
+  // Create an AJAX PUT request to give the card the new information
+  $.ajax('/cards/' + id, { type: "PUT", data: params });
 }
