@@ -24,6 +24,16 @@ $(document).ready(function() {
   $('button').click(createCard);
   $('body').on('click', '.delete', deleteCard);
   $('body').on('click', '.finish', finishCard);
+  $('#todo-column').on('click', '.description', editCard);
+  $('body').on('keypress', '.edit-description', function(event) {
+    var theActualInputBox = this;
+    if (event.which === 13) {
+      updateCard.call(theActualInputBox);
+    }
+  });
+
+  // Example of handling keypress events
+  $('body').on('keypress', keypressHandler);
 });
 
 function createCard() {
@@ -74,9 +84,58 @@ function deleteCard() {
 }
 
 function finishCard() {
-  var id = $(this).parent().data('id');
+  var oldCard = $(this).parent();
+  var id = oldCard.data('id');
   var params = {
     card: { completed: true }
   };
-  $.ajax('/cards/' + id, { type: "PUT", data: params });
+  $.ajax('/cards/' + id, { type: "PUT", data: params })
+    .done(function(card) {
+      // Adding the card to the done column
+      renderCompleted(card);
+
+      // Removing the card from the to-do column
+      oldCard.remove();
+    });
+}
+
+function editCard() {
+  var descriptionSpan = $(this);
+
+  var editSpan = $('<span class="edit">');
+  var editInput = $('<input type="text" class="edit-description">');
+
+  editInput.val(descriptionSpan.text());
+
+  editSpan.append(editInput);
+
+  descriptionSpan.replaceWith(editSpan);
+}
+
+function updateCard() {
+  var cardElement = $(this).closest('.card');
+  var id = cardElement.data('id');
+  var newDescription = cardElement.find('.edit-description').val();
+  var params = {
+    card: {
+      description: newDescription
+    }
+  };
+  // console.log(cardElement);
+  $.ajax('/cards/' + id, { type: "PUT", data: params })
+    .done(function(card) {
+      // This will replace only the inner spans
+      // var editElement = cardElement.find('.edit');
+      // var descriptionSpan = $('<span class="description">').text(card.description);
+      // editElement.replaceWith(descriptionSpan);
+
+      // This will replace the entire card
+      cardElement.remove();
+      renderTodo(card);
+    });
+}
+
+// Example of handling keypress events
+function keypressHandler(event) {
+  console.log(event.which);
 }

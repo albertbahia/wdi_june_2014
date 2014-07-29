@@ -1,18 +1,18 @@
 $(function(){
   console.log('Loaded, bro.');
-  makeMiddleEarth(lands);
-  makeHobbits(hobbits);
-  keepItSecretKeepItSafe();
-  makeBaddies(baddies);
-  makeBuddies(buddies);
-  leaveTheShire();
-  beautifulStranger();
-  // forgeTheFellowShip();
-  theBalrog();
-  hornOfGondor();
-  itsDangerousToGoAlone();
-  weWantsIt();
-  thereAndBackAgain();
+  // makeMiddleEarth(lands);
+  // makeHobbits(hobbits);
+  // keepItSecretKeepItSafe();
+  // makeBaddies(baddies);
+  // makeBuddies(buddies);
+  // leaveTheShire();
+  // beautifulStranger();
+  // // forgeTheFellowShip();
+  // theBalrog();
+  // hornOfGondor();
+  // itsDangerousToGoAlone();
+  // weWantsIt();
+  // thereAndBackAgain();
 });
 
 var hobbits = [
@@ -42,11 +42,11 @@ var lands = ["The Shire", "Rivendell", "Mordor"];
 // ##1
 function makeMiddleEarth(lands) {
   // create a section tag with an id of middle-earth
-  var section = $('<section>').attr('id', 'middle-earth')
     // add each land as an article tag
     // inside each article tag include an h1 with the name of the land
     // append the section to the body
 
+  var section = $('<section>').attr('id', 'middle-earth')
     for (var i = 0; i < lands.length; i++) {
       var landText = lands[i]
       var article = $('<article>').appendTo(section)
@@ -79,7 +79,7 @@ function makeHobbits(hobbits) {
 function keepItSecretKeepItSafe() {
   // create a div with an id of 'the-ring'
   // add the ring as a child of Frodo
-  var frodo = $('li')[0]
+  var frodo = $('.hobbit-list-item').eq(0)
   $('<div>').attr('id', 'the-ring').appendTo(frodo);
 }
 
@@ -89,14 +89,14 @@ function keepItSecretKeepItSafe() {
 function makeBaddies(baddies) {
   // display an unordered list of baddies in Mordor
   // give each of the baddies a class of baddy
-  var mordor = $('article')[2]
+  var mordor = $('article').eq(2)
 
-  var list = $('<ul>').addClass('baddies')
+  var baddieList = $('<ul>').addClass('baddies')
   for (var i = 0; i < baddies.length; i++) {
     var baddy = baddies[i];
-    $('<li>').addClass('baddy').text(baddy).appendTo(list);
+    $('<li>').addClass('baddy').text(baddy).appendTo(baddieList);
   }
-  list.appendTo(mordor);
+  baddieList.appendTo(mordor);
 }
 
 
@@ -125,45 +125,47 @@ function makeBuddies(buddies) {
 function leaveTheShire() {
   // assemble the hobbits and move them to Rivendell
   var movingHobbits = $('.hobbit').remove();
-  var rivendell = $('article').eq(1)
-  movingHobbits.appendTo(rivendell)
+  var rivendell = $('article').eq(1);
+  movingHobbits.appendTo(rivendell);
 }
 
 // ## 7
 
 function beautifulStranger() {
   // change the buddy 'Strider' textnode to "Aragorn"
-  var striderToAragorn = $('.buddy').eq(3);
-  striderToAragorn.text("Aragorn")
+  var striderToAragorn = $('.buddy-list-item').eq(3);
+  striderToAragorn.text("Aragorn");
   }
 
 // ## 8
 
 
-// function forgeTheFellowShip() {
-//   // move the hobbits and the buddies to Rivendell
-//   // create a new div called 'the-fellowship'
-//   // add an h1 with the text 'The Fellowship'
-//   // add each hobbit and buddy one at a time to 'the-fellowship'
-//   // after each character is added make an alert that they have joined your party
-//
-//   // var movingHobbits = $('.hobbit').remove();
-//   var rivendell = $('article').eq(1);
-//   var hobbits = $('.hobbit-list-item');
-//   var buddies = $('.buddy-list-item');
-//   var fellowship = $('<h1>').addClass.text('The Fellowship').appendTo(rivendell);
-//   var unorderedList = $('<ul>').addClass('list-fellowship').appendTo(rivendell);
-//
-//   var divFellowship = $('<div>').attr('id', 'the-fellowship').appendTo(fellowship)
-//
-//   hobbits.appendTo(unorderedList)
-//   buddies.appendTo(unorderedList)
-//
-//   for (var i = 0; i < unorderedList.length; i++) {
-//     unorderedList.eq(i).appendTo(fellowship);
-//     alert(unorderedList.eq(i) + " has been added")
-//   }
-// }
+function forgeTheFellowShip() {
+  // move the hobbits and the buddies to Rivendell
+  // create a new div called 'the-fellowship'
+  // add an h1 with the text 'The Fellowship'
+  // add each hobbit and buddy one at a time to 'the-fellowship'
+  // after each character is added make an alert that they have joined your party
+
+  // var movingHobbits = $('.hobbit').remove();
+  var hobbits = $('.hobbit-list-item');
+  var buddies = $('.buddy-list-item');
+  var theFellowship = $('<div>').attr('id', 'the-fellowship').append('<h1>The Fellowship</h1>');
+  var rivendell = $('article').eq(1);
+  var unorderedList = $('<ul>').addClass('list-fellowship').append(hobbits).append(buddies);
+  rivendell.append(unorderedList);
+
+  for (var i = 0; i < hobbits.length; i++) {
+    unorderedList.eq(i).append(hobbits[i]);
+    alert(hobbits[i].innerText + " has been added")
+      for (var i = 0; i < buddies.length; i++) {
+      unorderedList.eq(i).append(buddies[i]);
+      alert(buddies[i].innerText + " has been added")
+      }
+    }
+  theFellowship.append(unorderedList).appendTo(rivendell);
+
+}
 
 // ## 9
 
@@ -173,7 +175,7 @@ function theBalrog() {
   // apply style to the element
   // make the background 'white', add a grey border
   var gandalfGrey = $('.buddy-list-item').eq(0);
-  var gandalfWhite = gandalfGrey.text('Gandalf the White').css('background-color','white').css('border-color', 'grey');
+  var gandalfWhite = gandalfGrey.text('Gandalf the White').css({'background-color': 'whitesmoke', 'border': '2px solid grey'});
 }
 
 // ## 10
@@ -183,9 +185,9 @@ function hornOfGondor() {
   // Boromir's been killed by the Uruk-hai!
   // put a linethrough on boromir's name
   // Remove the Uruk-Hai from the Baddies on the page
-  alert("The Horn of Gondor has been blown!")
+  alert("The Horn of Gondor has been blown! Boromir's Been killed by the Uruk-Hai!")
   var urukHai = $('.baddy').eq(2).remove();
-  var boromir = $('.buddy-list-item').eq(4);
+  var boromir = $('.buddy-list-item').eq(3);
   boromir.wrap('<strike>');
 }
 
@@ -199,8 +201,11 @@ function itsDangerousToGoAlone(){
   var sam = $('.hobbit-list-item').eq(1)
   var mordor = $('article').eq(2)
   var divMountDoom = $('<div>').attr('id', 'mount-doom').appendTo(mordor)
+
   frodo.appendTo(divMountDoom)
   sam.appendTo(divMountDoom)
+
+  mordor.append(divMountDoom)
 }
 
 
@@ -210,19 +215,20 @@ function weWantsIt() {
   // Create a div with an id of 'gollum' and add it to Mordor
   // Remove the ring from Frodo and give it to Gollum
   // Move Gollum into Mount Doom
-  var mordor = $('article').eq(2)
-  var divGollum = $('<div>').attr('id', 'gollum')
-  var ring = $('.the-ring').remove()
-  var divMountDoom = $('<div>').attr('id', 'mount-doom')
-  divGollum.appendTo(mordor)
-  divGollum.appendTo(divMountDoom);
-  ring.appendTo(divGollum);
+  var mordor = $('article').eq(2);
+  var gollum = $('<div>').attr('id', 'gollum');
+  mordor.append(gollum);
+
+  $('#the-ring').appendTo(gollum);
+  $('#mount-doom').append(gollum);
 }
 
 function thereAndBackAgain() {
   // remove Gollum and the Ring from the document
   // remove all the baddies from the document
   // Move all the hobbits back to the shire
+  $('#gollum').remove();
+  $('.baddy').remove()
   var baddies = $('.baddies').remove();
   var shire = $('article').eq(0)
   var hobbitsMoveHome = $('.hobbit').appendTo(shire)
