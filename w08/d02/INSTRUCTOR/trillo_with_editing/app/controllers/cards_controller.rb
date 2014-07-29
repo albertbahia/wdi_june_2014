@@ -12,7 +12,7 @@ class CardsController < ApplicationController
   def update
     @card = Card.find(params[:id])
     @card.update(card_params)
-    render nothing: true
+    render json: @card
   end
 
   def destroy
