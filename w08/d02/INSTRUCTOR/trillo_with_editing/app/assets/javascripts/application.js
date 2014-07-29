@@ -24,6 +24,8 @@ $(document).ready(function() {
   $('button').click(createCard);
   $('body').on('click', '.delete', deleteCard);
   $('body').on('click', '.finish', finishCard);
+  $('#todo-column').on('click', '.description', editCard);
+  $('body').on('click', '.edit-button', updateCard);
 });
 
 function createCard() {
@@ -87,4 +89,35 @@ function finishCard() {
       // Removing the card from the to-do column
       oldCard.remove();
     });
+}
+
+function editCard() {
+  var descriptionSpan = $(this);
+
+  var editSpan = $('<span class="edit">');
+  var editInput = $('<input type="text" class="edit-description">');
+  var editButton = $('<button class="edit-button">');
+
+  editInput.val(descriptionSpan.text());
+  editButton.text('Update');
+
+  editSpan.append(editInput).append(editButton);
+
+  descriptionSpan.replaceWith(editSpan);
+}
+
+function updateCard() {
+  //PUT '/cards/14'
+  var card = $(this).closest('.card');
+  var id = card.data('id');
+
+  var newDescription = card.find('.edit-description').val();
+
+  var params = {
+    card: {
+      description: newDescription
+    }
+  };
+
+  $.ajax('/cards/' + id, { type: "PUT", data: params });
 }
