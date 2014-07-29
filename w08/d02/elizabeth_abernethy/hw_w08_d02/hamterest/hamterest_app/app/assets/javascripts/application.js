@@ -22,6 +22,8 @@ $(function(){
   $('#footer').on('click', showMore);
   $('#posts-container').on('click', 'span.remove', removePost);
   $('#new-post').on('click',addPost)
+  $('#posts-container').on('click', 'div.image', openModal);
+  $('#modal').on('click', '#close', closeModal);
 });
 
 function fetchPosts() {
@@ -36,11 +38,11 @@ function fetchPosts() {
 function displayPosts(data) {
   var postContainer = $('#posts-container');
   if (data) {
-    for (var i = 0; i < data.length; i++) {  
+    for (var i = 0; i < data.length; i++) {
       renderPost(data[i]);
     }
   } else {
-    alert('No more results!');  
+    alert('No more results!');
   }
 }
 
@@ -59,7 +61,7 @@ function renderPost(data) {
   image.attr('src', data.image_url);
   content.text(data.content);
   category.text('#' + data.category);
-  
+
   card.attr('id', data.id)
   .append(title)
   .append(author)
@@ -153,5 +155,12 @@ function fetchOne() {
       });
     }
   });
-  
+}
+
+function openModal() {
+  $('#modal').show();
+}
+
+function closeModal() {
+  $('#modal').hide();
 }
