@@ -112,10 +112,10 @@ function editCard() {
 
 function updateCard() {
   // Find my closest ancestor that matches this criteria
-  var card = $(this).closest('.card');
-  var id = card.data('id');
+  var cardElement = $(this).closest('.card');
+  var id = cardElement.data('id');
   // Catch the new description for this card
-  var newDescription = card.find('.edit-description').val();
+  var newDescription = cardElement.find('.edit-description').val();
   // Construct your parameters
   var params = {
     card: {
@@ -123,5 +123,12 @@ function updateCard() {
     }
   };
   // Create an AJAX PUT request to give the card the new information
-  $.ajax('/cards/' + id, { type: "PUT", data: params });
+  $.ajax('/cards/' + id, { type: "PUT", data: params })
+    .done(function(card) {
+      var editElement = cardElement.find('.edit');
+      var descriptionSpan = $('<span class="description">').text(card.description);
+      editElement.replaceWith(descriptionSpan);
+      // cardElement.remove();
+      // renderTodo(card);
+    });
 }
