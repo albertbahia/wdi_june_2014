@@ -19,11 +19,12 @@ body {
   font-weight: 400;
   color:red;
   cursor: pointer;
+  text-align: center;
 }
 
 div.card {
   width: 250px;
-  height: 350px;
+  height: 500px;
   float: left;
   margin: 10px;
   border: 3px solid papayawhip;
@@ -36,6 +37,18 @@ div.card {
 
 h4.title {
   font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+}
+
+h5.author {
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+}
+
+h6.category {
+  font-size: 16px;
   font-weight: 300;
   text-align: center;
 }
@@ -85,6 +98,3 @@ p.content {
   border-top: 3px solid papayawhip;
   margin-bottom: 10px;
 }
-
-
-
