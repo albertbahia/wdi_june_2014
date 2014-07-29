@@ -21,10 +21,18 @@ $(document).ready(function() {
   fetchAndRenderCards();
 
   // event listeners
+  $('button').click(createCard);
   $('body').on('click', '.delete', deleteCard);
-  // we will implement tomorrow
   // $('body').on('click', '.finish', markAsCompleted);
 });
+
+function createCard() {
+  var newCardDescription = $('#new-card-text').val();
+  $('#new-card-text').val('');
+
+  $.post("/cards", {card: {description: newCardDescription, completed: false}})
+    .done(renderTodo);
+}
 
 function fetchAndRenderCards() {
   $.get('/cards')
