@@ -26,6 +26,9 @@ $(document).ready(function() {
   $('body').on('click', '.finish', finishCard);
   $('#todo-column').on('click', '.description', editCard);
   $('body').on('click', '.edit-button', updateCard);
+
+  // Example of handling keypress events
+  $('body').on('keypress', keypressHandler);
 });
 
 function createCard() {
@@ -129,4 +132,11 @@ function updateCard() {
       cardElement.remove();
       renderTodo(card);
     });
+}
+
+// Example of handling keypress events
+function keypressHandler(event) {
+  if (event.which === 97) {
+    console.log("You pressed the 'a' key!");
+  }
 }
