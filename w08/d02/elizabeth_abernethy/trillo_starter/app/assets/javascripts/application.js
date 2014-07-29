@@ -20,7 +20,7 @@ $(document).ready(function() {
   console.log('Loaded, bro.');
   fetchAndRenderCards();
   $('body').on('click', '.delete', deleteCard);
-  // $('body').on('click', '.finish', markAsFinished);
+  $('body').on('click', '.finish', finishCard);
   $('#new-card-button').on('click', createCard);
 })
 
@@ -75,40 +75,19 @@ function createCard() {
     .done(renderTodo);
 }
 
+function finishCard() {
+  var finishSpan = this;
+  var id = $(this).parent().data('id');
+  var params = {
+    card: { completed: true }
+  };
+  // ajax + done promise to return data from the server and return it
+  $.ajax('/cards/' + id, { type: "PUT" , data: params })
+    .done(function(card) {
+      // Adding the card to the done column
+      renderCompleted(card);
 
-// function markAsFinished() {
-//   var doneList = $('#done-column ul.card-list');
-//   var id = $(this).parent().data('id');
-//   var card = $(this).parent();
-//
-//   card.removeClass('todo');
-//   card.addClass('done');
-//
-//   card.appendTo(doneList);
-//   $(this).remove();
-// }
-
-
-
-
-// function createCard() {
-// var todoList = $('#todo-column ul.card-list');
-// var input = $('#new-card-text');
-// var card = $('<li class="card todo">');
-// var deleteSpan = $('<span class="delete">X</span>');
-// var finishSpan = $('<span class="finish">Finish</span>');
-// todoList.append(card);
-// card.text(input.val());
-// card.append(deleteSpan).append(finishSpan);
-
-// sends POST request to the database
-// $.ajax({
-//   url: "/cards",
-//   type: "POST",
-//   data: { card:
-//     {description: input.val(), completed: false } }
-//   });
-//
-// // clears the 'What do you need to do?' box at the top
-// input.val('');
-// }
+      // Remove the card from the todo column
+      $(finishSpan).parent().remove();
+    });
+}
