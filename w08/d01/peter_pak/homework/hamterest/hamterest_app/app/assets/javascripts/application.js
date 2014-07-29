@@ -3,7 +3,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree
-var lastScrollTop = 0;
 
 $(function() {
   console.log('this is loaded');
@@ -11,18 +10,17 @@ $(function() {
   $('#new-post').on('click', addPost);
   $('body').on('click', '.remove', deletePost);
   $('body').on('click', '#footer', loadMorePosts);
-  $(window).scroll(function(event){
-   var st = $(this).scrollTop();
-   if (st > lastScrollTop){
-       loadMorePosts();
-   }
-   lastScrollTop = st;
- });
+  $(window).scroll(function() {
+    if ($(window).scrollTop() === 700){
+      loadMorePosts();
+    }
+  })
 })
 
 
+
 function fetchPosts() {
-    $.get('/posts', {limit: 10, order: 'desc'})
+    $.get('/posts', {limit: 10, order: 'ASC'})
     .done(displayPosts)
     .fail(function(data) {console.log(data)});
 }
@@ -32,6 +30,7 @@ function displayPosts(posts) {
   posts.forEach(function(currentPost){
     renderPost(currentPost)
   });
+
 }
 
 function renderPost(post) {
@@ -83,5 +82,11 @@ function deletePost() {
 }
 
 function loadMorePosts() {
-  console.log('do not want to load more')
+  var lastAddedId = $('.card').last().data('id');
+  var newId = lastAddedId + 1
+  for (var i = 1; i < 11; i++) {
+    $.get('/posts/' + newId)
+     .done(renderPost);
+    newId++
+  };
 }
