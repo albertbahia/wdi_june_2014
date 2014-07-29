@@ -74,9 +74,17 @@ function deleteCard() {
 }
 
 function finishCard() {
-  var id = $(this).parent().data('id');
+  var oldCard = $(this).parent();
+  var id = oldCard.data('id');
   var params = {
     card: { completed: true }
   };
-  $.ajax('/cards/' + id, { type: "PUT", data: params });
+  $.ajax('/cards/' + id, { type: "PUT", data: params })
+    .done(function(card) {
+      // Adding the card to the done column
+      renderCompleted(card);
+
+      // Removing the card from the to-do column
+      oldCard.remove();
+    });
 }
