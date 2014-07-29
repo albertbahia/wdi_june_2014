@@ -22,6 +22,7 @@ $( function () {
 	fetchPosts();
 	$('#new-post').click(addPost);
 	$('body').on('click', '.remove', removePost);
+	$('#footer').click(showMore);
 })
 
 function fetchPosts() {
@@ -75,4 +76,17 @@ function removePost() {
 	$.ajax({ url: "posts/" + id, type: "DELETE"});
 }
 
+function showMore() {
+	var offset = 10;
+	$.get('/posts', {limit: 10 + offset, order: 'desc'})
+		.done(displayPosts)
+		.fail(function(data) { console.log(data) });
+}
+// ###### showMore
+// - Add a button that when clicked will fetch 10 more results from the database
+// - The new results should be displayed onscreen below any previous results. 
+// - There should be no duplicate results displayed, and all results should be sequential
+//   - i.e. If the first 10 results are displayed onload, then the next 10 should be 11-20 in the database
 
+// ###### showMore Part Deux!
+// - make it so that when a user scrolls, new entries are automatically fetched and displayed onscreen
