@@ -23,7 +23,7 @@ $(document).ready(function() {
   // event listeners
   $('button').click(createCard);
   $('body').on('click', '.delete', deleteCard);
-  // $('body').on('click', '.finish', markAsCompleted);
+  $('body').on('click', '.finish', finishCard);
 });
 
 function createCard() {
@@ -53,7 +53,8 @@ function renderCards(cards) {
 function renderCompleted(card) {
   var listItem = $('<li class="card done" data-id="' + card.id + '" >');
   var deleteSpan = $('<span class="delete">X</span>');
-  listItem.append(deleteSpan).append(card.description);
+  var descriptionSpan = $('<span class="description">' + card.description + '</span>');
+  listItem.append(deleteSpan).append(descriptionSpan);
   $('#completed-column').find('.card-list').append(listItem);
 }
 
@@ -61,7 +62,8 @@ function renderTodo(card) {
   var listItem = $('<li class="card todo" data-id="' + card.id + '" >');
   var deleteSpan = $('<span class="delete">X</span>');
   var finishSpan = $('<span class="finish">Finish</span>');
-  listItem.append(card.description).append(deleteSpan).append(finishSpan);
+  var descriptionSpan = $('<span class="description">' + card.description + '</span>');
+  listItem.append(descriptionSpan).append(deleteSpan).append(finishSpan);
   $('#todo-column').find('.card-list').append(listItem);
 }
 
@@ -69,4 +71,12 @@ function deleteCard() {
   var id = $(this).parent().data('id');
   $(this).parent().remove();
   $.ajax("/cards/" + id, {type: "DELETE"});
+}
+
+function finishCard() {
+  var id = $(this).parent().data('id');
+  var params = {
+    card: { completed: true }
+  };
+  $.ajax('/cards/' + id, { type: "PUT", data: params });
 }

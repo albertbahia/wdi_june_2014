@@ -34,18 +34,18 @@ var startGame = function() {
   // ---------------------
   // This is just cool UI stuff.
   // Not necessary for solution.
-  $('.circle').mouseenter(function() {
-    var lastPiece = lowestPiece($(this).parent());
-    if (isPlayable($(this))) {
-      highlight.appendTo(lastPiece);
-    } else {
-      highlight.remove();
-    }
-  });
-
-  $('.circle').mouseleave(function() {
-    highlight.remove();
-  });
+  // $('.circle').mouseenter(function() {
+  //   var lastPiece = lowestPiece($(this).parent());
+  //   if (isPlayable($(this))) {
+  //     highlight.appendTo(lastPiece);
+  //   } else {
+  //     highlight.remove();
+  //   }
+  // });
+  //
+  // $('.circle').mouseleave(function() {
+  //   highlight.remove();
+  // });
   // ---------------------
 }
 
@@ -60,6 +60,7 @@ var isPlayable = function(piece) {
 // Returns the lowest playable piece in the same column
 var lowestPiece = function(column) {
   var columnPieces = column.children();
+  console.log(columnPieces);
   for (var i = columnPieces.length - 1; i >= 0; i--) {
     if (isPlayable(columnPieces.eq(i))) {
       return columnPieces.eq(i);

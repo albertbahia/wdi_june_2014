@@ -19,8 +19,9 @@ function startGame() {
 
 var changeColor = function(piece) {
   if (!piece.hasClass('red') && !piece.hasClass('black')) {
-    if(turn % 2 == 0) {
+    if(turn % 2 === 0) {
       piece.addClass('red taken');
+
       turn++;
     } else {
       piece.addClass('black taken');
@@ -39,3 +40,7 @@ var makeMove = function() {
     changeColor(piece);
   }
 };
+
+var checkHorizontal = function() {
+
+}

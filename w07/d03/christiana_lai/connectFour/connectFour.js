@@ -3,6 +3,7 @@ $(function() {
   startGame();
   turn = 0;
   $('.piece').on('click', makeMove);
+  $('.refresh-button').on('click', refreshPage);
 });
 
 function startGame() {
@@ -40,5 +41,12 @@ var makeMove = function() {
   // preceding piece must be taken before moves can be made
   } else if (pieceArray.eq(pieceIndex + 1).hasClass('taken')) {
     changeColor(piece);
+  }
+};
+
+var refreshPage = function() {
+  var board = $('.piece');
+  for (var i = 0; i < board.length; i++) {
+    board.removeClass('red').removeClass('black');
   }
 };
