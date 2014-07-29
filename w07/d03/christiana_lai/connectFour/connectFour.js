@@ -1,46 +1,44 @@
-var turn;
 $(function() {
-  console.log('Loaded, bro');
+  console.log('JavaScript loaded >>');
   startGame();
   turn = 0;
-  // $('.piece').click(changeColor);
-  $('.piece').click(makeMove);
+  $('.piece').on('click', makeMove);
 });
 
 function startGame() {
   var gamePieces = $('.piece');
   gamePieces.mouseenter(function(){
-    $(this).addClass('hover')
+    $(this).addClass('hover');
   });
   gamePieces.mouseleave(function(){
-    $(this).removeClass('hover')
+    $(this).removeClass('hover');
   });
-};
+}
+
 
 var changeColor = function(piece) {
-  if (!piece.hasClass('red') && !piece.hasClass('black')) {
-    if(turn % 2 === 0) {
+  if (piece.hasClass('red') || piece.hasClass('black')) {
+    // if piece has has already been played, don't do anything.
+  } else {
+    if (turn % 2 === 0) {
       piece.addClass('red taken');
-
-      turn++;
     } else {
       piece.addClass('black taken');
-      turn++;
     }
+    turn++;
   }
 };
 
 var makeMove = function() {
   var piece = $(this);
   var pieceArray = piece.parent().children('.piece');
+  // getting index of piece that we clicked on
   var pieceIndex = pieceArray.index(piece);
+  // only if last piece in column is filled can next move be made
   if (pieceIndex === 5) {
     changeColor(piece);
+  // preceding piece must be taken before moves can be made
   } else if (pieceArray.eq(pieceIndex + 1).hasClass('taken')) {
     changeColor(piece);
   }
 };
-
-var checkHorizontal = function() {
-
-}
