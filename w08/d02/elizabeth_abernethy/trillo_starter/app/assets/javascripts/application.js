@@ -23,7 +23,12 @@ $(document).ready(function() {
   $('body').on('click', '.finish', finishCard);
   $('#new-card-button').on('click', createCard);
   $('#todo-column').on('click', '.description', editCard);
-  $('#todo-column').on('click', '.edit-button', updateCard);
+  $('#todo-column').on('keypress', '.edit-description', function(event) {
+    var theActualInputBox = this;
+    if (event.which === 13 ) {
+      updateCard.call(theActualInputBox);
+    }
+  });
 })
 
 // jQuery automatically converts JSON to an array
@@ -100,35 +105,35 @@ function editCard() {
   // Create new items
   var editSpan = $('<span class="edit">');
   var editInput = $('<input type="text" class="edit-description">');
-  var editButton = $('<button class="edit-button">');
   // Set value of input field = existing text
   editInput.val(descriptionSpan.text());
-  editButton.text('Update');
-  // add input and button to edit span
-  editSpan.append(editInput).append(editButton);
+  // add input to edit span
+  editSpan.append(editInput);
   // replace old span with new span
   descriptionSpan.replaceWith(editSpan);
 }
 
 function updateCard() {
-  // Find my closest ancestor that matches this criteria
-  var cardElement = $(this).closest('.card');
-  var id = cardElement.data('id');
-  // Catch the new description for this card
-  var newDescription = cardElement.find('.edit-description').val();
-  // Construct your parameters
-  var params = {
-    card: {
-      description: newDescription
-    }
-  };
-  // Create an AJAX PUT request to give the card the new information
-  $.ajax('/cards/' + id, { type: "PUT", data: params })
-    .done(function(card) {
-      var editElement = cardElement.find('.edit');
-      var descriptionSpan = $('<span class="description">').text(card.description);
-      editElement.replaceWith(descriptionSpan);
-      // cardElement.remove();
-      // renderTodo(card);
-    });
+  if (event.which === 13) {
+    // Find my closest ancestor that matches this criteria
+    var cardElement = $(this).closest('.card');
+    var id = cardElement.data('id');
+    // Catch the new description for this card
+    var newDescription = cardElement.find('.edit-description').val();
+    // Construct your parameters
+    var params = {
+      card: {
+        description: newDescription
+      }
+    };
+    // Create an AJAX PUT request to give the card the new information
+    $.ajax('/cards/' + id, { type: "PUT", data: params })
+      .done(function(card) {
+        var editElement = cardElement.find('.edit');
+        var descriptionSpan = $('<span class="description">').text(card.description);
+        editElement.replaceWith(descriptionSpan);
+        // cardElement.remove();
+        // renderTodo(card);
+      });
+  }
 }
