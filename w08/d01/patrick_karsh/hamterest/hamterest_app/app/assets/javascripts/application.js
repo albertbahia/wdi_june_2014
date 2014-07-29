@@ -25,15 +25,17 @@ $(document).ready(function() {
 function fetchPosts() {
 	$.get('/posts', 
 		function(data){
-	displayPosts(data)	
+		displayPosts(data)	
 	}) 
 }
 
 function renderPost(post) {
+
 	var cardDiv = $('<div class ="card">').appendTo('#posts-container'); 
 	var imageDiv = $('<div class= "image">'); 
 	var image = $('<img src="'+ post.image_url + '">');
 	var deleteSpan = $('<span class="delete">X</span>');
+
 	$('<h4 class= "title" >').text(post.title).appendTo(cardDiv);
 	$('<p class= "content">').text(post.content).appendTo(cardDiv)
 	$('<p class= "author">').text(post.author).appendTo(cardDiv); 
@@ -50,6 +52,7 @@ function displayPosts(post, num) {
 }	
 
 function createPost(){
+
 	var newPost = { post: { 
 		title: $('input[name= "title" ]').val(), 
 		author: $('input[name= "author"]').val(), 
@@ -57,7 +60,8 @@ function createPost(){
 		content: $('input[name= "content"]').val(),
 		category:  $('input[name= "category"]').val()
 		}
-	}; 
+	};
+
 	$.post('/posts', newPost).done(renderPost(newPost)); 
 }
 function removePost() {
