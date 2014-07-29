@@ -1,0 +1,15 @@
+<h1>Our Suite Tractors</h1>
+
+<%= link_to 'New Tractor', new_tractor_path %>
+<hr>
+
+<% @tractors.each do |current_tractor| %>
+  <%= render partial: 'tractor', locals: {tractor: current_tractor} %>
+
+  <p>
+
+    <%= link_to 'Show', current_tractor %> |
+    <%= link_to 'Edit', edit_tractor_path(current_tractor) %> |
+    <%= link_to 'Destroy', current_tractor, method: :delete %>
+  </p>
+<% end %>
