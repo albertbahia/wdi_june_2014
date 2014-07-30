@@ -22,6 +22,7 @@ $(document).ready(function() {
   $('body').on('click', '.remove', removePost);
   $('body').on('click', 'img', showModal);
   $('body').on('click', '#close', hideModal);
+  $('body').on('click', '#update-button', updatePost);
   // $(window).on('scroll', showMore);
 });
 
@@ -71,7 +72,11 @@ function addPost() {
     category: cardCategory
   }}; 
 
-  $.post('/posts', postInfo).done(displayPost);
+  $.ajax({
+    url: '/posts',
+    type: 'POST',
+    data: postInfo })
+  .done(displayPost);
 
   $('#title-input').val('');
   $('#author-input').val('');
@@ -92,12 +97,15 @@ function modalDisplay(post){
   var contentInput = $('<input id="edit-content">').appendTo('#card-update');
   var categoryInput = $('<input id="edit-category">').appendTo('#card-update');
   var updateButton = $('<button id="update-button">Update Post</button>').appendTo('#card-update');
-
+  var imageDiv = $('#modal-image').attr('src', post.image_url).css({"width": "170px", "height": "170px"});
+  var idDiv = $('<span data-id="">').appendTo('#card-update');
+  
   titleInput.val(post.title);
   imageInput.val(post.image_url);
   contentInput.val(post.content);
   categoryInput.val(post.category);
-}
+  idDiv.attr('data-id', post.id);
+};
 
 function showModal(){
   $('#modal').show();
@@ -107,21 +115,29 @@ function showModal(){
   
   $.get('/posts/' + id).done(modalDisplay)
   .fail(function(data) {console.log(data);});
+};
 
-  // var cardImage = $(this).attr('src');
-  // var modalImage = $('#modal-image').attr('src', cardImage);
-  // modalImage.css({"width": "170px", "height": "170px"});
+function updatePost(){
+  var post = $(this).closest('#card-update');
+  var updatedTitle = post.find('#edit-title').val();
+  var updatedImage = post.find('#edit-image').val();
+  var updatedContent = post.find('#edit-content').val();
+  var updatedCategory = post.find('#edit-category').val();
+  var id = post.find('span').attr('data-id');
 
-  // var post = $(this).closest('.card');
+  var params = { post: { 
+    title: updatedTitle,
+    image_url: updatedImage,
+    content: updatedContent,
+    category: updatedCategory
+  }}
 
-  // var titleInput = $('<input id="edit-title">').appendTo('#card-update');
-  // var imageInput = $('<input id="edit-image">').appendTo('#card-update');
-  // var contentInput = $('<input id="edit-content">').appendTo('#card-update');
-  // var categoryInput = $('<input id="edit-category">').appendTo('#card-update');
-  // var updateButton = $('<button id="update-button">Update Post</button>').appendTo('#card-update');
-
-  // titleInput.val(post.)
-}
+  $.ajax('/posts/' + id, {type: 'PUT', data: params})
+  .done(function(card) {
+    displayPost(card);
+    hideModal();
+  });
+};
 
 function hideModal(){
   $('#modal').hide();
