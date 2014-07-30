@@ -6,5 +6,7 @@
     <%= hoot.author %>
   </p>
   <p class="links">
+    <%= link_to 'edit', edit_hoot_path(hoot) %> |
+    <%= link_to 'delete', hoot_path(hoot), remote: true, method: :delete %>
   </p>
 </div>
