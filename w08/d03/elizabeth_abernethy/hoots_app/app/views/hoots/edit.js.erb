@@ -1,0 +1,4 @@
+var formHtml = '<%= j(render 'form') %>';
+var domID= '<%= dom_id(@hoot) %>';
+$('#' + domID).find('form').remove();
+$(formHtml).appendTo($('#' + domID));
