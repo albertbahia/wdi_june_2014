@@ -17,8 +17,19 @@
 $(function() {
   console.log("Loaded Brah!");
   fetchAndRenderCards();
+  // event listeners
   $('body').on('click', '.delete', deleteCard);
+  $('body').on('click', '.finish', finishCard);
+  $('#todo-column').on('click', '.description', editCard);
+  $('#todo-column').on('keypress', '.edit-description',
+    function(event) {
+      if (event.which === 13) {
+        updateCard.call(this);
+      }
+    }
+  );
   $('#new-card-button').on('click', createCard);
+
 });
 
 function fetchAndRenderCards() {
@@ -41,9 +52,12 @@ function renderCards(cards) {
 function renderCompleted(card) {
 
   var listItem = $('<li class="card done" data-id="' + card.id + '">');
+  var spanWrap = $('<span class="description">')
+  spanWrap
+  .text(card.description)
+  .appendTo(listItem);
   var deleteSpan = $('<span class="delete">X</span>');
   listItem.prepend(deleteSpan);
-  listItem.append(card.description);
   $('#completed-column').find('ul').append(listItem);
 
 }
@@ -52,9 +66,11 @@ function renderTodo (card) {
   var listItem = $('<li class="card todo" data-id="' + card.id + '">');
   var spanDelete = $('<span class="delete">X</span>');
   var spanFinish = $('<span class="finish">Finish</span>');
-
-  listItem.append(card.description)
-    .append(spanDelete)
+  var spanWrap = $('<span class="description">')
+  spanWrap
+  .text(card.description)
+  .appendTo(listItem);
+  listItem.append(spanDelete)
     .append(spanFinish);
 
   $('#todo-column').find('.card-list').append(listItem);
@@ -73,4 +89,54 @@ function createCard() {
   $.post('/cards', userInputParams)
     .done(renderTodo);
   $('#new-card-text').val("");
+}
+
+function finishCard() {
+  var finishSpan = $(this);
+  var id = finishSpan.parent().data('id');
+
+  $.ajax('/cards/' + id, {type: 'PUT', data: {card: {completed: true}}})
+    .done(function(card) {
+      finishSpan.parent().remove();
+      renderCompleted(card);
+      }
+    )
+}
+
+function editCard() {
+  var descriptionSpan = $(this);
+
+  var editSpan = $('<span class="edit">');
+  var editInput = $('<input type="text" class="edit-description">');
+  // var editButton = $('<button class="edit-button">');
+
+  editInput.val(descriptionSpan.text());
+  // editButton.text('Update');
+
+  editSpan.append(editInput)
+  // .append(editButton);
+
+  descriptionSpan.replaceWith(editSpan);
+}
+
+function updateCard() {
+
+  var cardElement = $(this).closest('.card');
+  var id = cardElement.data('id');
+
+  var newDescription = cardElement.find('.edit-description')
+    .val();
+
+  var params = {
+    card: {
+      description: newDescription
+    }
+  };
+
+  $.ajax('/cards/' + id, { type: "PUT", data: params })
+    .done(function(card) {
+      cardElement.remove();
+      renderTodo(card);
+    });
+
 }

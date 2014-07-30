@@ -9,6 +9,11 @@ class CardsController < ApplicationController
     render json: @card
   end
 
+  def update
+    @card = Card.find(params[:id])
+    @card.update(card_params)
+    render json: @card
+  end
   def card_params
     params.require(:card).permit(:description, :completed)
   end
