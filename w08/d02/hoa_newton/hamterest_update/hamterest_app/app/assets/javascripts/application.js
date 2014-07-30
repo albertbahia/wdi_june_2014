@@ -23,6 +23,7 @@ $(function(){
   $('#new-post').on('click',addPost);
   $('#posts-container').on('click', '.image', showModal);
   $('#posts-container').on('click', '#close', hideModal);
+  $('#posts-container').on('click', '.update', updatePost);
 
 });
 
@@ -49,7 +50,7 @@ function displayPosts(data) {
 // Create a new Card and add information
 function renderPost(data) {
   var postContainer = $('#posts-container');
-  var card = $('<div>').addClass('card').append('<span class="remove">X</span>');
+  var card = $('<div data-id="'+ data.id + '">').addClass('card').append('<span class="remove">X</span>');
   var title = $('<h4>').addClass('title');
   var author = $('<span>');
   var image = $('<img>').appendTo($('<div>').addClass('image'));
@@ -139,8 +140,8 @@ function addPost() {
 
 ///////////// NEW CODE ///////////////
 function showModal(){
-  // 'this' now is the div.image
-  // var postContainer = $('#posts-container')
+  hideModal();
+
   var cardInfo = $('#card-info');
 
   // Generate and append image in to modal div //
@@ -157,14 +158,18 @@ function showModal(){
   var categoryValue = currentPost.find('.category').text();
 
   var cardUpdate = $('#card-update')
-  var titleInput = $('<input>').addClass('input').val(titleValue);
+  var titleInput = $('<input>').addClass('title').val(titleValue);
   var authorInput = $('<input class="author">').val(authorValue);
   var contentInput = $('<input>').addClass('content').val(contentValue);
   var categoryInput = $('<input>').addClass('category').val(categoryValue);
+  var imageInput = $('<input>').addClass('image').val(imageUrl);
   var modalWindow = $('div #modal').append(cardInfo).append(cardUpdate);
 
-  cardUpdate.append(titleInput).append(authorInput)
-    .append(contentInput).append(categoryInput);
+  var updateButton = $('<div class="update">').append($('<span>').text("Ham It Up"));
+
+  cardUpdate.append(titleInput).append(authorInput).append(imageInput)
+    .append(contentInput).append(categoryInput).append(updateButton);
+
   modalWindow.show();
 
 }
@@ -175,9 +180,29 @@ function hideModal() {
   $('div #modal .content').remove();
   $('div #modal .category').remove();
   $('div #modal .author').remove();
+  $('div #modal .update').remove();
+  $('div #modal .title').remove();
   $('div #modal').hide();
 }
 
+function updatePost (){
+  var postId = $(this).parent().data('id');
+  var modalDiv = $(this).parent();
+  var newTitle = modalDiv.find('.title').val();
+  var newContent = modalDiv.find('.content').val();
+  var newCategory = modalDiv.find('.category').val();
+  var newImageUrl = modalDiv.find('.')
+
+  console.log(newTitle);
+  console.log(newContent);
+  console.log(newCategory);
+  
+  // $.ajax({
+  //   url: '/posts/' + postId,
+  //   type: 'PUT',
+  //   data: postParams
+  // })
+}
 
 
 
