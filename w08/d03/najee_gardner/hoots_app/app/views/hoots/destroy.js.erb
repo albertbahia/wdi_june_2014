@@ -1,0 +1,4 @@
+console.log('Hoot <%= @hoot.id %> successfully deleted');
+
+var domID = '<%= dom_id(@hoot) %>';
+$('#' + domID).remove();
