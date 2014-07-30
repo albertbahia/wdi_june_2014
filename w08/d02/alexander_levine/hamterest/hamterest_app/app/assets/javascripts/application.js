@@ -21,7 +21,8 @@ $(document).ready(function() {
   $('body').on('click', '#new-post', addPost);
   $('body').on('click', '.remove', deletePost);
   $('body').on('click', '.image', showModal);
-  $('body').on('click', '#modal', hideModal);
+  $('body').on('click', '#close', hideModal);
+  $('body').on('click', '.edit', updatePost);
   // $('body').on('click', '#footer', showMore);
 });
 
@@ -74,13 +75,54 @@ function deletePost() {
 }
 
 function showModal() {
-  console.log('hi');
   var modal = $(this).parent().parent().find('#modal');
+  var id = $(this).parent().attr('data-id');
+  modal.attr('data-id', id);
+  var cardInfo = modal.find('#card-info');
+  var cardUpdate = modal.find('#card-update');
+  var imageUrl = $(this).find($('img')).attr('src');
+  var imageDiv = $('<div class="image">')
+    .appendTo(cardInfo);
+  var image = $('<img>', {src: imageUrl})
+    .appendTo(imageDiv);
+  var oldTitle = $(this).parent().find('h4').text();
+  var oldImageUrl = $(this).find('img').attr('src');
+  var oldContent = $(this).parent().find('p').text();
+  var oldCategory = $(this).parent().find('h6').text();
+  var titleInput = $('<input class="title">').val(oldTitle).appendTo(cardUpdate);
+  var imageUrlInput = $('<input class="image-url">').val(oldImageUrl).appendTo(cardUpdate);
+  var contentInput = $('<input class="content">').val(oldContent).appendTo(cardUpdate);
+  var categoryInput = $('<input class="category">').val(oldCategory).appendTo(cardUpdate);
+  var button = $('<button class="edit">Update</button>').appendTo(cardUpdate);
   modal.show();
 }
 
+
 function hideModal() {
-  $(this).hide();
+  var modal = $(this).parent();
+  modal.hide();
+  modal.find('div').empty();
+}
+
+function updatePost() {
+  var post = $(this).parent();
+  var id = post.parent().data('id');
+  var newTitle = post.find('.title').val();
+  var newImageUrl = post.find('.image-url').val();
+  var newContent = post.find('.content').val();
+  var newCategory = post.find('.category').val();
+  var params = {
+    post: {
+      title: newTitle,
+      image_url: newImageUrl,
+      content: newContent,
+      category: newCategory
+    }
+  };
+  $.ajax("/posts/" + id, { type: 'PUT', data: params })
+    .done(function(post) {
+      hideModal.call($('#close'));
+    });
 }
 
 //Thus far unsuccessful attempt at showMore below:
