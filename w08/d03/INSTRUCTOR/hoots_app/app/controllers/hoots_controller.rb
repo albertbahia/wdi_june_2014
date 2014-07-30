@@ -1,9 +1,4 @@
 class HootsController < ApplicationController
-  def index
-    @hoots = Hoot.order(created_at: :desc)
-    render json: @hoots
-  end
-
   def create
     @hoot = Hoot.create(hoot_params)
   end
