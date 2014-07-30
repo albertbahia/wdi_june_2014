@@ -21,6 +21,9 @@ class PostsController < ApplicationController
   end
 
   def update
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    render json: @post, status: 200
   end
 
   def destroy
