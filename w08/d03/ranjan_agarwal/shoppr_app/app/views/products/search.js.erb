@@ -2,7 +2,6 @@ var productsList = '#products-list';
 var productsDiv = $(productsList);
 var products = '<%= j(render @products) %>';
 var noResult = $('<h1>');
-console.log(products);
   if (products) {
     productsDiv.empty();
     productsDiv.append(products);
