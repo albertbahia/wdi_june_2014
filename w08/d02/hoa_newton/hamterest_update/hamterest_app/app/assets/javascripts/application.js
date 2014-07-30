@@ -187,21 +187,32 @@ function hideModal() {
 
 function updatePost (){
   var postId = $(this).parent().data('id');
-  var modalDiv = $(this).parent();
-  var newTitle = modalDiv.find('.title').val();
-  var newContent = modalDiv.find('.content').val();
-  var newCategory = modalDiv.find('.category').val();
-  var newImageUrl = modalDiv.find('.')
+  // console.log($(this).parent().find(.);
 
-  console.log(newTitle);
-  console.log(newContent);
-  console.log(newCategory);
+  console.log(postId);
+//   var modalDiv = $(this).parent();
+//   var newTitle = modalDiv.find('.title').val();
+//   var newContent = modalDiv.find('.content').val();
+//   var newCategory = modalDiv.find('.category').val();
+//   var newImageUrl = modalDiv.find('.image').val()
+
+//   var params = {
+//     post: {
+//       title: newTitle,
+//       // author: author.val(),
+//       image_url: newImageUrl,
+//       content: newContent,
+//       category: newCategory 
+//   }}
   
-  // $.ajax({
-  //   url: '/posts/' + postId,
-  //   type: 'PUT',
-  //   data: postParams
-  // })
+//   $.ajax('/posts/' + postId, { type: 'PUT', data: params }).done(function(post) {
+//     renderPost();
+//     hideModal();
+//   })
+
+//   $.get('/posts/').done(displayPosts(data))
+//     .fail( function(data) { console.log(data); });
+//   hideModal();
 }
 
 
