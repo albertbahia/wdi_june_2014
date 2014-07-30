@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
   end
 
   def filter
+    @products = Product.where("category = '#{params[:category]}'")
   end
 
   def product_params
