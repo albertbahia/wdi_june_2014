@@ -1,0 +1,5 @@
+console.log('hi');
+var productsList = '#products-list';
+var productsDiv = $(productsList);
+var products = $('<%= j(render @products) %>');
+products.appendTo(productsDiv);
