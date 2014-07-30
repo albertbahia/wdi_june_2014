@@ -2,4 +2,6 @@ console.log('hi');
 var productsList = '#products-list';
 var productsDiv = $(productsList);
 var products = $('<%= j(render @products) %>');
-products.appendTo(productsDiv);
+productsDiv.empty();
+var filteredProducts = products.appendTo(productsDiv);
+filteredProducts.hide().slideDown(1000);
