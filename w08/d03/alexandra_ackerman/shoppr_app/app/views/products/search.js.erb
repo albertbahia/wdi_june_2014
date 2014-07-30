@@ -6,5 +6,5 @@ productList.empty();
   $('<h1>No Results Found</h1>').appendTo(productList);
 <% else %>
   productList.empty();
-  $(productHTML).fadeIn().appendTo(productList);
+  $(productHTML).slideUp().appendTo(productList);
 <% end %> 
