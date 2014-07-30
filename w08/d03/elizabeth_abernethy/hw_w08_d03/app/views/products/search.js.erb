@@ -3,8 +3,9 @@ var productsList = $('#products-list');
 
 productsList.empty();
 
-<% if @products.empty? %>
-  alert('No results found');
-<% else %>
+
+if (productHtml) {
   productsList.append(productHtml);
-<% end %>
+} else {
+  alert('No results found');
+}
