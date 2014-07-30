@@ -7,7 +7,7 @@
 - Utilize render with an object to render a partial
 - Turn up our SWAG
 
-![xena](http://imgur.com/RIyVb5I)
+![xena](http://i.imgur.com/RIyVb5I.jpg)
 
 
 # Step 1
