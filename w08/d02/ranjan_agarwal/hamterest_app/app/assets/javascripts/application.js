@@ -71,7 +71,6 @@ function updatePost() {
   var cardCategory = card.find('.category');
   var newTitle = update.find('input[name="title"]').val();
   var newImage = update.find('input[name="image_url"]').val();
-  // var newImageElement = $('<img  src='+ newImage +'>').prependTo(info);
   var newContent = update.find('input[name="content"]').val();
   var newCategory = update.find('input[name="category"]').val();
 
