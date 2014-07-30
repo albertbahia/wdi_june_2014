@@ -9,6 +9,7 @@ class HootsController < ApplicationController
   end
 
   def edit
+    @params = params[:id]
     @hoot = Hoot.find(params[:id])
   end
 
