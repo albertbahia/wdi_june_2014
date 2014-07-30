@@ -23,6 +23,11 @@ div#modal {
   top:20%;
   left:30%;
 }
+
+#card-info img {
+  max-height: 200px;
+}
+
 span#close {
   float: right;
   color: white;
