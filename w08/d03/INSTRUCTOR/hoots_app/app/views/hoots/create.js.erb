@@ -1,0 +1,15 @@
+console.log('Hoot successfully created');
+var content = '<%= j(@hoot.content) %>';
+var author = '<%= j(@hoot.author) %>';
+console.log('Content: ' + content);
+console.log('Author: ' + author);
+
+var hootHtml = '<%= j(render @hoot) %>';
+var hootDiv = $(hootHtml);
+hootDiv.prependTo($('#hoots'));
+
+// var hootDiv = $('<div class="hoot" id="<%= dom_id(@hoot) %>">');
+// var contentElement = $('<p>').text(content);
+// var authorElement = $('<p>').text(author);
+// hootDiv.append(contentElement).append(authorElement);
+// hootDiv.prependTo($('#hoots'));
