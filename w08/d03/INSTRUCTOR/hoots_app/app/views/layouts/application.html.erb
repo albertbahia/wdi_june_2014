@@ -8,10 +8,9 @@
 </head>
 <body>
   <h1>Hoots</h1>
+  <%= render 'hoots/form' %>
   <div id="hoots">
-    <% @hoots.each do |hoot| %>
-      <%= render partial: 'hoots/hoot', locals: {hoot: hoot} %>
-    <% end %>
+    <%= render @hoots %>
   </div>
 </body>
 </html>
