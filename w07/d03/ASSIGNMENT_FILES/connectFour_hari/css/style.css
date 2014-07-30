@@ -5,6 +5,7 @@ body {
   font-family: 'Arial';
   color: #fff;
   text-align: center;
+  user-select: none;
 }
 
 #board {
