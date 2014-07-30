@@ -1,0 +1,12 @@
+var productsList = '#products-list';
+var productsDiv = $(productsList);
+var productsHtml = '<%= j(render @results) %>';
+
+if (productsHtml) {
+  productsDiv.empty();
+  productsDiv.append(productsHtml);
+  // productsDiv.css("display", "none").slideUp(1000).delay(500).slideDown(1000);
+} else {
+  productsDiv.empty();
+  productsDiv.append('<h1>No Results</h1>')
+}
