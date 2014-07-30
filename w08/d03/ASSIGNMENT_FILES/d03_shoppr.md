@@ -7,7 +7,7 @@
 - Utilize render with an object to render a partial
 - Turn up our SWAG
 
-![lands on feet](http://media.giphy.com/media/YC1XoCLlUMElG/giphy.gif)
+![xena](http://imgur.com/RIyVb5I)
 
 
 # Step 1
