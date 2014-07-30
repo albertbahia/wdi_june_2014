@@ -1,0 +1,10 @@
+var productHTML = '<%= j(render @products)%>';
+var productList = $('#products-list');
+productList.empty();
+
+<% if @products.empty? %>
+  $('<h1>No Results Found</h1>').appendTo(productList);
+<% else %>
+  productList.empty();
+  $(productHTML).fadeIn().appendTo(productList);
+<% end %> 
