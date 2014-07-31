@@ -8,7 +8,7 @@ Morning Exercise 08-04
 # Clocks!!!!
 ##### cue Coldplay
 
-Today you are going to build a clock!
+Today you are going to build a clock using jQuery!
 
 Start by planning! Draw a clock, break down the problem,
 
