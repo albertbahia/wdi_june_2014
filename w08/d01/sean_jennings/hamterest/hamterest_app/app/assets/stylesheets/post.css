@@ -4,15 +4,29 @@ body {
   font-family: Josefin Sans;
 }
 
-#posts-container {
+div#posts-container {
   float:left;
-  overflow: scroll;
   width: 85%;
   position: relative;
   bottom: 30px;
-  min-height: 700px;
   border-top: 3px solid papayawhip;
   margin-bottom: 10px;
+}
+div#modal {
+  position: absolute;
+  z-index: 10;
+  background: rgba(0,0,0,.8);
+  height: 500px;
+  width: 500px;
+  display:none;
+  color: whitesmoke;
+  top:20%;
+  left:30%;
+}
+span#close {
+  float: right;
+  color: white;
+  font-size: 30px;
 }
 
 .remove {
@@ -23,7 +37,7 @@ body {
 
 div.card {
   width: 250px;
-  height: 350px;
+  height: 390px;
   float: left;
   margin: 10px;
   border: 3px solid papayawhip;
@@ -86,5 +100,24 @@ p.content {
   margin-bottom: 10px;
 }
 
-
-
+#forms-container input {
+  position:absolute;
+  right: 1px;
+}
+#card-info{
+  height: 45%;
+}
+#card-update {
+  height: 48%;
+  width: 100%;
+  text-align: center;
+}
+#card-update input {
+  width: 300px;
+  height: 35px;
+}
+#card-update div {
+  width: 300px;
+  height: 25%;
+  margin: 0 auto;
+}
