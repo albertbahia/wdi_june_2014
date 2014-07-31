@@ -1,0 +1,6 @@
+var productsListDiv = $('#products-list');
+var products = ('<%= j(render @products) %>')
+// removes each product on the show all click
+$('.product').remove()
+// adds the products on the show all click
+productsListDiv.hide().fadeIn(2000).append(products);
