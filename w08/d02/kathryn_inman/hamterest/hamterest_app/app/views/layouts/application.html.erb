@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HamterestApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <h1>HAMterest</h1>
+  </header>
+  <div id='posts-container'>
+    <div id='modal'>
+      <span id='close'>CLOSE</span>
+      <div id='card-info'>
+        <div id="info-image"></div>
+      </div>
+      <div id='card-update'>
+        <div><button id="update-post">update</div>
+        <div>Title<input type="text" name="new-title"></div>
+        <div>Image URL<input type="text" name="new-image_url"></div>
+        <div>Content<input type="text" name="new-content"></div>
+        <div>Category<input type="text" name="new-category"></div>
+      </div>
+    </div>
+  </div>
+  <div id='forms-container'>
+    <h1>Add a New Hamterest</h1>
+    <div>Title<input type="text" name='title'></div>
+    <div>Author<input type="text" name='author'></div>
+    <div>Image<input type="text" name='image_url'></div>
+    <div>Content<input type="text" name='content'></div>
+    <div>Category<input type="text" name='category'></div>
+    <button id='new-post'>HAM It Up!</button>
+  </div>
+  <%= yield %>
+  <div id='footer'><button id="show-more">Show More</button></div>
+</body>
+</html>
