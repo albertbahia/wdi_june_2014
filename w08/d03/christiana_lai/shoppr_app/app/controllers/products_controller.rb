@@ -13,5 +13,4 @@ class ProductsController < ApplicationController
       @products = Product.where(category: params[:category])
     end
 
-
 end
