@@ -1,6 +1,5 @@
 var productsDiv = $('#products-list');
-var productsHtml = '<%= j(render @products) %>';
-var products = $(productsHtml);
+var products = $('<%= j(render @products) %>');
+
 productsDiv.empty();
-products.appendTo(productsDiv);
-products.hide().slideDown(1000);
+products.appendTo(productsDiv).hide().slideDown(1000);
