@@ -2,4 +2,4 @@ var productsDiv = $('#products-list');
 var products = $('<%= j(render @products) %>');
 
 productsDiv.empty();
-products.appendTo(productsDiv).hide().slideDown(1000);
+products.appendTo(productsDiv).hide().slideDown('slow');
