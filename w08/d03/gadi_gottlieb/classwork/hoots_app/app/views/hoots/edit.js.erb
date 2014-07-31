@@ -1,0 +1,10 @@
+// var content = '<%= j(@hoot.content) %>';
+// var author = '<%= j(@hoot.author) %>';
+// console.log("Editing the hoot");
+// console.log("Content: " + content);
+// console.log("Author: " + author);
+
+var editHoot = "<%= j(render 'form') %>";
+var id = '<%= dom_id(@hoot) %>';
+$('#' + id).find('form').remove();
+$('#' + id).append(editHoot);
