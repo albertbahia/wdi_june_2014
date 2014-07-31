@@ -59,7 +59,7 @@ function renderTodo(card) {
 function deleteCard() {
   var id = $(this).parent().data('id');
   $(this).parent().remove();
-  $.ajax('/cards/'+id, {type:'DELETE'});
+  $.ajax('/cards/'+id, {type:'DELETE'});``
 }
 
 function createCard() {
