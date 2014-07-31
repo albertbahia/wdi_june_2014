@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShopprApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id='nav'><h3>ShoppR</h3>
+<p id="index-button"><%= button_to 'Show All','/products', remote: true, method: :get %></p>
+<p class="filter-button"><%= button_to 'Home','/filter?category=Home', remote: true, method: :get %></p>
+<p class="filter-button"><%= button_to 'Office','/filter?category=Office', remote: true, method: :get %></p>
+<p class="filter-button"><%= button_to 'Kitchen','/filter?category=Kitchen', remote: true, method: :get %></p>
+<p class="filter-button"><%= button_to 'Bathroom','/filter?category=Bathroom', remote: true, method: :get %></p>
+</div>
+<div id='search-div'>
+<%= form_tag('/search', remote: true, method: :get) do %>
+  <p><%= text_field_tag :search %><p>
+  <p><%= submit_tag 'Search By Name' %></p>
+<% end %>
+</div>
+
+<div id='products-list'></div>
+</body>
+</html>
