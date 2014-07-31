@@ -1,0 +1,11 @@
+console.log('search');
+
+var searchTerm = $('#search').val();
+console.log(searchTerm);
+var results = '<%= j(render @products) %>'; 
+var productsList = $('#products-list');
+productsList.empty();
+$(results).appendTo(productsList);
+if (results === '')
+  $('<p>').text('No results found').appendTo(productsList);
+
