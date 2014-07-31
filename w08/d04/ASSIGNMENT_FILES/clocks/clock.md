@@ -26,7 +26,7 @@ Define 3 variables and grab the associated element from the DOM using jQuery:
 - Make the minute hand make a full rotation in 1 hour
 
 ### Step 3
-- Make the hour hand make a full rotation in 24 hours
+- Make the hour hand make a full rotation in 12 hours
 
 ### BONUS
 - Sync up your clock with the current time.
