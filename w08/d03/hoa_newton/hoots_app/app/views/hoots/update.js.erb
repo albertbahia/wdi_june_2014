@@ -1,0 +1,4 @@
+console.log("trying to update here")
+
+var id = '<%= dom_id(@hoot) %>';
+$('#' + id).replaceWith($('<%= j(render @hoot) %>'));

@@ -77,8 +77,8 @@ function removePost() {
 }
 
 function showMore() {
-	var offset = 10;
-	$.get('/posts', {limit: 10 + offset, order: 'desc'})
+	var tenMore = 10;
+	$.get('/posts', {limit: 10, order: 'desc'})
 		.done(displayPosts)
 		.fail(function(data) { console.log(data) });
 }
