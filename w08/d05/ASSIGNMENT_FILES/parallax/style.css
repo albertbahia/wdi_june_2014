@@ -9,7 +9,10 @@ html, body {
   height: 400%;
   position: fixed;
   z-index: -1;
+<<<<<<< HEAD
   top: 200px;
+=======
+>>>>>>> 97da1addd0f4ba10c88e5c77716f6bc2088c34e4
 }
 
 img {
