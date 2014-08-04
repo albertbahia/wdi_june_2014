@@ -7,6 +7,8 @@ html, body {
   background: url('https://withanna.files.wordpress.com/2012/10/budapest-sky-via-withanna-wordpress-com.jpg') repeat;
   width: 100%;
   height: 400%;
+  position: fixed;
+  z-index: -1;
 }
 
 img {
