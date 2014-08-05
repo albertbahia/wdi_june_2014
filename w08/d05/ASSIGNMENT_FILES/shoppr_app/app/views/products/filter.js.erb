@@ -1,0 +1,3 @@
+var productList = $('#products-list').hide().empty();
+
+productList.append($("<%= j(render @products)%>")).fadeIn(1000)
