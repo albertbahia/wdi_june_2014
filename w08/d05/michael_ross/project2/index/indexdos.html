@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
+<script>
+(function () {
+  var ctx = new AudioContext();
+  audioElement = $('#sliders audio')[0]
+
+  audioElement.addEventListener('play', function(){
+    source = ctx.createMediaElementSource(audioElement);
+
+    delay = ctx.createDelay();
+    delay.delayTime.value = 0.5;
+
+    feedback = ctx.createGain();
+    feedback.gain.value = 0.8;
+
+    filter = ctx.createBiquadFilter();
+    filter.frequency.value = 1000;
+
+    visualizer = ctx.create
+
+    delay.connect(feedback);
+    feedback.connect(filter);
+    filter.connect(delay);
+
+    source.connect(delay);
+    source.connect(ctx.destination);
+    delay.connect(ctx.destination);
+  });
+
+  var controls = $("div#sliders");
+
+  controls.find("input[name='delayTime']").on('input', function() {
+    delay.delayTime.value = $(this).val();
+  });
+
+  controls.find("input[name='feedback']").on('input', function() {
+    feedback.gain.value = $(this).val();
+  });
+
+  controls.find("input[name='frequency']").on('input', function() {
+    filter.frequency.value = $(this).val();
+  });
+});
+</script>
+</head>
+
+<body>
+  <audio controls autoplay:false loop>
+    <source src="https://s3.amazonaws.com/spctrl/207558__edtijo__happy-guitar.mp3" type="audio/mp3">
+  </audio>
+  <div class="controls">
+    delayTime: <input max="0" min="0.5" name="delayTime" step="0.1" type="range" value="0">
+    feedback: <input max="0.95" min="0" name="feedback" step="0.05" type="range" value="0">
+    cutoff freq: <input max="4000" min="0" name="frequency" step="100" type="range" value="0">
+  </div>
+</body>
+</html>
