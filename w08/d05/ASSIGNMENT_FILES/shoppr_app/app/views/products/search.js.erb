@@ -1,0 +1,9 @@
+var productList = $('#products-list');
+var renderedResponse = "<%= j(render @products) %>"
+
+productList.empty();
+if (renderedResponse){
+  productList.append($("<%= j(render @products) %>"))
+} else {
+  productList.append("<h1>No Results</h1>");
+}

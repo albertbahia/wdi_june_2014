@@ -1,0 +1,6 @@
+<%= content_tag(:div, class: 'product', id: dom_id(product)) do %>
+  <p><h4>Name: <span><%= product.name %></span></h4></p>
+  <p><h5>Price: <span><%= product.price %></span></h5></p>
+  <p><h5>Quantity: <span><%= product.quantity %></span></h5></p>
+  <p><h5>Category: <span><%= product.category %></span></h5></p>
+<% end %>
