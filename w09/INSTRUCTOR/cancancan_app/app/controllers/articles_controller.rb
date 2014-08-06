@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  before_action :authenticate, except: [:home]
+  before_action :authenticate
 
   def index
     @articles = Article.all
