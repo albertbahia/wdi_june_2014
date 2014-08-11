@@ -13,10 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require handlebars.runtime
+//= require handlebars
+//= require_tree ./templates
 //= require_tree .
 
 
-$(function(){
+$(function() {
   fetchPosts();
   fetchOne();
   $('#footer').on('click', showMore);
@@ -32,37 +35,11 @@ function fetchPosts() {
 function displayPosts(data) {
   var postContainer = $('#posts-container');
   if (data) {
-    for (var i = 0; i < data.length; i++) {  
-      renderPost(data[i]);
-    }
+    var inputData = {posts: data};
+    postContainer.append(HandlebarsTemplates['posts/allPosts'](inputData));
   } else {
     alert('No more results!');  
   }
-}
-
-// Create a new Card and add information
-function renderPost(data) {
-  var postContainer = $('#posts-container');
-  var card = $('<div>').addClass('card').append('<span class="remove">X</span>');
-  var title = $('<h4>').addClass('title');
-  var author = $('<span>');
-  var image = $('<img>').appendTo($('<div>').addClass('image'));
-  var content = $('<p>').addClass('content');
-  var category = $('<a>').attr('href','#').addClass('category');
-
-  title.text(data.title);
-  author.text(data.author);
-  image.attr('src', data.image_url);
-  content.text(data.content);
-  category.text('#' + data.category);
-  
-  card.attr('id', data.id)
-  .append(title)
-  .append(author)
-  .append(image.parent())
-  .append(content)
-  .append(category);
-  postContainer.append(card);
 }
 
 // display more results on screen
@@ -91,7 +68,7 @@ function addPost() {
       content: newPostForm.eq(3).val(),
       category: newPostForm.eq(4).val()
     }
-  }  
+  }; 
   $.post('/posts', postParams)
   .done(function(data){
     renderPost(data);
@@ -122,67 +99,38 @@ function fetchOne() {
 }
 
 function showEditModal(){
-  $('#close').click(function(){$('#modal').hide()});
+  $('#close').click(function(){$('#modal').hide();});
   var whichCardID = $(this).closest('.card').attr('id');
   var modal = $('#modal');
   var card = $(this).closest('.card').children();
-  
-  var modalInfoBox = $('#card-info').empty().append('<div class="image">');
-  modalInfoBox.find('div.image').append($('<img>').attr('src', card.eq(3).find('img').attr('src')));
-  
-  var modalUpdateBox = $('#card-update');
-  modalUpdateBox.empty();
-  var titleInput = $("<div>Title<input type='text' name='update-title'></div>");
-  var imageInput = $("<div>Image<input type='text' name='update-image_url'></div>");
-  var contentInput = $("<div>Content<input type='text' name='update-content'></div>");
-  var categoryInput = $("<div>Category<input type='text' name='update-category'></div>");
-  var button = $('<button id="update">Update!</button>');
-  
-  titleInput.find('input').val(card.eq(1).text());
-  imageInput.find('input').val(card.eq(3).find('img').attr('src'));
-  contentInput.find('input').val(card.eq(4).text());
-  categoryInput.find('input').val(card.eq(5).text().substring(1,card.eq(5).text().length));
 
-  modalUpdateBox.append(titleInput)
-                .append(imageInput)
-                .append(contentInput)
-                .append(categoryInput)
-                .append(button);
-  modal.show();
-  button.click(function(){
-    var postParams = {
-      post: {
-        title: $('[name="update-title"]').val(),
-        image_url: $('[name="update-image_url"]').val(),
-        content: $('[name="update-content"]').val(),
-        category: $('[name="update-category"]').val()
-      }
-    };
-    $.ajax({
-      url: '/posts/' + whichCardID,
-      type: 'PUT',
-      data: postParams
-    })
-    .done(function(data){
-      var deleteButton = $('<span class="remove">X</span>');
-      var title = $('<h4>').addClass('title');
-      var author = $('<span>');
-      var image = $('<img>').appendTo($('<div>').addClass('image'));
-      var content = $('<p>').addClass('content');
-      var category = $('<a>').attr('href','#').addClass('category');
+  $.get('/posts/'+ whichCardID).done(function(data){
+    modal.find('div').remove();
+    var template = HandlebarsTemplates['posts/editForm'];
+    var renderedTemplate = template(data);
+    modal.append(renderedTemplate).show();
 
-      title.text(data.title);
-      author.text(data.author);
-      image.attr('src', data.image_url);
-      content.text(data.content);
-      category.text('#' + data.category);
-      $('#' + data.id).empty().append(deleteButton)
-                              .append(title)
-                              .append(author)
-                              .append(image.parent())
-                              .append(content)
-                              .append(category);
-      modal.hide();
-    })
-  })
+    $('#update').click(function(){
+      var postParams = {
+        post: {
+          title: $('[name="update-title"]').val(),
+          image_url: $('[name="update-image_url"]').val(),
+          content: $('[name="update-content"]').val(),
+          category: $('[name="update-category"]').val()
+        }
+      };
+
+      $.ajax({
+        url: '/posts/' + whichCardID,
+        type: 'PUT',
+        data: postParams
+      })
+      .done(function(data){
+        var oldCard = $('#'+whichCardID);
+        var newCard = HandlebarsTemplates['posts/singlePost'](data);
+        oldCard.replaceWith(newCard);
+        modal.hide();
+      });
+    });
+  });
 }
