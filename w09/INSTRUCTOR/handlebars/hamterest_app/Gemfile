@@ -41,3 +41,4 @@ gem 'handlebars_assets'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'handlebars_assets'
