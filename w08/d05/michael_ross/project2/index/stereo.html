@@ -7,7 +7,7 @@
 <script>
 $(document).ready(function(){
   console.log("Loaded, bro");
-  // showCoordinates();
+  showCoordinates();
 
   clickEvents('delay', 'convolver');
   // adjustCanvasEffects();
@@ -20,6 +20,7 @@ $(document).ready(function(){
   //   }
   //   return eventList;
   // }
+
   // THIS IS ALL THE SAME FOR EACH CHORD FUNCTION
   // for (var i = 0; i < freq.length; i++) {
   //   var mainosc = ctx.createOscillator();
@@ -31,12 +32,20 @@ $(document).ready(function(){
   // };
   //
   // HOW CAN I SHIT ON (REFACTOR) THESE BABIES?
-  // SHOULD I JUSTHAVE ALL MAJOR AND MINOR CHORDS??????
   // AND HOW CAN I DO THIS WITH ARRAYS??
-  // ALSO PLEASE DON'T BE LAME AND INCLUDE SOME GODDAMN EFFECTS IN THE SIGNAL CHAIN EVEN IF IT IS SUPER WET, BRUHHHHHHHHHHH.
-  //SERIOUSLY
+  // INCLUDE EFFECTS IN SIGNAL CHAIN
+  // HAVE THEM ADJUSTABLE ON THE SCREEN
+  // MAP KEYBOARD KEYS TO EACH
+
   // I COULD ADD A PLAYER THAT PLAYS AN ARRAY OF PERCUSSION VIDEO
   // THUS WE COULD PRESENT IT AS AN INSTRUMENT WITH A BACKING DRUM TRACK
+  // $('#myCanvas').mousedown(aMajor);
+  $('#myCanvas').on('keypress', function(event) {
+    var input = this;
+    if (event.input === 13) {
+      aMajor
+    }
+  })
   $('#myCanvas').mousedown(aMajor);
   $('#myCanvas1').mousedown(aSharpMajor);
   $('#myCanvas2').mousedown(bMajor);
@@ -61,6 +70,7 @@ $(document).ready(function(){
   $('#myCanvas21').mousedown(fSharpMinor);
   $('#myCanvas22').mousedown(gMinor);
   $('#myCanvas23').mousedown(gSharpMinor);
+  $('#myCanvas24').mousedown(clickEvents);
 
 
   // playRight();
@@ -78,24 +88,79 @@ function aMajor() {
   for (var i = 0; i < freq.length; i++) {
     var mainosc = ctx.createOscillator();
     mainosc.frequency.value = freq[i];
-    mainosc.connect(ctx.destination);
+
+    // REVERB
+    var reverbNode = new SimpleReverb(ctx, {
+      seconds: 2, // impulse response length
+      decay: 44, // impulse response decay rate
+      reverse: 1 // reverse the impulse response
+    });
+    reverbNode.seconds = 2;
+    reverbNode.decay = 1
+
+    // CONNECTIONS
+    mainosc.connect(reverbNode.input);
+    reverbNode.connect(ctx.destination);
     currentTime = ctx.currentTime;
     mainosc.start(currentTime);
     mainosc.stop(currentTime + 0.6);
   };
+
+  var canvasControls = $('div#canvas-controls');
+
+    canvasControls.find("input[name='delayTime']").on('input', function() {
+      delay.delayTime = $(this).val();
+    });
+
+    canvasControls.find("input[name='frequency']").on('input', function() {
+      mainosc.frequency = $(this).val();
+    })
+
+    canvasControls.find("input[name='reverb']").on('input', function() {
+      reverbNode.decay = $(this).val();
+    })
 }
 
 function aSharpMajor() {
   // A#, C#, F
   var freq = [466.16, 277.18, 349.23]
   for (var i = 0; i < freq.length; i++) {
+    // OSC
     var mainosc = ctx.createOscillator();
     mainosc.frequency.value = freq[i];
-    mainosc.connect(ctx.destination);
+
+    // REVERB
+    var reverbNode = new SimpleReverb(ctx, {
+      seconds: 2, // impulse response length
+      decay: 50, // impulse response decay rate
+      reverse: 1 // reverse the impulse response
+    });
+    reverbNode.seconds = 2;
+    reverbNode.decay = 1
+
+    // CONNECTIONS
+    mainosc.connect(reverbNode.input);
+    reverbNode.connect(ctx.destination);
+
+    // PLAY
     currentTime = ctx.currentTime;
     mainosc.start(currentTime);
     mainosc.stop(currentTime + 0.6);
   };
+
+  var canvasControls = $('div#canvas-controls');
+
+    canvasControls.find("input[name='delayTime']").on('input', function() {
+      delay.delayTime = $(this).val();
+    });
+
+    canvasControls.find("input[name='frequency']").on('input', function() {
+      mainosc.frequency = $(this).val();
+    })
+
+    canvasControls.find("input[name='reverb']").on('input', function() {
+      reverbNode.decay = $(this).val();
+    })
 }
 
 function bMajor() {
@@ -104,10 +169,24 @@ function bMajor() {
   for (var i = 0; i < freq.length; i++) {
     var mainosc = ctx.createOscillator();
     mainosc.frequency.value = freq[i];
-    mainosc.connect(ctx.destination);
-    currentTime = ctx.currentTime;
-    mainosc.start(currentTime);
-    mainosc.stop(currentTime + 0.6);
+
+  // REVERB
+  var reverbNode = new SimpleReverb(ctx, {
+    seconds: 2, // impulse response length
+    decay: 50, // impulse response decay rate
+    reverse: 1 // reverse the impulse response
+  });
+  reverbNode.seconds = 2;
+  reverbNode.decay = 1
+
+  // CONNECTIONS
+  mainosc.connect(reverbNode.input);
+  reverbNode.connect(ctx.destination);
+
+  // PLAY
+  currentTime = ctx.currentTime;
+  mainosc.start(currentTime);
+  mainosc.stop(currentTime + 0.6);
   };
 }
 
@@ -118,7 +197,19 @@ function cMajor() {
   for (var i = 0; i < freq.length; i++) {
     var mainosc = ctx.createOscillator();
     mainosc.frequency.value = freq[i];
-    mainosc.connect(ctx.destination);
+
+    // REVERB
+    var reverbNode = new SimpleReverb(ctx, {
+      seconds: 2, // impulse response length
+      decay: 50, // impulse response decay rate
+      reverse: 1 // reverse the impulse response
+    });
+    reverbNode.seconds = 2;
+    reverbNode.decay = 1
+
+    // CONNECTIONS
+    mainosc.connect(reverbNode.input);
+    reverbNode.connect(ctx.destination);
     currentTime = ctx.currentTime;
     mainosc.start(currentTime);
     mainosc.stop(currentTime + 0.6);
@@ -406,11 +497,11 @@ function playRight() {
 
 function showCoordinates() {
   var body = $('body');
-  var canvas = $('#myCanvas')
-  var heading = $('<h1>').addClass('coordinates');
+  var heading = $('<h4>').addClass('coordinates');
   $(heading).appendTo(body);
-    $(canvas).on("mousemove", function( event ) {
-      $(heading).text("Position X: " + event.pageX + ", Position Y: "+ event.pageY);
+    $(body).on("mousemove", function( event ) {
+      $(heading).text("Position X: " + event.pageX + ", Position Y: "+ event.pageY)
+      .css({'font-family': 'gill sans', 'color': 'whitesmoke', 'font-weight': 'lighter', 'opacity': '0.6', 'text-transform': 'uppercase'});
     });
 }
 
@@ -441,12 +532,12 @@ function playLeft() {
 }
 
 function clickEvents(canvasInput1, canvasInput2) {
-  var canvas = $('#myCanvas')
+  var canvas = $('#myCanvas24')
 
   // VCO
   var osc = ctx.createOscillator();
   osc.type = osc.SINE;
-  osc.frequency.value = this.frequency;
+  osc.frequency.value = 440;
   osc.start(0);
 
 
@@ -509,17 +600,17 @@ function clickEvents(canvasInput1, canvasInput2) {
 
   var canvasControls = $('div#canvas-controls');
 
-    canvasControls.find("input[name='frequency']").on('mousedown', function() {
+    canvasControls.find("input[name='delayTime']").on('input', function() {
       delay.delayTime = $(this).val();
     });
 
-    canvasControls.find("input[name='convolver']").on('mouseleave', function() {
+    canvasControls.find("input[name='reverb']").on('input', function() {
       reverbNode.decay = $(this).val();
     })
 };
 
 // function adjustCanvasEffects() {
-//   var canvas = $('#myCanvas');
+//   var canvas = $('#touchpad');
 //   var canvasControls = $('#canvas-controls')
 //
 //   var delay = canvasControls.find("input[name='delay']");
@@ -533,28 +624,47 @@ function clickEvents(canvasInput1, canvasInput2) {
 
 </script>
 <style>
-#canvas_container {
-  width: 100%;
-  text-align: center;
-}
-
-canvas{
-  display: inline-block;
-}
-
-
-#myCanvas, #myCanvas1, #myCanvas2, #myCanvas3, #myCanvas4, #myCanvas5, #myCanvas6, #myCanvas7,
-#myCanvas8, #myCanvas9, #myCanvas10, #myCanvas11, #myCanvas12, #myCanvas13, #myCanvas14,
-#myCanvas15, #myCanvas16, #myCanvas17, #myCanvas18, #myCanvas19, #myCanvas20, #myCanvas21, #myCanvas22, #myCanvas23 {
-  display: inline;
-  border: 2px double whitesmoke;
-}
 
 body {
   background: -webkit-linear-gradient(left, rgba(130, 78, 99, 0.97), rgba(51, 62, 97, 0.97)); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(right, rgba(130, 78, 99, 0.97), rgba(51, 62, 97, 0.97)); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(right, rgba(130, 78, 99, 0.97), rgba(51, 62, 97, 0.97)); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to right , rgba(130, 78, 99, 0.97), rgba(51, 62, 97, 0.97)); /* Standard syntax */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+canvas {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+}
+
+h1, label {
+  font-family: 'Gill Sans';
+  text-transform: uppercase;
+  font-weight: lighter;
+  letter-spacing: 1em;
+  color: whitesmoke;
+  opacity: 0.5;
+  padding: 20px 0 30px 0;
+  font-size: 14px;
+}
+
+#canvas_container {
+  width: 100%;
+  text-align: center;
+}
+
+#myCanvas, #myCanvas1, #myCanvas2, #myCanvas3, #myCanvas4, #myCanvas5, #myCanvas6, #myCanvas7,
+#myCanvas8, #myCanvas9, #myCanvas10, #myCanvas11, #myCanvas12, #myCanvas13, #myCanvas14,
+#myCanvas15, #myCanvas16, #myCanvas17, #myCanvas18, #myCanvas19, #myCanvas20, #myCanvas21, #myCanvas22, #myCanvas23, #myCanvas24 {
+  display: inline;
+  border: 3px double whitesmoke;
 }
 
 #myCanvas:hover, #myCanvas1:hover, #myCanvas2:hover, #myCanvas3:hover,
@@ -562,25 +672,48 @@ body {
 #myCanvas8:hover, #myCanvas9:hover, #myCanvas10:hover, #myCanvas11:hover,
 #myCanvas12:hover, #myCanvas13:hover, #myCanvas14:hover, #myCanvas15:hover,
 #myCanvas16:hover, #myCanvas17:hover, #myCanvas18:hover, #myCanvas19:hover,
-#myCanvas20:hover, #myCanvas21:hover, #myCanvas22:hover, #myCanvas23:hover {
+#myCanvas20:hover, #myCanvas21:hover, #myCanvas22:hover, #myCanvas23:hover, #myCanvas24:hover {
   cursor: crosshair;
-  border: 2px double rgba(29, 244, 255, 1);
+  border: 3px double rgba(29, 244, 255, 1);
+}
+
+#myCanvas:active, #myCanvas1:active, #myCanvas2:active, #myCanvas3:active,
+#myCanvas4:active, #myCanvas5:active, #myCanvas6:active, #myCanvas7:active,
+#myCanvas8:active, #myCanvas9:active, #myCanvas10:active, #myCanvas11:active,
+#myCanvas12:active, #myCanvas13:active, #myCanvas14:active, #myCanvas15:active,
+#myCanvas16:active, #myCanvas17:active, #myCanvas18:active, #myCanvas19:active,
+#myCanvas20:active, #myCanvas21:active, #myCanvas22:active, #myCanvas23:active, #myCanvas24:active {
+  border: 3px double rgba(94, 12, 232, 1);
+}
+
+#canvas-touch-pad, #canvas-touch-pad2 {
+  width: 425px;
+  height: 400px;
+  cursor: crosshair;
+  border: 2px double whitesmoke;
+  float: left;
+  padding: 0 0 30px 0;
+  margin: 6px 10px;
 }
 
 #major, #minor {
-  width: 800px
+  width: 240px;
+  float: left;
+  padding: 0 0 30 0;
+  margin: 0 20px;
 }
 .coordinates {
   text-align: center;
 }
 
-body {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+#canvas_controls {
+  font-family: gill sans;
+  color: #FFF;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: lighter;
+  margin: auto;
+  text-align: left;
 }
 </style>
 </head>
@@ -589,39 +722,40 @@ body {
 <div id="canvas_container">
 <div id="major">
   <h1>Major</h1>
-  <canvas id="myCanvas" width="200" height="200"></canvas>
-  <canvas id="myCanvas1" width="200" height="200"></canvas>
-  <canvas id="myCanvas2" width="200" height="200"></canvas>
-  <canvas id="myCanvas3" width="200" height="200"></canvas>
-  <canvas id="myCanvas4" width="200" height="200"></canvas>
-  <canvas id="myCanvas5" width="200" height="200"></canvas>
-  <canvas id="myCanvas6" width="200" height="200"></canvas>
-  <canvas id="myCanvas7" width="200" height="200"></canvas>
-  <canvas id="myCanvas8" width="200" height="200"></canvas>
-  <canvas id="myCanvas9" width="200" height="200"></canvas>
-  <canvas id="myCanvas10" width="200" height="200"></canvas>
-  <canvas id="myCanvas11" width="200" height="200"></canvas>
+  <canvas id="myCanvas"></canvas>
+  <canvas id="myCanvas1"></canvas>
+  <canvas id="myCanvas2"></canvas>
+  <canvas id="myCanvas3"></canvas>
+  <canvas id="myCanvas4"></canvas>
+  <canvas id="myCanvas5"></canvas>
+  <canvas id="myCanvas6"></canvas>
+  <canvas id="myCanvas7"></canvas>
+  <canvas id="myCanvas8"></canvas>
+  <canvas id="myCanvas9"></canvas>
+  <canvas id="myCanvas10"></canvas>
+  <canvas id="myCanvas11"></canvas>
 </div>
 <div id="minor">
-  <h1>MINOR</h1>
-  <canvas id="myCanvas12" width="200" height="200"></canvas>
-  <canvas id="myCanvas13" width="200" height="200"></canvas>
-  <canvas id="myCanvas14" width="200" height="200"></canvas>
-  <canvas id="myCanvas15" width="200" height="200"></canvas>
-  <canvas id="myCanvas16" width="200" height="200"></canvas>
-  <canvas id="myCanvas17" width="200" height="200"></canvas>
-  <canvas id="myCanvas18" width="200" height="200"></canvas>
-  <canvas id="myCanvas19" width="200" height="200"></canvas>
-  <canvas id="myCanvas20" width="200" height="200"></canvas>
-  <canvas id="myCanvas21" width="200" height="200"></canvas>
-  <canvas id="myCanvas22" width="200" height="200"></canvas>
-  <canvas id="myCanvas23" width="200" height="200"></canvas>
+  <h1>minor</h1>
+  <canvas id="myCanvas12"></canvas>
+  <canvas id="myCanvas13"></canvas>
+  <canvas id="myCanvas14"></canvas>
+  <canvas id="myCanvas15"></canvas>
+  <canvas id="myCanvas16"></canvas>
+  <canvas id="myCanvas17"></canvas>
+  <canvas id="myCanvas18"></canvas>
+  <canvas id="myCanvas19"></canvas>
+  <canvas id="myCanvas20"></canvas>
+  <canvas id="myCanvas21"></canvas>
+  <canvas id="myCanvas22"></canvas>
+  <canvas id="myCanvas23"></canvas>
+  <canvas id="myCanvas24"></canvas>
 </div>
-
-  <!-- <div id="canvas-controls">
-    delay: <input id="cuttoff" max="800" min="0" name="delay" step="10" type="range" value="440">
-    Reverb / Convolver: <input id="verb" max="30" min="1" name="convolver" step="1" type="range" value="1">
-  </div> -->
+</div>
+<div id="canvas-controls">
+  <label>Delay:</label><input max="0" min="0.5" name="delayTime" step="0.1" type="range" value="0"><br>
+  <label>Feedback:</label> <input max="0.95" min="0" name="feedback" step="0.05" type="range" value="0"><br>
+  <label>Reverb:</label> <input max="4000" min="0" name="reverb" step="100" type="range" value="0">
 </div>
 </body>
 </html>
