@@ -1,0 +1,14 @@
+console.log('Search results loading.....');
+
+var clearSearchResults = $('#products-list').children().remove();
+
+
+if (<%= @products.empty? %>) {
+  clearSearchResults;
+  $('<p>').text('No results found.').appendTo('#products-list');
+} else {
+  clearSearchResults
+  var productHtml = '<%= j(render @products)%>';
+  var productDiv = $(productHtml);
+  $('#products-list').append(productDiv).slideUp(1000).delay(1000).slideDown(1000);
+}
