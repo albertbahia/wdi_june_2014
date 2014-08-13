@@ -1,0 +1,11 @@
+var productHtml = '<%= j(render @products) %>';
+var productsList = $('#products-list');
+
+productsList.empty();
+
+
+if (productHtml) {
+  productsList.append(productHtml);
+} else {
+  alert('No results found');
+}
