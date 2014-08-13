@@ -1,0 +1,11 @@
+console.log("hello!")
+
+$('#products-list').empty();
+var productList = '#products-list';
+var products = $('<%= j(render @products) %>');
+var productDiv = $(productList);
+if (products.length > 0) {
+  products.appendTo(productDiv);
+} else {
+  $('<p>No Results</p>').appendTo(productDiv);
+}
