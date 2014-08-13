@@ -4,3 +4,27 @@
     <p><%= product.price %></p>
     <p><%= product.category %></p>
 </div>
+
+
+
+<!--
+  <div id="board-links">
+    <%= link_to("edit", edit_board_path(@board)) %>
+    <%= link_to("delete", board_path(@board), method: :delete) %>
+  </div> -->
+
+  <!--
+<div id="board-links">
+    <%= link_to("edit", edit_board_path(@board, remote: true)) %>
+    <%= link_to("delete", board_path(@board), remote: true, method: :delete) %>
+</div> -->
+// var boardHTML = "<%= j(render @boards) %>";
+//
+// $(boardHTML).appendTo($('body'));
+// console.log('hey');
+
+<!-- <div class="board" id="<%= dom_id(board) %>">
+    <p><%= board.title %></p>
+    <p><%= board.id %></p>
+    <p><%= board.creator_id %></p>
+</div> -->

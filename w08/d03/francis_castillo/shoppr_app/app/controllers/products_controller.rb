@@ -1,4 +1,4 @@
-  class ProductsController < ApplicationController
+x  class ProductsController < ApplicationController
 
   def index
     @products = Product.all
@@ -20,5 +20,5 @@
       @product = Product.where("LOWER(category) = 'bathroom'")
     end
   end
-  
+
 end
