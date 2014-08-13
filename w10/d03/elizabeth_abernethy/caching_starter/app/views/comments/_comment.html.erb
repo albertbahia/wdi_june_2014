@@ -1,4 +1,4 @@
-<% sleep 0.01 %>
+<% cache(comment) do %>
 <%= div_for comment do %>
   <div class="body">
     <%= simple_format(comment.content) %>
