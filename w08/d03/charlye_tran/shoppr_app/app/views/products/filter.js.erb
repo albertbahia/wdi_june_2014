@@ -1,0 +1,5 @@
+$('#products-list').empty();
+
+var products = $('<%= j(render @products) %>').slideDown("slow");
+
+$('#products-list').append(products);
