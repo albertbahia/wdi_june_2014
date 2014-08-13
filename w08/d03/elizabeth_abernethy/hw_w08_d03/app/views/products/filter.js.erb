@@ -1,0 +1,4 @@
+var productHtml = '<%= j(render @products) %>';
+var productsList = $('#products-list');
+productsList.empty();
+$(productHtml).slideDown(200).appendTo(productsList);

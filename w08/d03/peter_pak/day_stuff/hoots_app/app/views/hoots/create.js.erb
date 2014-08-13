@@ -1,0 +1,9 @@
+var content = '<%= j(@hoot.content) %>'
+var author = '<%= j(@hoot.author) %>'
+console.log(content + ' by: ' + author + ' has been created');
+
+$('#hoot_content').val('');
+$('#hoot_author').val('');
+
+var newHoot = $('<%= j(render @hoot) %>');
+newHoot.prependTo($('#hoots'));
