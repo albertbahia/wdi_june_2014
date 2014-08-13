@@ -1,0 +1,13 @@
+console.log('search has been pushed')
+
+  var productsListDiv = $('#products-list');
+  var products = $('<%= j(render @product) %>')
+
+  if(products){
+    productsListDiv.empty()
+    productsListDiv.append(products).slideUp("slow").slideDown("slow");
+    // productsListDiv.empty();
+    // Attaches products to the div.
+  } else {
+        alert('No results found');
+  }
