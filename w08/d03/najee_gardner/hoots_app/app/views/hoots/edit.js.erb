@@ -1,0 +1,4 @@
+console.log('you clicked edit');
+
+$('#<%= dom_id(@hoot) %>').find('form').remove();
+$('#hoot_' + <%= @hoot.id %>).append('<%= j(render "form") %>');

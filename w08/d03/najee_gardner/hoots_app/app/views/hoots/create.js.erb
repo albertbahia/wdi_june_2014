@@ -1,0 +1,5 @@
+console.log('You made a new hoot');
+
+$('#hoots').prepend($('<%= j(render @hoot) %>'));
+$('#hoot_content').val('');
+$('#hoot_author').val('');
