@@ -1,3 +1,5 @@
+<% cache([post, post.comments.pluck(:updated_at).max]) do %>
+
 <%= div_for post do %>
   <h2><%= link_to post.title, post %></h2>
 
@@ -14,5 +16,7 @@
       <%= render current_comment %>
     <% end  %>
   </div>
+
+<% end %>
 
 <% end %>
