@@ -18,22 +18,18 @@ $(function() {
     ice.css({"margin-left": xCoord * .5, "margin-top":yCoord * .25, 'height': yCoord * .2, 'width': yCoord *.2});
     sheen.css({"margin-left": -(yCoord * .6), "margin-top":xCoord * .4, 'height': xCoord * .1, 'width': xCoord *.1});
     panda.css({"margin-left": xCoord * .4, "margin-top":yCoord *.5});
-    body.css('background',changeColor(xCoord,yCoord))
-    $('img').css('border-color', changeColor(yCoord,xCoord))
+    body.css('background',changeColor(xCoord,yCoord));
+    $('img').css('border-color', changeColor(yCoord,xCoord));
   });
-  
-  // walkingCat()
+
+  walkingCat();
 });
 
 
 function changeColor(x,y){
     var hue = x / parseInt($(window).width()) * 360;
-    var saturation = ",100%,"
+    var saturation = ",100%,";
     var lightness = y / parseInt($(window).height()) * 100;
     var hsl = "hsl("+hue+saturation+lightness+"%)";
     return hsl;
 }
-
-
-
-
