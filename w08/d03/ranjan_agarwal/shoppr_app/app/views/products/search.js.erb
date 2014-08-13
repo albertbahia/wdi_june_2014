@@ -1,0 +1,12 @@
+var productsList = '#products-list';
+var productsDiv = $(productsList);
+var products = '<%= j(render @products) %>';
+var noResult = $('<h1>');
+  if (products) {
+    productsDiv.empty();
+    searchProduct = productsDiv.append(products);
+    searchProduct.slideUp(1000).delay(50).slideDown(1000);
+    noResult.remove();
+  } else {
+    noResult.text('You have no results').appendTo(productsDiv);
+  }

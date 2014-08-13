@@ -1,0 +1,9 @@
+console.log('update');
+
+var domID = '<%= dom_id(@hoot) %>';
+
+var updatedHootHtml = '<%= j(render @hoot) %>';
+var newHoot = $(updatedHootHtml);
+var oldHoot = $('#' + domID);
+
+oldHoot.replaceWith(newHoot);
