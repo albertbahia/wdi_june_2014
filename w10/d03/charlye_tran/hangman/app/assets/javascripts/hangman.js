@@ -3,6 +3,7 @@ var game = {
     console.log('initialized');
     this.fetchWord();
     $('body').on('click', '#guess', guessLetter);
+    $('body').on('click', '#giveup', giveUp);
     },
 
   template: HandlebarsTemplates['hangman/board'],
@@ -35,20 +36,32 @@ function guessLetter(){
   console.log(game);
   var answer = game.board.answer;
   var correctAnswer = false;
-  for (var i=0; i < answer.length; i++) {
-    if ($('#guessed-letter').val() === answer[i]) {
-      game.board.correct.splice(i, 1, ($('#guessed-letter').val()));
-      correctAnswer = true;
+  var letterGuess = $('#guessed-letter').val();
+  var alreadyGuessed = false;
+  for (var i = 0; i < game.board.guessed.length; i++) {
+    if (letterGuess === game.board.guessed[i]) {
+      alreadyGuessed = true;
     }
   }
-  if (correctAnswer === false){
-    game.board.guessesLeft -= 1;
+  if (alreadyGuessed === true) {
+    alert("You've already guessed that letter.  Try again.");
+  } else{
+    for (var j = 0; j < answer.length; j++) {
+      if ($('#guessed-letter').val() === answer[j]) {
+        game.board.correct.splice(j, 1, letterGuess);
+        correctAnswer = true;
+      }
+    }
+    if (correctAnswer === false){
+      game.board.guessesLeft -= 1;
+    }
+    game.board.guessed.push(letterGuess);
+    $('#container').empty();
+    game.render();
+    checkWin();
   }
-  game.board.guessed.push($('#guessed-letter').val());
-  $('#container').empty();
-  game.render();
-  checkWin();
 }
+
 
 function checkWin(){
   var full = true;
@@ -62,9 +75,16 @@ function checkWin(){
   }
   if (full === true) {
     alert('You Won!!!');
+    location.reload();
   } else if (game.board.guessesLeft === 0) {
     alert('You Lost!!! The answer was ' + game.board.answer.join('') + '');
+    location.reload();
   } else {
     game.render();
   }
+}
+
+function giveUp(){
+  alert('You gave up!!! The answer was ' + game.board.answer.join('') + '');
+  location.reload();
 }
