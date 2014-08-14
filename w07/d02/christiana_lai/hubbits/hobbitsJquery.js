@@ -95,31 +95,35 @@ function forgeTheFellowShip() {
 }
 
 function theBalrog() {
- $('.buddy').first().text('Gandalf the White');
- $('.buddy').first().css('background', '#FFF');
- $('.buddy').first().css('color', '#D3D3D3');
- $('.buddy').first().css('border', '5px solid #D3D3D3');
+  var gandalf = $('.buddy').eq(0).text('Gandalf the White');
+  gandalf.css({'background':'whitesmoke', 'border':'2px solid grey', 'color':'#B3B3B3'});
 }
 
 function hornOfGondor() {
-  // pop up an alert that the horn of gondor has been blown
+  alert('The Horn of Gondor has been blown! Boromir\'s been killed by the Uruk-Hai!')
   $('.buddy').last().css('text-decoration', 'line-through');
   $('.baddies').eq(2).remove();
 }
 
 function itsDangerousToGoAlone(){
-  // take Frodo and Sam out of the fellowship and move them to Mordor
-  $('<div>').attr('id', 'mount-doom').appendTo('#middle-earth article').last();
+  var hobbits = $('.hobbits:lt(2)');
+  var mordor = $('article').eq(2);
+  hobbits.appendTo(mordor);
+  mordor.append($('<div>').attr('id', 'mount-doom'));
 }
 
 function weWantsIt() {
-  $('<div>').attr('id', 'gollum').appendTo('article').last();
-  $('#the-ring').appendTo('#gollum');
-  $('#gollum').appendTo('#mount-doom');
+  var gollum = $('<div>').attr('id', 'gollum').text('Gollum');
+  var mordor = $('article').eq(2);
+  mordor.append(gollum);
+  $('#the-ring').appendTo(gollum);
+  $('#mount-doom').append(gollum);
 }
 
 function thereAndBackAgain() {
   $('#gollum').remove();
   $('#baddiesList').remove();
-  $('#hobbitsList').appendTo($('article').eq(0));
+  var theShire = $('article').first();
+  theShire.append('<ul id="hubbits">');
+  $('.hobbitslist').appendTo($('#hubbits'));
 }

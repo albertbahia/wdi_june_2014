@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="//http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+  <script src="jquery-1.11.1.min.js"></script>
+  <script src="simple_reverb.js"></script>
+<script>
+$(document).ready(function(){
+  console.log("Loaded, bro");
+  showCoordinates();
+
+  clickEvents('delay', 'convolver');
+  // adjustCanvasEffects();
+
+});
+
+function showCoordinates() {
+  var body = $('body');
+  var canvas = $('#myCanvas')
+  var heading = $('<h1>').addClass('coordinates');
+  $(heading).appendTo(body);
+    $(canvas).on("mousemove", function( event ) {
+      $(heading).text("Position X: " + event.pageX + ", Position Y: "+ event.pageY);
+    });
+}
+
+var canvas = $('#myCanvas')
+
+
+function clickEvents(canvasInput1, canvasInput2) {
+  var canvas = $('#myCanvas')
+
+  var context = new webkitAudioContext();
+
+  // VCO
+  var osc = context.createOscillator();
+  osc.type = osc.SINE;
+  osc.frequency.value = this.frequency;
+  osc.start(0);
+
+  // GAIN
+  var vca = context.createGain();
+  vca.gain.value = 0;
+
+  // FILTER - http://jsfiddle.net/MarijnS95/X38pk/3/
+  var filter = context.createBiquadFilter();
+  filter.type = filter.LOWPASS;
+  filter.Q.value = 3;
+  filter.frequency.value = 440; // in HZ
+  filter.gain.value = 80;
+
+  // Distortion
+
+
+  //REVERB
+
+  var reverbNode = new SimpleReverb(context, {
+    seconds: 0.5, // impulse response length
+    decay: 2, // impulse response decay rate
+    reverse: 3 // reverse the impulse response
+  });
+  reverbNode.seconds = 5;
+  reverbNode.decay = 2;
+
+
+  // Analyser
+
+  var analyser = context.createAnalyser();  // This is used to create a visualization of audio wave
+
+  // DELAY
+
+  var delay = context.createDelay(0.5);
+
+
+
+  // Effects Connections
+  osc.connect(vca);
+  vca.connect(filter)
+  filter.connect(reverbNode.input)
+  reverbNode.connect(delay)
+  delay.connect(analyser)
+  analyser.connect(context.destination);
+
+  //Frequency Control - finds slider on canvas page and maps it to the
+  var canvasControls = $('div#canvas-controls');
+
+    canvasControls.find("input[name='"+ canvasInput1 +"']").on('input', function() {
+      delay.delayTime = $(this).val();
+    });
+
+    canvasControls.find("input[name='"+ canvasInput2 +"']").on('input', function() {
+      reverbNode.decay = $(this).val();
+    })
+
+    //originally had an underscore as first input
+    canvas.mouseover(function (frequency) {
+      console.log("CLIQUE CLIQUE")
+      osc.frequency.value = frequency;
+      vca.gain.value = 1; // sets filter gain to 1
+    });
+    // originally had two underscores as inputs
+    canvas.mouseleave(function () {
+      console.log("LEAVING???")
+
+    });
+};
+
+//
+// function adjustCanvasEffects() {
+//   var canvas = $('#myCanvas');
+//   var canvasControls = $('#canvas-controls')
+//
+//   var delay = canvasControls.find("input[name='delay']");
+//   var reverbNode = $(canvasControls).find("input[name='reverbNode']");
+//
+//   // $(canvas).on("mousemove", function( event ) {
+//   // 		$(delay).attr('value');
+//   		// $('#verb').attr('value').val() = event.pageY;
+//   // })
+// }
+
+</script>
+<style>
+#canvas_container {
+  width: 100%;
+  text-align: center;
+}
+
+canvas#myCanvas {
+  display: inline;
+  border: 2px double #fff;
+  background: -webkit-linear-gradient(left, rgba(130, 78, 99, 0.97), rgba(51, 62, 97, 0.97)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, rgba(130, 78, 99, 0.97), rgba(51, 62, 97, 0.97)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, rgba(130, 78, 99, 0.97), rgba(51, 62, 97, 0.97)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right , rgba(130, 78, 99, 0.97), rgba(51, 62, 97, 0.97)); /* Standard syntax */
+}
+
+canvas#myCanvas:hover {
+  cursor: crosshair;
+}
+
+.coordinates {
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+<div id="canvas_container">
+  <canvas id="myCanvas" width="800" height="500">
+    Your browser does not support the HTML5 canvas tag.
+  </canvas>
+  <div id="canvas-controls">
+    delay: <input id="cuttoff" max="800" min="0" name="delay" step="10" type="range" value="440">
+    Reverb / Convolver: <input id="verb" max="2" min="1" name="convolver" step="1" type="range" value="1">
+  </div>
+</div>
+</body>
+</html>

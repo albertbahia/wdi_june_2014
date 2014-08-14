@@ -1,0 +1,8 @@
+<h2><%= @song.title %></h2>
+
+Album: <%= @song.album %></br>
+Preview_url:
+<audio controls>
+  <source src="<%= @song.preview_url %>" type="audio/mp4">
+</audio><br>
+Price: <%= @song.price %></br>

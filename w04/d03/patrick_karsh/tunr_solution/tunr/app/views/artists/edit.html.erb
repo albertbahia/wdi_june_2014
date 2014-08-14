@@ -1,0 +1,23 @@
+<h2>Edit Artist</h2>
+
+<ul>
+<% @artist.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+
+<form action="<%= artist_path(@artist) %>" method="post">
+  <label for="artist[name]">Name:</label>
+  <input name="artist[name]" value="<%= @artist.name %>">
+
+  <label for="artist[photo_url]">Photo URL:</label>
+  <input name="artist[photo_url]" value="<%= @artist.photo_url %>">
+
+  <label for="artist[nationality]">Nationality:</label>
+  <input name="artist[nationality]" value="<%= @artist.nationality %>">
+
+  <input type="submit" value="Update">
+</form>
+
+<%= link_to('Back', artist_path(@artist)) %>
+<%= link_to('Delete', artist_path(@artist), method: :delete) %>

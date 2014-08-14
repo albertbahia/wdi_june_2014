@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HamterestApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <h1>HAMterest</h1>
+  </header>
+  <div id='posts-container'>
+    <div id='modal'><span id='close'>CLOSE</span>
+  
+    </div>
+  </div>
+  <div id='forms-container'>
+    <h1>Add a New Hamterest</h1>
+    <div><p>Title</p><input type="text" name='title'></div>
+    <div><p>Author</p><input type="text" name='author'></div>
+    <div><p>Image</p><input type="text" name='image_url'></div>
+    <div><p>Content</p><input type="text" name='content'></div>
+    <div><p>Category</p><input type="text" name='category'></div>
+    <button id='new-post'>HAM It Up!</button>
+  </div>
+  <%= yield %>
+  <div id='footer'><h3>Show More</h3></div>
+</body>
+</html>
