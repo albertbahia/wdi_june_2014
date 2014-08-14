@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 // Francis
 // function sort (arr) {
 
@@ -70,6 +72,7 @@
 // }
 
 // McK 
+>>>>>>> 2964345068fd438f60b0d1b9bea7ae2c36f121ed
 function sort(arrayOfValues) {
   var strings = [];
   var numbers = [];
