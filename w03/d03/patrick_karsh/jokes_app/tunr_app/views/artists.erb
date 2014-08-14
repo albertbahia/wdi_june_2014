@@ -1,0 +1,19 @@
+<html>
+
+<body>
+	<h1>Tun.r Artists may include..</h1>
+	<p> </p>
+	<ul>
+	<% @featured_artists.each do |artists| %>
+	<li> <%= artists %> </li>
+	<% end %>
+	</ul> 
+	<h2>Requested Artists include..</h2>
+	<ul>
+	<% @requested_artists.each do |artists| %>
+	<li> <%= artists %> </li>
+	<% end %>
+	</ul> 
+
+</body>
+</html>

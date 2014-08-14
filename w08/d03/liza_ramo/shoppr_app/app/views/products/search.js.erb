@@ -1,0 +1,10 @@
+console.log('searching...');
+var productHtml = '<%= j(render @products) %>'; 
+var productsList = $('#products-list');
+productList.empty();
+
+<% if @products.empty? %>
+  alert('No results found');
+<% else %>
+  productHtml.slideDown().appendTo(productsList);
+<% end %>
