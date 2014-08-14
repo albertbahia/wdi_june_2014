@@ -42,14 +42,14 @@ function makeItStick(){
   var nextPiece;
 
   if (currentPiece.parent().children().last().attr('class') === 'piece') {
+
     if ($('.red').length === $('.black').length) {
+
       nextPiece = currentPiece.parent().children().last();
       nextPiece.attr('class', 'piece red');
-      $(this).on('click', makeItStick);
     } else {
       nextPiece = currentPiece;
       nextPiece.attr('class', 'piece black');
-      $(this).on('click', makeItStick);
     }
   } else {
     for (var i = 0; i <= 5; i++){
@@ -61,10 +61,8 @@ function makeItStick(){
     }
     if ($('.red').length === $('.black').length) {
       nextPiece.attr('class', 'piece red');
-      $(this).on('click', makeItStick);
     } else {
       nextPiece.attr('class', 'piece black');
-      $(this).on('click', makeItStick);
     }
   }
 }

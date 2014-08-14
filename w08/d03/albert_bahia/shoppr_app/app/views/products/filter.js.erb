@@ -1,0 +1,6 @@
+console.log('Filtering has commenced.');
+
+$('#products-list').children().remove();
+var productHtml = '<%= j(render @products)%>';
+var productDiv = $(productHtml);
+$('#products-list').append(productDiv).hide().slideDown(2000);

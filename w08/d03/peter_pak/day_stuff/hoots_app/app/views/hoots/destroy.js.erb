@@ -1,0 +1,7 @@
+var id = <%= @hoot.id %>;
+console.log('dleeted #' + id);
+
+
+var domID = '<%= dom_id(@hoot) %>';
+
+('#' + domID).remove();

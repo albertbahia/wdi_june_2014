@@ -1,0 +1,6 @@
+$('#products-list').empty();
+
+var productsElements = $('<%= j(render @products) %>');
+productsElements.appendTo('#products-list');
+
+console.log(productsElements.length);
