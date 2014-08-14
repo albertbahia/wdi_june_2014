@@ -1,0 +1,12 @@
+var productsList = $('#products-list');
+
+var products = '<%= j(render @products) %>';
+var noProducts = $('<p>');
+if (products) {
+productsList.empty();
+searchProduct = productsList.append(products);
+searchProduct.slideUp(400).delay(50).slideDown(700);
+noProducts.remove();
+} else {
+  productsList.append(noProducts.text('No products found'));
+}
