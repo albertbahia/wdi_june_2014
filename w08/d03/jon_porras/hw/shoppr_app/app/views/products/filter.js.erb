@@ -1,0 +1,4 @@
+$('#products-list').children().remove();
+var productHtml = "<%= j(render @products) %>";
+var productDiv = $(productHtml);
+productDiv.appendTo('#products-list').hide().slideDown();

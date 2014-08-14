@@ -1,0 +1,8 @@
+$('#products-list').children().remove();
+if("<%= @products.length %>" < 1){
+  $('<p>No Results Found</p>').appendTo('#products-list').hide().fadeIn(2000);
+} else {
+  var productHtml = "<%= j(render @products) %>";
+  var productDiv = $(productHtml);
+  productDiv.appendTo('#products-list').slideUp(5000);
+}

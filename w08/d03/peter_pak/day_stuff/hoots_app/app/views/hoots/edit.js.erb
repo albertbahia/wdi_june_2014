@@ -1,0 +1,7 @@
+var domID = '<%= dom_id(@hoot) %>';
+var children = $('#' + domID).children();
+
+if (children.length === 3) {
+  var editForm = $("<%= j(render 'hoots/form') %>");
+  $(editForm).appendTo('#' + domID);
+}
