@@ -1,8 +1,8 @@
 var game = {
+  
   initialize: function(){
     console.log('initialized');
     this.fetchWord();
-
   },
 
   render: function() {
@@ -14,11 +14,9 @@ var game = {
     console.log('fetching');
     $.get('/fetch_word')
       .done(function(data) {
-        console.log(this)
         // define the attr of board from what is returned from data
         this.board.answer = data.word.split('');
         this.board.correct.length = data.word.length;
-
         this.render();
       }.bind(this));
   },
@@ -33,23 +31,26 @@ var game = {
   },
 
   makeGuess: function() {
-    console.log("button clicked");
     var guessedLetter = $('#guessed-letter').val();
     var indices = getIndices(game.board.answer, guessedLetter);
 
-    if (indices.length > 0 ) {
-      for (var i = 0; i < indices.length; i++) {
-        if (indices[i] != -1) {
-          game.board.correct[indices[i]] = guessedLetter;
-        }
-      }
+    if (game.board.guessed.indexOf(guessedLetter) != -1 ) {
+      alert('You have already guessed this letter, please try again.')
     } else {
-      game.board.guessesLeft -= 1;
-    }
-      game.board.guessed.push(guessedLetter);
-      game.render();
-      game.checkWin();
-      game.checkLose();
+      if (indices.length > 0 ) {
+        for (var i = 0; i < indices.length; i++) {
+          if (indices[i] != -1) {
+            game.board.correct[indices[i]] = guessedLetter;
+          }
+        }
+      } else {
+        game.board.guessesLeft -= 1;
+      }
+        game.board.guessed.push(guessedLetter);
+        game.render();
+        game.checkWin();
+        game.checkLose();
+      }
   },
 
   checkWin: function(){
