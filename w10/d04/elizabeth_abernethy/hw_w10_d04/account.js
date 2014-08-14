@@ -5,17 +5,19 @@ function Account(type, balance) {
 
 Account.prototype.deposit = function(amount) {
   if ( amount > 0 ) {
-    return (this.balance + amount);
+    this.balance += amount;
   } else {
-    return this.balance;
+    this.balance;
   }
+  // this.balance = amount > 0 ? this.balance += amount : this.balance;
 };
 
-Account.prototype.withdraw = function(amount, accountType) {
-  // if ( amount <= this.balance ) {
-  //   return (this.balance - amount);
-  // } else {
-  //   (this.balance - amount);
-  //   (this)
-  // }
+Account.prototype.withdraw = function(amount, anotherAccount) {
+  if ( amount <= bank.checking.balance ) {
+    bank.checking.balance -= amount;
+  } else if ( (bank.savings.balance >= (amount -= bank.checking.balance)) ) {
+    var difference = (amount -= bank.checking.balance);
+    bank.savings.balance = (bank.savings.balance - difference);
+    bank.checking.balance = 0;
+  }
 };
