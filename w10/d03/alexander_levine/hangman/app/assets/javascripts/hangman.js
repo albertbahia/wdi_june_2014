@@ -33,19 +33,23 @@ var game = {
 };
 
 function guessLetter() {
-  var correctAnswer = false;
-  var answer = game.board.word;
+  // Check if letter has been picked. If it has, declare false and end function.
   for (var j = 0; j < game.board.guessed.length; j++) {
     if ($('#guessed-letter').val() === game.board.guessed[j]) {
       return false;
     }
   }
+  // Check to see if letter guessed is in the answer array
+  var correctAnswer = false;
+  var answer = game.board.word;
   for (var i = 0; i < answer.length; i++) {
+    // If it is, place it in its appropriate index in the correct array
     if ($('#guessed-letter').val() === answer[i]) {
       game.board.correct.splice(i, 1, ($('#guessed-letter').val()));
       correctAnswer = true;
     }
   }
+  // When loop is through, if letter guessed is wrong, decrease guess counter
   if (correctAnswer === false) {
     game.board.guessesLeft -= 1;
   }
