@@ -1,0 +1,6 @@
+var id = <%= @hoot.id %>;
+console.log('Hoot ' + id + ' Successfully Deleted');
+
+//create a JS variable that has the domID (created in the _hoot.html.erb)
+var domID = '<%= dom_id(@hoot) %>';
+$('#' + domID).remove();
