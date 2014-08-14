@@ -1,0 +1,2 @@
+var domID = '<%= dom_id(@hoot) %>';
+$('#' + domID).replaceWith($('<%= j(render @hoot) %>'));

@@ -1,0 +1,148 @@
+// This is a manifest file that'll be compiled into application.js, which will include all the files
+// listed below.
+//
+// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
+// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
+//
+// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+// compiled file.
+//
+// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
+// about supported directives.
+//
+//= require jquery
+//= require jquery_ujs
+//= require turbolinks
+//= require_tree .
+
+$(function(){
+  fetchPosts();
+  $('body').on('click', '#new-post', addPost);
+  $('body').on('click', '.remove', removePost);
+  $('body').on('click', '.image', showModal);
+  $('#modal').on('click', '#close', hideModal);
+  $('#modal').on('click', '.button', updateModal);
+});
+
+
+function fetchPosts(){
+  $.get('/posts')
+  .done(displayPosts)
+  .fail(function(data) {console.log(data);});
+}
+
+// Helped me in the browswer console.
+// post = {
+//   title: "Whats Up",
+//   author: "Gadi Gottlieb",
+//   image_url: "placekitten.com/300/300",
+//   content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo blanditiis alias at ipsam placeat?',
+//   category: "sports"
+// }
+
+function renderPost(post) {
+  $.get('/posts')
+  var postsContainer = $('#posts-container');
+  var card = $('<div class="card">').append('<span class="remove">DELETE</span>');
+  postsContainer.append(card)
+
+  var title = $('<h4 class="title">').text(post.title);
+  var author = $('<h5 class="author">').text(post.author);
+  var divImage = $('<div class="image">').append('<img src="' + post.image_url + '">');
+  var content = $('<p>').text(post.content);
+  var category = $('<a>').attr('href', '#' + post.category).addClass('category'); //text(post.category);
+
+  card.attr('id', post.id)
+  .append(title)
+  .append(author)
+  .append(divImage)
+  .append(content)
+  .append(category);
+}
+
+function displayPosts(posts){
+  posts.forEach(function(newPost){
+    renderPost(newPost);
+  });
+}
+
+function addPost(){
+  var inputs = $('input');
+  // Creates post on browser
+  var title = inputs.eq(0).val();
+  var author = inputs.eq(1).val();
+  var image = inputs.eq(2).val();
+  var content = inputs.eq(3).val();
+  var category = inputs.eq(4).val();
+
+  // creates post in db
+  inputs.eq(0).val(''); //title
+  inputs.eq(1).val(''); //author
+  inputs.eq(2).val(''); //image
+  inputs.eq(3).val(''); //content
+  inputs.eq(4).val(''); //category
+  $.post('/posts', {post: {title: title, author: author, image_url: image, content: content, category: category} })
+    .done(renderPost)
+    .fail(function(){
+      alert("There was an error adding the post.")
+    });
+}
+
+function removePost(){
+  var postID = $(this).parent().attr('id');
+  var thisPost = $('#' + postID);
+  $.ajax({
+    url:'/posts/' + postID,
+    type: 'DELETE'
+  })
+  .done(function(){
+  thisPost.remove();
+  })
+  .fail(function(){
+    alert('There was an error deleting the post.')
+  });
+}
+
+function showModal(){
+  hideModal();
+
+  var post = $(this).closest('.card');
+  var postID = post.attr('id');
+  $('#card-update').attr('data-card-id', postID);
+  //  creates the image div and image and adds it to the modal
+  var imageDiv = $('<div>').addClass('modal-image');
+  var image = $('<img>');
+  // var id = $(this).parent().data('id').text();
+  var imageSource = $(this).find('img').attr('src');
+  image.attr('src', imageSource);
+  imageDiv.append(image);
+  $('#card-info').append(imageDiv);
+  // var id = $('#card-update').attr('id',)
+  var title = $('<input>').attr('value', $(this).parent().find('h4').text());
+  var imageInput = $('<input>').attr('value', $(this).find('img').attr('src'));
+  var content = $('<input>').attr('value', $(this).parent().find('p').text());
+  var category = $('<input>').attr('value', $(this).parent().find('a').attr('href'));
+  var buttonDiv = $('<div>').append('<button class="button">Update</button>')
+
+  $('#card-update')
+  .append(title)
+  .append(imageInput)
+  .append(content)
+  .append(category)
+  .append(buttonDiv);
+  $('#modal').show();
+}
+
+function updateModal(){
+  var card = $('.card');
+  var postID = $('#card-update').attr('data-card-id');
+
+  var title = card.find()
+    console.log(postID)
+}
+
+function hideModal(){
+  $('#modal').hide();
+  $('#card-info').empty();
+  $('#card-update').empty();
+}

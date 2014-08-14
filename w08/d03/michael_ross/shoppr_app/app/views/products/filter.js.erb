@@ -1,0 +1,5 @@
+var productHtml = '<%= j(render @products)%>';
+var productList = $('#products-list');
+productList.empty();
+
+$(productHtml).fadeIn().appendTo(productList);
