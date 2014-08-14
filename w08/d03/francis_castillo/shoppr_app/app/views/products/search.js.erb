@@ -1,0 +1,15 @@
+var productHTML = "<%= j(render @product) %>";
+console.log('<%= @product.count %>');
+
+if (<%= @product.count %> === 0) {
+  $('.product').remove();
+  $('<div><p>No results found</p></div>').appendTo($('#products-list'))
+
+} else {
+  $('.product').remove();
+  $(productHTML).slideUp("slow",
+    function() {
+      $(this).slideDown("slow")
+    })
+    .appendTo($('#products-list'));
+}

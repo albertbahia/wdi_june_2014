@@ -1,0 +1,13 @@
+<h1>Movies List</h1>
+
+<% @movies.each do |movie| %>
+<div>
+	<p><%= movie.title %></p>
+
+	<p><%= movie.year %></p>
+
+	<p><%= movie.plot %></p>
+	<%= link_to image_tag(movie_poster_url). movie_path(movie) %>
+</div>
+
+<% end %>
