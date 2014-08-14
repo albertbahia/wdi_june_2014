@@ -1,0 +1,19 @@
+<h1>New User</h1>
+
+<ul>
+<form action= "<%= user_path %>" method="post"> 
+	<%= f.label :userame %>
+	<%= f.text_field :username %>
+	<%= f.label :first_name %>
+	<%= f.text_field :first_name%>
+	<%= f.label :last_lame %>
+	<% f.password :last_name %>
+	<%= f.label :password %>
+	<% f.password :password %>
+	<%= f.label :password_conformation %>
+	<%= f.password :password_conformation %>
+	
+	<input type="submit" value= "Create">
+</form>
+
+</ul>

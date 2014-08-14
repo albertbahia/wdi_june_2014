@@ -1,0 +1,3 @@
+var productHTML = "<%= j(render @products) %>";
+
+$(productHTML).fadeIn("slow").appendTo($('#products-list'));

@@ -1,0 +1,27 @@
+<html>
+
+	<body>
+		<p>Tun.r, the music app for human centipeds</p>
+		<p>
+		</p>
+		<h4> Access list</h4>
+
+	<p>Add your name</p>
+	<form method= "post" action= '/early_access'>
+		<input type= "text" name = "full_name" >
+	<p>Add your email</p>
+		<input type= "text" name = "email" >
+
+		<input type= "submit">
+		</form>
+
+	<ul>
+
+	<h4> People on Access list</h4>
+	<% @list.each do |info_hash| %>
+	<%= info_hash [:name]%> : <%= info_hash [:email]%><br>
+	<% end %>
+
+	</ul>
+	</body>
+</html>
