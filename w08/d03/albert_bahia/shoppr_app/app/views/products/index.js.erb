@@ -1,0 +1,11 @@
+console.log('Index loaded.');
+
+// $( "#clickme" ).click(function() {
+//   $( "#book" ).fadeIn( "slow", function() {
+//     // Animation complete
+//   });
+// });
+
+
+var productHtml = '<%= j(render @products)%>';
+$('#products-list').append(productHtml).hide().fadeIn(3000);

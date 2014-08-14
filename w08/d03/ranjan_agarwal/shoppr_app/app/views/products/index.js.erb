@@ -1,0 +1,6 @@
+var productsList = '#products-list';
+var productsDiv = $(productsList);
+var products = $('<%= j(render @products) %>');
+productsDiv.empty();
+var allProducts = products.appendTo(productsDiv);
+allProducts.hide().fadeIn(1000);

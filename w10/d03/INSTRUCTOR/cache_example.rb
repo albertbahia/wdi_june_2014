@@ -3,7 +3,6 @@ app_cache = {}
 
 # takes a key and a block of code to run
 def cache(key, action, cache_store)
-  binding.pry
   cache_key = key.to_s + "_" + action.to_s
   if cache_store[cache_key]
     return cache_store[cache_key]
@@ -115,4 +114,9 @@ end
 
 cache(car2, "calc_gigawatts", app_cache) do
   car2.calculate_gigawatts
+end
+
+
+cache(car2, "info", app_cache) do
+  car2.info
 end
