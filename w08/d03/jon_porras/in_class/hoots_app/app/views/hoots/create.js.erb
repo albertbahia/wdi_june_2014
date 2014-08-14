@@ -1,0 +1,9 @@
+var content = '<%= j(@hoot.content) %>';
+var author = '<%= @hoot.author %>';
+
+console.log('content: ' + content);
+console.log('content: ' + author);
+
+var hootHtml = '<%= j(render @hoot) %>';
+var hootDiv = $(hootHtml);
+hootDiv.prependTo($('#hoots'));
