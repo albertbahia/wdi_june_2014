@@ -23,7 +23,7 @@ $(document).ready(function() {
   $('body').on('click', '.image', showModal);
   $('body').on('click', '#close', hideModal);
   $('body').on('click', '.edit', updatePost);
-  // $('body').on('click', '#footer', showMore);
+  $('body').on('click', '#footer', showMore);
 });
 
 function fetchPosts() {
@@ -142,3 +142,6 @@ function updatePost() {
 //   }
 //   console.log(numPosts);
 // }
+
+
+arr = [3, 5, 6, 2, 8];

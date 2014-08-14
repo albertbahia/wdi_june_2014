@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Handlebars, Bro</title>
+  <script type="text/javascript" src='handlebars-v1.3.0.js'></script>
+  <script type="text/javascript" src='renderHandlebars.js'></script>
+  <style type="text/css">
+    html, body{
+      height: 100%;
+      background: -webkit-radial-gradient(top center, #f7931e, #f15a24 750px);
+      color: white;
+      font-family: Arial Rounded MT Bold;
+      text-align: center;
+      text-shadow: black -1px -1px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id='title-div'>
+  </div>
+  
+  <script id='title-template' type='x-handlebars-template'>
+    <h1>{{greeting}}</h1>
+    <img src='{{url}}'>
+    <h3>{{message}}</h3>
+  </script>
+  
+</body>
+</html>

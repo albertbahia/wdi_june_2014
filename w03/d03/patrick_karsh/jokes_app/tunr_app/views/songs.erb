@@ -1,0 +1,27 @@
+<html>
+
+<body>
+	<h1>Tun.r Songs</h1>
+	<p> Friday, Opps I did it Agian</p>
+	<ul>
+	<% @featured_songs.each do |song| %>
+	
+	<li> <%= song %> </li>
+	<% end %>
+	</ul>
+
+	<ul>
+	<from method= "post" action= '/add_to_songs'>
+	<input type= "text" name = full_name >
+	<input type= "submit">
+	</form> 
+
+	<% @requested_songs.each do |song| %>
+	
+	<li> <%= song %> </li>
+
+	
+	<% end %>
+	</ul>
+</body>
+</html>
