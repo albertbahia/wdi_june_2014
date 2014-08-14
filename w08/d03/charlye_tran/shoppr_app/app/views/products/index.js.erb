@@ -1,0 +1,5 @@
+
+
+var div = $('#products-list');
+var products = ($('<%= j(render @products) %>')).fadeIn("slow");
+div.append(products);
