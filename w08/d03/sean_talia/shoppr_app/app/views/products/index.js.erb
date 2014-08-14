@@ -1,0 +1,4 @@
+$('#products-list').text('');
+var productHtml = '<%= j(render @products) %>';
+var productDiv = $(productHtml).hide().fadeIn();
+$('#products-list').append(productDiv);
