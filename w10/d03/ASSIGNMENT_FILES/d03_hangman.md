@@ -78,4 +78,4 @@ Here is a starter template that I used, your solution may be different and the t
  - As a user I want a guess to only count once, so that if I make a mistake it doesn't count against me.
 
 #### Bonus
- - As a user I want to be able to have typed letters registered as guesses, so I don't to click a submit button.
+ - As a user I want to be able to have typed letters registered as guesses, so I don't have to click a submit button.

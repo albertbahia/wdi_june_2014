@@ -1,0 +1,18 @@
+console.log('hoot created')
+
+var content = '<%= j(@hoot.content) %>';
+var author = '<%= j(@hoot.author) %>';
+var domID = '<%= @hoot.id %>';
+
+// $('<div class="hoot" id="' + domID + '" >')
+// 	.prependTo('#hoots')
+// 	.append($('<p class="content">').text(content))
+// 	.append($('<p class="author">').text(author));
+
+var hootHtml = '<%= j(render @hoot) %>';
+var hootDiv = $(hootHtml);
+hootDiv.prependTo('#hoots');
+
+console.log('Content: ' + content);
+console.log('Author: ' + author);
+console.log('ID: ' + domID);

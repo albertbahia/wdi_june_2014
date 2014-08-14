@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HootsApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <h1><img src="http://www.sesamestreet.org/cms_services/services?action=download&uid=545f6bde-31ee-11dd-b1d4-135239c39860"></h1>
+
+  <div id="form">
+    <%= render 'hoots/form' %>
+  </div>
+
+  <div id="hoots">
+    <%= render @hoots %>
+  </div>
+</body>
+</html>
