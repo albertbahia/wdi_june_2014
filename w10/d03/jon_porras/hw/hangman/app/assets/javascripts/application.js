@@ -21,4 +21,7 @@
 $(function(){
   console.log('Loaded, bro');
   game.initialize();
+
+  $('body').on('click','#guess', guessedLetter);
+  //$('body').on('click', render);
 });
