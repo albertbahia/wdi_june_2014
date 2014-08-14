@@ -4,7 +4,12 @@ var game = {
     emptySpaceInCorrect();
     render();
   },
-  render: function() { render(); },
+
+  render: function() {
+    $('#container').append(HandlebarsTemplates['hangman/board'](board));
+    console.log(board['guessed']);
+  },
+
   fetchWord: function() {},
   template: HandlebarsTemplates['hangman/board'],
   board: board
@@ -38,14 +43,15 @@ console.log(currentWord);
 
 
 var render = function() {
+  $'#container').replaceWith(game.template)
   $('#container').append(HandlebarsTemplates['hangman/board'](board));
   console.log(board['guessed']);
 }
 
 var guessedLetter = function() {
   var guess = $('#guessed-letter').val();
-  guessed.push(guess);
-  checkForLetter(guess, correct);
+  board.guessed.push(guess);
+  checkForLetter(guess);
   render();
 }
 
