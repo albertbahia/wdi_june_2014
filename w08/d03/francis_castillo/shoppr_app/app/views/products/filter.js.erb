@@ -1,0 +1,5 @@
+console.log("hey");
+var productHTML = "<%= j(render @product) %>";
+
+  $('.product').remove();
+  $(productHTML).slideDown("slow").appendTo($('#products-list'));

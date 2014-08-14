@@ -1,0 +1,29 @@
+<h1>Editing tractor</h1>
+
+<ul>
+<% @tractor.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+<% end %>
+</ul>
+
+<%= form_for(@tractor) do |
+  | %>
+
+  <%= f.label :model %>
+  <%= f.text_field :model %>
+  <br>
+
+  <%= f.label :price %>
+  <%= f.number_field :price %>
+  <br>
+
+  <%= f.label :img_url %>
+  <%= f.text_field :img_url %>
+  <br>
+
+  <%= f.label :rating %>
+  <%= f.number_field :rating %>
+  <br>
+
+  <%= f.submit %>
+<% end %>
