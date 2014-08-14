@@ -2,7 +2,6 @@ var game = {
   initialize: function(){ console.log('initialized');
     fetchWord();
     emptySpaceInCorrect();
-
     render();
   },
   render: function() { render(); },
