@@ -1,0 +1,13 @@
+$('#products-list').empty();
+$('input#search').val('');
+
+var productsElements = $('<%= j(render @products) %>');
+var noResultMessage = $('<p>').text('No results found.');
+
+
+if (productsElements.length > 0) {
+	productsElements.appendTo('#products-list');
+} else {
+	noResultMessage.appendTo('#products-list');
+}
+

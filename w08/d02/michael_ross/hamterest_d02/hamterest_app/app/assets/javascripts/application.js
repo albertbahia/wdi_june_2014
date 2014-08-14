@@ -32,9 +32,9 @@ $(document).ready(function(){
   $('body').on('click', '#footer', showMore);
 
 
-  $('body').on('click', '.card .image', showModal);
+  $('body').on('click', '.image', showModal);
   $('body').on('click', '#close', closeModal);
-  $('body').on('click', '#update-button', updatePost);
+  // $('body').on('click', '#update-button', updatePost);
 
 
 });
@@ -108,28 +108,28 @@ function showMore() {
 function showModal() {
   // console.log($(this).parent())
 
-  // append modal image
+  // append image to form
   $('#modal').show("slow");
-
+  console.log($(this).closest('.card'))
   var cardInfo = $('#card-info');
-  var card = $(this).parent();
+  var card = $(this).closest('.card');
   var postId = card.attr('data-id');
   var imageSource = card.find('img').attr('src');
   var image = $('<div class="image"><img src="' + imageSource + '"></div>')
   cardInfo.append(image);
 
-  // append modal form
+  // append form to modal
   var title = card.find('.title').text();
   var author = card.find('.author').text();
   var content = card.find('.content').text();
   var category = card.find('.category').text();
 
-  var titleInput = $('<input value="' + title + '">');
-  var authorInput = $('<input value="' + author + '">');
-  var imageInput = $('<input value="' + imageSource + '">');
-  var contentInput = $('<input value="' + content + '">');
-  var categoryInput = $('<input value="' + category + '"><br>');
-  var updateButton = $('<button type="button">Update Post</button>')
+  var titleInput = $('<input id="new-title" value="' + title + '">');
+  var authorInput = $('<input id="new-author" value="' + author + '">');
+  var imageInput = $('<input id="new-image" value="' + imageSource + '">');
+  var contentInput = $('<input id="new-content" value="' + content + '">');
+  var categoryInput = $('<input id="new-category" value="' + category + '"><br>');
+  var updateButton = $('<button id="new-button" type="button">Update Post</button>')
   $('#card-update').append(titleInput, authorInput, imageInput, contentInput, categoryInput, updateButton)
 
 
@@ -142,5 +142,28 @@ function closeModal() {
 };
 
 function updateModal() {
+  var id = $('#modal-card').attr('card-id');
+  var newTitle = $('#new-title').val();
+  var newAuthor = $('#new-author').val();
+  var newImage = $('#new-image').val();
+  var newContent = $('#new-content').val();
+  var newCat = $('#new-category').val();
+
+  var params = { post:
+    {
+      id: id,
+      title: newTitle,
+      author: newAuthor,
+      image_url: newImage,
+      content: newContent,
+      category: newCat,
+    }
+  }
+  $.ajax('/posts/' + id, {type: "PUT", data: params})
+  .done(function(newModal) {
+    card.remove();
+  })
+
+
 
 }
