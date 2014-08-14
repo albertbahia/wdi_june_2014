@@ -1,0 +1,32 @@
+html, body {
+  padding: 0px;
+  margin: 0px;
+}
+
+.bg {
+  position: fixed;
+  z-index:-1;
+  background: url('https://withanna.files.wordpress.com/2012/10/budapest-sky-via-withanna-wordpress-com.jpg') repeat;
+  width: 100%;
+  height: 400%;
+}
+
+img {
+  z-index: 1;
+  width: 30%;
+}
+
+.break {
+  z-index: 1;
+  background-color: rgba(255, 127, 80,.5);
+  width: 100%;
+  height: 400px;
+  display: block;
+  text-align: center;
+}
+
+h1 {
+  color: white;
+  font-size: 72px;
+  vertical-align: middle;
+}
