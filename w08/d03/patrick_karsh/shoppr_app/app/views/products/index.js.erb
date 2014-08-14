@@ -1,0 +1,5 @@
+console.log('index');
+var div = '<%= j(render @products) %>';
+var productsList = $('#products-list');
+productsList.empty();
+$(div).appendTo(productsList);git 

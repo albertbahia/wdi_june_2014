@@ -1,0 +1,4 @@
+
+var searchResults = $('<%= j(render @products) %>').slideUp().slideDown();
+var products =$('#products-list');
+products.append(searchResults);
