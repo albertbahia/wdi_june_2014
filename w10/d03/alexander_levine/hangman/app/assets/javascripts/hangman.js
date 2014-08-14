@@ -2,6 +2,11 @@ var game = {
   initialize: function(){
     console.log('initialized');
     $('body').on('click', '#guess', guessLetter);
+    $('body').on('keypress', '#guessed-letter', function(event){
+    if (event.which === 13) {
+      guessLetter();
+    }
+  });
     $('body').on('click', '#giveup', giveUp);
     this.fetchWord();
     },
@@ -30,6 +35,11 @@ var game = {
 function guessLetter() {
   var correctAnswer = false;
   var answer = game.board.word;
+  for (var j = 0; j < game.board.guessed.length; j++) {
+    if ($('#guessed-letter').val() === game.board.guessed[j]) {
+      return false;
+    }
+  }
   for (var i = 0; i < answer.length; i++) {
     if ($('#guessed-letter').val() === answer[i]) {
       game.board.correct.splice(i, 1, ($('#guessed-letter').val()));
@@ -64,6 +74,7 @@ function checkWin() {
 function checkLost() {
   if (game.board.guessesLeft === 0) {
     alert("You lose! The word was " + game.board.word.join(''));
+    location.reload();
   }
 }
 
