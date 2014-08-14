@@ -1,0 +1,16 @@
+<h1>Edit User</h1>
+
+<ul>
+<form action= "<%= user_path %>" method="post"> 
+	<label>Userame:</label>
+	<input name="user[username]">
+	<label>First Name:</label>
+	<input name="user[first_name]">
+	<label>Last Name:</label>
+	<input name="user[last_name]">
+	<label>Password:</label>
+	<input name="user[password_digest]">
+	<input type="submit" value= "Create">
+</form>
+
+</ul>

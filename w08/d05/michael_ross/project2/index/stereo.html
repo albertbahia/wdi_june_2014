@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="//http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+  <script src="jquery-1.11.1.min.js"></script>
+  <script src="simple_reverb.js"></script>
+<script>
+$(document).ready(function(){
+  console.log("Loaded, bro");
+  showCoordinates();
+
+  clickEvents('delay', 'convolver');
+  // adjustCanvasEffects();
+  // function() {
+  //   var chords = [cMajor, dMinor, gMajor, aMinor, bMinor, cSharpMaj, dMajor, fMajor, eMajor, aMajor, bMajor, cMinor];
+  //   for (var i = 0; i < chords.length; i++) {
+  //     var canvases = $('#myCanvas[i]')
+  //     for (var t = 0; t < chords.length; t++)
+  //     var eventList = $(canvases).(mousedown(chords[t]));
+  //   }
+  //   return eventList;
+  // }
+
+  // THIS IS ALL THE SAME FOR EACH CHORD FUNCTION
+  // for (var i = 0; i < freq.length; i++) {
+  //   var mainosc = ctx.createOscillator();
+  //   mainosc.frequency.value = freq[i];
+  //   mainosc.connect(ctx.destination);
+  //   currentTime = ctx.currentTime;
+  //   mainosc.start(currentTime);
+  //   mainosc.stop(currentTime + 0.6);
+  // };
+  //
+  // HOW CAN I SHIT ON (REFACTOR) THESE BABIES?
+  // AND HOW CAN I DO THIS WITH ARRAYS??
+  // INCLUDE EFFECTS IN SIGNAL CHAIN
+  // HAVE THEM ADJUSTABLE ON THE SCREEN
+  // MAP KEYBOARD KEYS TO EACH
+
+  // I COULD ADD A PLAYER THAT PLAYS AN ARRAY OF PERCUSSION VIDEO
+  // THUS WE COULD PRESENT IT AS AN INSTRUMENT WITH A BACKING DRUM TRACK
+  // $('#myCanvas').mousedown(aMajor);
+  $('#myCanvas').on('keypress', function(event) {
+    var input = this;
+    if (event.input === 13) {
+      aMajor
+    }
+  })
+  $('#myCanvas').mousedown(aMajor);
+  $('#myCanvas1').mousedown(aSharpMajor);
+  $('#myCanvas2').mousedown(bMajor);
+  $('#myCanvas3').mousedown(cMajor);
+  $('#myCanvas4').mousedown(cSharpMajor);
+  $('#myCanvas5').mousedown(dMajor);
+  $('#myCanvas6').mousedown(dSharpMajor);
+  $('#myCanvas7').mousedown(eMajor);
+  $('#myCanvas8').mousedown(fMajor);
+  $('#myCanvas9').mousedown(fSharpMajor);
+  $('#myCanvas10').mousedown(gMajor);
+  $('#myCanvas11').mousedown(gSharpMajor);
+  $('#myCanvas12').mousedown(aMinor);
+  $('#myCanvas13').mousedown(aSharpMinor);
+  $('#myCanvas14').mousedown(bMinor);
+  $('#myCanvas15').mousedown(cMinor);
+  $('#myCanvas16').mousedown(cSharpMinor);
+  $('#myCanvas17').mousedown(dMinor);
+  $('#myCanvas18').mousedown(dSharpMinor);
+  $('#myCanvas19').mousedown(eMinor);
+  $('#myCanvas20').mousedown(fMinor);
+  $('#myCanvas21').mousedown(fSharpMinor);
+  $('#myCanvas22').mousedown(gMinor);
+  $('#myCanvas23').mousedown(gSharpMinor);
+  $('#myCanvas24').mousedown(clickEvents);
+
+
+  // playRight();
+  // playMiddle();
+  // playLeft();
+});
+
+
+var ctx = new (window.AudioContext || window.webkitAudioContext);
+
+// FREQ REF: http://www.phy.mtu.edu/~suits/notefreqs.html
+function aMajor() {
+  //E, G, B
+  var freq = [294.94, 329.63, 392]
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+
+    // REVERB
+    var reverbNode = new SimpleReverb(ctx, {
+      seconds: 2, // impulse response length
+      decay: 44, // impulse response decay rate
+      reverse: 1 // reverse the impulse response
+    });
+    reverbNode.seconds = 2;
+    reverbNode.decay = 1
+
+    // CONNECTIONS
+    mainosc.connect(reverbNode.input);
+    reverbNode.connect(ctx.destination);
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+
+  var canvasControls = $('div#canvas-controls');
+
+    canvasControls.find("input[name='delayTime']").on('input', function() {
+      delay.delayTime = $(this).val();
+    });
+
+    canvasControls.find("input[name='frequency']").on('input', function() {
+      mainosc.frequency = $(this).val();
+    })
+
+    canvasControls.find("input[name='reverb']").on('input', function() {
+      reverbNode.decay = $(this).val();
+    })
+}
+
+function aSharpMajor() {
+  // A#, C#, F
+  var freq = [466.16, 277.18, 349.23]
+  for (var i = 0; i < freq.length; i++) {
+    // OSC
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+
+    // REVERB
+    var reverbNode = new SimpleReverb(ctx, {
+      seconds: 2, // impulse response length
+      decay: 50, // impulse response decay rate
+      reverse: 1 // reverse the impulse response
+    });
+    reverbNode.seconds = 2;
+    reverbNode.decay = 1
+
+    // CONNECTIONS
+    mainosc.connect(reverbNode.input);
+    reverbNode.connect(ctx.destination);
+
+    // PLAY
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+
+  var canvasControls = $('div#canvas-controls');
+
+    canvasControls.find("input[name='delayTime']").on('input', function() {
+      delay.delayTime = $(this).val();
+    });
+
+    canvasControls.find("input[name='frequency']").on('input', function() {
+      mainosc.frequency = $(this).val();
+    })
+
+    canvasControls.find("input[name='reverb']").on('input', function() {
+      reverbNode.decay = $(this).val();
+    })
+}
+
+function bMajor() {
+  //A, C#, E
+  var freq = [440, 554.37, 329.63, 659.25]
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+
+  // REVERB
+  var reverbNode = new SimpleReverb(ctx, {
+    seconds: 2, // impulse response length
+    decay: 50, // impulse response decay rate
+    reverse: 1 // reverse the impulse response
+  });
+  reverbNode.seconds = 2;
+  reverbNode.decay = 1
+
+  // CONNECTIONS
+  mainosc.connect(reverbNode.input);
+  reverbNode.connect(ctx.destination);
+
+  // PLAY
+  currentTime = ctx.currentTime;
+  mainosc.start(currentTime);
+  mainosc.stop(currentTime + 0.6);
+  };
+}
+
+function cMajor() {
+  // C4, E4, D4
+  var freq = [261.63, 329.63, 392.00];
+
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+
+    // REVERB
+    var reverbNode = new SimpleReverb(ctx, {
+      seconds: 2, // impulse response length
+      decay: 50, // impulse response decay rate
+      reverse: 1 // reverse the impulse response
+    });
+    reverbNode.seconds = 2;
+    reverbNode.decay = 1
+
+    // CONNECTIONS
+    mainosc.connect(reverbNode.input);
+    reverbNode.connect(ctx.destination);
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+}
+
+function cSharpMajor() {
+  // C#, F, G#
+  var freq = [277.18, 349.23, 415.30];
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+    mainosc.connect(ctx.destination);
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+}
+
+function dMajor() {
+  // D, F#, A
+  var freq = [587.33, 369.99, 440];
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+    mainosc.connect(ctx.destination);
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+}
+
+function dSharpMajor() {
+  // D#, G, A#
+  var freq = [311.13, 392, 466.16]
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+    mainosc.connect(ctx.destination);
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+}
+
+function eMajor() {
+  //E, G, B
+  var freq = [329.63, 392, 493.88]
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+    mainosc.connect(ctx.destination);
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+}
+
+function fMajor() {
+  // A, C, E
+  var freq = [440, 523.25, 659.25];
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+    mainosc.connect(ctx.destination);
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+}
+
+function fSharpMajor() {
+  // F#, A#, C#
+  var freq = [369.99, 466.16, 554.37]
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+    mainosc.connect(ctx.destination);
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+}
+
+function gMajor() {
+  // G, B, D
+  var freq = [392, 493.88, 293.66];
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+    mainosc.connect(ctx.destination);
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+}
+
+function gSharpMajor() {
+  // G#, C, D#
+  var freq = [415.30, 440, 622.25]
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+    mainosc.connect(ctx.destination);
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+}
+
+function aMinor() {
+  // A, E, C
+  var freq = [440, 329.63, 523.25];
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+    mainosc.connect(ctx.destination);
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+}
+
+function aSharpMinor() {
+  // A#, C#, F
+  var freq = [233.08, 277.18, 349.23]
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+    mainosc.connect(ctx.destination);
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+}
+
+function bMinor() {
+  // B, D, F#
+  var freq = [493.88, 587.33, 369.99];
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+    mainosc.connect(ctx.destination);
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+}
+
+function cMinor() {
+  // B, D#, F#
+  var freq = [246.94, 311.13, 369.99]
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+    mainosc.connect(ctx.destination);
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+}
+
+function cSharpMinor() {
+  // C#, E, G#
+  var freq = [277.18, 349.23, 415.30];
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+    mainosc.connect(ctx.destination);
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+}
+
+function dMinor() {
+  // A4, D4, F4
+  var freq = [440, 293.66, 349.23];
+
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+    mainosc.connect(ctx.destination);
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+}
+
+function dSharpMinor() {
+  // D#, F#, A#
+  var freq = [311.13, 369.99, 466.16]
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+    mainosc.connect(ctx.destination);
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+}
+
+function eMinor() {
+  // E, G, B
+  var freq = [329.63, 392, 493.88]
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+    mainosc.connect(ctx.destination);
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+}
+
+function fMinor() {
+  // F, G#, C
+  var freq = [349.23, 415.30, 440]
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+    mainosc.connect(ctx.destination);
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+}
+
+function fSharpMinor() {
+  // F#, A, C#
+  var freq = [369, 440, 554.37]
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+    mainosc.connect(ctx.destination);
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+}
+
+function gMinor() {
+  // G, A#, D
+  var freq = [392, 466.16, 587.33]
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+    mainosc.connect(ctx.destination);
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+}
+
+function gSharpMinor() {
+  // G#, B, D#
+  var freq = [415.30, 493.88, 622.25]
+  for (var i = 0; i < freq.length; i++) {
+    var mainosc = ctx.createOscillator();
+    mainosc.frequency.value = freq[i];
+    mainosc.connect(ctx.destination);
+    currentTime = ctx.currentTime;
+    mainosc.start(currentTime);
+    mainosc.stop(currentTime + 0.6);
+  };
+}
+
+
+
+//////////////////// OLD SHIT /////////////
+
+function playRight() {
+
+  var osc2 = ctx.createOscillator();
+  osc2.frequency.value = 261.6;
+  var mergerNode = ctx.createChannelMerger(2);
+  mergerNode.connect(ctx.destination);
+  var silence = ctx.createBufferSource();
+  silence.connect(mergerNode, 0, 0);
+  osc2.connect(mergerNode, 0, 1);
+  currentTime = ctx.currentTime;
+    osc2.start(currentTime);
+    osc2.stop(currentTime + 4);
+}
+
+function showCoordinates() {
+  var body = $('body');
+  var heading = $('<h4>').addClass('coordinates');
+  $(heading).appendTo(body);
+    $(body).on("mousemove", function( event ) {
+      $(heading).text("Position X: " + event.pageX + ", Position Y: "+ event.pageY)
+      .css({'font-family': 'gill sans', 'color': 'whitesmoke', 'font-weight': 'lighter', 'opacity': '0.6', 'text-transform': 'uppercase'});
+    });
+}
+
+function playMiddle() {
+  var osc3 = ctx.createOscillator();
+  osc3.frequency.value = 329.6;
+  var mergerNode = ctx.createChannelMerger(2);
+  mergerNode.connect(ctx.destination);
+  var silence = ctx.createBufferSource();
+  silence.connect(mergerNode, 0, 0);
+  osc3.connect(mergerNode, 0, 1);
+  currentTime = ctx.currentTime;
+    osc3.start(currentTime);
+    osc3.stop(currentTime + 8);
+}
+
+function playLeft() {
+  var osc3 = ctx.createOscillator();
+  osc3.frequency.value = 392;
+  var mergerNode = ctx.createChannelMerger(2);
+  mergerNode.connect(ctx.destination);
+  var silence = ctx.createBufferSource();
+  silence.connect(mergerNode, 0, 0);
+  osc3.connect(mergerNode, 0, 1);
+  currentTime = ctx.currentTime;
+    osc3.start(currentTime);
+    osc3.stop(currentTime + 4);
+}
+
+function clickEvents(canvasInput1, canvasInput2) {
+  var canvas = $('#myCanvas24')
+
+  // VCO
+  var osc = ctx.createOscillator();
+  osc.type = osc.SINE;
+  osc.frequency.value = 440;
+  osc.start(0);
+
+
+  // GAIN
+  var vca = ctx.createGain();
+  vca.gain.value = 0;
+
+  // FILTER - http://jsfiddle.net/MarijnS95/X38pk/3/
+  var filter = ctx.createBiquadFilter();
+  filter.type = filter.LOWPASS;
+  filter.Q.value = 3;
+  filter.frequency.value = 440; // in HZ
+  filter.gain.value = 80;
+
+  // Distortion
+
+
+  //REVERB
+
+  var reverbNode = new SimpleReverb(ctx, {
+    seconds: 0.5, // impulse response length
+    decay: 2, // impulse response decay rate
+    reverse: 1 // reverse the impulse response
+  });
+  reverbNode.seconds = 0.5;
+  reverbNode.decay = 100;
+
+
+  // Analyser
+
+  var analyser = ctx.createAnalyser();  // This is used to create a visualization of audio wave
+
+  // DELAY
+
+  var delay = ctx.createDelay(0.5);
+
+
+
+  // Effects Connections
+  osc.connect(vca);
+  vca.connect(filter)
+  filter.connect(reverbNode.input)
+  reverbNode.connect(delay)
+  delay.connect(analyser)
+  analyser.connect(ctx.destination);
+
+  //Frequency Control - finds slider on canvas page and maps it to the
+
+  //originally had an underscore as first input
+  canvas.mousedown(function (frequency) {
+    console.log("CLIQUE CLIQUE")
+    osc.frequency.value = frequency;
+    vca.gain.value = 1; // sets filter gain to 1
+  });
+  // originally had two underscores as inputs
+  canvas.mouseleave(function () {
+    console.log("LEAVING???")
+    vca.gain.value = 0;
+  });
+
+  var canvasControls = $('div#canvas-controls');
+
+    canvasControls.find("input[name='delayTime']").on('input', function() {
+      delay.delayTime = $(this).val();
+    });
+
+    canvasControls.find("input[name='reverb']").on('input', function() {
+      reverbNode.decay = $(this).val();
+    })
+};
+
+// function adjustCanvasEffects() {
+//   var canvas = $('#touchpad');
+//   var canvasControls = $('#canvas-controls')
+//
+//   var delay = canvasControls.find("input[name='delay']");
+//   var reverbNode = $(canvasControls).find("input[name='reverbNode']");
+//
+//   // $(canvas).on("mousemove", function( event ) {
+//   // 		$(delay).attr('value');
+//   		// $('#verb').attr('value').val() = event.pageY;
+//   // })
+// }
+
+</script>
+<style>
+
+body {
+  background: -webkit-linear-gradient(left, rgba(130, 78, 99, 0.97), rgba(51, 62, 97, 0.97)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, rgba(130, 78, 99, 0.97), rgba(51, 62, 97, 0.97)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, rgba(130, 78, 99, 0.97), rgba(51, 62, 97, 0.97)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right , rgba(130, 78, 99, 0.97), rgba(51, 62, 97, 0.97)); /* Standard syntax */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+canvas {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+}
+
+h1, label {
+  font-family: 'Gill Sans';
+  text-transform: uppercase;
+  font-weight: lighter;
+  letter-spacing: 1em;
+  color: whitesmoke;
+  opacity: 0.5;
+  padding: 20px 0 30px 0;
+  font-size: 14px;
+}
+
+#canvas_container {
+  width: 100%;
+  text-align: center;
+}
+
+#myCanvas, #myCanvas1, #myCanvas2, #myCanvas3, #myCanvas4, #myCanvas5, #myCanvas6, #myCanvas7,
+#myCanvas8, #myCanvas9, #myCanvas10, #myCanvas11, #myCanvas12, #myCanvas13, #myCanvas14,
+#myCanvas15, #myCanvas16, #myCanvas17, #myCanvas18, #myCanvas19, #myCanvas20, #myCanvas21, #myCanvas22, #myCanvas23, #myCanvas24 {
+  display: inline;
+  border: 3px double whitesmoke;
+}
+
+#myCanvas:hover, #myCanvas1:hover, #myCanvas2:hover, #myCanvas3:hover,
+#myCanvas4:hover, #myCanvas5:hover, #myCanvas6:hover, #myCanvas7:hover,
+#myCanvas8:hover, #myCanvas9:hover, #myCanvas10:hover, #myCanvas11:hover,
+#myCanvas12:hover, #myCanvas13:hover, #myCanvas14:hover, #myCanvas15:hover,
+#myCanvas16:hover, #myCanvas17:hover, #myCanvas18:hover, #myCanvas19:hover,
+#myCanvas20:hover, #myCanvas21:hover, #myCanvas22:hover, #myCanvas23:hover, #myCanvas24:hover {
+  cursor: crosshair;
+  border: 3px double rgba(29, 244, 255, 1);
+}
+
+#myCanvas:active, #myCanvas1:active, #myCanvas2:active, #myCanvas3:active,
+#myCanvas4:active, #myCanvas5:active, #myCanvas6:active, #myCanvas7:active,
+#myCanvas8:active, #myCanvas9:active, #myCanvas10:active, #myCanvas11:active,
+#myCanvas12:active, #myCanvas13:active, #myCanvas14:active, #myCanvas15:active,
+#myCanvas16:active, #myCanvas17:active, #myCanvas18:active, #myCanvas19:active,
+#myCanvas20:active, #myCanvas21:active, #myCanvas22:active, #myCanvas23:active, #myCanvas24:active {
+  border: 3px double rgba(94, 12, 232, 1);
+}
+
+#canvas-touch-pad, #canvas-touch-pad2 {
+  width: 425px;
+  height: 400px;
+  cursor: crosshair;
+  border: 2px double whitesmoke;
+  float: left;
+  padding: 0 0 30px 0;
+  margin: 6px 10px;
+}
+
+#major, #minor {
+  width: 240px;
+  float: left;
+  padding: 0 0 30 0;
+  margin: 0 20px;
+}
+.coordinates {
+  text-align: center;
+}
+
+#canvas_controls {
+  font-family: gill sans;
+  color: #FFF;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: lighter;
+  margin: auto;
+  text-align: left;
+}
+</style>
+</head>
+
+<body>
+<div id="canvas_container">
+<div id="major">
+  <h1>Major</h1>
+  <canvas id="myCanvas"></canvas>
+  <canvas id="myCanvas1"></canvas>
+  <canvas id="myCanvas2"></canvas>
+  <canvas id="myCanvas3"></canvas>
+  <canvas id="myCanvas4"></canvas>
+  <canvas id="myCanvas5"></canvas>
+  <canvas id="myCanvas6"></canvas>
+  <canvas id="myCanvas7"></canvas>
+  <canvas id="myCanvas8"></canvas>
+  <canvas id="myCanvas9"></canvas>
+  <canvas id="myCanvas10"></canvas>
+  <canvas id="myCanvas11"></canvas>
+</div>
+<div id="minor">
+  <h1>minor</h1>
+  <canvas id="myCanvas12"></canvas>
+  <canvas id="myCanvas13"></canvas>
+  <canvas id="myCanvas14"></canvas>
+  <canvas id="myCanvas15"></canvas>
+  <canvas id="myCanvas16"></canvas>
+  <canvas id="myCanvas17"></canvas>
+  <canvas id="myCanvas18"></canvas>
+  <canvas id="myCanvas19"></canvas>
+  <canvas id="myCanvas20"></canvas>
+  <canvas id="myCanvas21"></canvas>
+  <canvas id="myCanvas22"></canvas>
+  <canvas id="myCanvas23"></canvas>
+  <canvas id="myCanvas24"></canvas>
+</div>
+</div>
+<div id="canvas-controls">
+  <label>Delay:</label><input max="0" min="0.5" name="delayTime" step="0.1" type="range" value="0"><br>
+  <label>Feedback:</label> <input max="0.95" min="0" name="feedback" step="0.05" type="range" value="0"><br>
+  <label>Reverb:</label> <input max="4000" min="0" name="reverb" step="100" type="range" value="0">
+</div>
+</body>
+</html>

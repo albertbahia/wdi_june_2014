@@ -89,7 +89,7 @@ function removePost() {
   var cardID = this.parentNode.id;
   var thisCard = $('#' + cardID);
   $.ajax({
-    url: 'posts/' + cardID,
+    url: '/posts/' + cardID,
     type: 'DELETE'
   })
   .done(function(){
