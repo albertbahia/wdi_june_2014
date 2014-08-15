@@ -3,7 +3,7 @@ Homework 10-04
 #### Learning Objectives
 - Practice using Handlebars to render templates
 - Practice defining Object constructors
-- Practice defining protoypal properties
+- Practice defining prototypal properties
 - Practice encapsulating view logic in an object
 
 # Introducing...The Bank of HAMco _Dollars in the Wind_
