@@ -44,3 +44,31 @@ end
 
 # -- scan > find stuff you want it to find and leave it in, remove everything else
 # -- when scan finds something that doesn't fit your criteria, it breaks it
+
+
+
+# ---------------- NAJEE GARDNER -----------------------
+
+# def longest_word(string)
+#   word = ''
+#   counter = 0
+#   letter_count = 0
+#   longest_word = ''
+#
+#   while counter < string.length
+#     if string[counter] =~ /[a-zA-Z]/
+#       letter_count += 1
+#       word += string[counter]
+#     end
+#
+#     if string[counter] == ' ' || counter == string.length - 1
+#       longest_word = word if word.length > longest_word.length
+#       word = ''
+#       letter_count = 0
+#     end
+#
+#     counter += 1
+#   end
+#
+#   longest_word
+# end
