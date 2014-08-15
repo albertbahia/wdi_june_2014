@@ -16,7 +16,18 @@
     <div id='savings'></div>
   </div>
   <script id='account-template' type='x-handlebars-template'>
-    // your template here
+    <div id="{{type}}" data-account="{{type}}" class="account">
+      <h1>{{type}}</h1>
+      <div class="display">
+        <span class="balance"><h1>{{balance}}</h1></span>
+      </div>
+      <div class="buttons">
+        <input type="text" class="amount">
+        <button class="deposit">Deposit</button>
+        <button class="withdraw">Withdraw</button>
+      </div>
+    </div>
   </script>
 </body>
 </html>
+
