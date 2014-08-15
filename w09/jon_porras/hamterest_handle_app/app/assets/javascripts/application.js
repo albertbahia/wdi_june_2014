@@ -33,7 +33,7 @@ function fetchPosts() {
 function displayPosts(data) {
   var postContainer = $('#posts-container');
   var template = HandlebarsTemplates['posts/allPosts'];
-  var postsInfo = {posts: data}; 
+  var postsInfo = {posts: data};
   var compiledTemplate = template(postsInfo);
   postContainer.append(compiledTemplate);
   setTimeout(function() { fetchOne(); }, 100);
@@ -103,7 +103,7 @@ function showEditModal(){
     var formTemplate = HandlebarsTemplates['posts/editForm'];
     modal.append(formTemplate(data));
     modal.show();
-    
+
     $('#update').click(function(){
       var postParams = {
         post: {
