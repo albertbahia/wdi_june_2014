@@ -1,7 +1,34 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Grumble.destroy_all
+
+grumble_cats = [
+  ['Maru', "Cat ipsum dolor sit amet, chew iPad power cord or lick arm hair, present belly, scratch hand when stroked. Destroy couch throwup on your pillow, throwup on your pillow, chase dog then run away intently sniff hand, so throwup on your pillow.", 'I can fit in this.', "http://s3-ec.buzzfed.com/static/enhanced/webdr03/2013/8/7/10/enhanced-buzz-25813-1375885241-14.jpg", "http://placekitten.com/200/200"],
+  ['Grumpy Cat', "Mark territory under the bed cat snacks chew foot, and play time make muffins, and run in circles. Sleep in the bathroom sink find something else more interesting. Find empty spot in cupboard and sleep all day.", 'I was happy once', "http://s3-ec.buzzfed.com/static/enhanced/webdr05/2013/8/7/11/enhanced-buzz-15017-1375889565-8.jpg", "http://placekitten.com/200/200"],
+  ['Pudge', "Chew foot need to chase tail present belly, scratch hand when stroked so hunt by meowing loudly at 5am next to human slave food dispenser for sleep in the bathroom sink, chase mice flop over.", 'Ah, yes.',   "http://s3-ec.buzzfed.com/static/enhanced/webdr05/2013/8/7/11/enhanced-buzz-15484-1375890043-12.jpg", "http://placekitten.com/200/200"],
+  ['Nala', "Hunt anything that moves destroy couch intrigued by the shower loves cheeseburgers. Chew foot hack up furballs. Shake treat bag under the bed swat at dog chew iPad power cord rub face on everything.", 'WHAT?!', "http://s3-ec.buzzfed.com/static/enhanced/webdr01/2013/8/7/12/enhanced-buzz-11546-1375894039-14.jpg", "http://placekitten.com/200/200"],
+  ['Hamilton the Hipster Cat', "Attack feet find empty spot in cupboard and sleep all day yet lick butt. Chase imaginary bugs hide when guests come over, leave hair everywhere. ", 'How to tell if it is locally sourced or not', "http://s3-ec.buzzfed.com/static/enhanced/webdr06/2013/8/7/12/enhanced-buzz-15588-1375894490-20.jpg", "http://placekitten.com/200/200"],
+  ['Skifcha', "Stick butt in face bathe private parts with tongue then lick owner's face. Under the bed. Play time lick butt. Hunt by meowing loudly at 5am next to human slave food dispenser.", 'These glasses', "http://s3-ec.buzzfed.com/static/enhanced/webdr03/2013/8/7/12/enhanced-buzz-23242-1375892794-8.jpg", "http://placekitten.com/200/200"],
+  ['Snoopy Cat', "Scamper find something else more interesting lick butt chase dog then run away hack up furballs destroy couch. Scamper intently sniff hand, and leave fur on owners clothes always hungry.", 'Darling, please.', "http://s3-ec.buzzfed.com/static/enhanced/webdr02/2013/8/7/11/enhanced-buzz-29144-1375890299-1.jpg", "http://placekitten.com/200/200"],
+  ['Lil Bub', "Sleep nap cat snacks, but scamper or who's the baby, or intrigued by the shower chase imaginary bugs. Purr for no reason need to chase tail, hunt by meowing loudly at 5am next to human slave food dispenser yet hunt by meowing loudly at 5am next to human slave food dispenser flop over. ", 'I have a book', "http://s3-ec.buzzfed.com/static/enhanced/webdr02/2013/8/7/11/enhanced-buzz-27989-1375890767-5.jpg", "http://placekitten.com/200/200"],
+  ['Henri, the Existential Cat', "Intrigued by the shower sleep in the bathroom sink sleep nap need to chase tail. Sweet beast under the bed sleep in the bathroom sink or hunt anything that moves, or present belly, scratch hand when stroked but sweet beast, but hack up furballs. ", 'We cannot escape ourselves', "http://s3-ec.buzzfed.com/static/enhanced/webdr05/2013/8/7/11/enhanced-buzz-27644-1375891118-0.jpg", "http://placekitten.com/200/200"],
+  ['Smoosh', "Hunt anything that moves. Stretch bathe private parts with tongue then lick owner's face yet stand in front of the computer screen, and eat grass, throw it back up and attack feet, but bathe private parts with tongue then lick owner's face so sun bathe.", 'So comfy', "http://s3-ec.buzzfed.com/static/enhanced/webdr06/2013/8/7/13/enhanced-buzz-16302-1375895503-33.jpg", "http://placekitten.com/200/200"],
+  ['Sam the Cat with Eyebrows', "Cat ipsum dolor sit amet, chew iPad power cord or lick arm hair, present belly, scratch hand when stroked. Destroy couch throwup on your pillow, throwup on your pillow, chase dog then run away intently sniff hand, so throwup on your pillow.", 'Why do people always say that?', "http://s3-ec.buzzfed.com/static/enhanced/webdr06/2013/8/7/12/enhanced-buzz-17836-1375894717-18.jpg", "http://placekitten.com/200/200"],
+  ['Shironeko', "Mark territory under the bed cat snacks chew foot, and play time make muffins, and run in circles. Sleep in the bathroom sink find something else more interesting. Find empty spot in cupboard and sleep all day.", 'Patience, grasshopper.', "http://s3-ec.buzzfed.com/static/enhanced/webdr06/2013/8/7/12/enhanced-buzz-16291-1375892631-11.jpg", "http://placekitten.com/200/200"],
+  ['Colonel Meow', "Chew foot need to chase tail present belly, scratch hand when stroked so hunt by meowing loudly at 5am next to human slave food dispenser for sleep in the bathroom sink, chase mice flop over.", 'Revolution!', "http://s3-ec.buzzfed.com/static/enhanced/webdr05/2013/8/7/12/enhanced-buzz-27839-1375891722-2.jpg", "http://placekitten.com/200/200"],
+  ['Sockington', "Hunt anything that moves destroy couch intrigued by the shower loves cheeseburgers. Chew foot hack up furballs. Shake treat bag under the bed swat at dog chew iPad power cord rub face on everything.", 'I stuck my face into the couch I DONT CARE, I love it!', "http://s3-ec.buzzfed.com/static/enhanced/webdr01/2013/8/7/12/enhanced-buzz-15672-1375892207-0.jpg", "http://placekitten.com/200/200"],
+  ['Sparta', "Attack feet find empty spot in cupboard and sleep all day yet lick butt. Chase imaginary bugs hide when guests come over, leave hair everywhere. ", 'When Sparta met Loki', "http://i.ytimg.com/vi/Qit3ALTelOo/hqdefault.jpg", "http://placekitten.com/200/200"],
+  ['Loki', "Stick butt in face bathe private parts with tongue then lick owner's face. Under the bed. Play time lick butt. Hunt by meowing loudly at 5am next to human slave food dispenser. ", 'Broken Cats', "http://yourcatcareguide.com/wordpress/wp-content/uploads/2007/12/mean-kitty.JPG", "http://placekitten.com/200/200"],
+  ['Nylah Kitty', "Scamper find something else more interesting lick butt chase dog then run away hack up furballs destroy couch. Scamper intently sniff hand, and leave fur on owners clothes always hungry.", 'Ninja Kitty', "https://i.ytimg.com/vi/Du_iTeaFtDo/maxresdefault.jpg", "http://placekitten.com/200/200"],
+  ['Roku', "Sleep nap cat snacks, but scamper or who's the baby, or intrigued by the shower chase imaginary bugs. Purr for no reason need to chase tail, hunt by meowing loudly at 5am next to human slave food dispenser yet hunt by meowing loudly at 5am next to human slave food dispenser flop over. ", 'Deez earz doe', "http://media.catmoji.com/post/cdq7/roku-cat.jpg", "http://placekitten.com/200/200"],
+  ['Luna the Fashion Kitty', "Intrigued by the shower sleep in the bathroom sink sleep nap need to chase tail. Sweet beast under the bed sleep in the bathroom sink or hunt anything that moves, or present belly, scratch hand when stroked but sweet beast, but hack up furballs. ", 'A photoshoot to die for', "http://www.catster.com/files/post_images/ef80b83e7a51b2aa6ad7340ca0efb1f3.jpg", "http://placekitten.com/200/200"],
+  ['Oskar & Klaus', "Hunt anything that moves. Stretch bathe private parts with tongue then lick owner's face yet stand in front of the computer screen, and eat grass, throw it back up and attack feet, but bathe private parts with tongue then lick owner's face so sun bathe.", 'Want a tie?', "http://2.bp.blogspot.com/-wHZ0ypIy7Tg/T7AAX5WksiI/AAAAAAAAAtU/cZ8A1y1ld7o/s1600/Blog+009.jpg", "http://placekitten.com/200/200"]
+]
+
+grumble_cats.each do |author, content, title, image, avatar|
+  Grumble.create(
+    author: author,
+    content: content,
+    title: title,
+    image: image,
+    avatar: avatar
+  )
+end
