@@ -5,8 +5,10 @@ var GrumblrsCollection = Backbone.Collection.extend({
 
   model: GrumblrModel,
   url: '/grumblrs',
+  
 
-  Backbone.sync = function(method, model, options) {
+});
+Backbone.sync = function(method, model, options) {
 
   function success(result) {
     if (options.success) {
@@ -42,5 +44,4 @@ var GrumblrsCollection = Backbone.Collection.extend({
         return grumblr.findAll(model, success, error);
       }
   }
-}
-});
+};
