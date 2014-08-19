@@ -1,0 +1,73 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+  @import url(http://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise);
+  $border: solid whitesmoke 3px;
+  $top-container-width: 45%;
+  $centered: 0 auto;
+  $opaque: rgba(0,0,0,.2);
+
+ body {
+  background: url(http://www.eizo.com/global/library/basics/difference_in_image_quality/25b.jpg);
+  font-family: 'Waiting for the Sunrise'
+ }
+ #heading {
+  text-align: center;
+  p {
+    font-size: 100px;
+  }
+ }
+ #container {
+  width: 800px;
+  height: 600px;
+  margin: $centered;
+  text-align: center;
+ }
+ #all-guesses {
+  width: $top-container-width;
+  height: 200px;
+  float: left;
+  border: $border;
+  margin: 5px;
+  background: $opaque;
+  font-size: 20px;
+  color: whitesmoke;
+ }
+ #inputs {
+  width: $top-container-width;
+  margin: 5px;
+  height: 200px;
+  float: left;
+  border: $border;
+  background: $opaque;
+ }
+ #guessed-letter {
+
+ }
+ #guess {
+
+ }
+ #correct-guesses {
+  width: 100%;
+  height: 400px;
+  margin: $centered;
+  text-align: center;
+  clear: both;
+  font-size: 70px;
+  
+  p {
+    vertical-align: middle;
+  }
+ }
