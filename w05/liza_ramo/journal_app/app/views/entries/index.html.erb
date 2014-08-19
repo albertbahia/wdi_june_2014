@@ -1,0 +1,18 @@
+<h1>List of Entries</h1>
+
+<%= link_to 'New Entry', new_entry_path %>
+<hr>
+
+<div>
+  <% @entries.each do |entry| %>
+    <h3><%= entry.title %></h3>
+    <p><%= entry.content %></p>
+    <p>By: <%= entry.user.first_name %></p>
+
+    <% if session[:current_user] == entry.user.id %>
+      <p><%= link_to 'Edit', edit_entry_path(entry) %></p>
+      <p><%= link_to 'Remove', entry_path(entry), method: :delete %></p>
+    <% end %>
+<hr>
+  <% end %>
+</div>
