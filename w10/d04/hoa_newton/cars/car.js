@@ -34,7 +34,6 @@ function Car(model, color) {
   this.model = model;
   this.color = color;
   this.fuel = 100;
-  // this.__proto__ = carFunctions;
 }
 
 Car.prototype.drive = function() {
