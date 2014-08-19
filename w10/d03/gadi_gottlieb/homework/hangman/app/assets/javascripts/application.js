@@ -21,7 +21,6 @@
 $(function(){
   console.log('Loaded, bro');
   game.initialize();
-  $('#giveup').click(giveUp)
 });
 
 // function guessedLetter(){
@@ -30,8 +29,8 @@ $(function(){
 //     if (guessedLetter ===)
 //   })
 // }
-function giveUp(){
-  game.board.word()
-  console.log("clicked")
-  $('.letter').append()
-}
+// function giveUp(){
+//   game.board.word()
+//   console.log("clicked")
+//   $('.letter').append()
+// }
