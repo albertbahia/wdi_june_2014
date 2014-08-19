@@ -1,5 +1,21 @@
 $(function(){
   console.log('Loaded, bro.');
+
+ makeMiddleEarth(lands);
+ makeHobbits(hobbits);
+// keepItSecretKeepItSafe();
+// makeBaddies(baddies);
+ makeBuddies(buddies);
+// leaveTheShire();
+// beautifulStranger();
+// forgeTheFellowship();
+ theBalrog();
+// hornOfGondor();
+// itsDangerousToGoAlone();
+ weWantsIt();
+
+// thereAndBackAgain();
+
 });
 
 var hobbits = [
@@ -52,13 +68,13 @@ function makeHobbits(hobbits) {
 // makeHobbits(hobbits);
 
 function keepItSecretKeepItSafe() {
-  var frodo = $('li')[0];
+  var frodo = $('.hobbit').eq(0);
   var theRing = $('<div>').attr('id', 'the-ring').appendTo(frodo);
 }
 // keepItSecretKeepItSafe();
 
 function makeBaddies(baddies) {
-  var mordor = $('article')[2];
+  var mordor = $('article').eq(2);
   var baddieList = $('<ul>').appendTo(mordor).addClass('baddyList');
   for (var i = 0; i < baddies.length; i++) {
     var baddiesGuys = $('<li>').text(baddies[i]).appendTo(baddieList).addClass('baddy');
@@ -83,8 +99,7 @@ function leaveTheShire() {
 // leaveTheShire();
 
 function beautifulStranger() {
-  var strider = $('.buddy').eq(3);
-  strider.text('Aragorn');
+  var strider = $('.buddy').eq(3).text('Aragorn');
 }
 // beautifulStranger();
 
@@ -109,8 +124,8 @@ function forgeTheFellowship() {
 // forgeTheFellowship();
 
 function theBalrog() {
-  var gandalf = $('.buddy').eq(0);
-  gandalf.text('Gandalf the White').css('background-color', 'white').css('border', '5px solid gray');
+  var gandalf = $('.buddy').eq(0).text('Gandalf the White');
+  gandalf.css({'background': 'whitesmoke', 'border': '7px solid gray'});
 }
 // theBalrog();
 
@@ -127,9 +142,9 @@ function hornOfGondor() {
 // hornOfGondor();
 
 function itsDangerousToGoAlone() {
-  var mordor = $('article')[2];
   var frodo = $('.hobbit').eq(0);
   var sam = $('.hobbit').eq(1);
+  var mordor = $('article').eq(2);
   var mountDoom = $('<div>').appendTo(mordor);
 
   frodo.appendTo(mountDoom);
@@ -138,7 +153,7 @@ function itsDangerousToGoAlone() {
 // itsDangerousToGoAlone();
 
 function weWantsIt() {
-  var mordor = $('article')[2];
+  var mordor = $('article').eq(2);
   var gollum = $('<div>').attr('id', 'gollum').appendTo(mordor);
   var mountDoom = $('<div>').appendTo(mordor);
   var theRing = $('<div>').attr('id', 'the-ring').appendTo(gollum);
@@ -147,7 +162,11 @@ function weWantsIt() {
 // weWantsIt();
 
 function thereAndBackAgain() {
-
+  $('#gollum').remove();
+  $('.baddy').remove();
+  var theShire = $('article').first();
+  theShire.append('<ul id="hubbits">');
+  $('.hobbit').appendTo($('#hubbits'));
 }
 // thereAndBackAgain();
 

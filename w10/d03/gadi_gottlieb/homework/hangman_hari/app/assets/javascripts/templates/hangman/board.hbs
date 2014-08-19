@@ -1,0 +1,23 @@
+<div id="container">
+  <div id="all-guesses">
+    <p>Letters Guessed: </p><p>{{guessedLetters}}</p>
+    <div id='remaining'><p>Guesses Remaining: {{guessesLeft}}</p></div>
+  </div>
+  <div id='inputs'>
+    <input id="guessed-letter" type="text" name='guessedLetter'>
+    <button id='guess'>Guess</button>
+    <button id='giveup'>Give Up</button>
+  </div>
+
+  <div id='correct-guesses'>
+    <p>
+    {{#each correctWord}}
+      {{#if this}}
+        <span class="letter">{{this}}</span>
+      {{else}}
+        <span class="letter">_</span>
+      {{/if}}
+    {{/each}}
+    </p>
+  </div>
+</div>
