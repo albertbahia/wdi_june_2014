@@ -12,6 +12,8 @@ var game = {
   	$.get('/fetch_word', function(data) {
 			this.board.currentWord = data['word'].split("");
 			this.board.correct = new Array(this.board.currentWord.length);
+      this.board.guessed = [];
+      this.board.guessesLeft = 8;
 			this.render();
 		}.bind(this)); 
 		
@@ -30,7 +32,6 @@ var game = {
   			var indexOfLetter = guessCurrentWord.indexOf(letterGuessed);
   			console.log(indexOfLetter);
   			var correctLetter = guessLettersArray[indexOfLetter] = letterGuessed;
-
   		} else {
   			console.log('it is not in the array!');
   		}
