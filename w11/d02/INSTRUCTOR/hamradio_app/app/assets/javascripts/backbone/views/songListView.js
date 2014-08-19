@@ -12,7 +12,5 @@ var SongListView = Backbone.View.extend({
       });
       this.$el.append(songView.$el);
     }, this);
-
   }
-
 });
