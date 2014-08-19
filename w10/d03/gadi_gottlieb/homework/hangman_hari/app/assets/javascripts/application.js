@@ -17,20 +17,3 @@
 //= require handlebars
 //= require_tree ./templates
 //= require_tree .
-
-$(function(){
-  console.log('Loaded, bro');
-  game.initialize();
-});
-
-// function guessedLetter(){
-//   var guessedLetter = $('#guessed-letter').val()
-//   $('#guess').on('click', function(){
-//     if (guessedLetter ===)
-//   })
-// }
-// function giveUp(){
-//   game.board.word()
-//   console.log("clicked")
-//   $('.letter').append()
-// }
