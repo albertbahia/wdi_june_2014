@@ -5,7 +5,6 @@ def letter_count(string)
       if letter != " "
         str[letter.downcase] += 1
       end
-
     end
     str
 end
