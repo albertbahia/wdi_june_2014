@@ -4,6 +4,7 @@
     }
     return arr;
   }
+
   function map(arr, callback) {
     var result = [];
     for (var i = 0; i < arr.length; i++) {
@@ -11,6 +12,7 @@
     }
     return result;
   }
+
   function sample(arr, sample_size) {
     if (sample_size == undefined) {
       var randomIndex = Math.floor(Math.random() * arr.length);
@@ -26,6 +28,7 @@
       return result;
     }
   }
+
   function include(arr, value) {
     for (var i = 0; i < arr.length; i++) {
       if (arr[i] == value) {
@@ -34,6 +37,7 @@
     }
     return false;
   }
+
   function reduce(arr,callback) {
     var result = arr[0];
     for (var i = 1; i < arr.length; i++) {
@@ -41,6 +45,7 @@
     }
     return result
   }
+
   function select(arr, callback) {
     var result = [];
     for (var i = 0; i < arr.length; i++) {

@@ -1,3 +1,7 @@
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Scrabble
+
 var scrabbleLetterValues = [[],['A','E','I','U','N','R','S','L','O','T'],
   ['G','D'],['C','M','P','B'],['F','H','W','V','Y'],['K'],[],[],['J','X'],[],
   ['Q','Z']];
@@ -28,34 +32,20 @@ for (var wordIndex = 0; wordIndex < words.length; wordIndex++) {
 
       // compare the index of that letter to SLV array indices
       if (scrabbleLetterValues[slvIndex].indexOf(letters[letterIndex].toUpperCase()) > -1) {
+
         // taking that value and adding it to score
         score += slvIndex;
       }
-
     }
   }
   // prints total score of this word
   console.log(score);
 }
-
 // after finishes one full loop (ex: watermelon), moves to next word in words array
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/// Ruby
+//////////////////////////////////////////////////////// Ruby
 def find_scrabble_value(word)
   var scrabbleLetterValues = [[],['A','E','I','U','N','R','S','L','O','T'],
     ['G','D'],['C','M','P','B'],['F','H','W','V','Y'],['K'],[],[],['J','X'],[],
@@ -73,3 +63,8 @@ def find_scrabble_value(word)
 end
 
 find_scrabble_value("watermelon")
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+// Fibonacci Checker
+// In a file, `fibonacciChecker.js`, write a program that will iterate over an array of numbers and determine whether each of the numbers is a Fibonacci number or not. Your program should print out a string for each number stating whether it is a Fibonacci number.
