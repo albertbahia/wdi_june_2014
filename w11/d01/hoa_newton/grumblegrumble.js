@@ -1,0 +1,13 @@
+var grumble1 = new GrumbleModel ();
+grumble1.set({ author: 'Grumpy', content: 'Whatever content', title: 'Less grumpy one', image: 'http://someimage', avatar: 'http://placekitten'});
+grumble1.save();
+grumble1.destroy();
+var grumble2 = new GrumbleModel ({author: 'Pat', content: 'another content', title: 'new Title', image: 'http://placekitten', avatar: 'http://hellogiggles.com/wp-content/' });
+grumble2.attributes.title = 'I have changed this title';
+grumble2.attributes.content = 'This is an apdated content';
+var allGrumbles = new GrumblesCollection;
+allGrumbles.fetch();
+var myFavoriteGrumble = allGrumbles.get(22);
+myFavoriteGrumble.destroy();
+allGrumbles.create({author: 'Nick', content: 'Nicks content', title: 'new Title', image: 'http://placekitten', avatar: 'http://hellogiggles.com/wp-content/' });
+Backbone.sync('create', allGrumbles);
