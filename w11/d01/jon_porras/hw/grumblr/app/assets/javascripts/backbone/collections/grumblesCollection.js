@@ -5,7 +5,7 @@ var GrumblesCollection = Backbone.Collection.extend({
   model: GrumbleModel,
   url: '/grumbles',
   save: function(){
-        allGrumbles.each(function(grumble) {
+        this.each(function(grumble) {
         grumble.save();
         });
     }
