@@ -1,9 +1,18 @@
-<%= link_to 'All Movies', movies_path %>
+<%= link_to 'All Movies', movies_path %><br>
 
+<p>Search and add a movie using IMDB:
+<form action="/movies/search" method="get">
+  <input type="text" name="search">
+  <input type="submit" value="Search IMDB">
+</form></p>
+
+<hr>
+
+<p>Create your own movie:
 <%= form_for @movie do |f| %>
   <%= f.text_field :title %>
   <%= f.text_field :year %>
   <%= f.text_field :poster_url %>
   <%= f.text_field :plot %>
   <%= f.submit %>
-<% end %>
+<% end %></p>

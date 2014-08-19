@@ -103,6 +103,8 @@ call_with_random_number_and_random_message { |num, message| puts "my fav num is 
 call_with_random_number_and_random_message { |num, message| num.times { puts message } }
 
 
+##############################
+# Recreating the each method
 
 def my_each(array)
   i = 0
@@ -128,6 +130,7 @@ my_each(sounds) do |sound|
   puts "#{sound} is a cool sound."
 end
 
+########################################
 
 my_sweet_proc = Proc.new { puts "hello from my sweet proc"}
 my_sweet_proc.call
