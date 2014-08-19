@@ -10,6 +10,10 @@ class GrumblesController < ApplicationController
     render status: 200, json: @grumble.to_json
   end
 
+  def new
+    @grumble = Grumble.new
+  end
+
   def create
     @grumble = Grumble.new(grumble_params)
     if @grumble.save

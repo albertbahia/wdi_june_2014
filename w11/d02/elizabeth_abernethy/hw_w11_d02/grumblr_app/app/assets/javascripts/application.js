@@ -27,7 +27,8 @@
 $(function() {
   grumbles = new GrumblesCollection();
   grumbles.fetch({ reset: true });
-  grumbleList = new GrumbleListView({
+  grumbleFeed = new GrumbleListView({
     collection: grumbles
   });
+  grumbleForm = new GrumbleFormView();
 });
