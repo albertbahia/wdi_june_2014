@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @grumble.author %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @grumble.content %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @grumble.title %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @grumble.image %>
+</p>
+
+<p>
+  <strong>Avatar:</strong>
+  <%= @grumble.avatar %>
+</p>
+
+<%= link_to 'Edit', edit_grumble_path(@grumble) %> |
+<%= link_to 'Back', grumbles_path %>
