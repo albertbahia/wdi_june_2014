@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bank Account</title>
+  <link rel="stylesheet" href="style.css">
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.4/handlebars.min.js'></script>
+  <script src='account.js'></script>
+  <script src='bankAccount.js'></script>
+</head>
+<body>
+  <div id='container'>
+    <div id='banner'><img src="http://www.marcellusonmainstreet.org/uploads/businesses/logos/1c6cd25a-ebbb-4213-9c30-135e16cbc7a6.jpg"></div>
+    <div id='checking'></div>
+    <div id='savings'></div>
+  </div>
+  <script id='account-template' type='x-handlebars-template'>
+    <div id="{{type}}" data-account="{{type}}" class="account">
+      <h1>{{type}}</h1>
+      <div class="display">
+        <span class="balance"><h1>{{balance}}</h1></span>
+      </div>
+      <div class="buttons">
+        <input type="text" class="amount">
+        <button class="deposit">Deposit</button>
+        <button class="withdrawal">Withdrawal</button>
+      </div>
+    </div>
+  </script>
+</body>
+</html>
