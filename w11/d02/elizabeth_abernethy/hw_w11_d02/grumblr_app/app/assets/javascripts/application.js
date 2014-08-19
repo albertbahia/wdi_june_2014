@@ -22,3 +22,12 @@
 //= require_tree ./backbone/views
 //= require_tree ./templates
 //= require_tree .
+
+
+$(function() {
+  grumbles = new GrumblesCollection();
+  grumbles.fetch({ reset: true });
+  grumbleList = new GrumbleListView({
+    collection: grumbles
+  });
+});
