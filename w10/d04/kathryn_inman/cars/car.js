@@ -37,20 +37,6 @@ function carFactory(chosen_model, chosen_color) {
 var car0 = carFactory('Datsun', 'sky blue');
 //
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Car Constructor
 
 var carFxns = {
