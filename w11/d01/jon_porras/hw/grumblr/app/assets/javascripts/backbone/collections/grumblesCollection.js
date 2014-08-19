@@ -3,5 +3,10 @@ var GrumblesCollection = Backbone.Collection.extend({
     console.log('New Grumbles Collection.');
   },
   model: GrumbleModel,
-  url: '/grumbles'
+  url: '/grumbles',
+  save: function(){
+        allGrumbles.each(function(grumble) {
+        grumble.save();
+        });
+    }
 })

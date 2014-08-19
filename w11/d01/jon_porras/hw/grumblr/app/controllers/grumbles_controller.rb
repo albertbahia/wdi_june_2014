@@ -32,6 +32,6 @@ class GrumblesController < ApplicationController
 
   private
   def grumble_params
-    params.require(:grumble).permit(:author, :content, :title, :image, :avatar)
+    params.permit(:author, :content, :title, :image, :avatar)
   end
 end
