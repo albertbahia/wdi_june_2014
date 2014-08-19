@@ -26,27 +26,29 @@ var game = {
   template: HandlebarsTemplates['hangman/board'],
 
   board: {
-    answer: [],
+    answer: null,
     guessesLeft: 8,
-    guessed: [],
+    guessed: null,
     correct: []
   },
 
   makeGuess: function() {
     console.log("button clicked");
     var guessedLetter = $('#guessed-letter').val();
-    game.board.guessed.push(guessedLetter);
 
     // for (i in game.board.answer) {
-    	var indexOfGuessedLetter = game.board.answer.indexOf(guessedLetter)
-      if (indexOfGuessedLetter != -1) {
+    	var index = game.board.answer.indexOf(guessedLetter)
+      if (index != -1) {
         console.log("this letter exists dude");
+    		game.board.guessed.push(guessedLetter);
 
-        game.board.correct[indexOfGuessedLetter] = guessedLetter;
+        game.board.correct[index] = guessedLetter;
+        game.board.answer[index] = " ";
 
-        console.log(game.board.correct[indexOfGuessedLetter]);
+        console.log(game.board.correct[index]);
       } else {
 	    game.board.guessesLeft -= 1;
+
 	    console.log("Wrong ! Guesses left: " + game.board.guessesLeft);
     }
   }	
