@@ -35,5 +35,6 @@ $(function() {
   library = new SongListView({
     collection: songs
   });
+  player = new PlayerView();
 
 });

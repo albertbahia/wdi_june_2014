@@ -9,8 +9,17 @@ var SongView = Backbone.View.extend({
     this.render();
   },
 
+  events: {
+    'click img': 'updatePlayer'
+  },
+
   render: function() {
     this.$el.empty();
     this.$el.html(this.template(this.model.toJSON()));
+  },
+
+  updatePlayer: function() {
+    player.model = this.model;
+    player.render();
   }
 });
