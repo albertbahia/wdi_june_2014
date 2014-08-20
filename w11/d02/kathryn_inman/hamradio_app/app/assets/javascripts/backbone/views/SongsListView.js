@@ -1,0 +1,17 @@
+var SongsListView = Backbone.View.extend({
+  el: '#library',
+  initialize: function(){
+    this.listenTo(this.collection, 'reset', this.render);
+    this.render();
+    console.log('Songs List View Created');
+  },
+  render: function() {
+    this.$el.empty();
+    this.collection.each( function(song) {
+      var songView = new SongView({
+        model: song
+      });
+      this.$el.append(songView.$el);
+    }, this);
+  }
+})
