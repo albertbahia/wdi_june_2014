@@ -18,6 +18,7 @@ var FormView = Backbone.View.extend({
 
   addGrumble: function(){
     console.log(this);
+    new GrumbleCollection.create({$('.new-grumble').title.val()});
   }
 
 });
