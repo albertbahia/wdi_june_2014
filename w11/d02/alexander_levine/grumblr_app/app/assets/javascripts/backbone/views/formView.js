@@ -1,8 +1,7 @@
 var FormView = Backbone.View.extend({
   el: '#grumble-form',
   initialize: function() {
-    this.template = HandlebarsTemplates['grumbles/form']
-    this.listenTo
+    this.template = HandlebarsTemplates['grumbles/form'];
     this.render();
   },
 
