@@ -1,0 +1,20 @@
+var GrumbleListView = Backbone.View.extend({
+  el: '#grumble-list',
+  initialize: function() {
+    this.listenTo(this.collection, 'add', this.render);
+    this.listenTo(this.collection, 'reset', this.render);
+    this.render();
+  },
+  events: {
+    // 'click':
+  },
+  render: function() {
+    this.$el.empty();
+    this.collection.each(function(grumble) {
+      var grumbleView = new GrumbleView({
+        model: grumble
+      });
+      this.$el.prepend(grumbleView.el);
+    }, this);
+  }
+});
