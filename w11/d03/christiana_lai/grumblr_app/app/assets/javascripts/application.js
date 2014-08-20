@@ -45,5 +45,4 @@ $(function () {
   App.Routers.grumbles = new App.Routers.Grumbles();
 
   Backbone.history.start();
-  
 });
