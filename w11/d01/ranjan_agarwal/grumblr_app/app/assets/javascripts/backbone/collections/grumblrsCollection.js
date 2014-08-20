@@ -3,6 +3,11 @@ var GrumblrsCollection = Backbone.Collection.extend({
     console.log('New Grumblrs Collection')
   },
   model: GrumblrModel,
-  url: '/grumblrs'
+  url: '/grumblrs',
+  save: function() {
+    this.each(function(grumblr) {
+      grumblr.save
+    });
+  }
 });
 

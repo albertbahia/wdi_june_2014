@@ -32,6 +32,6 @@ class GrumblrsController < ApplicationController
 
   private
   def grumblr_params
-    params.require(:grumblr).permit(:author, :title, :content, :image, :avatar)
+    params.permit(:author, :title, :content, :image, :avatar)
   end
 end
