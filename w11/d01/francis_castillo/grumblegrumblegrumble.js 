@@ -1,0 +1,40 @@
+// 1. Create a new grumble (call it 'grumble1') with no attributes set.
+  var grumble1 = new GrumbleModel();
+
+// 2. Set that grumbles attributes in one line.
+  grumble1.set({author: "New Jack", title: "wasssssssup", content: "holllllllla"})
+// 3. Save grumble1.
+  grumble1.save()
+// 4. Delete grumble1.
+  grumble1.destroy()
+// 5. Create grumble2, this time setting the attributes when you create it.
+  var grumble2 = new GrumbleModel({author: "wesly", content: "holidayssssss", title: "hey hey"})
+  grumble2.save()
+// 6. Modify grumble2's title and content, and save it (2 lines).
+  grumble2.set({title: "changed title", content: "new content"})
+  grumble2.save()
+// 7. Create a new gumble collection, and call it allGrumbles.
+  var allGrumbles = new GrumbleCollection()
+// 8. Fill the allGrumbles collection with the data from the server.
+  allGrumbles.fetch()
+// 9. Retrieve a specific grumble (of your choosing) from the collection and store it in a variable called 'myFavGrumble'.
+  var myFavGrumble = allGrumbles.where({id: 5})
+// 10. Remove myFavGrumble from the collection. Shed a solitary tear, but resolve to move on.
+  allGrumbles.remove({id: 5})
+// 11. Add a brand new grumble to the collection in one line. Make sure to set its properties.
+  allGrumbles.add({title: "new one to the collection", author: "me", content: "hellllllo"})
+// 12. Research how to sync a collection to the server (additions and deleteions). Sync your allGrumbles collection
+  save: function(){
+    Backbone.sync('create', this, {
+      success: function() {
+        console.log('Saved!');
+      }
+    });
+  },
+  save: function(){
+    Backbone.sync('update', this, {
+      success: function() {
+        console.log('Saved!');
+      }
+    });
+  }
