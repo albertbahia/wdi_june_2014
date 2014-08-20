@@ -3,6 +3,7 @@ var GrumbleListView = Backbone.View.extend({
 
 	initialize: function () {
 		this.listenTo(this.collection, 'reset', this.render);
+		this.listenTo(this.collection, 'add', this.addNew);
 		this.render();
 	},
 
@@ -12,7 +13,17 @@ var GrumbleListView = Backbone.View.extend({
 			var grumbleView = new GrumbleView({
 				model: grumble
 			});
-			this.$el.append(grumbleView.$el);
+			this.$el.prepend(grumbleView.$el);
 		}, this);
+	},
+
+	addNew: function (lastGrumble) {
+		lastGrumble.save();
+
+		var grumbleView = new GrumbleView({
+				model: lastGrumble
+			});
+		this.$el.prepend(grumbleView.$el);
 	}
+	
 })
