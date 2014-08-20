@@ -7,9 +7,9 @@ Pet.prototype.introduce = function() {
   return "hi my name is " + this.name + "!"
 };
 
-function Cat (name, owner, favFood) {
-  Pet.call(this, name, owner);
-  this.favFood = favFood;
+function Cat (options) {
+  Pet.call(this, options);
+  this.favFood = options.favFood;
 }
 
 Cat.prototype = Object.create(Pet.prototype);
@@ -18,9 +18,9 @@ Cat.prototype.judgePerson = function(name) {
   return 'I am totally judging you ' + name + "!";
 }
 
-function Dog (name, owner, earType) {
-  Pet.call(this, name, owner);
-  this.earType = earType;
+function Dog (options) {
+  Pet.call(this, options);
+  this.earType = options.earType;
 }
 
 Dog.prototype = Object.create(Pet.prototype);
