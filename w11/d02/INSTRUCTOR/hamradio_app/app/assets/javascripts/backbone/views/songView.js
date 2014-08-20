@@ -1,7 +1,6 @@
 var SongView = Backbone.View.extend({
   className: 'song',
 
-  // template: HandlebarsTemplates['songs/test'],
   initialize: function() {
     this.template = HandlebarsTemplates['songs/song'];
     this.listenTo(this.model, 'change', this.render);
