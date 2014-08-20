@@ -24,17 +24,10 @@
 //= require_tree .
 
 $(function() {
-  // testSong = new SongModel({ id: 197 });
-  // songView = new SongView({
-  //   model: testSong
-  // });
-  //
-  // testSong.fetch();
   songs = new SongsCollection();
-  songs.fetch({ reset: true });
   library = new SongListView({
     collection: songs
   });
   player = new PlayerView();
-
+  songs.fetch({ reset: true });
 });
