@@ -13,11 +13,12 @@ var FormView = Backbone.View.extend({
   },
 
   events: {
-    'click submit': 'addGrumble'
+    'click #submit': 'addGrumble'
   },
 
   addGrumble: function(){
-    console.log(this);
+    console.log(this.form);
+    this.collection.create({title: "", author: "", avatar:"", content:""});
   }
 
 });
