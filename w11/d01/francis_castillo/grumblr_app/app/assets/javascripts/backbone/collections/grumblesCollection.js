@@ -5,17 +5,8 @@ var GrumblesCollection = Backbone.Collection.extend({
   model: GrumbleModel,
   url: '/grumbles',
   save: function(){
-    Backbone.sync('create', this, {
-      success: function() {
-        console.log('Saved!');
-      }
-    });
-  },
-  save: function(){
-    Backbone.sync('update', this, {
-      success: function() {
-        console.log('Saved!');
-      }
-    });
+    this.each(function(model){
+      if (!model.has('id') || model.hasChanged()) { model.save(); }
+    }, this)
   }
 })
