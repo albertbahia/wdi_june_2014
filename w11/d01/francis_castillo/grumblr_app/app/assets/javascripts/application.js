@@ -22,3 +22,18 @@
 //= require_tree ./backbone/views
 //= require_tree ./templates
 //= require_tree .
+
+
+$(function () {
+  // grumble = new GrumbleModel({ id: 15});
+  // grumbleView = new GrumbleView({
+  //   model: grumble
+  // });
+  // grumble.fetch();
+  grumbles = new GrumblesCollection();
+  grumbles.fetch({ reset: true})
+  list = new GrumbleListView({
+    collection: grumbles
+  });
+  form = new GrumbleFormView();
+})
