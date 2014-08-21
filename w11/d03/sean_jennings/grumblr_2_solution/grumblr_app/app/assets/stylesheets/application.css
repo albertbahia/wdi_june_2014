@@ -1,0 +1,60 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+.nav {
+  float: right;
+  padding: 0;
+  margin: 10px;
+  list-style-type: none;
+}
+
+.nav li {
+  display: inline-block;
+  margin: 5px;
+  border: 1px solid black;
+}
+
+.nav a {
+  float: left;
+  width: 100px;
+  text-decoration: none;
+  background-color: white;
+  padding: 0.2em 0.6em;
+  text-align: center;
+}
+
+.nav a:hover {
+  background-color: #eeeeee;
+}
+
+#new-grumble-modal  {
+    display: block; /* ensures it’s invisible until it’s called */
+    overflow: scroll;
+    position: absolute; /* makes the div go into a position that’s absolute to the browser viewing area */
+    left: 25%; /* positions the div half way horizontally */
+    top: 25%; /* positions the div half way vertically */
+    padding: 25px;
+    padding-bottom: 50px;
+    border: 2px solid black;
+    background-color: #eeeeee;
+    width: 50%;
+    z-index: 100; /* makes the div the top layer, so it’ll lay on top of the other content */
+}
+
+#new-grumble {
+  width: 600px;
+  margin: auto;
+}
