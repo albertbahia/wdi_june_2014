@@ -31,8 +31,11 @@ After refactoring Grumblr to be namespaced start to implement your router. You s
 - Make the new grumble form appear when this route is hit.
 - When the form is submitted, your app should 'go back' to the root page and show the newly created grumble.
 
-#### Edit 
+#### Edit
 - Add another button to your grumble that will allow a user to edit that grumble.
 - This route should be triggered when the user clicks the edit button, and should display an edit form inside of the selected grumbles view.
 - When submitted the form should be removed and your app should 'go back' to the root page and show the updated grumble
 
+### Part 3 - Review!
+
+Read through the app in detail, come with questions for tomorrow.
