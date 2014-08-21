@@ -37,7 +37,7 @@ $(function() {
     collection: App.Collections.grumbles
   });
   App.Views.grumbleForm = new App.Views.GrumbleForm();
-  App.Views.editGrumbleForm = new App.Views.EditGrumbleForm();
+  // App.Views.editGrumbleForm = new App.Views.EditGrumbleForm();
   App.Routers.grumbles = new App.Routers.Grumbles();
   Backbone.history.start();
 });
