@@ -9,7 +9,7 @@ App.Views.GrumbleForm = Backbone.View.extend({
     this.$el.html(this.template())
   },
   events: {
-    'click button': 'newGrumble'
+    'click button#add-grumble': 'newGrumble'
   },
   newGrumble: function(e){
     var data = {
@@ -19,5 +19,10 @@ App.Views.GrumbleForm = Backbone.View.extend({
       content: this.$("[name='content']").val()
     };
     App.Collections.grumbles.create(data, {success: function(data){ console.log('added')}});
+
+    $('.input').val('');
+    $('#grumble-form').hide();
+    App.Routers.router.navigate("#");
   }
+
 })

@@ -5,7 +5,7 @@ App.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "index",
-    "new": "new",
+    "grumbles/new": "new",
     "edit": "edit"
   },
 
@@ -16,6 +16,10 @@ App.Routers.Router = Backbone.Router.extend({
   index: function(){
     App.Collections.grumbles.fetch({reset: true});
     $('#grumble-form').hide();
+  },
+
+  new: function(){
+    $('#grumble-form').show();
   }
 
 
