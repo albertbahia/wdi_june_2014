@@ -1,7 +1,16 @@
-<div>
+<div class='grumble-form-div'>
+{{#if this}}
+  <input type="text" name="title" placeholder="{{title}}">
+  <input type="text" name="content" placeholder="{{content}}">
+  <input type="text" name="author" placeholder="{{author}}">
+  <input type="text" name="avatar" placeholder="{{avatar}}">
+  <span class="edit">GRUMBLE</span>
+{{else}}
   <input type="text" name="title" placeholder="title">
   <input type="text" name="content" placeholder="content">
   <input type="text" name="author" placeholder="author">
   <input type="text" name="avatar" placeholder="avatar">
-  <button id="add-grumble">GRUMBLE</button>
+  <span class="new-grumble">GRUMBLE</span>
+{{/if}}
+  <span class='cancel'><-> [X]</span>
 </div>

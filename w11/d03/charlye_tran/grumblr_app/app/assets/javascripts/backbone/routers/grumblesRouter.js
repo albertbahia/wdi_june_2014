@@ -22,5 +22,10 @@ App.Routers.Router = Backbone.Router.extend({
     $('#grumble-form').show();
   }
 
+  edit: function(){
+    
+    $('#grumble-form').hide();
+  }
+
 
 })

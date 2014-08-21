@@ -22,7 +22,9 @@ App.Views.GrumbleForm = Backbone.View.extend({
 
     $('.input').val('');
     $('#grumble-form').hide();
-    App.Routers.router.navigate("#");
+    App.Routers.router.navigate('');
   }
+
+
 
 })
