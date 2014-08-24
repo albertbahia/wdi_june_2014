@@ -32,7 +32,7 @@ App.Views.SearchFormView = Backbone.View.extend({
     this.currentQuery = query;
     console.log(freezeRoute);
     if (!freezeRoute) {
-      App.Routers.moviesRouter.navigate('search/' + query);
+      App.Routers.moviesRouter.navigate('search/' + encodeURIComponent(query));
     }
   }
 });
