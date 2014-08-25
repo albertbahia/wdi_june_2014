@@ -10,7 +10,7 @@
 | Hari       |
 | ---        |
 | Eric       |
-| Khadija    |
+| Khadijah  |
 
 # Ember.js
 
