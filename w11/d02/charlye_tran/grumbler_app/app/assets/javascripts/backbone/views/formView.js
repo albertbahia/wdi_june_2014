@@ -13,7 +13,7 @@ var FormView = Backbone.View.extend({
   },
 
   events: {
-    'click submit': 'addGrumble'
+    'click #submit': 'addGrumble'
   },
 
   addGrumble: function(){

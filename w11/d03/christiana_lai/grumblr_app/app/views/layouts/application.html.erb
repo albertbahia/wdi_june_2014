@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GrumblrApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= yield %>
+  <a href="#grumbles/new">New Grumble</a>
+  <a href="/">Home</a>
+  <div id="form"></div><br>
+  <div id="grumble-list"></div>
+</body>
+</html>

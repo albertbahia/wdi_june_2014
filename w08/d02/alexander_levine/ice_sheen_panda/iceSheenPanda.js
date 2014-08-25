@@ -12,7 +12,7 @@ $(function() {
   $( ".sheen" ).css("margin-top", (event.pageY * -1));
   $( ".panda" ).css("margin-left", (event.pageX * -1));
   $( ".panda" ).css("margin-top", event.pageY);
-  $( "body" ).css("background-color", "#" + event.pageY + event.pageX0);
+  $( "body" ).css("background-color", "#" + event.pageY + event.pageX);
   });
 
 });

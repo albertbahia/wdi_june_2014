@@ -16,7 +16,8 @@ var GrumbleListView = Backbone.View.extend({
 
   updateList: function(addedGrumble) {
     addedGrumble.save();
-    var grumbleView = new GrumbleView({model: addedGrumble});
+    var grumbleView = new GrumbleView({ model: addedGrumble });
+
     this.$el.prepend(grumbleView.$el);
   }
 });

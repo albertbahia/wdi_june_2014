@@ -1,0 +1,14 @@
+<div class='post-form-div'>
+{{#if this}}
+  <input type="text" name="title" value="{{title}}">
+  <input type="text" name="content" value="{{content}}">
+  <input type="text" name="image" value="{{image}}">
+  <span class='edit-post'>Edit Post</span>
+{{else}}
+  <input type="text" name="title" placeholder="title">
+  <input type="text" name="content" placeholder="content">
+  <input type="text" name="image" placeholder="image">
+  <span class='new-post'>Add Post</span>
+{{/if}}
+  <span class='cancel'><-> [X]</span>
+</div>
