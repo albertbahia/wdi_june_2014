@@ -12,10 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require underscore
 //= require backbone
 //= require handlebars
+//= require handlebars.runtime
+//= require_self
 //= require_tree ./backbone/routers
 //= require_tree ./backbone/models
 //= require_tree ./backbone/collections
@@ -23,13 +24,19 @@
 //= require_tree ./templates
 //= require_tree .
 
-$(function() {
-  testSong = new SongModel({id: 90});
-  // songView = new SongView({model: testSong});
-  testSong.fetch();
-  songs = new SongsCollection();
-  songs.fetch({ reset: true });
-  library = new SongsListView({ collection: songs });
+App = {
+  Model:      {},
+  Collection: {},
+  View:       {},
+  Router:     {}
+}
 
-  player = new PlayerView();
+$(function() {
+  App.Collection.grumbles = new App.Collection.Grumbles();
+  var grumbles = App.Collection.grumbles;
+  grumbles.fetch({ reset: true });
+  App.View.grumbleList = new App.View.GrumbleList({ collection: grumbles });
+  App.View.form = new App.View.Form({ collection: grumbles });
+  App.Router.router = new App.Router.Grumble();
+  Backbone.history.start();
 });
