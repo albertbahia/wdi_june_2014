@@ -1,3 +1,10 @@
+# Bourbon
+
+| Hari       |
+| ---        |
+| Alex       |
+| Gadi       |
+
 # D3
 
 | Hari       |
@@ -5,12 +12,33 @@
 | Eric       |
 | Khadija    |
 
+# Ember.js
+
+| Hari       |
+| ---        |
+| Charlye    |
+| Albert     |
+
+# Bootstrap
+
+| Adam       |
+| ---        |
+| Alexandra  |
+| Liz        |
+
 # MEAN Stack
 
 | Adam       |
 | ---        |
 | Sean J     |
 | Jon        |
+
+# Web Sockets
+
+| Adam       |
+| ---        |
+| Najee      |
+| Michael    |
 
 # Advanced Backbone
 
@@ -28,37 +56,9 @@
 | Liza       |
 | Patrick    |
 
-# Ember.js
-
-| Hari       |
-| ---        |
-| Charlye    |
-| Albert     |
-
-# Bootstrap
-
-| Adam       |
-| ---        |
-| Alexandra  |
-| Liz        |
-
 # Foundation
 
 | McK        |
 | ---        |
 | Sean T     |
 | Peter      |
-
-# Bourbon
-
-| Hari       |
-| ---        |
-| Alex       |
-| Gadi       |
-
-# Web Sockets
-
-| Adam       |
-| ---        |
-| Najee      |
-| Michael    |
