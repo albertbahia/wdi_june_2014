@@ -24,10 +24,10 @@
 //= require_tree .
 
 $(function(){
-  form = new FormView();
   grumbles = new GrumblesCollection();
   grumbles.fetch({ reset: true });
   list = new GrumbleListView({
     collection: grumbles
   });
+  form = new FormView({collection: grumbles});
 });
