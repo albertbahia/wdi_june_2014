@@ -13,21 +13,6 @@ Account.prototype.deposit = function(amount) {
 };
 
 Account.prototype.withdraw = function(amount, bank) {
-//   if (amount <= bank.checking.balance && this.type === 'checking') {
-//     bank.checking.balance -= amount;
-//   } else if (bank.checking && amount > bank.checking.balance) {
-//     var remainingAmount = amount - bank.checking.balance;
-//     bank.checking.balance = 0;
-//     bank.savings.balance -= remainingAmount;
-//   } else if (bank.checking.balance === 0) {
-//     bank.saving.balance -= amount;
-//   } else if (bank.savings.balance < 0) {
-//     bank.savings.balance = 0;
-//     alert('No money, dawg');
-//   } else {
-//     return false;
-//   }
-// };
   var remainingAmount = amount - bank.checking.balance;
   if (amount <= this.balance) {
     this.balance =- amount;
