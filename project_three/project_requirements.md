@@ -10,7 +10,7 @@
 
 # Guidelines
 
-- Your app must be deployed and running on Heroku at the end of this project sprint.
+- Your app must be deployed and running on Heroku (or a hosting service of your choosing) at the end of this project sprint.
 
 - Your app must be tested (coverage of 80% or greater).
   - Unit testing of models (rspec)
